@@ -5,7 +5,8 @@
 [build.environment]
   NODE_VERSION = "18"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200 
+# Remove SPA-style redirect
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200 

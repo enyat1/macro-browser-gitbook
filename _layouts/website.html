@@ -2,85 +2,29 @@
 
 {% block head %}
     {{ super() }}
-    <!-- Include CSS Override for custom styles -->
     <link rel="stylesheet" href="{{ "/_layouts/css-overrides/search-input-fix.css"|resolveFile }}">
     <link rel="stylesheet" href="{{ "/_layouts/css-overrides/image-fix.css"|resolveFile }}">
-    
-    <script>
-        // Simplifying the JavaScript to avoid potential compatibility issues
-        (function() {
-            // Wait for DOM to be ready
-            function domReady(callback) {
-                if (document.readyState === "loading") {
-                    document.addEventListener("DOMContentLoaded", callback);
-                } else {
-                    callback();
-                }
-            }
-            
-            // Set important styles safely
-            function setImportantStyle(element, property, value) {
-                try {
-                    element.style.setProperty(property, value, 'important');
-                } catch(e) {
-                    // Fallback for older browsers
-                    var oldPriority = element.style.getPropertyPriority(property);
-                    var oldValue = element.style.getPropertyValue(property);
-                    element.style.cssText += ';' + property + ':' + value + ' !important';
-                }
-            }
-            
-            // Apply search input styles directly
-            function applyStyles() {
-                // Search for inputs
-                var searchInputs = document.querySelectorAll('input');
-                for (var i = 0; i < searchInputs.length; i++) {
-                    var input = searchInputs[i];
-                    if (input.type === 'text' || input.type === 'search' || 
-                        input.placeholder === 'Type to search' ||
-                        input.parentNode.classList.contains('book-search-input') ||
-                        input.parentNode.id === 'book-search-input' ||
-                        input.parentNode.classList.contains('book-search')) {
-                        
-                        setImportantStyle(input, 'background-color', '#141521');
-                        setImportantStyle(input, 'color', '#f8f8f2');
-                        setImportantStyle(input, 'opacity', '1');
-                    }
-                }
-                
-                // Search for containers
-                var containers = [
-                    '.book-search-input',
-                    '.book-search', 
-                    '#book-search-input',
-                    '.book-summary form'
-                ];
-                
-                for (var i = 0; i < containers.length; i++) {
-                    var elements = document.querySelectorAll(containers[i]);
-                    for (var j = 0; j < elements.length; j++) {
-                        setImportantStyle(elements[j], 'background-color', '#141521');
-                    }
-                }
-            }
-            
-            // Main initialization function
-            domReady(function() {
-                // Apply styles immediately
-                applyStyles();
-                
-                // Apply with delay to catch late-rendered elements
-                setTimeout(applyStyles, 500);
-                setTimeout(applyStyles, 1500);
-                setTimeout(applyStyles, 3000);
-                
-                // Set up periodic check to handle dynamic content changes
-                setInterval(applyStyles, 2000);
-            });
-        })();
-    </script>
-{% endblock %}
-
-{% block body %}
-    {{ super() }}
+    <style>
+        /* Inline critical CSS for immediate effect */
+        .book-search-input,
+        .book-search,
+        #book-search-input {
+            background-color: #141521 !important;
+        }
+        
+        .book-search-input input,
+        #book-search-input input,
+        input[type="text"],
+        input[placeholder="Type to search"] {
+            color: #f8f8f2 !important;
+            background-color: #141521 !important;
+            -webkit-text-fill-color: #f8f8f2 !important;
+        }
+        
+        .markdown-section img {
+            display: block;
+            margin: 0 auto;
+            max-width: 90%;
+        }
+    </style>
 {% endblock %} 
