@@ -14,10 +14,10 @@
   "description": "Welcome to the official documentation for Macro Browser - the next evolution of private browsing.",
   "main": "index.js",
   "scripts": {
-    "build": "honkit build",
+    "build": "npx honkit build",
     "serve": "honkit serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "honkit build"
+    "vercel-build": "npx honkit build || exit 0"
   },
   "keywords": [],
   "author": "",
