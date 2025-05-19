@@ -17,8 +17,7 @@
     "build": "honkit build",
     "serve": "honkit serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "honkit build",
-    "now-build": "honkit build"
+    "vercel-build": "honkit build"
   },
   "keywords": [],
   "author": "",
