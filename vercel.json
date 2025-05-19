@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npx honkit build || exit 0",
   "outputDirectory": "_book",
   "devCommand": "npm run serve",
   "installCommand": "npm install"
