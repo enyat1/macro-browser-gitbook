@@ -7,82 +7,77 @@
     <link rel="stylesheet" href="{{ "/_layouts/css-overrides/image-fix.css"|resolveFile }}">
     
     <script>
-        // More robust JavaScript to ensure search input styling is consistently applied
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to apply search styles
-            function applySearchStyles() {
-                try {
-                    // Target all potential search inputs
-                    var searchInputs = document.querySelectorAll('input[type="text"], input[type="search"], .book-search input, #book-search-input input, .book-summary input');
-                    searchInputs.forEach(function(input) {
-                        input.style.setProperty('background-color', '#141521', 'important');
-                        input.style.setProperty('color', '#f8f8f2', 'important');
-                        input.style.setProperty('opacity', '1', 'important');
-                        input.style.setProperty('-webkit-text-fill-color', '#f8f8f2', 'important');
-                        input.style.setProperty('border-color', '#2a2c3d', 'important');
-                    });
-                    
-                    // Target search containers
-                    var searchContainers = document.querySelectorAll('.book-search-input, .book-search, #book-search-input, .book-summary form');
-                    searchContainers.forEach(function(container) {
-                        container.style.setProperty('background-color', '#141521', 'important');
-                    });
-                    
-                    console.log("Search styling applied successfully");
-                } catch(e) {
-                    console.error("Error applying search styles:", e);
+        // Simplifying the JavaScript to avoid potential compatibility issues
+        (function() {
+            // Wait for DOM to be ready
+            function domReady(callback) {
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", callback);
+                } else {
+                    callback();
                 }
             }
             
-            // Apply immediately
-            applySearchStyles();
-            
-            // Apply at key moments when DOM might change
-            window.setTimeout(applySearchStyles, 500);
-            window.setTimeout(applySearchStyles, 1000);
-            window.setTimeout(applySearchStyles, 2000);
-            
-            // Handle dynamic changes with a more efficient observer
-            if (window.MutationObserver) {
+            // Set important styles safely
+            function setImportantStyle(element, property, value) {
                 try {
-                    var observer = new MutationObserver(function(mutations) {
-                        var shouldApply = false;
-                        
-                        // Only apply styles if relevant elements were changed
-                        mutations.forEach(function(mutation) {
-                            if (mutation.addedNodes.length > 0 || 
-                                (mutation.target && 
-                                 (mutation.target.classList.contains('book-search-input') || 
-                                  mutation.target.classList.contains('book-search') ||
-                                  mutation.target.id === 'book-search-input' ||
-                                  mutation.target.tagName === 'INPUT'))) {
-                                shouldApply = true;
-                            }
-                        });
-                        
-                        if (shouldApply) {
-                            applySearchStyles();
-                        }
-                    });
-                    
-                    observer.observe(document.body, { 
-                        childList: true, 
-                        subtree: true,
-                        attributes: true,
-                        attributeFilter: ['class', 'style']
-                    });
-                    
-                    console.log("MutationObserver initialized successfully");
+                    element.style.setProperty(property, value, 'important');
                 } catch(e) {
-                    console.error("Error setting up MutationObserver:", e);
-                    // Fallback to interval-based updates
-                    setInterval(applySearchStyles, 2000);
+                    // Fallback for older browsers
+                    var oldPriority = element.style.getPropertyPriority(property);
+                    var oldValue = element.style.getPropertyValue(property);
+                    element.style.cssText += ';' + property + ':' + value + ' !important';
                 }
-            } else {
-                // Fallback for browsers without MutationObserver
-                setInterval(applySearchStyles, 2000);
             }
-        });
+            
+            // Apply search input styles directly
+            function applyStyles() {
+                // Search for inputs
+                var searchInputs = document.querySelectorAll('input');
+                for (var i = 0; i < searchInputs.length; i++) {
+                    var input = searchInputs[i];
+                    if (input.type === 'text' || input.type === 'search' || 
+                        input.placeholder === 'Type to search' ||
+                        input.parentNode.classList.contains('book-search-input') ||
+                        input.parentNode.id === 'book-search-input' ||
+                        input.parentNode.classList.contains('book-search')) {
+                        
+                        setImportantStyle(input, 'background-color', '#141521');
+                        setImportantStyle(input, 'color', '#f8f8f2');
+                        setImportantStyle(input, 'opacity', '1');
+                    }
+                }
+                
+                // Search for containers
+                var containers = [
+                    '.book-search-input',
+                    '.book-search', 
+                    '#book-search-input',
+                    '.book-summary form'
+                ];
+                
+                for (var i = 0; i < containers.length; i++) {
+                    var elements = document.querySelectorAll(containers[i]);
+                    for (var j = 0; j < elements.length; j++) {
+                        setImportantStyle(elements[j], 'background-color', '#141521');
+                    }
+                }
+            }
+            
+            // Main initialization function
+            domReady(function() {
+                // Apply styles immediately
+                applyStyles();
+                
+                // Apply with delay to catch late-rendered elements
+                setTimeout(applyStyles, 500);
+                setTimeout(applyStyles, 1500);
+                setTimeout(applyStyles, 3000);
+                
+                // Set up periodic check to handle dynamic content changes
+                setInterval(applyStyles, 2000);
+            });
+        })();
     </script>
 {% endblock %}
 

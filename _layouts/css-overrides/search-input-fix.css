@@ -1,26 +1,21 @@
-/* Emergency Fix for Search Input Styling */
+/* Search Input Styling - Simplified and Reliable */
 
-/* Direct targeting for the search input */
+/* Base styles for search containers */
 .book-search-input,
 .book-search,
 #book-search-input,
-div[role="search"] {
+div[role="search"],
+.book-summary form {
   background-color: #141521 !important;
+  border-bottom: 1px solid #2a2c3d !important;
 }
 
-.book-search-input input,
-input.book-search-input,
-input[type="text"].book-search-input,
-.book-search input,
-input[placeholder="Type to search"],
-input[type="text"][placeholder="Type to search"],
-html body input[placeholder="Type to search"],
-[placeholder="Type to search"],
-.book-search-input input[type="text"],
-html body .book-search-input input,
-#book-search-input input,
+/* Base styles for all search inputs */
+input[type="text"],
 input[type="search"],
-input.book-search,
+.book-search-input input,
+.book-search input,
+#book-search-input input,
 .book-summary input {
   color: #f8f8f2 !important;
   background-color: #141521 !important;
@@ -30,87 +25,46 @@ input.book-search,
   caret-color: #8673f4 !important;
 }
 
-/* Extreme specificity for input placeholder styling */
-.book-search-input input::placeholder,
-input.book-search-input::placeholder,
-.book-search input::placeholder,
-input[placeholder="Type to search"]::placeholder,
-html body input[placeholder="Type to search"]::placeholder,
-#book-search-input input::placeholder,
-input[type="search"]::placeholder,
-input.book-search::placeholder,
-.book-summary input::placeholder {
-  color: #b8b9c5 !important;
+/* Additional specific selectors to ensure coverage */
+input[placeholder="Type to search"] {
+  color: #f8f8f2 !important;
+  background-color: #141521 !important;
   opacity: 1 !important;
-  -webkit-text-fill-color: #b8b9c5 !important;
+  -webkit-text-fill-color: #f8f8f2 !important;
+}
+
+/* Placeholder styling */
+input::placeholder {
+  color: #b8b9c5 !important;
+  opacity: 0.7 !important;
 }
 
 /* WebKit browsers */
-.book-search-input input::-webkit-input-placeholder,
-input.book-search-input::-webkit-input-placeholder,
-.book-search input::-webkit-input-placeholder,
-input[placeholder="Type to search"]::-webkit-input-placeholder,
-html body input[placeholder="Type to search"]::-webkit-input-placeholder,
-#book-search-input input::-webkit-input-placeholder,
-input[type="search"]::-webkit-input-placeholder,
-input.book-search::-webkit-input-placeholder,
-.book-summary input::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: #b8b9c5 !important;
-  opacity: 1 !important;
-  -webkit-text-fill-color: #b8b9c5 !important;
+  opacity: 0.7 !important;
 }
 
-/* Firefox browsers */
-.book-search-input input::-moz-placeholder,
-input.book-search-input::-moz-placeholder,
-.book-search input::-moz-placeholder,
-input[placeholder="Type to search"]::-moz-placeholder,
-html body input[placeholder="Type to search"]::-moz-placeholder,
-#book-search-input input::-moz-placeholder,
-input[type="search"]::-moz-placeholder,
-input.book-search::-moz-placeholder,
-.book-summary input::-moz-placeholder {
+/* Firefox */
+input::-moz-placeholder {
   color: #b8b9c5 !important;
-  opacity: 1 !important;
+  opacity: 0.7 !important;
 }
 
 /* Internet Explorer */
-.book-search-input input:-ms-input-placeholder,
-input.book-search-input:-ms-input-placeholder,
-.book-search input:-ms-input-placeholder,
-input[placeholder="Type to search"]:-ms-input-placeholder,
-html body input[placeholder="Type to search"]:-ms-input-placeholder,
-#book-search-input input:-ms-input-placeholder,
-input[type="search"]:-ms-input-placeholder,
-input.book-search:-ms-input-placeholder,
-.book-summary input:-ms-input-placeholder {
+input:-ms-input-placeholder {
   color: #b8b9c5 !important;
-  opacity: 1 !important;
+  opacity: 0.7 !important;
 }
 
 /* Edge */
-.book-search-input input::-ms-input-placeholder,
-input.book-search-input::-ms-input-placeholder,
-.book-search input::-ms-input-placeholder,
-input[placeholder="Type to search"]::-ms-input-placeholder,
-html body input[placeholder="Type to search"]::-ms-input-placeholder,
-#book-search-input input::-ms-input-placeholder,
-input[type="search"]::-ms-input-placeholder,
-input.book-search::-ms-input-placeholder,
-.book-summary input::-ms-input-placeholder {
+input::-ms-input-placeholder {
   color: #b8b9c5 !important;
-  opacity: 1 !important;
+  opacity: 0.7 !important;
 }
 
 /* Focus state */
-.book-search-input input:focus,
-input.book-search-input:focus,
-.book-search input:focus,
-input[placeholder="Type to search"]:focus,
-#book-search-input input:focus,
-input[type="search"]:focus,
-input.book-search:focus,
-.book-summary input:focus {
+input:focus {
   color: #f8f8f2 !important;
   background-color: #141521 !important;
   border-color: #8673f4 !important;
@@ -118,19 +72,7 @@ input.book-search:focus,
   box-shadow: 0 0 0 2px rgba(134, 115, 244, 0.3) !important;
 }
 
-/* Override honkit default styles */
-#book-search-input {
-  background-color: #141521 !important;
-  border-bottom: 1px solid #2a2c3d !important;
-}
-
-#book-search-input input {
-  color: #f8f8f2 !important;
-  background-color: #141521 !important;
-  width: 100% !important;
-}
-
-/* Overriding theme-specific styles */
+/* Dark theme specific overrides */
 .color-theme-2 .book-search-input,
 .book-summary .book-search {
   background-color: #141521 !important;
@@ -142,31 +84,32 @@ input.book-search:focus,
   background-color: #141521 !important;
 }
 
-.book-summary {
-  background-color: #1a1b26 !important;
-}
-
+/* Search results styling */
 .search-results-item {
   color: #f8f8f2 !important;
 }
 
-/* Input background for direct parent targeting */
-input[type="text"],
-input[type="search"],
-.book-search input,
-.book-summary input {
-  background-color: #141521 !important;
-  color: #f8f8f2 !important;
+/* Additional theme-specific overrides */
+body .book-summary {
+  background-color: #1a1b26 !important;
 }
 
-/* Netlify-specific override */
 body .book-summary input {
   background-color: #141521 !important;
   color: #f8f8f2 !important;
 }
 
-/* Additional selectors for Netlify */
+/* Additional selector for Netlify */
 .book-summary .search-noresults + form > input[type="text"] {
   background-color: #141521 !important;
   color: #f8f8f2 !important;
+}
+
+/* Ensure search input is visible */
+#book-search-input input,
+.book-search-input input {
+  display: block !important;
+  width: 100% !important;
+  padding: 7px !important;
+  box-sizing: border-box !important;
 } 
