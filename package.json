@@ -4,10 +4,10 @@
     "gitbook-plugin-layout": "^0.0.1",
     "gitbook-plugin-mermaid-gb3": "^2.1.0",
     "gitbook-plugin-prism": "^2.4.0",
-    "honkit-plugin-mermaid": "^0.1.4"
+    "honkit-plugin-mermaid": "^0.1.4",
+    "honkit": "^6.0.3"
   },
   "devDependencies": {
-    "honkit": "^6.0.3"
   },
   "name": "macro-browser-gitbook",
   "version": "1.0.0",
@@ -17,8 +17,8 @@
     "build": "honkit build",
     "serve": "honkit serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "npm install -g honkit && honkit build",
-    "now-build": "npm install -g honkit && honkit build"
+    "vercel-build": "honkit build",
+    "now-build": "honkit build"
   },
   "keywords": [],
   "author": "",

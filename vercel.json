@@ -1,12 +1,13 @@
 {
   "version": 2,
+  "framework": "other",
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "_book",
-        "buildCommand": "npm run vercel-build"
+        "zeroConfig": true
       }
     }
   ],
