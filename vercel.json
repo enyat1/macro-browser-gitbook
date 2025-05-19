@@ -1,21 +1,6 @@
 {
-  "version": 2,
-  "framework": "other",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "_book",
-        "zeroConfig": true
-      }
-    }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ],
-  "github": {
-    "silent": true
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "_book",
+  "devCommand": "npm run serve",
+  "installCommand": "npm install"
 } 
