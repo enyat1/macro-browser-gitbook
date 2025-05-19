@@ -1,0 +1,20 @@
+C4Context
+    title System Context Diagram for Macro Browser
+    
+    Person(user, "User", "A person using Macro Browser")
+    
+    System(macroBrowser, "Macro Browser", "Privacy-focused Web3 browser with built-in P2P VPN")
+    
+    System_Ext(webSites, "Web Content", "Regular websites and web applications")
+    System_Ext(dapps, "Decentralized Applications", "Web3 dApps running on blockchains")
+    System_Ext(blockchains, "Blockchain Networks", "Ethereum, Polygon, etc.")
+    System_Ext(openai, "OpenAI API", "Powers intelligent search")
+    System_Ext(p2pNetwork, "P2P Network", "Peer-to-peer VPN network")
+    
+    Rel(user, macroBrowser, "Uses")
+    Rel(macroBrowser, webSites, "Accesses")
+    Rel(macroBrowser, dapps, "Interacts with")
+    Rel(macroBrowser, blockchains, "Connects to")
+    Rel(macroBrowser, openai, "Queries (anonymized)")
+    Rel(macroBrowser, p2pNetwork, "Routes traffic through")
+

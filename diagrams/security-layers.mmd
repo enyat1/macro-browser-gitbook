@@ -1,0 +1,29 @@
+graph TD
+    classDef primaryLayer fill:#4b31dd,color:white,stroke-width:0px
+    classDef secondaryLayer fill:#2a1a7e,color:white,stroke-width:0px
+    
+    PlatformSecurity[Platform Security]:::primaryLayer
+    BrowserEngineSecurity[Browser Engine Security]:::primaryLayer
+    NetworkSecurity[Network Security]:::primaryLayer
+    ContentSecurity[Content Security]:::primaryLayer
+    Web3Security[Web3 Security]:::primaryLayer
+    
+    PlatformSecurity --> Sandboxing:::secondaryLayer
+    PlatformSecurity --> MemorySafety:::secondaryLayer
+    PlatformSecurity --> ProcessIsolation:::secondaryLayer
+    
+    BrowserEngineSecurity --> SiteIsolation:::secondaryLayer
+    BrowserEngineSecurity --> OriginModel:::secondaryLayer
+    BrowserEngineSecurity --> ContentSecurityPolicy:::secondaryLayer
+    
+    NetworkSecurity --> TLSValidation:::secondaryLayer
+    NetworkSecurity --> VPNEncryption:::secondaryLayer
+    NetworkSecurity --> SecureDNS:::secondaryLayer
+    
+    ContentSecurity --> ContentFiltering:::secondaryLayer
+    ContentSecurity --> AdBlocking:::secondaryLayer
+    ContentSecurity --> TrackerPrevention:::secondaryLayer
+    
+    Web3Security --> TransactionVerification:::secondaryLayer
+    Web3Security --> PhishingProtection:::secondaryLayer
+    Web3Security --> ContractAnalysis:::secondaryLayer 

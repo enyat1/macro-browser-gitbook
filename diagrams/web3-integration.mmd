@@ -1,0 +1,37 @@
+graph TD
+    classDef primary fill:#4b31dd,color:white,stroke-width:0px
+    classDef secondary fill:#2a1a7e,color:white,stroke-width:0px
+    
+    subgraph "Web3 Integration Layer"
+        WalletConnector[Wallet Connector]:::primary
+        ProviderBridge[Provider Bridge]:::primary
+        TransactionManager[Transaction Manager]:::primary
+        NetworkManager[Network Manager]:::primary
+        SecurityMonitor[Security Monitor]:::primary
+    end
+    
+    subgraph "External Components"
+        ExternalWallets[External Wallets]:::secondary
+        Blockchain[Blockchain Networks]:::secondary
+        DApps[Decentralized Applications]:::secondary
+    end
+    
+    subgraph "Internal Components"
+        BrowserUI[Browser UI]:::secondary
+        PrivacyLayer[Privacy Layer]:::secondary
+        StorageManager[Storage Manager]:::secondary
+    end
+    
+    WalletConnector <--> ExternalWallets
+    ProviderBridge <--> DApps
+    TransactionManager <--> Blockchain
+    NetworkManager <--> Blockchain
+    
+    WalletConnector --> ProviderBridge
+    ProviderBridge --> TransactionManager
+    TransactionManager --> SecurityMonitor
+    NetworkManager --> ProviderBridge
+    
+    WalletConnector <--> BrowserUI
+    SecurityMonitor <--> PrivacyLayer
+    WalletConnector <--> StorageManager 

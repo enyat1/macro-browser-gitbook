@@ -1,0 +1,79 @@
+{% extends template.self %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/_layouts/css-overrides/search-input-fix.css"|resolveFile }}">
+    <link rel="stylesheet" href="{{ "/_layouts/css-overrides/image-fix.css"|resolveFile }}">
+    <style>
+        /* Inline critical CSS for immediate effect */
+        .book-search-input,
+        .book-search,
+        #book-search-input {
+            background-color: #141521 !important;
+        }
+        
+        .book-search-input input,
+        #book-search-input input,
+        input[type="text"],
+        input[placeholder="Type to search"] {
+            color: #f8f8f2 !important;
+            background-color: #141521 !important;
+            -webkit-text-fill-color: #f8f8f2 !important;
+        }
+        
+        .markdown-section img {
+            display: block;
+            margin: 0 auto;
+            max-width: 90%;
+        }
+    </style>
+    <script>
+        // Apply CSS fixes as soon as DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix search input
+            const fixSearchInput = function() {
+                const searchInputs = document.querySelectorAll('input[type="text"], .book-search-input input, #book-search-input input');
+                searchInputs.forEach(function(input) {
+                    input.style.color = '#f8f8f2 !important';
+                    input.style.backgroundColor = '#141521 !important';
+                    input.style.webkitTextFillColor = '#f8f8f2 !important';
+                });
+            };
+            
+            // Fix image display
+            const fixImages = function() {
+                const images = document.querySelectorAll('.markdown-section img');
+                images.forEach(function(img) {
+                    img.style.display = 'block';
+                    img.style.margin = '0 auto';
+                    img.style.maxWidth = '90%';
+                    
+                    // Special handling for SVGs
+                    if (img.src.endsWith('.svg')) {
+                        img.style.margin = '1.5rem auto';
+                        img.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                    }
+                });
+            };
+            
+            // Initial fixes
+            fixSearchInput();
+            fixImages();
+            
+            // Re-apply fixes periodically and on page changes
+            setInterval(fixSearchInput, 1000);
+            setInterval(fixImages, 1000);
+            
+            // Monitor DOM changes
+            const observer = new MutationObserver(function() {
+                fixSearchInput();
+                fixImages();
+            });
+            
+            observer.observe(document.body, { 
+                childList: true, 
+                subtree: true 
+            });
+        });
+    </script>
+{% endblock %} 

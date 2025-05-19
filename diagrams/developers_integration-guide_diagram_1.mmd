@@ -1,0 +1,22 @@
+graph LR
+    subgraph "Integration Points"
+        Web3[Web3 Provider API]
+        Privacy[Privacy Features]
+        UI[UI Integration]
+        Search[AI Search]
+    end
+    
+    subgraph "Developer Tools"
+        dApps[Decentralized Apps]
+        Websites[Standard Websites]
+        Extensions[Select Extensions]
+    end
+    
+    dApps --> Web3
+    Websites --> Privacy
+    Websites --> UI
+    dApps --> UI
+    Websites --> Search
+    Extensions --> Web3
+    Extensions --> Privacy
+

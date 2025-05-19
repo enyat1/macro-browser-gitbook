@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant WalletConnector
+    participant ExternalWallet
+    
+    User->>Browser: Click "Connect Wallet"
+    Browser->>WalletConnector: initWalletConnection()
+    
+    alt MetaMask or Similar
+        WalletConnector->>ExternalWallet: ethereum.request({method: 'eth_requestAccounts'})
+        ExternalWallet->>User: Request Permission Dialog
+        User->>ExternalWallet: Grant Permission
+        ExternalWallet->>WalletConnector: Return Accounts [address1, address2, ...]
+    else WalletConnect
+        WalletConnector->>Browser: Display QR Code
+        User->>ExternalWallet: Scan QR Code on Mobile
+        ExternalWallet->>User: Approve Connection
+        ExternalWallet->>WalletConnector: Connection Established
+    end
+    
+    WalletConnector->>Browser: Update Connection Status
+    Browser->>User: Display Connected Wallet 

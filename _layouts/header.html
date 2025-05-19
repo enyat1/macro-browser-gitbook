@@ -1,0 +1,197 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+    });
+
+    // Fix broken image paths and alignment
+    setTimeout(function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && src.startsWith('/') && !img.complete) {
+          // Try to fix the path by removing the leading slash
+          const newSrc = src.substring(1);
+          img.setAttribute('src', newSrc);
+        }
+        
+        // Fix SVG alignment issues
+        if (src && (src.endsWith('.svg') || src.includes('/features/'))) {
+          img.style.display = 'block';
+          img.style.margin = '2em auto';
+          img.style.maxWidth = '90%';
+          
+          // Give parent wrapper proper styling if it exists
+          const parent = img.parentElement;
+          if (parent && parent.tagName !== 'BODY') {
+            parent.style.textAlign = 'center';
+          }
+        }
+      });
+      
+      // Super aggressive fix for search input with direct DOM manipulation
+      function fixSearchInputs() {
+        // Force search input styling with direct attribute setting
+        const allInputs = document.querySelectorAll('input');
+        allInputs.forEach(input => {
+          const placeholder = input.getAttribute('placeholder');
+          if (placeholder && (
+            placeholder.toLowerCase().includes('search') || 
+            placeholder.toLowerCase().includes('type to') || 
+            input.classList.contains('book-search-input') ||
+            input.parentElement && input.parentElement.classList.contains('book-search-input')
+          )) {
+            // Apply direct styling to the input
+            input.style.color = '#f8f8f2';
+            input.style.backgroundColor = '#141521';
+            input.style.opacity = '1';
+            input.setAttribute('data-fixed-search', 'true');
+            
+            // Apply using setAttribute for cross-browser compatibility
+            input.setAttribute('style', 'color: #f8f8f2 !important; background-color: #141521 !important; opacity: 1 !important;');
+          }
+        });
+        
+        // Also try by class/selector
+        [
+          '.book-search-input input',
+          'input.book-search-input',
+          '.book-search input',
+          'input[type="text"].book-search-input',
+          'input[placeholder="Type to search"]'
+        ].forEach(selector => {
+          try {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+              el.style.color = '#f8f8f2';
+              el.style.backgroundColor = '#141521';
+              el.style.opacity = '1';
+              el.setAttribute('style', 'color: #f8f8f2 !important; background-color: #141521 !important; opacity: 1 !important;');
+            });
+          } catch (e) {
+            console.log('Error fixing search input', e);
+          }
+        });
+      }
+      
+      // Run search fix immediately and periodically
+      fixSearchInputs();
+      setInterval(fixSearchInputs, 1000);
+    }, 500);
+  });
+</script>
+
+<div class="macro-header">
+  <div class="macro-logo">
+    <img src="/styles/images/logo.svg" alt="Macro Browser Documentation" />
+  </div>
+  <div class="macro-links">
+    <a href="/">Documentation</a>
+    <a href="/developers/integration-guide.html">Integration Guide</a>
+    <a href="/technical/architecture-decisions.html">Architecture</a>
+  </div>
+</div>
+
+<style>
+  .macro-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #141521;
+    border-bottom: 1px solid #2a2c3d;
+  }
+  
+  .macro-logo {
+    flex: 0 0 auto;
+  }
+  
+  .macro-logo img {
+    height: 30px;
+    width: auto;
+  }
+  
+  .macro-links {
+    flex: 1 1 auto;
+    text-align: right;
+  }
+  
+  .macro-links a {
+    color: #f8f8f2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .macro-links a:hover {
+    color: #8673f4;
+  }
+  
+  /* Super aggressive search input styling with !important flags */
+  .book-search-input input,
+  input.book-search-input,
+  input[placeholder="Type to search"],
+  input[type="text"].book-search-input-field,
+  input[data-fixed-search="true"] {
+    color: #f8f8f2 !important;
+    background-color: #141521 !important;
+    opacity: 1 !important;
+    caret-color: #f8f8f2 !important;
+  }
+  
+  /* Placeholder styling for all browsers */
+  .book-search-input input::placeholder,
+  input.book-search-input::placeholder,
+  input[placeholder="Type to search"]::placeholder,
+  input[type="text"].book-search-input-field::placeholder {
+    color: #b8b9c5 !important;
+    opacity: 1 !important;
+  }
+  
+  /* Firefox */
+  .book-search-input input::-moz-placeholder,
+  input.book-search-input::-moz-placeholder,
+  input[placeholder="Type to search"]::-moz-placeholder {
+    color: #b8b9c5 !important;
+    opacity: 1 !important;
+  }
+  
+  /* Edge */
+  .book-search-input input::-ms-input-placeholder,
+  input.book-search-input::-ms-input-placeholder,
+  input[placeholder="Type to search"]::-ms-input-placeholder {
+    color: #b8b9c5 !important;
+    opacity: 1 !important;
+  }
+  
+  /* Chrome/Safari */
+  .book-search-input input::-webkit-input-placeholder,
+  input.book-search-input::-webkit-input-placeholder,
+  input[placeholder="Type to search"]::-webkit-input-placeholder {
+    color: #b8b9c5 !important;
+    opacity: 1 !important;
+  }
+  
+  /* Fix SVG images alignment */
+  .markdown-section img[src$=".svg"],
+  .markdown-section img[src^="/images/features/"],
+  .markdown-section img[src^="images/features/"] {
+    display: block !important;
+    margin: 2em auto !important;
+    max-width: 90% !important;
+    height: auto !important;
+  }
+</style>
+
+<!-- Emergency style fix for search input -->
+<style id="emergency-search-fix">
+  input[type="text"], 
+  .book-search-input input, 
+  input.book-search-input,
+  input[placeholder="Type to search"] {
+    color: #f8f8f2 !important;
+    background-color: #141521 !important;
+  }
+</style> 

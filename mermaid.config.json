@@ -1,0 +1,24 @@
+{
+  "theme": "dark",
+  "themeVariables": {
+    "darkMode": true,
+    "background": "#1a1b26",
+    "primaryColor": "#4b31dd",
+    "primaryTextColor": "#f8f8f2",
+    "primaryBorderColor": "#4b31dd",
+    "lineColor": "#ffffff",
+    "secondaryColor": "#2a1a7e",
+    "tertiaryColor": "#2a1a7e"
+  },
+  "flowchart": {
+    "htmlLabels": true,
+    "curve": "basis"
+  },
+  "sequence": {
+    "actorFontSize": 16,
+    "noteFontSize": 14,
+    "messageFontSize": 16,
+    "boxMargin": 10
+  },
+  "fontSize": 16
+} 

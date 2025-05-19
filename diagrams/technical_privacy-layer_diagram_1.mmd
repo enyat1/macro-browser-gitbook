@@ -1,0 +1,32 @@
+graph TD
+    subgraph "Privacy Layer Components"
+        AdBlocker[Ad Blocker]
+        TrackerPrevention[Tracker Prevention]
+        FingerprintProtection[Fingerprint Protection]
+        SecureConnections[Secure Connections]
+        PrivateMode[Private Browsing Mode]
+    end
+    
+    subgraph "Integration Points"
+        NetworkRequests[Network Requests]
+        DOMManipulation[DOM Manipulation]
+        JavaScriptExecution[JavaScript Execution]
+        StorageAccess[Storage Access]
+        Headers[HTTP Headers]
+    end
+    
+    AdBlocker --> NetworkRequests
+    AdBlocker --> DOMManipulation
+    
+    TrackerPrevention --> NetworkRequests
+    TrackerPrevention --> JavaScriptExecution
+    TrackerPrevention --> StorageAccess
+    
+    FingerprintProtection --> JavaScriptExecution
+    FingerprintProtection --> Headers
+    
+    SecureConnections --> NetworkRequests
+    SecureConnections --> Headers
+    
+    PrivateMode --> StorageAccess
+

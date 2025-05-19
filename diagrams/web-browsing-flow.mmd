@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant User
+    participant UI as Browser UI
+    participant PrivacyFilters as Privacy Filters
+    participant NetworkLayer as Network Layer
+    participant VPN as P2P VPN
+    participant WebServer as Web Server
+    
+    User->>UI: Enter URL / Click link
+    UI->>PrivacyFilters: URL request
+    
+    PrivacyFilters->>PrivacyFilters: Apply privacy rules
+    
+    alt Contains trackers/ads
+        PrivacyFilters->>PrivacyFilters: Block trackers/ads
+    end
+    
+    PrivacyFilters->>NetworkLayer: Filtered request
+    
+    alt VPN enabled
+        NetworkLayer->>VPN: Route through VPN
+        VPN->>WebServer: Anonymized request
+        WebServer->>VPN: Response
+        VPN->>NetworkLayer: Encrypted response
+    else VPN disabled
+        NetworkLayer->>WebServer: Direct request
+        WebServer->>NetworkLayer: Direct response
+    end
+    
+    NetworkLayer->>PrivacyFilters: Incoming response
+    PrivacyFilters->>PrivacyFilters: Apply content filters
+    PrivacyFilters->>UI: Render filtered content
+    UI->>User: Display webpage 

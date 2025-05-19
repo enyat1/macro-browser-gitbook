@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "gitbook-plugin-include-html": "^0.2.0",
+    "gitbook-plugin-layout": "^0.0.1",
+    "gitbook-plugin-mermaid-gb3": "^2.1.0",
+    "gitbook-plugin-prism": "^2.4.0",
+    "honkit-plugin-mermaid": "^0.1.4"
+  },
+  "devDependencies": {
+    "honkit": "^6.0.3"
+  },
+  "name": "macro-browser-gitbook",
+  "version": "1.0.0",
+  "description": "Welcome to the official documentation for Macro Browser - the next evolution of private browsing.",
+  "main": "index.js",
+  "scripts": {
+    "build": "honkit build",
+    "serve": "honkit serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel-build": "honkit build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14"
+  }
+}

@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant BrowserEngine
+    participant NetworkService
+    participant VPNController
+    participant RelayCircuit
+    participant TargetWebsite
+    
+    BrowserEngine->>NetworkService: HTTP request
+    
+    alt VPN Enabled
+        NetworkService->>VPNController: Route request through VPN
+        VPNController->>VPNController: Encrypt request
+        VPNController->>RelayCircuit: Send through relay circuit
+        RelayCircuit->>TargetWebsite: Forward request to destination
+        TargetWebsite->>RelayCircuit: Response
+        RelayCircuit->>VPNController: Return through relay circuit
+        VPNController->>VPNController: Decrypt response
+        VPNController->>NetworkService: Decrypted response
+    else VPN Disabled or Bypassed
+        NetworkService->>TargetWebsite: Direct request
+        TargetWebsite->>NetworkService: Direct response
+    end
+    
+    NetworkService->>BrowserEngine: HTTP response
+

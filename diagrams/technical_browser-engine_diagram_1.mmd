@@ -1,0 +1,30 @@
+graph TD
+    subgraph "Browser Engine"
+        ContentRenderer[Content Renderer]
+        V8[JavaScript Engine]
+        DOM[DOM Processing]
+        CSSEngine[CSS Engine]
+        WebAPIs[Web APIs]
+        NetworkClient[Network Client]
+    end
+    
+    subgraph "Process Model"
+        MainProcess[Main Process]
+        RendererProcess[Renderer Process]
+        GPUProcess[GPU Process]
+        NetworkProcess[Network Service]
+        UtilityProcess[Utility Process]
+    end
+    
+    ContentRenderer --> V8
+    ContentRenderer --> DOM
+    ContentRenderer --> CSSEngine
+    WebAPIs --> V8
+    
+    RendererProcess --> ContentRenderer
+    MainProcess --> RendererProcess
+    MainProcess --> GPUProcess
+    MainProcess --> NetworkProcess
+    MainProcess --> UtilityProcess
+    NetworkProcess --> NetworkClient
+

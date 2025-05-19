@@ -1,0 +1,43 @@
+graph TD
+    subgraph "Presentation Layer"
+        UI[User Interface]
+        NewTab[New Tab Page]
+        Settings[Settings Interface]
+    end
+    
+    subgraph "Core Browser Layer"
+        BrowserEngine[Browser Engine]
+        TabManagement[Tab Management]
+        Navigation[Navigation]
+    end
+    
+    subgraph "Privacy Layer"
+        AdBlocker[Ad Blocker]
+        TrackerPrevention[Tracker Prevention]
+        SecureConnections[Secure Connections]
+    end
+    
+    subgraph "Network Layer"
+        P2PVPN[P2P VPN]
+        NetworkStack[Network Stack]
+    end
+    
+    subgraph "Web3 Layer"
+        WalletConnector[Wallet Connector]
+        DAppInterface[DApp Interface]
+        TransactionManager[Transaction Manager]
+    end
+    
+    subgraph "AI Layer"
+        SearchEngine[AI Search]
+        QueryProcessor[Query Processor]
+    end
+    
+    UI --> BrowserEngine
+    UI --> WalletConnector
+    BrowserEngine --> Privacy Layer
+    BrowserEngine --> Web3 Layer
+    BrowserEngine --> NetworkStack
+    NetworkStack --> P2PVPN
+    SearchEngine --> NetworkStack
+
