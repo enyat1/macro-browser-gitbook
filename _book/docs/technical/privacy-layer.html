@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>privacy layer - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Privacy Layer</h1>
+<p>The Privacy Layer is a core component of Macro Browser that provides comprehensive protection against tracking, ads, and other privacy threats. It operates at multiple levels of the browser stack to ensure user privacy is maintained.</p>
+<h2>Architecture Overview</h2>
+<p><img src="/images/diagrams/technical_privacy-layer_diagram_1.svg" alt="Diagram 1"></p>
+<h2>Key Components</h2>
+<h3>Ad Blocker</h3>
+<p>The ad blocking system prevents advertisements from loading and displaying:</p>
+<ul>
+<li><strong>Filter Lists</strong>: Uses multiple curated filter lists (EasyList, uBlock Origin lists, etc.)</li>
+<li><strong>Network-Level Blocking</strong>: Prevents requests to ad-serving domains</li>
+<li><strong>Cosmetic Filtering</strong>: Removes ad containers and placeholders from rendered pages</li>
+<li><strong>Exception Handling</strong>: Support for user-defined exceptions and allowlists</li>
+<li><strong>Performance Optimization</strong>: Fast matching algorithms for minimal browsing impact</li>
+</ul>
+<h3>Tracker Prevention</h3>
+<p>The tracker prevention system blocks tracking scripts and mechanisms:</p>
+<ul>
+<li><strong>Known Tracker Blocking</strong>: Blocks known tracking domains and scripts</li>
+<li><strong>Heuristic Detection</strong>: Identifies potential trackers based on behavior</li>
+<li><strong>Cookie Management</strong>: Intelligent handling of tracking cookies</li>
+<li><strong>Storage Partitioning</strong>: Isolates site data to prevent cross-site tracking</li>
+<li><strong>Referrer Policy</strong>: Controls the HTTP Referer header to prevent information leakage</li>
+</ul>
+<h3>Fingerprinting Protection</h3>
+<p>Reduces the browser's fingerprinting surface to make users harder to identify:</p>
+<ul>
+<li><strong>Canvas Fingerprinting Protection</strong>: Adds controlled noise to canvas operations</li>
+<li><strong>Font Enumeration Control</strong>: Limits access to system font information</li>
+<li><strong>User Agent Normalization</strong>: Provides standardized user agent information</li>
+<li><strong>Hardware Information Protection</strong>: Limits access to device-specific information</li>
+<li><strong>Time Precision Reduction</strong>: Reduces precision of timing APIs used for fingerprinting</li>
+</ul>
+<h3>Secure Connections</h3>
+<p>Ensures secure and encrypted connections to websites:</p>
+<ul>
+<li><strong>HTTPS Upgrading</strong>: Automatically switches from HTTP to HTTPS where available</li>
+<li><strong>HSTS Support</strong>: Honors HTTP Strict Transport Security headers</li>
+<li><strong>Certificate Verification</strong>: Enhanced SSL/TLS certificate validation</li>
+<li><strong>Mixed Content Blocking</strong>: Prevents loading insecure resources on secure pages</li>
+<li><strong>Insecure Form Warning</strong>: Alerts users when entering data in non-secure forms</li>
+</ul>
+<h3>Private Browsing Mode</h3>
+<p>Ensures no browsing data is persisted between sessions:</p>
+<ul>
+<li><strong>No History Retention</strong>: Browser does not save browsing history</li>
+<li><strong>Session-Only Cookies</strong>: Cookies exist only during the browsing session</li>
+<li><strong>In-Memory Cache</strong>: Cache data is stored in memory and cleared on exit</li>
+<li><strong>No Storage Persistence</strong>: Web storage is not saved to disk</li>
+<li><strong>Clean State</strong>: Every new browser session starts with a clean state</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>Ad Blocker Implementation</h3>
+<pre><code class="language-typescript">// Example of ad blocker integration
+import { ElectronBlocker } from '@cliqz/adblocker-electron';
+import fetch from 'cross-fetch';
+
+async function initializeAdBlocker(session: Electron.Session) {
+  // Load filter lists
+  const blocker = await ElectronBlocker.fromLists(
+    fetch,
+    [
+      'https://easylist.to/easylist/easylist.txt',
+      'https://easylist.to/easylist/easyprivacy.txt',
+      'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt',
+      // Additional filter lists
+    ],
+    {
+      enableCompression: true,
+    }
+  );
+  
+  // Enable blocking
+  blocker.enableBlockingInSession(session);
+  
+  // Add custom rules (optional)
+  blocker.addCosmeticFilters([
+    'example.com##.ad-container',
+    'example.org###sponsored-content',
+  ]);
+  
+  // Setup periodic updates
+  setInterval(() =&gt; {
+    blocker.update();
+  }, 24 * 60 * 60 * 1000); // Daily updates
+  
+  return blocker;
+}
+</code></pre>
+<h3>Private Browsing Configuration</h3>
+<pre><code class="language-typescript">// Example of private browsing mode configuration
+function configurePrivateBrowsing(session: Electron.Session) {
+  // Configure session to never persist data
+  const privateConfig = {
+    cache: false,
+    cookies: false,
+    storage: false,
+    localStorage: false,
+    indexedDB: false,
+    serviceWorkers: false,
+    webSQL: false,
+    permissions: false
+  };
+  
+  // Apply configurations
+  session.setStorageAccessSync(privateConfig);
+  
+  // Clear data when app closes
+  app.on('before-quit', () =&gt; {
+    session.clearStorageData();
+    session.clearCache();
+    session.clearHostResolverCache();
+    session.clearAuthCache();
+  });
+  
+  // Initialize clean state on startup
+  app.on('ready', () =&gt; {
+    session.clearStorageData();
+  });
+}
+</code></pre>
+<h3>Secure Connections Enforcement</h3>
+<pre><code class="language-typescript">// Example of HTTPS upgrade implementation
+function enforceSecureConnections(session: Electron.Session) {
+  // Upgrade HTTP requests to HTTPS where possible
+  session.webRequest.onBeforeRequest((details, callback) =&gt; {
+    if (details.url.startsWith('http:') &amp;&amp; !isLocalhost(details.url)) {
+      const secureUrl = details.url.replace('http:', 'https:');
+      callback({ redirectURL: secureUrl });
+    } else {
+      callback({});
+    }
+  });
+  
+  // Block mixed content
+  session.webRequest.onHeadersReceived((details, callback) =&gt; {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'Content-Security-Policy': ['upgrade-insecure-requests']
+      }
+    });
+  });
+}
+</code></pre>
+<h2>Privacy Dashboard</h2>
+<p>Macro Browser includes a privacy dashboard that provides users with information about blocked elements:</p>
+<ul>
+<li><strong>Real-time Counter</strong>: Shows the number of blocked ads and trackers</li>
+<li><strong>Site-specific Information</strong>: Details about privacy threats on the current site</li>
+<li><strong>Global Statistics</strong>: Summary of protection across all browsing sessions</li>
+<li><strong>Configuration Controls</strong>: User-friendly toggles for privacy features</li>
+</ul>
+<h2>Data Flow</h2>
+<p><img src="/images/diagrams/technical_privacy-layer_diagram_2.svg" alt="Diagram 2"></p>
+<h2>Performance Considerations</h2>
+<p>The Privacy Layer is designed for minimal performance impact:</p>
+<ul>
+<li><strong>Efficient Matching Algorithms</strong>: Fast rule matching with Bloom filters</li>
+<li><strong>Caching Results</strong>: Caching filter decisions to avoid repeated processing</li>
+<li><strong>Parallelized Processing</strong>: Handling filter checks in parallel where possible</li>
+<li><strong>Selective Rule Application</strong>: Applying only relevant rules to each request</li>
+<li><strong>Resource Prioritization</strong>: Prioritizing user-visible content over background requests</li>
+</ul>
+<h2>Future Enhancements</h2>
+<p>Planned improvements to the Privacy Layer:</p>
+<ul>
+<li><strong>Advanced Fingerprinting Protection</strong>: More sophisticated anti-fingerprinting measures</li>
+<li><strong>Machine Learning Detection</strong>: ML-based identification of new trackers</li>
+<li><strong>Enhanced First-Party Isolation</strong>: Stronger isolation between websites</li>
+<li><strong>More Granular Controls</strong>: Additional user controls for specific privacy features</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

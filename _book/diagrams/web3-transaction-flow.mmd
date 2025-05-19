@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant User
+    participant UI as Browser UI
+    participant dApp as Decentralized App
+    participant Web3Layer as Web3 Layer
+    participant SecurityMonitor as Security Monitor
+    participant Wallet as Crypto Wallet
+    participant Blockchain as Blockchain Network
+    
+    User->>UI: Interact with dApp
+    UI->>dApp: User interaction
+    dApp->>Web3Layer: Transaction request
+    
+    Web3Layer->>SecurityMonitor: Analyze transaction
+    SecurityMonitor->>SecurityMonitor: Check for risks
+    SecurityMonitor->>Web3Layer: Security assessment
+    
+    Web3Layer->>UI: Show transaction details
+    UI->>User: Request approval
+    User->>UI: Confirm transaction
+    
+    UI->>Web3Layer: Approved transaction
+    Web3Layer->>Wallet: Request signature
+    Wallet->>Web3Layer: Signed transaction
+    Web3Layer->>Blockchain: Submit transaction
+    
+    Blockchain->>Web3Layer: Transaction receipt
+    Web3Layer->>dApp: Transaction result
+    dApp->>UI: Update UI
+    UI->>User: Show confirmation 

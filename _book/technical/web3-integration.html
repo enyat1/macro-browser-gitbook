@@ -1,0 +1,874 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Web3 Integration · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="network-architecture.html" />
+    
+    
+    <link rel="prev" href="privacy-layer.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="core-components.html">
+            
+                <a href="core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="browser-engine.html">
+            
+                <a href="browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="privacy-layer.html">
+            
+                <a href="privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.5" data-path="web3-integration.html">
+            
+                <a href="web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="network-architecture.html">
+            
+                <a href="network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="data-flow-security.html">
+            
+                <a href="data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="architecture-decisions.html">
+            
+                <a href="architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../developers/integration-guide.html">
+            
+                <a href="../developers/integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../developers/web3-api.html">
+            
+                <a href="../developers/web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../developers/privacy-api.html">
+            
+                <a href="../developers/privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../developers/performance-guide.html">
+            
+                <a href="../developers/performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../developers/extension-guide.html">
+            
+                <a href="../developers/extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../developers/contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Web3 Integration</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="web3-integration">Web3 Integration</h1>
+<p>The Web3 Integration layer enables Macro Browser to interact seamlessly with blockchain networks and decentralized applications (dApps). This component bridges the traditional web browsing experience with the decentralized web ecosystem.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><img src="../images/diagrams/web3-integration.svg" alt="Web3 Integration Architecture"></img></p>
+<h2 id="key-components">Key Components</h2>
+<h3 id="wallet-connector">Wallet Connector</h3>
+<p>Facilitates connections with cryptocurrency wallets:</p>
+<ul>
+<li><strong>External Wallet Support</strong>: Integration with popular wallets (MetaMask, Coinbase Wallet, etc.)</li>
+<li><strong>WalletConnect Support</strong>: Connection to mobile wallets via QR code</li>
+<li><strong>Hardware Wallet Integration</strong>: Support for Ledger, Trezor, and other hardware wallets</li>
+<li><strong>Multi-Wallet Management</strong>: Connect and manage multiple wallets simultaneously</li>
+<li><strong>Connection Status Monitoring</strong>: Track wallet connection state</li>
+</ul>
+<h3 id="provider-bridge">Provider Bridge</h3>
+<p>Implements the Web3 provider interface for dApp connectivity:</p>
+<ul>
+<li><strong>EIP-1193 Compliance</strong>: Standard Ethereum provider API implementation</li>
+<li><strong>Method Handling</strong>: Processing of Ethereum JSON-RPC methods</li>
+<li><strong>Event Propagation</strong>: Wallet and chain-related events (connect, disconnect, chainChanged, etc.)</li>
+<li><strong>Request Filtering</strong>: Security filtering of provider requests</li>
+<li><strong>Cross-Origin Isolation</strong>: Domain-specific provider instances</li>
+</ul>
+<h3 id="transaction-manager">Transaction Manager</h3>
+<p>Handles blockchain transactions securely:</p>
+<ul>
+<li><strong>Transaction Creation</strong>: Help construct valid blockchain transactions</li>
+<li><strong>Gas Estimation</strong>: Accurate gas fee estimations</li>
+<li><strong>Transaction Signing</strong>: Secure signing process with user confirmation</li>
+<li><strong>Transaction Broadcasting</strong>: Sending signed transactions to the network</li>
+<li><strong>Transaction Monitoring</strong>: Track transaction status and confirmations</li>
+<li><strong>Receipt Validation</strong>: Verify transaction completion and effects</li>
+</ul>
+<h3 id="network-manager">Network Manager</h3>
+<p>Supports multiple blockchain networks:</p>
+<ul>
+<li><strong>Network Switching</strong>: Easy switching between different networks</li>
+<li><strong>Chain Validation</strong>: Ensure proper chain ID and network configuration</li>
+<li><strong>Custom Network Support</strong>: Adding and managing custom RPC endpoints</li>
+<li><strong>Network Status Monitoring</strong>: Track network availability and conditions</li>
+<li><strong>EIP-3085 Support</strong>: Adding new networks via <code>wallet_addEthereumChain</code></li>
+<li><strong>EIP-3326 Support</strong>: Switching networks via <code>wallet_switchEthereumChain</code></li>
+</ul>
+<h3 id="security-monitor">Security Monitor</h3>
+<p>Provides security features for Web3 interactions:</p>
+<ul>
+<li><strong>Phishing Protection</strong>: Detection of known scam sites and malicious dApps</li>
+<li><strong>Contract Verification</strong>: Verification of smart contract source code when available</li>
+<li><strong>Permission Management</strong>: Granular control over dApp permissions</li>
+<li><strong>Transaction Analysis</strong>: Pre-execution analysis of transaction effects</li>
+<li><strong>Spending Limits</strong>: Optional spending limits for transactions</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<h3 id="wallet-connection-flow">Wallet Connection Flow</h3>
+<p><img src="../images/diagrams/wallet-connection-flow.svg" alt="Wallet Connection Flow"></img></p>
+<h3 id="web3-provider-implementation">Web3 Provider Implementation</h3>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of a simplified Web3 provider implementation</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MacroWeb3Provider</span> {
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">connectedAccounts</span>: <span class="hljs-built_in">string</span>[] = [];
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">currentChainId</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">'0x1'</span>; <span class="hljs-comment">// Ethereum Mainnet by default</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">wallet</span>: <span class="hljs-title class_">IWallet</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">domain</span>: <span class="hljs-built_in">string</span>;
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-attr">wallet</span>: <span class="hljs-title class_">IWallet</span>, <span class="hljs-attr">domain</span>: <span class="hljs-built_in">string</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">wallet</span> = wallet;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">domain</span> = domain;
+  }
+
+  <span class="hljs-comment">// Main JSON-RPC request handler (EIP-1193)</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">request</span>(<span class="hljs-attr">args</span>: { <span class="hljs-attr">method</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">params</span>?: <span class="hljs-built_in">unknown</span>[] }): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">unknown</span>&gt; {
+    <span class="hljs-comment">// Security checks</span>
+    <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-title function_">isMethodAllowed</span>(args.<span class="hljs-property">method</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">domain</span>)) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">`Method <span class="hljs-subst">${args.method}</span> not allowed for <span class="hljs-subst">${<span class="hljs-variable language_">this</span>.domain}</span>`</span>);
+    }
+
+    <span class="hljs-comment">// Handle specific methods locally if needed</span>
+    <span class="hljs-keyword">switch</span> (args.<span class="hljs-property">method</span>) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'eth_accounts'</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">connectedAccounts</span>;
+
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'eth_chainId'</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">currentChainId</span>;
+
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'eth_requestAccounts'</span>:
+        <span class="hljs-comment">// Trigger wallet connection UI if needed</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">connectedAccounts</span>.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) {
+          <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">connectWallet</span>();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">connectedAccounts</span>;
+
+      <span class="hljs-comment">// For most methods, pass through to wallet</span>
+      <span class="hljs-attr">default</span>:
+        <span class="hljs-comment">// For transaction requests, show confirmation UI</span>
+        <span class="hljs-keyword">if</span> ([<span class="hljs-string">'eth_sendTransaction'</span>, <span class="hljs-string">'eth_signTransaction'</span>].<span class="hljs-title function_">includes</span>(args.<span class="hljs-property">method</span>)) {
+          <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">showTransactionConfirmation</span>(args.<span class="hljs-property">method</span>, args.<span class="hljs-property">params</span>);
+        }
+
+        <span class="hljs-comment">// Forward request to wallet</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">wallet</span>.<span class="hljs-title function_">request</span>(args);
+    }
+  }
+
+  <span class="hljs-comment">// Support for legacy web3</span>
+  <span class="hljs-title function_">sendAsync</span>(<span class="hljs-attr">payload</span>: <span class="hljs-built_in">any</span>, <span class="hljs-attr">callback</span>: <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">error</span>: <span class="hljs-title class_">Error</span> | <span class="hljs-literal">null</span>, <span class="hljs-attr">result</span>?: <span class="hljs-built_in">any</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>(payload)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-title function_">callback</span>(<span class="hljs-literal">null</span>, { <span class="hljs-attr">jsonrpc</span>: <span class="hljs-string">'2.0'</span>, <span class="hljs-attr">id</span>: payload.<span class="hljs-property">id</span>, result }))
+      .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-title function_">callback</span>(error));
+  }
+
+  <span class="hljs-comment">// EIP-1193 events</span>
+  <span class="hljs-title function_">on</span>(<span class="hljs-attr">eventName</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">listener</span>: <span class="hljs-function">(<span class="hljs-params">...<span class="hljs-attr">args</span>: <span class="hljs-built_in">any</span>[]</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+    <span class="hljs-comment">// Implementation of event handling</span>
+  }
+}
+</code></pre>
+<h3 id="transaction-security">Transaction Security</h3>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of transaction security analysis</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">analyzeTransaction</span>(<span class="hljs-params"><span class="hljs-attr">transaction</span>: <span class="hljs-title class_">TransactionRequest</span></span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">SecurityAnalysis</span>&gt; {
+  <span class="hljs-keyword">const</span> <span class="hljs-attr">analysis</span>: <span class="hljs-title class_">SecurityAnalysis</span> = {
+    <span class="hljs-attr">riskLevel</span>: <span class="hljs-string">'low'</span>,
+    <span class="hljs-attr">warnings</span>: [],
+    <span class="hljs-attr">recommendations</span>: []
+  };
+
+  <span class="hljs-comment">// Check destination address against known scams</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isKnownScamAddress</span>(transaction.<span class="hljs-property">to</span>)) {
+    analysis.<span class="hljs-property">riskLevel</span> = <span class="hljs-string">'high'</span>;
+    analysis.<span class="hljs-property">warnings</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">'Destination address is associated with known scams'</span>);
+  }
+
+  <span class="hljs-comment">// Check for unusual gas price</span>
+  <span class="hljs-keyword">const</span> currentGasPrice = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getCurrentGasPrice</span>();
+  <span class="hljs-keyword">if</span> (transaction.<span class="hljs-property">gasPrice</span> &amp;&amp; transaction.<span class="hljs-property">gasPrice</span> &gt; currentGasPrice * <span class="hljs-number">2</span>) {
+    analysis.<span class="hljs-property">riskLevel</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(analysis.<span class="hljs-property">riskLevel</span> === <span class="hljs-string">'low'</span> ? <span class="hljs-string">'medium'</span> : analysis.<span class="hljs-property">riskLevel</span>);
+    analysis.<span class="hljs-property">warnings</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">'Gas price is significantly higher than current network average'</span>);
+  }
+
+  <span class="hljs-comment">// Check if contract is verified</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">await</span> <span class="hljs-title function_">isContract</span>(transaction.<span class="hljs-property">to</span>)) {
+    <span class="hljs-keyword">const</span> isVerified = <span class="hljs-keyword">await</span> <span class="hljs-title function_">isContractVerified</span>(transaction.<span class="hljs-property">to</span>);
+    <span class="hljs-keyword">if</span> (!isVerified) {
+      analysis.<span class="hljs-property">recommendations</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">'Contract source code is not verified. Proceed with caution.'</span>);
+    }
+
+    <span class="hljs-comment">// Simulate transaction to analyze effects</span>
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> simulationResult = <span class="hljs-keyword">await</span> <span class="hljs-title function_">simulateTransaction</span>(transaction);
+      <span class="hljs-keyword">if</span> (simulationResult.<span class="hljs-property">tokenTransfers</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) {
+        analysis.<span class="hljs-property">recommendations</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">`This transaction will transfer: <span class="hljs-subst">${formatTokenTransfers(simulationResult.tokenTransfers)}</span>`</span>);
+      }
+    } <span class="hljs-keyword">catch</span> (error) {
+      analysis.<span class="hljs-property">warnings</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">'Transaction simulation failed. This may indicate potential issues.'</span>);
+    }
+  }
+
+  <span class="hljs-keyword">return</span> analysis;
+}
+</code></pre>
+<h2 id="integration-with-dapps">Integration with dApps</h2>
+<p>Macro Browser's Web3 integration enables seamless interaction with decentralized applications:</p>
+<ul>
+<li><strong>Automatic Provider Injection</strong>: Web3 provider automatically injected into dApp pages</li>
+<li><strong>Permission System</strong>: dApps request permission to connect to user's wallet</li>
+<li><strong>Transaction Approval Flow</strong>: Clear UI for transaction approval</li>
+<li><strong>Network Compatibility</strong>: Support for multiple blockchain networks</li>
+<li><strong>Chain Switching</strong>: Allow dApps to request network changes</li>
+</ul>
+<h2 id="user-interface">User Interface</h2>
+<p>The Web3 integration includes several user interface components:</p>
+<ul>
+<li><strong>Wallet Connection Button</strong>: Easily accessible in the browser toolbar</li>
+<li><strong>Connected Account Display</strong>: Shows currently connected wallet and account</li>
+<li><strong>Transaction Approval Dialog</strong>: Clear presentation of transaction details</li>
+<li><strong>Network Selector</strong>: Dropdown for changing the active blockchain network</li>
+<li><strong>Asset Overview</strong>: Summary of wallet balances (optional)</li>
+</ul>
+<h2 id="privacy-considerations">Privacy Considerations</h2>
+<p>The Web3 integration is designed with privacy in mind:</p>
+<ul>
+<li><strong>Domain Isolation</strong>: Each domain gets its own isolated provider instance</li>
+<li><strong>Minimal Data Sharing</strong>: Only necessary data is shared with dApps</li>
+<li><strong>No Persistent Storage</strong>: Wallet connection data not stored permanently</li>
+<li><strong>Transparent Permissions</strong>: Clear display of what each dApp can access</li>
+<li><strong>Optional Connections</strong>: Users can choose which dApps can connect to their wallet</li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>Planned improvements for the Web3 integration:</p>
+<ul>
+<li><strong>Enhanced Transaction Simulation</strong>: More detailed preview of transaction effects</li>
+<li><strong>NFT Support</strong>: Improved handling of non-fungible tokens</li>
+<li><strong>Multi-Chain Operations</strong>: Streamlined cross-chain transactions</li>
+<li><strong>Layer 2 Optimizations</strong>: Better support for Layer 2 scaling solutions</li>
+<li><strong>Wallet SDK</strong>: Developer tools for wallet and dApp developers </li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="privacy-layer.html" class="navigation navigation-prev " aria-label="Previous page: Privacy Layer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="network-architecture.html" class="navigation navigation-next " aria-label="Next page: Network Architecture">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Web3 Integration","level":"4.5","depth":1,"next":{"title":"Network Architecture","level":"4.6","depth":1,"path":"technical/network-architecture.md","ref":"technical/network-architecture.md","articles":[]},"previous":{"title":"Privacy Layer","level":"4.4","depth":1,"path":"technical/privacy-layer.md","ref":"technical/privacy-layer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"technical/web3-integration.md","mtime":"2025-05-19T16:07:42.128Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

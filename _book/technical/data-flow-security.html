@@ -1,0 +1,816 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Data Flow & Security · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="architecture-decisions.html" />
+    
+    
+    <link rel="prev" href="network-architecture.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="core-components.html">
+            
+                <a href="core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="browser-engine.html">
+            
+                <a href="browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="privacy-layer.html">
+            
+                <a href="privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="web3-integration.html">
+            
+                <a href="web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="network-architecture.html">
+            
+                <a href="network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.7" data-path="data-flow-security.html">
+            
+                <a href="data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="architecture-decisions.html">
+            
+                <a href="architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../developers/integration-guide.html">
+            
+                <a href="../developers/integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../developers/web3-api.html">
+            
+                <a href="../developers/web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../developers/privacy-api.html">
+            
+                <a href="../developers/privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../developers/performance-guide.html">
+            
+                <a href="../developers/performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../developers/extension-guide.html">
+            
+                <a href="../developers/extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../developers/contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Data Flow & Security</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="data-flow--security">Data Flow &amp; Security</h1>
+<p>This section provides an overview of how data flows through Macro Browser and the security measures in place to protect user privacy and security.</p>
+<h2 id="data-flow-overview">Data Flow Overview</h2>
+<p><img src="../images/diagrams/data-flow-overview.svg" alt="Data Flow Overview"></img></p>
+<h2 id="core-data-flows">Core Data Flows</h2>
+<h3 id="1-web-browsing-flow">1. Web Browsing Flow</h3>
+<p><img src="../images/diagrams/web-browsing-flow.svg" alt="Web Browsing Flow"></img></p>
+<h3 id="2-web3-transaction-flow">2. Web3 Transaction Flow</h3>
+<p><img src="../images/diagrams/web3-transaction-flow.svg" alt="Web3 Transaction Flow"></img></p>
+<h3 id="3-search-query-flow">3. Search Query Flow</h3>
+<p><img src="../images/diagrams/search-query-flow.svg" alt="Search Query Flow"></img></p>
+<h2 id="security-architecture">Security Architecture</h2>
+<p>Macro Browser's security architecture follows a defense-in-depth approach with multiple layers of protection.</p>
+<h3 id="security-layers">Security Layers</h3>
+<p><img src="../images/diagrams/security-layers.svg" alt="Security Layers"></img></p>
+<h2 id="key-security-features">Key Security Features</h2>
+<h3 id="process-isolation-and-sandboxing">Process Isolation and Sandboxing</h3>
+<p>Macro Browser uses a multi-process architecture with strict sandboxing:</p>
+<ul>
+<li><strong>Process Types</strong>: Separate processes for browser UI, renderers, GPU, network, and utility functions</li>
+<li><strong>Privilege Separation</strong>: Each process has minimal required privileges</li>
+<li><strong>Renderer Isolation</strong>: Web content runs in isolated renderer processes</li>
+<li><strong>Site Isolation</strong>: Different sites run in different processes to prevent cross-site data leaks</li>
+<li><strong>Sandbox Policies</strong>: Strict OS-level sandboxing restricts process capabilities</li>
+</ul>
+<h3 id="network-security">Network Security</h3>
+<p>Multiple layers of network security protect user data:</p>
+<ul>
+<li><strong>TLS Validation</strong>: Strict validation of TLS certificates and connections</li>
+<li><strong>HTTPS Enforcement</strong>: Automatic upgrading to HTTPS when available</li>
+<li><strong>Certificate Transparency</strong>: Verification against CT logs</li>
+<li><strong>HSTS Support</strong>: Respect for HTTP Strict Transport Security</li>
+<li><strong>P2P VPN Encryption</strong>: Additional encryption layer when VPN is enabled</li>
+<li><strong>DNS-over-HTTPS/TLS</strong>: Encrypted DNS resolution to prevent snooping</li>
+</ul>
+<h3 id="content-security">Content Security</h3>
+<p>Content security features protect against malicious web content:</p>
+<ul>
+<li><strong>Content Security Policy</strong>: Enhanced CSP implementation</li>
+<li><strong>XSS Protection</strong>: Built-in cross-site scripting protection</li>
+<li><strong>Phishing Detection</strong>: Recognition of known phishing attempts</li>
+<li><strong>Resource Integrity</strong>: Verification of subresource integrity</li>
+<li><strong>Frame Sandboxing</strong>: Strict sandboxing of iframes</li>
+<li><strong>Permission Model</strong>: Granular permission controls for web features</li>
+</ul>
+<h3 id="web3-security">Web3 Security</h3>
+<p>Special security measures for blockchain interactions:</p>
+<ul>
+<li><strong>Transaction Analysis</strong>: Pre-execution analysis of transaction effects</li>
+<li><strong>Contract Verification</strong>: Verification of smart contract source code</li>
+<li><strong>Address Validation</strong>: Checks against known scam addresses</li>
+<li><strong>Permission Controls</strong>: Domain-specific permission for dApps</li>
+<li><strong>Gas Monitoring</strong>: Prevention of excessive gas fees</li>
+<li><strong>Signature Request Analysis</strong>: Clear explanation of signature requests</li>
+</ul>
+<h2 id="data-privacy">Data Privacy</h2>
+<p>Macro Browser's privacy architecture ensures user data is protected:</p>
+<ul>
+<li><strong>No Persistent History</strong>: By default, no browsing history is saved</li>
+<li><strong>Memory-Only Storage</strong>: Temporary data held in memory, not on disk</li>
+<li><strong>Data Minimization</strong>: Only essential data is collected or processed</li>
+<li><strong>Limited Data Sharing</strong>: Minimal data shared with external services</li>
+<li><strong>Anonymized Queries</strong>: Search queries are anonymized before processing</li>
+<li><strong>Session Isolation</strong>: Each browsing session is isolated</li>
+</ul>
+<h2 id="authentication-and-authorization">Authentication and Authorization</h2>
+<p>For features requiring authentication:</p>
+<ul>
+<li><strong>Wallet Authentication</strong>: Secure wallet connection process</li>
+<li><strong>Permission Model</strong>: Explicit user consent for sensitive operations</li>
+<li><strong>Transaction Signing</strong>: Clear approval process for blockchain transactions</li>
+<li><strong>API Authorization</strong>: Secure handling of API keys and tokens</li>
+<li><strong>Local Authentication</strong>: Option for local authentication for sensitive settings</li>
+</ul>
+<h2 id="threat-mitigation">Threat Mitigation</h2>
+<p>Strategies to mitigate common threats:</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>TLS validation, certificate pinning, VPN encryption</td>
+</tr>
+<tr>
+<td>Phishing</td>
+<td>Visual security indicators, domain verification, warnings</td>
+</tr>
+<tr>
+<td>Malware</td>
+<td>Content filtering, script blocking, sandboxing</td>
+</tr>
+<tr>
+<td>Cross-Site Scripting</td>
+<td>CSP enforcement, input sanitization, output encoding</td>
+</tr>
+<tr>
+<td>Tracking</td>
+<td>Tracker blocking, fingerprinting protection, private browsing mode</td>
+</tr>
+<tr>
+<td>Web3 Scams</td>
+<td>Contract verification, phishing protection, transaction analysis</td>
+</tr>
+<tr>
+<td>DNS Attacks</td>
+<td>DNS-over-HTTPS, DNS caching, DNSSEC validation</td>
+</tr>
+<tr>
+<td>Browser Exploits</td>
+<td>Regular updates, process isolation, reduced attack surface</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-response-process">Security Response Process</h2>
+<p>In case of security vulnerabilities:</p>
+<ol>
+<li><strong>Discovery</strong>: Identification of potential security issue</li>
+<li><strong>Assessment</strong>: Evaluation of impact and risk</li>
+<li><strong>Resolution</strong>: Development of fix or mitigation</li>
+<li><strong>Deployment</strong>: Rapid update distribution to users</li>
+<li><strong>Disclosure</strong>: Responsible disclosure after patching</li>
+</ol>
+<h2 id="regular-security-audits">Regular Security Audits</h2>
+<p>Macro Browser undergoes regular security reviews:</p>
+<ul>
+<li><strong>Code Audits</strong>: Regular review of source code for vulnerabilities</li>
+<li><strong>Penetration Testing</strong>: Active testing for security weaknesses</li>
+<li><strong>Dependency Scanning</strong>: Monitoring of third-party dependencies</li>
+<li><strong>Cryptographic Review</strong>: Analysis of cryptographic implementations</li>
+<li><strong>Privacy Assessment</strong>: Review of data handling practices </li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="network-architecture.html" class="navigation navigation-prev " aria-label="Previous page: Network Architecture">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="architecture-decisions.html" class="navigation navigation-next " aria-label="Next page: Architecture Decisions">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Data Flow & Security","level":"4.7","depth":1,"next":{"title":"Architecture Decisions","level":"4.8","depth":1,"path":"technical/architecture-decisions.md","ref":"technical/architecture-decisions.md","articles":[]},"previous":{"title":"Network Architecture","level":"4.6","depth":1,"path":"technical/network-architecture.md","ref":"technical/network-architecture.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"technical/data-flow-security.md","mtime":"2025-05-19T16:10:35.571Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

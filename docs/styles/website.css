@@ -1,0 +1,409 @@
+/* Macro Brand Theme for GitBook/HonKit Documentation */
+
+/* Brand Colors */
+:root {
+  --macro-primary: #4b31dd;
+  --macro-secondary: #2a1a7e;
+  --macro-dark-bg: #1a1b26;
+  --macro-darker-bg: #141521;
+  --macro-light-text: #f8f8f2;
+  --macro-dimmed-text: #b8b9c5;
+  --macro-light-bg: #24273a;
+  --macro-gray: #2c2f45;
+  --macro-dark-text: #f8f8f2;
+  --macro-highlight: #8673f4;
+  --macro-border: #2a2c3d;
+}
+
+/* Global Typography and Colors */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--macro-light-text);
+  background-color: var(--macro-dark-bg);
+}
+
+/* Logo Styling */
+.book-logo {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--macro-dark-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.book-logo img {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Navigation Sidebar */
+.book-summary {
+  background-color: var(--macro-dark-bg);
+  color: var(--macro-light-text);
+  border-right: 1px solid var(--macro-border);
+}
+
+.book-summary ul.summary li a {
+  color: var(--macro-light-text);
+  font-weight: 400;
+  padding: 10px 15px;
+}
+
+.book-summary ul.summary li.active > a {
+  color: var(--macro-primary);
+  font-weight: 600;
+  background-color: rgba(75, 49, 221, 0.1);
+}
+
+.book-summary ul.summary li a:hover {
+  text-decoration: none;
+  background-color: rgba(75, 49, 221, 0.1);
+  color: var(--macro-primary);
+}
+
+/* Search Box Styling - Complete Fix for Dark Theme */
+.book-search-input {
+  background-color: var(--macro-darker-bg) !important;
+  border-bottom: 1px solid var(--macro-border);
+}
+
+.book-search-input input {
+  background-color: var(--macro-darker-bg) !important;
+  color: var(--macro-light-text) !important;
+  caret-color: var(--macro-primary);
+  padding: 10px 15px;
+  opacity: 1 !important;
+}
+
+/* Comprehensive fix for search placeholder text color across all browsers */
+.book-search-input input::placeholder,
+.book-search-input input::-webkit-input-placeholder,
+.book-search-input input::-moz-placeholder,
+.book-search-input input:-ms-input-placeholder,
+.book-search-input input::-ms-input-placeholder {
+  color: var(--macro-dimmed-text) !important;
+  opacity: 1 !important;
+}
+
+/* Additional selector for the search input field specifically */
+input[type="text"].book-search-input-field,
+.book-search-input input[type="text"] {
+  color: var(--macro-light-text) !important;
+  background-color: var(--macro-darker-bg) !important;
+}
+
+.book-search-results {
+  background-color: var(--macro-dark-bg);
+}
+
+.book-search-results .search-results .has-results .search-results-item {
+  color: var(--macro-light-text);
+  border-bottom: 1px solid var(--macro-border);
+}
+
+.book-search-results .search-results .has-results .search-results-item:hover {
+  background-color: rgba(75, 49, 221, 0.1);
+}
+
+.book-search-results .search-results .has-results .search-results-item a {
+  color: var(--macro-highlight);
+}
+
+/* Header Styling */
+.book-header {
+  background-color: var(--macro-darker-bg);
+  border-bottom: 1px solid var(--macro-border);
+  height: 60px;
+  padding: 0 15px;
+}
+
+.book-header h1 a, 
+.book-header h1 a:hover {
+  color: var(--macro-primary);
+}
+
+.book-header .btn {
+  color: var(--macro-light-text);
+}
+
+/* Chapter Headings */
+.markdown-section h1, 
+.markdown-section h2, 
+.markdown-section h3, 
+.markdown-section h4, 
+.markdown-section h5, 
+.markdown-section h6 {
+  color: var(--macro-primary);
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+.markdown-section h1 {
+  font-size: 2.2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--macro-gray);
+}
+
+.markdown-section h2 {
+  font-size: 1.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--macro-gray);
+}
+
+.markdown-section h3 {
+  font-size: 1.4em;
+}
+
+.markdown-section h4 {
+  font-size: 1.2em;
+}
+
+/* Content Styling */
+.page-inner {
+  max-width: 900px;
+  padding: 20px 30px 40px 30px;
+  background-color: var(--macro-dark-bg);
+}
+
+.book-body {
+  background-color: var(--macro-dark-bg);
+}
+
+.macro-content {
+  line-height: 1.6;
+}
+
+.markdown-section {
+  color: var(--macro-light-text);
+}
+
+.markdown-section p {
+  margin: 1em 0;
+  line-height: 1.7;
+}
+
+/* Links */
+.markdown-section a {
+  color: var(--macro-highlight);
+  text-decoration: none;
+}
+
+.markdown-section a:hover {
+  text-decoration: underline;
+}
+
+/* Code Blocks */
+.markdown-section pre {
+  background-color: var(--macro-darker-bg);
+  border-radius: 6px;
+  overflow: auto;
+  position: relative;
+  padding: 1em;
+  margin: 1.2em 0;
+  border: 1px solid var(--macro-border);
+}
+
+.markdown-section pre > code {
+  color: var(--macro-light-text);
+  font-family: "Roboto Mono", "Monaco", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.markdown-section code {
+  background-color: rgba(75, 49, 221, 0.1);
+  color: var(--macro-highlight);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Copy Button for Code Blocks */
+.copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: var(--macro-primary);
+  color: var(--macro-light-text);
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+}
+
+/* Tables */
+.markdown-section table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.markdown-section table th {
+  background-color: var(--macro-primary);
+  color: var(--macro-light-text);
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.markdown-section table td {
+  border: 1px solid var(--macro-gray);
+  padding: 10px 15px;
+}
+
+.markdown-section table tr:nth-child(odd) {
+  background-color: rgba(75, 49, 221, 0.05);
+}
+
+.markdown-section table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.markdown-section button {
+  background-color: var(--macro-primary);
+  color: var(--macro-light-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.markdown-section button:hover {
+  background-color: var(--macro-secondary);
+}
+
+/* Blockquotes */
+.markdown-section blockquote {
+  border-left: 4px solid var(--macro-primary);
+  background-color: rgba(75, 49, 221, 0.1);
+  padding: 15px 20px;
+  margin: 1.5em 0;
+  color: var(--macro-light-text);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Images */
+.markdown-section img {
+  max-width: 100%;
+  margin: 2em auto !important;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  display: block !important;
+}
+
+/* Fix for SVG images alignment and display - Enhanced version */
+.markdown-section img[src$=".svg"],
+.markdown-section img[src$=".png"],
+.markdown-section img[src$=".jpg"],
+.markdown-section img[src$=".jpeg"],
+.markdown-section img[src$=".gif"] {
+  display: block !important;
+  background-color: transparent;
+  max-width: 90%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  height: auto;
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
+}
+
+/* Fix specifically for feature illustrations */
+.markdown-section img[src^="/images/features/"],
+.markdown-section img[src^="images/features/"] {
+  width: 700px;
+  max-width: 100%;
+  height: auto;
+  margin: 2em auto !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Search Highlight */
+.search-highlight {
+  background-color: rgba(75, 49, 221, 0.4);
+  color: var(--macro-light-text);
+  padding: 0 0.2em;
+  border-radius: 2px;
+}
+
+/* Navigation Arrows */
+.navigation-prev, .navigation-next {
+  color: var(--macro-highlight) !important;
+}
+
+.navigation-prev i, .navigation-next i {
+  color: var(--macro-highlight) !important;
+}
+
+/* Footer */
+.book-footer {
+  border-top: 1px solid var(--macro-gray);
+  padding: 20px 0;
+  color: var(--macro-dimmed-text);
+  margin-top: 40px;
+}
+
+/* Font Settings */
+.font-settings .font-family-1,
+.font-settings .font-family-2,
+.font-settings .font-family-3 {
+  color: var(--macro-light-text);
+}
+
+.font-settings .font-size-button {
+  color: var(--macro-light-text);
+}
+
+/* Dark Mode Toggle (if implemented) */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--macro-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  background: var(--macro-secondary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .page-inner {
+    padding: 15px 20px;
+  }
+  
+  .markdown-section h1 {
+    font-size: 1.8em;
+  }
+  
+  .markdown-section h2 {
+    font-size: 1.5em;
+  }
+  
+  .book-header {
+    height: 50px;
+  }
+} 

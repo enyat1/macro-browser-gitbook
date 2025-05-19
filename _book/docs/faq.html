@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>faq - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Frequently Asked Questions</h1>
+<h2>General Questions</h2>
+<h3>What is Macro Browser?</h3>
+<p>Macro Browser is a privacy-focused web browser built specifically for the crypto ecosystem. It combines advanced privacy features like a built-in P2P VPN and ad blocking with native Web3 functionality for a seamless crypto experience.</p>
+<h3>Is Macro Browser free to use?</h3>
+<p>Yes, Macro Browser is free to download and use. We may introduce premium features in the future, but the core browser functionality will remain free.</p>
+<h3>Which operating systems does Macro Browser support?</h3>
+<p>Macro Browser supports Windows 10+, macOS 10.15+, and major Linux distributions like Ubuntu 18.04+ and Fedora 30+.</p>
+<h2>Privacy &amp; Security</h2>
+<h3>How is Macro Browser different from private/incognito mode in other browsers?</h3>
+<p>Unlike regular browsers where private mode is optional, Macro Browser operates in private mode by default. Additionally, it removes Google services from the underlying Chromium engine, includes a built-in P2P VPN, and provides stronger anti-tracking measures than standard private browsing modes.</p>
+<h3>Does Macro Browser collect any user data?</h3>
+<p>No, Macro Browser does not collect browsing history, usage statistics, or any personally identifiable information. The browser operates with a strict no-logging policy.</p>
+<h3>How does the P2P VPN work?</h3>
+<p>Macro Browser's P2P VPN creates an encrypted tunnel between your device and a network of peers. Your internet traffic is routed through this peer-to-peer network, making it difficult to track your online activities. Unlike traditional VPNs, there's no central server storing connection logs.</p>
+<h3>Is my browsing history saved anywhere?</h3>
+<p>No, Macro Browser does not save browsing history to your disk. All browsing data is kept in memory and cleared when you close the browser.</p>
+<h2>Web3 &amp; Wallet Features</h2>
+<h3>Does Macro Browser have a built-in crypto wallet?</h3>
+<p>Macro Browser allows you to connect existing wallets like MetaMask or use our integrated wallet solution. We focus on providing a seamless interface rather than creating yet another wallet to manage.</p>
+<h3>Which blockchains does Macro Browser support?</h3>
+<p>Macro Browser supports all major Ethereum-compatible blockchains and networks, including Ethereum, Polygon, Binance Smart Chain, Arbitrum, Optimism, and more.</p>
+<h3>Is my private key safe in Macro Browser?</h3>
+<p>Macro Browser never has access to your private keys. When using connected wallets like MetaMask, the keys remain secure in your wallet. Our integrated wallet solution uses secure local encryption for any key storage.</p>
+<h3>How does Macro Browser interact with dApps?</h3>
+<p>Macro Browser provides native support for Web3 websites and dApps, allowing secure connections between the sites and your wallet. All connection requests and transactions require explicit user approval.</p>
+<h2>Technical Questions</h2>
+<h3>Is Macro Browser based on Chromium?</h3>
+<p>Yes, Macro Browser is built on Electron, which uses Chromium as its rendering engine. However, we've removed Google-specific services and tracking components from the Chromium base.</p>
+<h3>Can I install extensions in Macro Browser?</h3>
+<p>Currently, Macro Browser does not support Chrome Web Store extensions. We've built the most essential functionality (ad blocking, tracker prevention) directly into the browser. Support for a curated set of privacy-focused extensions may be added in the future.</p>
+<h3>How does the AI-powered search work?</h3>
+<p>Macro Browser's search bar uses the OpenAI API to provide intelligent search suggestions and answer queries directly when possible. Search queries are processed securely and privately without persistent logging.</p>
+<h3>How often is Macro Browser updated?</h3>
+<p>We release regular updates to improve functionality and security. The browser will automatically check for updates and notify you when they're available.</p>
+<h2>Support</h2>
+<h3>Where can I report bugs or request features?</h3>
+<p>You can report bugs or request features through our GitHub repository at <a href="https://github.com/macro-browser/macro-browser">github.com/macro-browser/macro-browser</a> or by contacting our support team at support@macrobrowser.com.</p>
+<h3>How can I get help if I'm having problems with Macro Browser?</h3>
+<p>Visit our <a href="https://community.macrobrowser.com">community forum</a> for user discussions and support. For direct assistance, contact our support team at support@macrobrowser.com.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

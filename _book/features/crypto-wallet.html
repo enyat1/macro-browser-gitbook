@@ -1,0 +1,812 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Crypto Wallet Integration · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="p2p-vpn.html" />
+    
+    
+    <link rel="prev" href="ai-search.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="private-browsing.html">
+            
+                <a href="private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="ad-tracker-blocking.html">
+            
+                <a href="ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="ai-search.html">
+            
+                <a href="ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.5" data-path="crypto-wallet.html">
+            
+                <a href="crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="p2p-vpn.html">
+            
+                <a href="p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../technical/">
+            
+                <a href="../technical/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../technical/core-components.html">
+            
+                <a href="../technical/core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../technical/browser-engine.html">
+            
+                <a href="../technical/browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../technical/privacy-layer.html">
+            
+                <a href="../technical/privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../technical/web3-integration.html">
+            
+                <a href="../technical/web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../technical/network-architecture.html">
+            
+                <a href="../technical/network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../technical/data-flow-security.html">
+            
+                <a href="../technical/data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../technical/architecture-decisions.html">
+            
+                <a href="../technical/architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../developers/integration-guide.html">
+            
+                <a href="../developers/integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../developers/web3-api.html">
+            
+                <a href="../developers/web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../developers/privacy-api.html">
+            
+                <a href="../developers/privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../developers/performance-guide.html">
+            
+                <a href="../developers/performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../developers/extension-guide.html">
+            
+                <a href="../developers/extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../developers/contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Crypto Wallet Integration</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="crypto-wallet-integration">Crypto Wallet Integration</h1>
+<p>Macro Browser provides seamless integration with cryptocurrency wallets, enabling direct interaction with Web3 applications and blockchain networks.</p>
+<p><img src="../images/features/crypto-wallet.svg" alt="Crypto Wallet Integration"></img></p>
+<h2 id="overview">Overview</h2>
+<p>Rather than building yet another crypto wallet that users need to manage, Macro Browser focuses on providing a smooth interface with existing wallets. This approach gives users flexibility while maintaining security.</p>
+<h2 id="connection-methods">Connection Methods</h2>
+<h3 id="1-external-wallet-connection">1. External Wallet Connection</h3>
+<p>Connect popular external wallets directly to Macro Browser:</p>
+<ul>
+<li><strong>MetaMask</strong>: Industry-standard Ethereum wallet</li>
+<li><strong>Coinbase Wallet</strong>: User-friendly option with wide adoption</li>
+<li><strong>WalletConnect</strong>: Connect to mobile wallets via QR code</li>
+<li><strong>Ledger/Trezor</strong>: Hardware wallet support for enhanced security</li>
+<li><strong>Other EIP-1193 Compatible Wallets</strong>: Support for standard Ethereum wallet interfaces</li>
+</ul>
+<h3 id="2-built-in-lightweight-wallet">2. Built-in Lightweight Wallet</h3>
+<p>For users who prefer an all-in-one solution, Macro Browser includes a built-in lightweight wallet:</p>
+<ul>
+<li><strong>Basic functionality</strong>: Send, receive, and store tokens</li>
+<li><strong>Local secure storage</strong>: Private keys encrypted on your device</li>
+<li><strong>Seed phrase backup</strong>: Standard recovery options</li>
+<li><strong>Multiple network support</strong>: Connect to various Ethereum-compatible networks</li>
+</ul>
+<h2 id="web3-capabilities">Web3 Capabilities</h2>
+<h3 id="dapp-interaction">dApp Interaction</h3>
+<p>Macro Browser provides native support for decentralized applications:</p>
+<ul>
+<li><strong>Provider API</strong>: Standard Web3 provider for dApp connectivity</li>
+<li><strong>Transaction Signing</strong>: Secure signing of blockchain transactions</li>
+<li><strong>Message Signing</strong>: Support for message signing (EIP-712, personal_sign)</li>
+<li><strong>Chain Switching</strong>: Easy network switching for multi-chain dApps</li>
+</ul>
+<h3 id="network-support">Network Support</h3>
+<p>Connect to multiple blockchain networks:</p>
+<ul>
+<li><strong>Ethereum Mainnet</strong>: Primary Ethereum network</li>
+<li><strong>Layer 2 Networks</strong>: Optimism, Arbitrum, zkSync, etc.</li>
+<li><strong>Sidechains</strong>: Polygon, Gnosis Chain, etc.</li>
+<li><strong>Alternative EVM Chains</strong>: Binance Smart Chain, Avalanche, etc.</li>
+<li><strong>Testnets</strong>: Goerli, Sepolia, Mumbai, etc.</li>
+<li><strong>Custom Networks</strong>: Add custom RPC endpoints</li>
+</ul>
+<h2 id="security-features">Security Features</h2>
+<h3 id="transaction-protection">Transaction Protection</h3>
+<ul>
+<li><strong>Clear Approval UI</strong>: Transactions are presented in a clear, understandable format</li>
+<li><strong>Gas Estimation</strong>: Accurate gas fee estimates before transaction approval</li>
+<li><strong>Phishing Protection</strong>: Warnings for suspicious contracts or websites</li>
+<li><strong>Spending Limits</strong>: Optional limits on transaction amounts</li>
+<li><strong>Contract Verification</strong>: Verification of contract source code when available</li>
+</ul>
+<h3 id="privacy-enhancements">Privacy Enhancements</h3>
+<ul>
+<li><strong>Connection Isolation</strong>: dApp connections are isolated by domain</li>
+<li><strong>Privacy Mode</strong>: Control which accounts are exposed to websites</li>
+<li><strong>Request Filtering</strong>: Filter unnecessary Web3 requests</li>
+<li><strong>Chain ID Validation</strong>: Prevent cross-chain replay attacks</li>
+</ul>
+<h3 id="key-management">Key Management</h3>
+<ul>
+<li><strong>Secure Storage</strong>: Encrypted storage of sensitive wallet data</li>
+<li><strong>Key Derivation</strong>: Industry-standard key derivation methods</li>
+<li><strong>Memory Protection</strong>: Private key never exposed in plain text in memory</li>
+<li><strong>Auto-locking</strong>: Session timeout for added security</li>
+</ul>
+<h2 id="user-interface">User Interface</h2>
+<h3 id="connection-management">Connection Management</h3>
+<p>Manage your wallet connections through a dedicated interface:</p>
+<ul>
+<li><strong>Connection Status</strong>: See which wallets are currently connected</li>
+<li><strong>Quick Connect/Disconnect</strong>: Toggle wallet connections with one click</li>
+<li><strong>Chain Selector</strong>: Change networks directly from the toolbar</li>
+<li><strong>Account Switcher</strong>: Switch between multiple accounts</li>
+</ul>
+<h3 id="transaction-dashboard">Transaction Dashboard</h3>
+<p>Monitor your transaction activity:</p>
+<ul>
+<li><strong>Pending Transactions</strong>: View currently pending transactions</li>
+<li><strong>Transaction History</strong>: See recent transaction activity (in-memory only)</li>
+<li><strong>Receipt Verification</strong>: Verify transaction completion</li>
+<li><strong>Gas Analytics</strong>: Monitor gas costs over time</li>
+</ul>
+<h3 id="balance-overview">Balance Overview</h3>
+<p>View your balances without leaving the browser:</p>
+<ul>
+<li><strong>Token Balances</strong>: See all your token balances at a glance</li>
+<li><strong>Token Details</strong>: View detailed information about each token</li>
+<li><strong>Price Information</strong>: Current market values in your preferred currency</li>
+<li><strong>Portfolio View</strong>: Overall portfolio valuation</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<p>Macro Browser integrates with crypto wallets through standardized interfaces:</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of wallet provider integration</span>
+<span class="hljs-keyword">import</span> { providers } <span class="hljs-keyword">from</span> <span class="hljs-string">'ethers'</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">MetaMaskOnboarding</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'@metamask/onboarding'</span>;
+
+<span class="hljs-comment">// Create a Web3 provider</span>
+<span class="hljs-keyword">const</span> provider = <span class="hljs-keyword">new</span> providers.<span class="hljs-title class_">Web3Provider</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>);
+
+<span class="hljs-comment">// Request account access</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">connectWallet</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// Request account access if needed</span>
+    <span class="hljs-keyword">const</span> accounts = <span class="hljs-keyword">await</span> provider.<span class="hljs-title function_">send</span>(<span class="hljs-string">'eth_requestAccounts'</span>, []);
+    <span class="hljs-keyword">return</span> accounts[<span class="hljs-number">0</span>];
+  } <span class="hljs-keyword">catch</span> (error) {
+    <span class="hljs-comment">// User denied account access</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'User denied account access'</span>);
+
+    <span class="hljs-comment">// If MetaMask is not installed, start onboarding process</span>
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title class_">MetaMaskOnboarding</span>.<span class="hljs-title function_">isMetaMaskInstalled</span>()) {
+      <span class="hljs-keyword">const</span> onboarding = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MetaMaskOnboarding</span>();
+      onboarding.<span class="hljs-title function_">startOnboarding</span>();
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  }
+}
+
+<span class="hljs-comment">// Sign a transaction</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">signTransaction</span>(<span class="hljs-params">transaction</span>) {
+  <span class="hljs-keyword">const</span> signer = provider.<span class="hljs-title function_">getSigner</span>();
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> signer.<span class="hljs-title function_">sendTransaction</span>(transaction);
+}
+</code></pre>
+<h2 id="development-resources">Development Resources</h2>
+<p>For developers building Web3 applications that interact with Macro Browser:</p>
+<ul>
+<li><strong>Standard Compliance</strong>: Macro Browser follows EIP-1193 and other relevant Ethereum standards</li>
+<li><strong>Provider API</strong>: The <code>window.ethereum</code> object is available for dApp connectivity</li>
+<li><strong>Chain Management</strong>: Support for EIP-3085 (wallet_addEthereumChain) and EIP-3326 (wallet_switchEthereumChain)</li>
+<li><strong>Signature Standards</strong>: Support for various signing methods (eth_sign, personal_sign, eth_signTypedData) </li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ai-search.html" class="navigation navigation-prev " aria-label="Previous page: AI-Powered Search">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="p2p-vpn.html" class="navigation navigation-next " aria-label="Next page: P2P VPN">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Crypto Wallet Integration","level":"3.5","depth":1,"next":{"title":"P2P VPN","level":"3.6","depth":1,"path":"features/p2p-vpn.md","ref":"features/p2p-vpn.md","articles":[]},"previous":{"title":"AI-Powered Search","level":"3.4","depth":1,"path":"features/ai-search.md","ref":"features/ai-search.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"features/crypto-wallet.md","mtime":"2025-05-19T17:45:38.094Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

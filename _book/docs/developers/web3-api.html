@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web3 api - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Web3 API Reference</h1>
+<p>This document provides detailed reference information for developers integrating with Macro Browser's Web3 capabilities.</p>
+<h2>Provider Object</h2>
+<p>Macro Browser injects a standard Web3 provider object (<code>window.ethereum</code>) into all pages, following the <a href="https://eips.ethereum.org/EIPS/eip-1193">EIP-1193</a> specification with some Macro-specific enhancements.</p>
+<pre><code class="language-typescript">interface MacroProvider {
+  // Standard EIP-1193 Properties
+  isConnected(): boolean;
+  chainId: string;
+  selectedAddress: string | null;
+  
+  // Standard EIP-1193 Methods
+  request(args: RequestArguments): Promise&lt;unknown&gt;;
+  on(eventName: string, listener: (arg: any) =&gt; void): Provider;
+  removeListener(eventName: string, listener: (arg: any) =&gt; void): Provider;
+  
+  // Macro Browser Specific
+  isMacro: boolean;             // Always true, identifies Macro Browser
+  isPrivate: boolean;           // Indicates if browser is in private mode (always true)
+  securityLevel: 'standard' | 'enhanced'; // Current security settings
+}
+
+interface RequestArguments {
+  method: string;
+  params?: unknown[] | object;
+}
+</code></pre>
+<h2>Supported JSON-RPC Methods</h2>
+<h3>Basic Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eth_accounts</code></td>
+<td>None</td>
+<td><code>string[]</code></td>
+<td>Returns active accounts</td>
+</tr>
+<tr>
+<td><code>eth_requestAccounts</code></td>
+<td>None</td>
+<td><code>string[]</code></td>
+<td>Requests user permission for account access</td>
+</tr>
+<tr>
+<td><code>eth_chainId</code></td>
+<td>None</td>
+<td><code>string</code></td>
+<td>Returns current chain ID in hex</td>
+</tr>
+<tr>
+<td><code>eth_blockNumber</code></td>
+<td>None</td>
+<td><code>string</code></td>
+<td>Returns latest block number in hex</td>
+</tr>
+<tr>
+<td><code>eth_getBalance</code></td>
+<td><code>[address, blockTag]</code></td>
+<td><code>string</code></td>
+<td>Returns account balance</td>
+</tr>
+<tr>
+<td><code>eth_sendTransaction</code></td>
+<td><code>[transactionObject]</code></td>
+<td><code>string</code></td>
+<td>Sends a transaction</td>
+</tr>
+<tr>
+<td><code>eth_call</code></td>
+<td><code>[transactionObject, blockTag]</code></td>
+<td><code>string</code></td>
+<td>Executes a call without creating a transaction</td>
+</tr>
+<tr>
+<td><code>eth_estimateGas</code></td>
+<td><code>[transactionObject]</code></td>
+<td><code>string</code></td>
+<td>Estimates gas needed for transaction</td>
+</tr>
+<tr>
+<td><code>eth_gasPrice</code></td>
+<td>None</td>
+<td><code>string</code></td>
+<td>Returns current gas price</td>
+</tr>
+<tr>
+<td><code>eth_getTransactionCount</code></td>
+<td><code>[address, blockTag]</code></td>
+<td><code>string</code></td>
+<td>Returns account nonce</td>
+</tr>
+<tr>
+<td><code>eth_getCode</code></td>
+<td><code>[address, blockTag]</code></td>
+<td><code>string</code></td>
+<td>Returns contract code at address</td>
+</tr>
+<tr>
+<td><code>eth_getStorageAt</code></td>
+<td><code>[address, position, blockTag]</code></td>
+<td><code>string</code></td>
+<td>Returns value in contract storage</td>
+</tr>
+<tr>
+<td><code>eth_getTransactionByHash</code></td>
+<td><code>[txHash]</code></td>
+<td><code>Object</code></td>
+<td>Returns transaction details</td>
+</tr>
+<tr>
+<td><code>eth_getTransactionReceipt</code></td>
+<td><code>[txHash]</code></td>
+<td><code>Object</code></td>
+<td>Returns transaction receipt</td>
+</tr>
+</tbody>
+</table>
+<h3>Signing Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eth_sign</code></td>
+<td><code>[address, message]</code></td>
+<td><code>string</code></td>
+<td>Signs a message (legacy)</td>
+</tr>
+<tr>
+<td><code>personal_sign</code></td>
+<td><code>[message, address]</code></td>
+<td><code>string</code></td>
+<td>Signs a personal message</td>
+</tr>
+<tr>
+<td><code>eth_signTypedData</code></td>
+<td><code>[address, typedData]</code></td>
+<td><code>string</code></td>
+<td>Signs typed data (legacy)</td>
+</tr>
+<tr>
+<td><code>eth_signTypedData_v4</code></td>
+<td><code>[address, typedData]</code></td>
+<td><code>string</code></td>
+<td>Signs typed data (current)</td>
+</tr>
+<tr>
+<td><code>eth_signTransaction</code></td>
+<td><code>[transactionObject]</code></td>
+<td><code>Object</code></td>
+<td>Signs without sending</td>
+</tr>
+</tbody>
+</table>
+<h3>Chain Management</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wallet_switchEthereumChain</code></td>
+<td><code>[{ chainId }]</code></td>
+<td>None</td>
+<td>Switches to specified chain</td>
+</tr>
+<tr>
+<td><code>wallet_addEthereumChain</code></td>
+<td><code>[chainObject]</code></td>
+<td>None</td>
+<td>Adds new chain definition</td>
+</tr>
+<tr>
+<td><code>wallet_getPermissions</code></td>
+<td>None</td>
+<td><code>Object[]</code></td>
+<td>Returns current permissions</td>
+</tr>
+<tr>
+<td><code>wallet_requestPermissions</code></td>
+<td><code>[{ eth_accounts }]</code></td>
+<td><code>Object[]</code></td>
+<td>Requests permissions</td>
+</tr>
+</tbody>
+</table>
+<h3>Macro-Specific Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>macro_getVersion</code></td>
+<td>None</td>
+<td><code>string</code></td>
+<td>Returns Macro Browser version</td>
+</tr>
+<tr>
+<td><code>macro_getSecurityLevel</code></td>
+<td>None</td>
+<td><code>string</code></td>
+<td>Gets current security level</td>
+</tr>
+<tr>
+<td><code>macro_analyzeTransaction</code></td>
+<td><code>[transactionObject]</code></td>
+<td><code>Object</code></td>
+<td>Analyzes transaction risk</td>
+</tr>
+<tr>
+<td><code>macro_isVpnEnabled</code></td>
+<td>None</td>
+<td><code>boolean</code></td>
+<td>Checks if VPN is active</td>
+</tr>
+</tbody>
+</table>
+<h2>Provider Events</h2>
+<p>Developers can subscribe to events from the provider:</p>
+<pre><code class="language-javascript">window.ethereum.on('connect', (connectInfo) =&gt; {
+  console.log('Connected to chain:', connectInfo.chainId);
+});
+
+window.ethereum.on('disconnect', (error) =&gt; {
+  console.log('Disconnected from provider:', error);
+});
+
+window.ethereum.on('accountsChanged', (accounts) =&gt; {
+  console.log('Accounts changed:', accounts);
+});
+
+window.ethereum.on('chainChanged', (chainId) =&gt; {
+  console.log('Chain changed:', chainId);
+  // Best practice: reload page on chain change
+  window.location.reload();
+});
+
+window.ethereum.on('message', (message) =&gt; {
+  console.log('Provider message:', message);
+});
+</code></pre>
+<h2>Transaction Objects</h2>
+<p>Transaction objects have the following structure:</p>
+<pre><code class="language-typescript">interface TransactionObject {
+  // Required
+  from: string;      // Sender address
+  
+  // Optional but usually provided
+  to?: string;       // Recipient address (required except for contract creation)
+  value?: string;    // Amount in hex wei (default: '0x0')
+  data?: string;     // Transaction data in hex (default: '0x')
+  
+  // Optional (can be auto-estimated)
+  gas?: string;      // Gas limit in hex
+  gasPrice?: string; // Gas price in hex wei
+  maxFeePerGas?: string;      // EIP-1559 max fee
+  maxPriorityFeePerGas?: string; // EIP-1559 priority fee
+  
+  // Optional (advanced)
+  nonce?: string;    // Transaction nonce in hex
+  chainId?: string;  // Chain ID in hex
+}
+</code></pre>
+<h2>Chain Objects</h2>
+<p>When adding new chains, the following structure is used:</p>
+<pre><code class="language-typescript">interface ChainObject {
+  chainId: string;              // Chain ID in hex format (e.g., '0x89')
+  chainName: string;            // Human-readable name (e.g., 'Polygon Mainnet')
+  nativeCurrency: {
+    name: string;               // Currency name (e.g., 'MATIC')
+    symbol: string;             // Currency symbol (e.g., 'MATIC')
+    decimals: number;           // Decimal places (usually 18)
+  };
+  rpcUrls: string[];            // List of RPC endpoints
+  blockExplorerUrls?: string[]; // List of block explorers
+  iconUrls?: string[];          // List of chain icons
+}
+</code></pre>
+<h2>Security Considerations</h2>
+<h3>Transaction Analysis</h3>
+<p>Macro Browser performs advanced transaction analysis for user safety:</p>
+<pre><code class="language-javascript">// Example of using the transaction analysis feature
+async function analyzeBeforeSending(transactionObject) {
+  try {
+    // Get security analysis
+    const analysis = await window.ethereum.request({
+      method: 'macro_analyzeTransaction',
+      params: [transactionObject]
+    });
+    
+    // Check risk level
+    if (analysis.riskLevel === 'high') {
+      // Show warning to user
+      const proceed = confirm(
+        `Warning: This transaction has high risk factors:\n` +
+        analysis.warnings.join('\n') + '\n\n' +
+        'Do you want to proceed anyway?'
+      );
+      
+      if (!proceed) {
+        throw new Error('Transaction cancelled due to security concerns');
+      }
+    }
+    
+    // Proceed with transaction
+    return await window.ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [transactionObject]
+    });
+  } catch (error) {
+    console.error('Transaction error:', error);
+    throw error;
+  }
+}
+</code></pre>
+<h3>Permissions</h3>
+<p>Always check for permissions before attempting operations:</p>
+<pre><code class="language-javascript">async function checkPermissions() {
+  try {
+    const permissions = await window.ethereum.request({
+      method: 'wallet_getPermissions'
+    });
+    
+    // Check if we have eth_accounts permission
+    const hasAccountsPermission = permissions.some(
+      permission =&gt; permission.parentCapability === 'eth_accounts'
+    );
+    
+    if (!hasAccountsPermission) {
+      console.log('No account permissions. Request access first.');
+      return false;
+    }
+    
+    return true;
+  } catch (error) {
+    console.error('Error checking permissions:', error);
+    return false;
+  }
+}
+</code></pre>
+<h2>Error Handling</h2>
+<p>Macro Browser provides detailed error codes. Handle common errors properly:</p>
+<pre><code class="language-javascript">async function handleWeb3Operation(operation) {
+  try {
+    return await operation();
+  } catch (error) {
+    switch (error.code) {
+      case 4001:
+        console.log('User rejected the request');
+        break;
+      case 4100:
+        console.log('Unauthorized - request not approved');
+        break;
+      case 4200:
+        console.log('Unsupported method');
+        break;
+      case 4900:
+        console.log('Disconnected from chain');
+        break;
+      case 4901:
+        console.log('Chain not available');
+        break;
+      case 4902:
+        console.log('Chain not added - suggest adding it');
+        break;
+      default:
+        console.error('Unknown error:', error);
+    }
+    throw error;
+  }
+}
+</code></pre>
+<h2>Usage Examples</h2>
+<h3>Connecting to a dApp</h3>
+<pre><code class="language-javascript">async function connectDApp() {
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      // Request account access
+      const accounts = await window.ethereum.request({
+        method: 'eth_requestAccounts'
+      });
+      
+      // Get chain ID
+      const chainId = await window.ethereum.request({
+        method: 'eth_chainId'
+      });
+      
+      // Initialize your dApp with connected account and chain
+      initializeDApp(accounts[0], chainId);
+      
+      // Set up event listeners
+      window.ethereum.on('accountsChanged', handleAccountsChanged);
+      window.ethereum.on('chainChanged', handleChainChanged);
+      
+      return true;
+    } catch (error) {
+      console.error('Error connecting to dApp:', error);
+      return false;
+    }
+  } else {
+    console.error('No Ethereum provider found');
+    return false;
+  }
+}
+</code></pre>
+<h3>Contract Interaction</h3>
+<pre><code class="language-javascript">async function callContractMethod(contractAddress, methodABI, params) {
+  // Encode function call
+  const methodSignature = web3.eth.abi.encodeFunctionSignature(methodABI);
+  const encodedParams = web3.eth.abi.encodeParameters(
+    methodABI.inputs.map(input =&gt; input.type),
+    params
+  );
+  
+  const data = methodSignature + encodedParams.slice(2);
+  
+  // Call the contract
+  const result = await window.ethereum.request({
+    method: 'eth_call',
+    params: [{
+      to: contractAddress,
+      data: data
+    }, 'latest']
+  });
+  
+  // Decode result
+  return web3.eth.abi.decodeParameter(
+    methodABI.outputs[0].type,
+    result
+  );
+}
+</code></pre>
+<h3>Transaction with Confirmation</h3>
+<pre><code class="language-javascript">async function sendTransactionWithConfirmation(tx) {
+  try {
+    // Send transaction
+    const txHash = await window.ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [tx]
+    });
+    
+    console.log('Transaction sent:', txHash);
+    
+    // Poll for receipt
+    let receipt = null;
+    while (receipt === null) {
+      try {
+        receipt = await window.ethereum.request({
+          method: 'eth_getTransactionReceipt',
+          params: [txHash]
+        });
+      } catch (e) {
+        console.error('Error polling for receipt:', e);
+      }
+      
+      if (receipt === null) {
+        // Wait 2 seconds before polling again
+        await new Promise(resolve =&gt; setTimeout(resolve, 2000));
+      }
+    }
+    
+    console.log('Transaction confirmed:', receipt);
+    return receipt;
+  } catch (error) {
+    console.error('Transaction failed:', error);
+    throw error;
+  }
+}
+</code></pre>
+<h2>Compatibility Notes</h2>
+<h3>Browser Differences</h3>
+<p>Macro Browser implements the same provider API as MetaMask with some differences:</p>
+<ul>
+<li>All accounts are treated as &quot;read-only&quot; by default for security</li>
+<li>Contains extra security checks for potentially risky operations</li>
+<li>Provides additional methods for transaction analysis</li>
+<li>No support for legacy methods that have security implications</li>
+</ul>
+<h3>Feature Detection</h3>
+<p>Always use feature detection instead of browser detection:</p>
+<pre><code class="language-javascript">// Check for specific method support
+async function hasAnalysisSupport() {
+  if (typeof window.ethereum === 'undefined') return false;
+  
+  try {
+    // Try getting provider metadata
+    const metadata = await window.ethereum.request({
+      method: 'web3_clientVersion'
+    });
+    
+    // Check for explicit macro support
+    if (window.ethereum.isMacro === true) return true;
+    
+    // Check if client version mentions macro
+    if (typeof metadata === 'string' &amp;&amp; 
+        metadata.toLowerCase().includes('macro')) {
+      return true;
+    }
+    
+    // Try calling macro-specific method
+    try {
+      await window.ethereum.request({
+        method: 'macro_getVersion'
+      });
+      return true;
+    } catch (e) {
+      // Method doesn't exist
+      return false;
+    }
+  } catch (error) {
+    return false;
+  }
+}
+</code></pre>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

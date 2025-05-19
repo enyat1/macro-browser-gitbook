@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>milestone 1 - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Milestone 1: Foundation - Base Browser &amp; Core Privacy</h1>
+<p>This milestone covers the establishment of the core browser functionality and privacy features that form the foundation of Macro Browser.</p>
+<h2>Objective</h2>
+<p>Create a secure, private browser core with essential privacy protections built in.</p>
+<h2>Technical Implementation</h2>
+<h3>1. Set up Base Browser with Electron</h3>
+<pre><code class="language-typescript">// Example of main process initialization in main.ts
+import { app, BrowserWindow } from 'electron';
+import * as path from 'path';
+
+let mainWindow: BrowserWindow | null = null;
+
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 800,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: false,
+      contextIsolation: true,
+      sandbox: true
+    },
+    backgroundColor: '#1a1a1a',
+    titleBarStyle: 'hiddenInset',
+    autoHideMenuBar: true
+  });
+
+  // Load application or initial page
+  mainWindow.loadURL('about:blank');
+}
+
+app.whenReady().then(() =&gt; {
+  createWindow();
+});
+</code></pre>
+<p>Key components:</p>
+<ul>
+<li><strong>Electron Framework</strong>: Provides the Chromium engine and Node.js runtime</li>
+<li><strong>Main Process</strong>: Controls the application lifecycle and browser windows</li>
+<li><strong>Renderer Process</strong>: Handles the display of web content in isolation</li>
+<li><strong>Security Configurations</strong>: Context isolation, sandboxing, and other security measures</li>
+</ul>
+<h3>2. De-Google Chromium Configuration</h3>
+<p>Chromium components with Google services are disabled through Electron's session configuration:</p>
+<pre><code class="language-typescript">// Example of configuring session in main.ts
+import { session } from 'electron';
+
+function configureSession() {
+  // Disable Google services
+  session.defaultSession.webRequest.onBeforeRequest((details, callback) =&gt; {
+    const googleServiceURLs = [
+      'https://clients*.google.com/*',
+      'https://*.googleapis.com/*',
+      // Additional Google service URLs
+    ];
+    
+    const shouldBlock = googleServiceURLs.some(pattern =&gt; {
+      return new RegExp(pattern.replace(/\*/g, '.*')).test(details.url);
+    });
+    
+    callback({ cancel: shouldBlock });
+  });
+  
+  // Set custom user agent to avoid fingerprinting
+  session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) =&gt; {
+    details.requestHeaders['User-Agent'] = 'Mozilla/5.0 Macro Browser/1.0';
+    callback({ requestHeaders: details.requestHeaders });
+  });
+}
+</code></pre>
+<p>Key aspects:</p>
+<ul>
+<li><strong>Service Removal</strong>: Block connections to Google analytics, metrics, and tracking services</li>
+<li><strong>Telemetry Disabling</strong>: Prevent sending usage statistics</li>
+<li><strong>User-Agent Customization</strong>: Reduce fingerprinting potential</li>
+<li><strong>Safe Browsing Alternative</strong>: Implement a privacy-respecting alternative to Google Safe Browsing</li>
+</ul>
+<h3>3. Implement Default Private Mode</h3>
+<pre><code class="language-typescript">// Example of private browsing configuration
+function configurePrivateBrowsing() {
+  // Configure session to never persist data
+  const privateConfig = {
+    cache: false,
+    cookies: false,
+    storage: false,
+    databases: false,
+    serviceWorkers: false,
+    permissions: false
+  };
+  
+  session.defaultSession.setStorageAccessSync(privateConfig);
+  
+  // Clear data when app closes
+  app.on('before-quit', () =&gt; {
+    session.defaultSession.clearStorageData();
+    session.defaultSession.clearCache();
+  });
+  
+  // Initialize browser state clean each time
+  app.on('ready', () =&gt; {
+    session.defaultSession.clearStorageData();
+  });
+}
+</code></pre>
+<p>Key features:</p>
+<ul>
+<li><strong>No History Retention</strong>: Browser does not save browsing history</li>
+<li><strong>Cookie Management</strong>: Temporary cookies only, cleared on exit</li>
+<li><strong>Cache Control</strong>: In-memory cache that's cleared between sessions</li>
+<li><strong>Storage Isolation</strong>: Private storage that doesn't persist</li>
+<li><strong>State Management</strong>: Clean browser state on startup</li>
+</ul>
+<h3>4. Integrate Ad/Tracker Blocking</h3>
+<pre><code class="language-typescript">// Example of ad blocker integration
+import { ElectronBlocker } from '@cliqz/adblocker-electron';
+import fetch from 'cross-fetch';
+
+async function initializeAdBlocker() {
+  // Load filter lists (using Easylist, uBlock Origin lists, etc.)
+  const blocker = await ElectronBlocker.fromLists(
+    fetch,
+    [
+      'https://easylist.to/easylist/easylist.txt',
+      'https://easylist.to/easylist/easyprivacy.txt',
+      'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt'
+    ],
+    {
+      enableCompression: true,
+    }
+  );
+  
+  // Apply blocking to the default session
+  blocker.enableBlockingInSession(session.defaultSession);
+  
+  // Update filter lists periodically
+  setInterval(() =&gt; {
+    blocker.update();
+  }, 24 * 60 * 60 * 1000); // Update every 24 hours
+}
+</code></pre>
+<p>Key components:</p>
+<ul>
+<li><strong>Filtering Engine</strong>: Based on uBlock Origin's core technology</li>
+<li><strong>Filter Lists</strong>: Multiple curated lists for comprehensive blocking</li>
+<li><strong>Network-Level Blocking</strong>: Prevents requests to ad/tracking domains</li>
+<li><strong>Element Hiding</strong>: Removes ad containers from rendered pages</li>
+<li><strong>Performance Optimization</strong>: Efficient matching algorithms</li>
+<li><strong>Statistics Collection</strong>: For user-facing privacy dashboard</li>
+</ul>
+<h3>5. Enforce Secure Connections</h3>
+<pre><code class="language-typescript">// Example of HTTPS upgrade implementation
+function enforceSecureConnections() {
+  // Upgrade HTTP requests to HTTPS where possible
+  session.defaultSession.webRequest.onBeforeRequest((details, callback) =&gt; {
+    if (details.url.startsWith('http:') &amp;&amp; !details.url.startsWith('http://localhost')) {
+      const secureUrl = details.url.replace('http:', 'https:');
+      callback({ redirectURL: secureUrl });
+    } else {
+      callback({});
+    }
+  });
+  
+  // Display warning for insecure sites
+  mainWindow.webContents.on('did-start-navigation', (event, url, isInPlace) =&gt; {
+    const isSecure = url.startsWith('https:') || url.startsWith('about:') || url.startsWith('chrome:');
+    if (!isSecure) {
+      // Show security warning in UI
+      mainWindow.webContents.executeJavaScript(`
+        document.dispatchEvent(new CustomEvent('insecure-connection', { 
+          detail: { url: '${url}' } 
+        }));
+      `);
+    }
+  });
+}
+</code></pre>
+<p>Key features:</p>
+<ul>
+<li><strong>HTTPS Upgrading</strong>: Automatic switching from HTTP to HTTPS</li>
+<li><strong>Certificate Verification</strong>: Enhanced SSL/TLS certificate validation</li>
+<li><strong>Insecure Site Warnings</strong>: User alerts for non-HTTPS connections</li>
+<li><strong>Mixed Content Blocking</strong>: Prevent insecure resources on secure pages</li>
+<li><strong>HSTS Support</strong>: Enforce strict transport security</li>
+</ul>
+<h2>Test Plan</h2>
+<ul>
+<li><strong>Privacy Testing</strong>: Validate that no browsing data is persisted between sessions</li>
+<li><strong>Ad Blocking Validation</strong>: Test against known ad-serving domains</li>
+<li><strong>Network Analysis</strong>: Verify no connections to Google services</li>
+<li><strong>Security Testing</strong>: Ensure secure connection enforcement works correctly</li>
+<li><strong>Performance Benchmarking</strong>: Measure impact of privacy features on browsing speed</li>
+</ul>
+<h2>Dependencies</h2>
+<ul>
+<li>Electron: ^25.0.0</li>
+<li>@cliqz/adblocker-electron: ^1.26.0</li>
+<li>cross-fetch: ^3.1.5</li>
+</ul>
+<h2>Next Steps</h2>
+<p>After establishing this foundation, the project will proceed to <a href="milestone-2.md">Milestone 2: Interface</a>, which focuses on developing the user interface and implementing the AI-powered search functionality.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

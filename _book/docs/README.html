@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Macro Browser Documentation</h1>
+<p>Welcome to the official documentation for Macro Browser - the next evolution of private browsing.</p>
+<h2>What is Macro Browser?</h2>
+<p>Macro Browser is a privacy-focused web browser designed for the crypto ecosystem. It combines secure browsing features with integrated Web3 capabilities and a built-in P2P VPN.</p>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Private by Default</strong>: Browser operates in private mode with no history tracking</li>
+<li><strong>De-Googled Chromium</strong>: Built on Electron with Google services removed</li>
+<li><strong>Built-in Ad/Tracker Blocking</strong>: Enhanced privacy protection</li>
+<li><strong>Integrated Crypto Wallet</strong>: Seamless Web3 experience</li>
+<li><strong>P2P VPN</strong>: Secure, decentralized network connection</li>
+<li><strong>AI-Powered Search</strong>: Intelligent search capabilities</li>
+</ul>
+<h2>Contents</h2>
+<ul>
+<li><a href="getting-started/README.md">Getting Started</a></li>
+<li><a href="features/README.md">Features Overview</a></li>
+<li><a href="technical/README.md">Technical Architecture</a></li>
+<li><a href="roadmap/README.md">Development Roadmap</a></li>
+<li><a href="faq.md">FAQ</a></li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

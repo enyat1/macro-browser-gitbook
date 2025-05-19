@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>network architecture - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Network Architecture</h1>
+<p>Macro Browser's network architecture is built with privacy and security as core principles. The centerpiece of this architecture is a built-in peer-to-peer VPN that provides enhanced privacy without relying on centralized servers.</p>
+<h2>Architecture Overview</h2>
+<p><img src="/images/diagrams/network-architecture-diagram-1.svg" alt="Network Architecture Overview"></p>
+<h2>P2P VPN Architecture</h2>
+<p>The P2P VPN component is a core feature of Macro Browser that provides privacy protection by routing traffic through a decentralized network of peers.</p>
+<h3>Key Components</h3>
+<h4>1. VPN Controller</h4>
+<p>Central management component for the VPN functionality:</p>
+<ul>
+<li><strong>User Interface Integration</strong>: Provides controls for enabling/disabling the VPN</li>
+<li><strong>Connection State Management</strong>: Tracks and manages the VPN connection state</li>
+<li><strong>Configuration Handling</strong>: Manages user-defined VPN settings</li>
+<li><strong>Diagnostic Tools</strong>: Provides troubleshooting and connection quality information</li>
+<li><strong>Split Tunneling</strong>: Controls which traffic goes through the VPN</li>
+</ul>
+<h4>2. Peer Discovery</h4>
+<p>Responsible for finding and connecting to peers in the network:</p>
+<ul>
+<li><strong>Bootstrap Process</strong>: Initial connection to the peer network</li>
+<li><strong>DHT (Distributed Hash Table)</strong>: Decentralized peer discovery mechanism</li>
+<li><strong>NAT Traversal</strong>: Techniques for connecting peers behind firewalls/NATs</li>
+<li><strong>Peer Verification</strong>: Validates peer authenticity and integrity</li>
+<li><strong>Peer Metadata</strong>: Collects and shares non-identifying peer information</li>
+</ul>
+<h4>3. Encryption Layer</h4>
+<p>Ensures all traffic is securely encrypted:</p>
+<ul>
+<li><strong>WireGuard Protocol</strong>: Modern, high-performance VPN protocol</li>
+<li><strong>Key Management</strong>: Secure generation and storage of encryption keys</li>
+<li><strong>Perfect Forward Secrecy</strong>: Ensures past communications remain secure</li>
+<li><strong>Crypto Primitives</strong>: ChaCha20, Poly1305, Curve25519, BLAKE2s</li>
+<li><strong>Handshake Mechanism</strong>: Secure connection establishment</li>
+</ul>
+<h4>4. Routing Engine</h4>
+<p>Determines the optimal path for network traffic:</p>
+<ul>
+<li><strong>Multi-hop Routing</strong>: Routes traffic through multiple peers for enhanced privacy</li>
+<li><strong>Path Selection Algorithm</strong>: Balances privacy, latency, and reliability</li>
+<li><strong>Circuit Building</strong>: Establishes and maintains relay circuits</li>
+<li><strong>Congestion Control</strong>: Manages traffic to avoid bottlenecks</li>
+<li><strong>Dynamic Rerouting</strong>: Adapts to changing network conditions</li>
+</ul>
+<h4>5. Peer Management</h4>
+<p>Handles the relationship with other peers in the network:</p>
+<ul>
+<li><strong>Peer Ranking</strong>: Rates peers based on reliability and performance</li>
+<li><strong>Connection Pooling</strong>: Maintains a pool of available peer connections</li>
+<li><strong>Resource Allocation</strong>: Manages bandwidth and processing resources</li>
+<li><strong>Blacklisting</strong>: Excludes unreliable or malicious peers</li>
+<li><strong>Peer Rotation</strong>: Periodically changes peers to enhance privacy</li>
+</ul>
+<h4>6. Crypto Payment System</h4>
+<p>Facilitates the incentive mechanism for peer participation:</p>
+<ul>
+<li><strong>Micropayments</strong>: Small payments for bandwidth usage</li>
+<li><strong>Payment Channels</strong>: Efficient off-chain payment processing</li>
+<li><strong>Earning Model</strong>: Mechanism for peers to earn by sharing bandwidth</li>
+<li><strong>Transparent Pricing</strong>: Clear cost structure for network usage</li>
+<li><strong>Optional Participation</strong>: Users can choose whether to participate</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>Network Stack</h3>
+<p><img src="/images/diagrams/network-architecture-diagram-2.svg" alt="Network Stack"></p>
+<h3>WireGuard Integration</h3>
+<p>The VPN is built on the WireGuard protocol with custom extensions for P2P operation:</p>
+<pre><code class="language-typescript">// Example of WireGuard configuration
+interface WireGuardConfig {
+  privateKey: string;          // Local private key
+  publicKey: string;           // Local public key
+  peers: Array&lt;{
+    publicKey: string;         // Peer public key
+    allowedIPs: string[];      // IPs routed through this peer
+    endpoint?: string;         // Optional fixed endpoint
+    keepalive?: number;        // Keepalive interval in seconds
+  }&gt;;
+  listenPort?: number;         // Local listen port
+  interfaceAddress: string[];  // Interface addresses (IPv4/IPv6)
+  dns?: string[];              // DNS servers
+}
+
+// Example of generating a WireGuard configuration
+function generateWireGuardConfig(peers: PeerInfo[]): WireGuardConfig {
+  // Generate key pair if not already available
+  const keyPair = getOrGenerateKeyPair();
+  
+  // Map peers to WireGuard peer format
+  const wireGuardPeers = peers.map(peer =&gt; ({
+    publicKey: peer.publicKey,
+    allowedIPs: peer.allowedIPs,
+    endpoint: peer.hasStaticEndpoint ? peer.endpoint : undefined,
+    keepalive: peer.requiresKeepalive ? 25 : undefined
+  }));
+  
+  return {
+    privateKey: keyPair.privateKey,
+    publicKey: keyPair.publicKey,
+    peers: wireGuardPeers,
+    interfaceAddress: [&quot;10.10.0.2/16&quot;, &quot;fd86:ea04:1115::2/64&quot;],
+    dns: [&quot;10.10.0.1&quot;]
+  };
+}
+</code></pre>
+<h3>Peer Discovery and Management</h3>
+<pre><code class="language-typescript">// Example of peer discovery implementation
+class PeerDiscoveryManager {
+  private bootstrapNodes: string[];
+  private dht: DistributedHashTable;
+  private peerPool: PeerPool;
+  private networkConstraints: NetworkConstraints;
+  
+  constructor(bootstrapNodes: string[], networkConstraints: NetworkConstraints) {
+    this.bootstrapNodes = bootstrapNodes;
+    this.networkConstraints = networkConstraints;
+    this.dht = new DistributedHashTable();
+    this.peerPool = new PeerPool();
+  }
+  
+  async initialize(): Promise&lt;void&gt; {
+    // Connect to bootstrap nodes
+    for (const node of this.bootstrapNodes) {
+      try {
+        await this.dht.connect(node);
+      } catch (error) {
+        console.error(`Failed to connect to bootstrap node ${node}:`, error);
+      }
+    }
+    
+    // Start peer discovery
+    await this.discoverPeers();
+  }
+  
+  async discoverPeers(): Promise&lt;PeerInfo[]&gt; {
+    // Find peers that match our requirements
+    const peerCandidates = await this.dht.findPeers({
+      minBandwidth: this.networkConstraints.minBandwidth,
+      maxLatency: this.networkConstraints.maxLatency,
+      regions: this.networkConstraints.preferredRegions,
+      minReputationScore: this.networkConstraints.minReputationScore
+    });
+    
+    // Verify and test peers
+    const verifiedPeers = await Promise.all(
+      peerCandidates.map(async peer =&gt; {
+        const isVerified = await this.verifyPeer(peer);
+        if (!isVerified) return null;
+        
+        const connectionQuality = await this.testPeerConnection(peer);
+        if (connectionQuality &lt; this.networkConstraints.minConnectionQuality) return null;
+        
+        return {
+          ...peer,
+          connectionQuality
+        };
+      })
+    );
+    
+    // Filter out failed verifications and add to peer pool
+    const goodPeers = verifiedPeers.filter(Boolean) as PeerInfo[];
+    this.peerPool.addPeers(goodPeers);
+    
+    return goodPeers;
+  }
+}
+</code></pre>
+<h2>Data Flow</h2>
+<h3>Connection Establishment</h3>
+<p><img src="/images/diagrams/technical_network-architecture_diagram_1.svg" alt="Diagram 1"></p>
+<h3>Traffic Routing</h3>
+<p><img src="/images/diagrams/technical_network-architecture_diagram_2.svg" alt="Diagram 2"></p>
+<h2>Security Considerations</h2>
+<p>The P2P VPN architecture addresses several security concerns:</p>
+<ul>
+<li><strong>Traffic Analysis Resistance</strong>: Multi-hop routing prevents any single node from seeing both source and destination</li>
+<li><strong>No Central Point of Failure</strong>: Decentralized architecture eliminates single points of failure</li>
+<li><strong>Encryption</strong>: All traffic is encrypted end-to-end</li>
+<li><strong>No Logging</strong>: No central servers to store connection logs</li>
+<li><strong>IP Masking</strong>: User's real IP address is hidden from destination websites</li>
+<li><strong>Forward Secrecy</strong>: Session keys ensure past sessions remain secure if keys are compromised</li>
+<li><strong>Malicious Peer Protection</strong>: Peer verification and reputation system mitigates malicious peers</li>
+</ul>
+<h2>Performance Optimization</h2>
+<p>Several techniques ensure the P2P VPN maintains good performance:</p>
+<ul>
+<li><strong>Intelligent Peer Selection</strong>: Choose optimal peers based on latency, bandwidth, and reliability</li>
+<li><strong>Connection Reuse</strong>: Maintain connections to reduce handshake overhead</li>
+<li><strong>Adaptive Quality of Service</strong>: Prioritize interactive traffic over background transfers</li>
+<li><strong>Parallel Connections</strong>: Use multiple connections for improved throughput</li>
+<li><strong>Local Caching</strong>: Cache DNS and other repetitive requests locally</li>
+<li><strong>Optimized Protocols</strong>: Efficiency-focused protocol design</li>
+<li><strong>Bandwidth Management</strong>: Control bandwidth usage to avoid congestion</li>
+</ul>
+<h2>User Configuration Options</h2>
+<p>Users can customize the VPN behavior:</p>
+<ul>
+<li><strong>Connection Mode</strong>: Balance between speed and privacy (more relays = more privacy but higher latency)</li>
+<li><strong>Trusted Networks</strong>: Define networks where VPN activates/deactivates automatically</li>
+<li><strong>Split Tunneling</strong>: Choose which apps or sites bypass the VPN</li>
+<li><strong>Exit Region Preferences</strong>: Select preferred regions for exit nodes</li>
+<li><strong>Bandwidth Limits</strong>: Control bandwidth contribution when acting as a relay</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

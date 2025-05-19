@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crypto wallet - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Crypto Wallet Integration</h1>
+<p>Macro Browser provides seamless integration with cryptocurrency wallets, enabling direct interaction with Web3 applications and blockchain networks.</p>
+<p><img src="/images/features/crypto-wallet.svg" alt="Crypto Wallet Integration"></p>
+<h2>Overview</h2>
+<p>Rather than building yet another crypto wallet that users need to manage, Macro Browser focuses on providing a smooth interface with existing wallets. This approach gives users flexibility while maintaining security.</p>
+<h2>Connection Methods</h2>
+<h3>1. External Wallet Connection</h3>
+<p>Connect popular external wallets directly to Macro Browser:</p>
+<ul>
+<li><strong>MetaMask</strong>: Industry-standard Ethereum wallet</li>
+<li><strong>Coinbase Wallet</strong>: User-friendly option with wide adoption</li>
+<li><strong>WalletConnect</strong>: Connect to mobile wallets via QR code</li>
+<li><strong>Ledger/Trezor</strong>: Hardware wallet support for enhanced security</li>
+<li><strong>Other EIP-1193 Compatible Wallets</strong>: Support for standard Ethereum wallet interfaces</li>
+</ul>
+<h3>2. Built-in Lightweight Wallet</h3>
+<p>For users who prefer an all-in-one solution, Macro Browser includes a built-in lightweight wallet:</p>
+<ul>
+<li><strong>Basic functionality</strong>: Send, receive, and store tokens</li>
+<li><strong>Local secure storage</strong>: Private keys encrypted on your device</li>
+<li><strong>Seed phrase backup</strong>: Standard recovery options</li>
+<li><strong>Multiple network support</strong>: Connect to various Ethereum-compatible networks</li>
+</ul>
+<h2>Web3 Capabilities</h2>
+<h3>dApp Interaction</h3>
+<p>Macro Browser provides native support for decentralized applications:</p>
+<ul>
+<li><strong>Provider API</strong>: Standard Web3 provider for dApp connectivity</li>
+<li><strong>Transaction Signing</strong>: Secure signing of blockchain transactions</li>
+<li><strong>Message Signing</strong>: Support for message signing (EIP-712, personal_sign)</li>
+<li><strong>Chain Switching</strong>: Easy network switching for multi-chain dApps</li>
+</ul>
+<h3>Network Support</h3>
+<p>Connect to multiple blockchain networks:</p>
+<ul>
+<li><strong>Ethereum Mainnet</strong>: Primary Ethereum network</li>
+<li><strong>Layer 2 Networks</strong>: Optimism, Arbitrum, zkSync, etc.</li>
+<li><strong>Sidechains</strong>: Polygon, Gnosis Chain, etc.</li>
+<li><strong>Alternative EVM Chains</strong>: Binance Smart Chain, Avalanche, etc.</li>
+<li><strong>Testnets</strong>: Goerli, Sepolia, Mumbai, etc.</li>
+<li><strong>Custom Networks</strong>: Add custom RPC endpoints</li>
+</ul>
+<h2>Security Features</h2>
+<h3>Transaction Protection</h3>
+<ul>
+<li><strong>Clear Approval UI</strong>: Transactions are presented in a clear, understandable format</li>
+<li><strong>Gas Estimation</strong>: Accurate gas fee estimates before transaction approval</li>
+<li><strong>Phishing Protection</strong>: Warnings for suspicious contracts or websites</li>
+<li><strong>Spending Limits</strong>: Optional limits on transaction amounts</li>
+<li><strong>Contract Verification</strong>: Verification of contract source code when available</li>
+</ul>
+<h3>Privacy Enhancements</h3>
+<ul>
+<li><strong>Connection Isolation</strong>: dApp connections are isolated by domain</li>
+<li><strong>Privacy Mode</strong>: Control which accounts are exposed to websites</li>
+<li><strong>Request Filtering</strong>: Filter unnecessary Web3 requests</li>
+<li><strong>Chain ID Validation</strong>: Prevent cross-chain replay attacks</li>
+</ul>
+<h3>Key Management</h3>
+<ul>
+<li><strong>Secure Storage</strong>: Encrypted storage of sensitive wallet data</li>
+<li><strong>Key Derivation</strong>: Industry-standard key derivation methods</li>
+<li><strong>Memory Protection</strong>: Private key never exposed in plain text in memory</li>
+<li><strong>Auto-locking</strong>: Session timeout for added security</li>
+</ul>
+<h2>User Interface</h2>
+<h3>Connection Management</h3>
+<p>Manage your wallet connections through a dedicated interface:</p>
+<ul>
+<li><strong>Connection Status</strong>: See which wallets are currently connected</li>
+<li><strong>Quick Connect/Disconnect</strong>: Toggle wallet connections with one click</li>
+<li><strong>Chain Selector</strong>: Change networks directly from the toolbar</li>
+<li><strong>Account Switcher</strong>: Switch between multiple accounts</li>
+</ul>
+<h3>Transaction Dashboard</h3>
+<p>Monitor your transaction activity:</p>
+<ul>
+<li><strong>Pending Transactions</strong>: View currently pending transactions</li>
+<li><strong>Transaction History</strong>: See recent transaction activity (in-memory only)</li>
+<li><strong>Receipt Verification</strong>: Verify transaction completion</li>
+<li><strong>Gas Analytics</strong>: Monitor gas costs over time</li>
+</ul>
+<h3>Balance Overview</h3>
+<p>View your balances without leaving the browser:</p>
+<ul>
+<li><strong>Token Balances</strong>: See all your token balances at a glance</li>
+<li><strong>Token Details</strong>: View detailed information about each token</li>
+<li><strong>Price Information</strong>: Current market values in your preferred currency</li>
+<li><strong>Portfolio View</strong>: Overall portfolio valuation</li>
+</ul>
+<h2>Technical Implementation</h2>
+<p>Macro Browser integrates with crypto wallets through standardized interfaces:</p>
+<pre><code class="language-typescript">// Example of wallet provider integration
+import { providers } from 'ethers';
+import MetaMaskOnboarding from '@metamask/onboarding';
+
+// Create a Web3 provider
+const provider = new providers.Web3Provider(window.ethereum);
+
+// Request account access
+async function connectWallet() {
+  try {
+    // Request account access if needed
+    const accounts = await provider.send('eth_requestAccounts', []);
+    return accounts[0];
+  } catch (error) {
+    // User denied account access
+    console.error('User denied account access');
+    
+    // If MetaMask is not installed, start onboarding process
+    if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+      const onboarding = new MetaMaskOnboarding();
+      onboarding.startOnboarding();
+    }
+    return null;
+  }
+}
+
+// Sign a transaction
+async function signTransaction(transaction) {
+  const signer = provider.getSigner();
+  return await signer.sendTransaction(transaction);
+}
+</code></pre>
+<h2>Development Resources</h2>
+<p>For developers building Web3 applications that interact with Macro Browser:</p>
+<ul>
+<li><strong>Standard Compliance</strong>: Macro Browser follows EIP-1193 and other relevant Ethereum standards</li>
+<li><strong>Provider API</strong>: The <code>window.ethereum</code> object is available for dApp connectivity</li>
+<li><strong>Chain Management</strong>: Support for EIP-3085 (wallet_addEthereumChain) and EIP-3326 (wallet_switchEthereumChain)</li>
+<li><strong>Signature Standards</strong>: Support for various signing methods (eth_sign, personal_sign, eth_signTypedData)</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

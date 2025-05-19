@@ -1,0 +1,49 @@
+/* Emergency Fix for SVG Image Display */
+
+/* General image styling for better display */
+.markdown-section img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific styling for SVG images */
+.markdown-section img[src$=".svg"] {
+  margin: 1.5rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+  padding: 10px;
+}
+
+/* Ensure feature images are properly displayed */
+.markdown-section img[src*="features-overview"],
+.markdown-section img[src*="diagrams"] {
+  display: block !important;
+  max-width: 90% !important;
+  margin: 2rem auto !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Fix for specific feature images */
+img[alt="Features Overview"],
+img[alt="Network Architecture Overview"],
+img[alt="Network Stack"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: 90% !important;
+  margin: 2rem auto !important;
+}
+
+/* Special handling for README images */
+body.color-theme-2 .markdown-section img,
+.markdown-section img {
+  filter: none !important;
+}
+
+/* Fix for images in dark theme */
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal img {
+  filter: none !important;
+} 

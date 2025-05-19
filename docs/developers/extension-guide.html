@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>extension guide - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Extension Development Guide</h1>
+<p>This guide covers how to develop extensions for Macro Browser, focusing on privacy-respecting design and Macro-specific features.</p>
+<h2>Extension Architecture Overview</h2>
+<p>Macro Browser supports two types of extensions:</p>
+<ol>
+<li><strong>Standard Extensions</strong> - Compatible with Chromium extensions, with some privacy-focused limitations</li>
+<li><strong>Privacy Extensions</strong> - Enhanced extension type with access to Macro-specific privacy APIs</li>
+</ol>
+<p><img src="/images/diagrams/developers_extension-guide_diagram_1.svg" alt="Diagram 1"></p>
+<h2>Getting Started</h2>
+<h3>Setting Up Your Development Environment</h3>
+<pre><code class="language-bash"># Clone the extension starter template
+git clone https://github.com/macro-browser/extension-starter
+
+# Install dependencies
+cd extension-starter
+npm install
+
+# Start development server
+npm run dev
+</code></pre>
+<h3>Directory Structure</h3>
+<p>A typical Macro Browser extension has the following structure:</p>
+<pre><code>extension/
+├── manifest.json         # Extension manifest
+├── background/           # Background scripts
+│   └── index.js          # Main background script
+├── content/              # Content scripts
+│   └── content.js        # Main content script
+├── popup/                # Browser action popup
+│   ├── index.html        # Popup HTML
+│   └── popup.js          # Popup logic
+├── options/              # Options page
+│   ├── index.html        # Options page HTML
+│   └── options.js        # Options page logic
+├── icons/                # Extension icons
+│   ├── icon-16.png       # 16x16 icon
+│   ├── icon-48.png       # 48x48 icon
+│   └── icon-128.png      # 128x128 icon
+├── _locales/             # Internationalization
+│   └── en/
+│       └── messages.json # English messages
+└── privacy.json          # Macro-specific privacy declarations
+</code></pre>
+<h3>Manifest File</h3>
+<pre><code class="language-json">{
+  &quot;manifest_version&quot;: 3,
+  &quot;name&quot;: &quot;My Privacy Extension&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;A privacy-respecting extension for Macro Browser&quot;,
+  &quot;permissions&quot;: [
+    &quot;storage&quot;,
+    &quot;tabs&quot;
+  ],
+  &quot;host_permissions&quot;: [
+    &quot;https://*.example.com/*&quot;
+  ],
+  &quot;background&quot;: {
+    &quot;service_worker&quot;: &quot;background/index.js&quot;,
+    &quot;type&quot;: &quot;module&quot;
+  },
+  &quot;action&quot;: {
+    &quot;default_popup&quot;: &quot;popup/index.html&quot;,
+    &quot;default_icon&quot;: {
+      &quot;16&quot;: &quot;icons/icon-16.png&quot;,
+      &quot;48&quot;: &quot;icons/icon-48.png&quot;,
+      &quot;128&quot;: &quot;icons/icon-128.png&quot;
+    }
+  },
+  &quot;content_scripts&quot;: [
+    {
+      &quot;matches&quot;: [&quot;https://*.example.com/*&quot;],
+      &quot;js&quot;: [&quot;content/content.js&quot;]
+    }
+  ],
+  &quot;options_ui&quot;: {
+    &quot;page&quot;: &quot;options/index.html&quot;,
+    &quot;open_in_tab&quot;: true
+  },
+  &quot;icons&quot;: {
+    &quot;16&quot;: &quot;icons/icon-16.png&quot;,
+    &quot;48&quot;: &quot;icons/icon-48.png&quot;,
+    &quot;128&quot;: &quot;icons/icon-128.png&quot;
+  },
+  &quot;macro_privacy&quot;: {
+    &quot;privacy_manifest_version&quot;: 1,
+    &quot;data_collection&quot;: &quot;none&quot;,
+    &quot;network_requests&quot;: &quot;declared&quot;,
+    &quot;privacy_practices&quot;: &quot;certified&quot;
+  }
+}
+</code></pre>
+<h3>Privacy Manifest (privacy.json)</h3>
+<pre><code class="language-json">{
+  &quot;version&quot;: 1,
+  &quot;data_usage&quot;: {
+    &quot;collection&quot;: &quot;none&quot;,
+    &quot;storage_location&quot;: &quot;device_only&quot;,
+    &quot;retention_period&quot;: &quot;session_only&quot;
+  },
+  &quot;network_requests&quot;: [
+    {
+      &quot;domain&quot;: &quot;api.example.com&quot;,
+      &quot;purpose&quot;: &quot;API access for extension functionality&quot;,
+      &quot;data_transmitted&quot;: [
+        {
+          &quot;type&quot;: &quot;transaction_data&quot;,
+          &quot;purpose&quot;: &quot;Verify transaction security&quot;,
+          &quot;anonymized&quot;: true
+        }
+      ]
+    }
+  ],
+  &quot;permissions_justification&quot;: {
+    &quot;storage&quot;: &quot;Store user preferences in memory only&quot;,
+    &quot;tabs&quot;: &quot;Access current tab URL to provide page-specific features&quot;
+  },
+  &quot;third_party_libraries&quot;: [
+    {
+      &quot;name&quot;: &quot;ethers.js&quot;,
+      &quot;version&quot;: &quot;5.7.2&quot;,
+      &quot;purpose&quot;: &quot;Web3 interaction&quot;,
+      &quot;privacy_policy&quot;: &quot;https://github.com/ethers-io/ethers.js/blob/master/PRIVACY.md&quot;
+    }
+  ]
+}
+</code></pre>
+<h2>Building Standard Extensions</h2>
+<h3>Background Scripts</h3>
+<p>Background scripts run in the extension's background context.</p>
+<pre><code class="language-javascript">// background/index.js
+chrome.runtime.onInstalled.addListener(() =&gt; {
+  // Initialize extension
+  console.log(&quot;Extension installed&quot;);
+  
+  // Set up default settings with privacy in mind
+  chrome.storage.local.set({
+    collectAnalytics: false,
+    enhancedPrivacy: true,
+    notificationPermission: 'ask'
+  });
+});
+
+// Handle messages from content scripts
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) =&gt; {
+  if (message.type === 'getData') {
+    // Process in background to avoid exposing data in page context
+    processDataSecurely(message.payload).then(result =&gt; {
+      sendResponse({ success: true, data: result });
+    });
+    return true; // Indicates async response
+  }
+});
+
+// Privacy-focused implementation
+function processDataSecurely(data) {
+  // Process data without sending to external servers
+  return Promise.resolve({ 
+    // Processed data
+    result: 'processed-' + data,
+    // No user identifiers
+  });
+}
+</code></pre>
+<h3>Content Scripts</h3>
+<p>Content scripts run in the context of web pages.</p>
+<pre><code class="language-javascript">// content/content.js
+// Avoid accessing sensitive page data unless necessary
+(function() {
+  // Listen for specific events rather than monitoring everything
+  document.addEventListener('your-specific-event', handleEvent);
+  
+  function handleEvent(event) {
+    // Only collect minimal necessary data
+    const safeData = sanitizeData(event.detail);
+    
+    // Send to background script for processing
+    chrome.runtime.sendMessage(
+      { type: 'getData', payload: safeData },
+      (response) =&gt; {
+        // Handle response
+        if (response &amp;&amp; response.success) {
+          updateUI(response.data);
+        }
+      }
+    );
+  }
+  
+  function sanitizeData(data) {
+    // Remove any sensitive or identifying information
+    // before sending to background script
+    return {
+      // Only necessary fields
+      action: data.action,
+      // No PII
+    };
+  }
+  
+  function updateUI(data) {
+    // Update page UI with processed data
+    const element = document.querySelector('#extension-content');
+    if (element) {
+      element.textContent = data.result;
+    }
+  }
+})();
+</code></pre>
+<h3>Popup UI</h3>
+<pre><code class="language-html">&lt;!-- popup/index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;My Privacy Extension&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .privacy-first {
+      background-color: #f1f5f9;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #0f172a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e293b;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: &quot;&quot;;
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #0f172a;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;My Privacy Extension&lt;/h1&gt;
+  
+  &lt;div class=&quot;privacy-first&quot;&gt;
+    &lt;p&gt;Your privacy is our priority. All data is processed locally.&lt;/p&gt;
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+    &lt;h2&gt;Settings&lt;/h2&gt;
+    &lt;div&gt;
+      &lt;label class=&quot;switch&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;enhancedPrivacy&quot; checked&gt;
+        &lt;span class=&quot;slider&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;span&gt;Enhanced Privacy Mode&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;button id=&quot;analyzeCurrentPage&quot;&gt;Analyze Current Page&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div id=&quot;results&quot;&gt;&lt;/div&gt;
+  
+  &lt;script src=&quot;popup.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-javascript">// popup/popup.js
+document.addEventListener('DOMContentLoaded', () =&gt; {
+  // Load saved settings
+  chrome.storage.local.get(['enhancedPrivacy'], (result) =&gt; {
+    document.getElementById('enhancedPrivacy').checked = 
+      result.enhancedPrivacy !== undefined ? result.enhancedPrivacy : true;
+  });
+  
+  // Save settings when changed
+  document.getElementById('enhancedPrivacy').addEventListener('change', (e) =&gt; {
+    chrome.storage.local.set({ enhancedPrivacy: e.target.checked });
+  });
+  
+  // Handle analyze button
+  document.getElementById('analyzeCurrentPage').addEventListener('click', () =&gt; {
+    // Get current tab
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) =&gt; {
+      const currentTab = tabs[0];
+      
+      // Display loading
+      document.getElementById('results').textContent = 'Analyzing...';
+      
+      // Send message to content script
+      chrome.tabs.sendMessage(
+        currentTab.id, 
+        { action: 'analyze' },
+        (response) =&gt; {
+          if (chrome.runtime.lastError) {
+            // Handle error
+            document.getElementById('results').textContent = 
+              'Error: Could not connect to page';
+            return;
+          }
+          
+          if (response &amp;&amp; response.data) {
+            displayResults(response.data);
+          }
+        }
+      );
+    });
+  });
+  
+  function displayResults(data) {
+    const resultsElement = document.getElementById('results');
+    
+    // Clear previous results
+    resultsElement.innerHTML = '';
+    
+    // Create results UI
+    const resultsTitle = document.createElement('h3');
+    resultsTitle.textContent = 'Analysis Results';
+    
+    const resultsList = document.createElement('ul');
+    for (const key in data) {
+      const item = document.createElement('li');
+      item.textContent = `${key}: ${data[key]}`;
+      resultsList.appendChild(item);
+    }
+    
+    resultsElement.appendChild(resultsTitle);
+    resultsElement.appendChild(resultsList);
+  }
+});
+</code></pre>
+<h2>Privacy-Focused Extension Features</h2>
+<h3>Accessing Macro-Specific Privacy APIs</h3>
+<pre><code class="language-javascript">// Check if running in Macro Browser
+function isMacroBrowser() {
+  return typeof chrome.macroPrivacy !== 'undefined';
+}
+
+// Use Macro privacy APIs if available
+async function getPrivacyContext() {
+  if (isMacroBrowser()) {
+    try {
+      // Access Macro-specific privacy API
+      return await chrome.macroPrivacy.getPrivacyContext();
+    } catch (error) {
+      console.error('Error accessing Macro privacy APIs:', error);
+      // Fall back to default
+      return { 
+        isPrivacyModeEnabled: true,
+        trackingProtectionLevel: 'standard'
+      };
+    }
+  } else {
+    // Default for non-Macro browsers
+    return { 
+      isPrivacyModeEnabled: false,
+      trackingProtectionLevel: 'none'
+    };
+  }
+}
+
+// Example usage
+async function adaptToPrivacyContext() {
+  const context = await getPrivacyContext();
+  
+  if (context.isPrivacyModeEnabled) {
+    // Adapt UI and functionality for privacy mode
+    enablePrivacyFeatures();
+  }
+  
+  if (context.trackingProtectionLevel === 'strict') {
+    // Enhance protection UI
+    showStrictProtectionIndicator();
+  }
+}
+</code></pre>
+<h3>Privacy-Respecting Storage Strategy</h3>
+<pre><code class="language-javascript">// Privacy-respecting storage helper
+const privacyStorage = {
+  // Save data with expiration and no PII
+  async save(key, data, expirationHours = 24) {
+    // Add expiration timestamp
+    const expirationTime = Date.now() + (expirationHours * 60 * 60 * 1000);
+    
+    // Remove any potential PII
+    const safeData = this.sanitizeData(data);
+    
+    // Store data
+    return new Promise((resolve) =&gt; {
+      chrome.storage.local.set({
+        [key]: {
+          data: safeData,
+          expiration: expirationTime
+        }
+      }, () =&gt; resolve(true));
+    });
+  },
+  
+  // Get data if not expired
+  async get(key) {
+    return new Promise((resolve) =&gt; {
+      chrome.storage.local.get([key], (result) =&gt; {
+        const storedData = result[key];
+        
+        if (!storedData) {
+          resolve(null);
+          return;
+        }
+        
+        // Check if expired
+        if (storedData.expiration &lt; Date.now()) {
+          // Expired, remove data
+          chrome.storage.local.remove([key]);
+          resolve(null);
+          return;
+        }
+        
+        resolve(storedData.data);
+      });
+    });
+  },
+  
+  // Remove any potential PII
+  sanitizeData(data) {
+    // Deep clone to avoid modifying original
+    const clone = JSON.parse(JSON.stringify(data));
+    
+    // List of fields that might contain PII
+    const piiFields = [
+      'email', 'name', 'phone', 'address', 'ip', 'location',
+      'ssn', 'dob', 'birthdate', 'password', 'userId'
+    ];
+    
+    // Recursively sanitize objects
+    function sanitizeObject(obj) {
+      if (!obj || typeof obj !== 'object') return obj;
+      
+      Object.keys(obj).forEach(key =&gt; {
+        // Check if key contains any PII field name
+        const containsPII = piiFields.some(field =&gt; 
+          key.toLowerCase().includes(field.toLowerCase())
+        );
+        
+        if (containsPII) {
+          // Replace PII with null
+          obj[key] = null;
+        } else if (typeof obj[key] === 'object') {
+          // Recursively check nested objects
+          obj[key] = sanitizeObject(obj[key]);
+        }
+      });
+      
+      return obj;
+    }
+    
+    return sanitizeObject(clone);
+  },
+  
+  // Clear all stored data
+  clearAll() {
+    return new Promise((resolve) =&gt; {
+      chrome.storage.local.clear(resolve);
+    });
+  }
+};
+</code></pre>
+<h3>Respecting DNT and Privacy Signals</h3>
+<pre><code class="language-javascript">// Detect and respect privacy signals
+function detectPrivacySignals() {
+  const signals = {
+    doNotTrack: navigator.doNotTrack === '1' || 
+                window.doNotTrack === '1',
+    globalPrivacyControl: navigator.globalPrivacyControl === true
+  };
+  
+  if (isMacroBrowser() &amp;&amp; chrome.macroPrivacy) {
+    // Get additional Macro Browser signals
+    chrome.macroPrivacy.getPrivacyContext().then(context =&gt; {
+      signals.macroPrivacyEnabled = context.isPrivacyModeEnabled;
+      signals.trackingProtection = context.trackingProtectionLevel;
+      
+      applyPrivacySettings(signals);
+    });
+  } else {
+    applyPrivacySettings(signals);
+  }
+}
+
+function applyPrivacySettings(signals) {
+  // If any privacy signal is enabled, use maximum privacy
+  if (signals.doNotTrack || 
+      signals.globalPrivacyControl || 
+      signals.macroPrivacyEnabled) {
+    
+    // Disable any collection features
+    disableAllCollection();
+    
+    // Enable privacy-focused UI
+    updateUIForPrivacy(true);
+    
+    // Log privacy settings (no user data)
+    console.log('Privacy mode active:', signals);
+  } else {
+    // Standard mode, still privacy-respecting
+    updateUIForPrivacy(false);
+  }
+}
+</code></pre>
+<h3>Secure Communication</h3>
+<pre><code class="language-javascript">// Secure fetch helper with privacy enhancements
+async function secureFetch(url, options = {}) {
+  // Check URL security
+  if (!url.startsWith('https://')) {
+    throw new Error('Only HTTPS URLs are allowed');
+  }
+  
+  // Add security headers
+  const secureOptions = {
+    ...options,
+    headers: {
+      ...options.headers,
+      'Sec-Fetch-Site': 'same-origin',
+      'Sec-Fetch-Mode': 'cors',
+      'Sec-Fetch-Dest': 'empty'
+    }
+  };
+  
+  // Use Macro Browser's enhanced security if available
+  if (isMacroBrowser() &amp;&amp; chrome.macroSecureComms) {
+    try {
+      return await chrome.macroSecureComms.secureFetch(url, secureOptions);
+    } catch (error) {
+      console.error('Enhanced secure fetch failed:', error);
+      // Fall back to regular fetch
+    }
+  }
+  
+  // Regular secure fetch
+  try {
+    const response = await fetch(url, secureOptions);
+    
+    // Check for server security headers
+    const contentSecurityPolicy = response.headers.get('Content-Security-Policy');
+    if (!contentSecurityPolicy) {
+      console.warn('Warning: No Content-Security-Policy header');
+    }
+    
+    return response;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+  }
+}
+</code></pre>
+<h2>Web3 Integration for Extensions</h2>
+<pre><code class="language-javascript">// Web3 extension functionality
+class Web3ExtensionController {
+  constructor() {
+    this.provider = null;
+    this.initialized = false;
+    this.securityLevel = 'standard';
+  }
+  
+  // Initialize Web3 connection
+  async initialize() {
+    if (this.initialized) return;
+    
+    // Check for Macro Browser first
+    if (isMacroBrowser() &amp;&amp; chrome.macroWeb3) {
+      // Use Macro Browser's built-in provider
+      this.provider = await chrome.macroWeb3.getProvider();
+      this.securityLevel = await chrome.macroWeb3.getSecurityLevel();
+      this.initialized = true;
+      return;
+    }
+    
+    // Check for window.ethereum (MetaMask, etc.)
+    if (window.ethereum) {
+      this.provider = window.ethereum;
+      this.initialized = true;
+      return;
+    }
+    
+    throw new Error('No Web3 provider found');
+  }
+  
+  // Request account access
+  async connectWallet() {
+    if (!this.initialized) await this.initialize();
+    
+    try {
+      const accounts = await this.provider.request({
+        method: 'eth_requestAccounts'
+      });
+      
+      return accounts[0];
+    } catch (error) {
+      console.error('Failed to connect wallet:', error);
+      throw error;
+    }
+  }
+  
+  // Analyze transaction for security before sending
+  // Enhanced if using Macro Browser
+  async analyzeTx(txData) {
+    if (isMacroBrowser() &amp;&amp; chrome.macroWeb3) {
+      // Use Macro's enhanced security analysis
+      return await chrome.macroWeb3.analyzeTx(txData);
+    }
+    
+    // Basic analysis for other browsers
+    return this.basicTxAnalysis(txData);
+  }
+  
+  // Basic security checks for non-Macro browsers
+  basicTxAnalysis(txData) {
+    // Simple checks - would be more comprehensive in real implementation
+    const warnings = [];
+    
+    if (txData.value &amp;&amp; parseInt(txData.value, 16) &gt; 0) {
+      warnings.push('Transaction sends funds');
+    }
+    
+    if (txData.data &amp;&amp; txData.data.length &gt; 2) {
+      warnings.push('Transaction executes contract function');
+    }
+    
+    return {
+      safe: warnings.length === 0,
+      warnings
+    };
+  }
+  
+  // Send transaction with security checks
+  async sendTransaction(txData) {
+    if (!this.initialized) await this.initialize();
+    
+    // Analyze transaction first
+    const analysis = await this.analyzeTx(txData);
+    
+    // If not safe, require confirmation
+    if (!analysis.safe) {
+      const confirmed = confirm(
+        `Warning: This transaction may have security risks:\n` +
+        analysis.warnings.join('\n') + '\n\n' +
+        'Do you want to proceed?'
+      );
+      
+      if (!confirmed) {
+        throw new Error('Transaction rejected by user');
+      }
+    }
+    
+    // Send transaction
+    return await this.provider.request({
+      method: 'eth_sendTransaction',
+      params: [txData]
+    });
+  }
+}
+</code></pre>
+<h2>Testing and Debugging Extensions</h2>
+<h3>Testing in Macro Browser</h3>
+<pre><code class="language-bash"># Start Macro Browser with debugging enabled
+macro-browser --load-extension=/path/to/extension --auto-open-devtools-for-tabs
+</code></pre>
+<h3>Unit Testing Extension Components</h3>
+<pre><code class="language-javascript">// tests/privacy-storage.test.js
+describe('Privacy Storage Tests', () =&gt; {
+  beforeEach(() =&gt; {
+    // Mock chrome.storage.local
+    global.chrome = {
+      storage: {
+        local: {
+          set: jest.fn((data, callback) =&gt; callback()),
+          get: jest.fn((keys, callback) =&gt; callback({})),
+          remove: jest.fn((keys, callback) =&gt; callback()),
+          clear: jest.fn(callback =&gt; callback())
+        }
+      }
+    };
+  });
+  
+  test('should sanitize PII data', async () =&gt; {
+    // Import the module
+    const { privacyStorage } = require('../background/privacy-storage');
+    
+    // Test data with PII
+    const testData = {
+      title: 'Test Item',
+      email: 'user@example.com',
+      settings: {
+        theme: 'dark',
+        userAddress: '123 Main St'
+      }
+    };
+    
+    // Save data
+    await privacyStorage.save('test-key', testData);
+    
+    // Check what was passed to chrome.storage.local.set
+    expect(chrome.storage.local.set).toHaveBeenCalled();
+    
+    // Extract the data that would be saved
+    const savedArgs = chrome.storage.local.set.mock.calls[0][0];
+    const sanitizedData = savedArgs['test-key'].data;
+    
+    // Verify PII was removed
+    expect(sanitizedData.title).toBe('Test Item');
+    expect(sanitizedData.email).toBeNull();
+    expect(sanitizedData.settings.theme).toBe('dark');
+    expect(sanitizedData.settings.userAddress).toBeNull();
+  });
+});
+</code></pre>
+<h3>End-to-End Testing</h3>
+<pre><code class="language-javascript">// e2e-tests/extension.spec.js
+const puppeteer = require('puppeteer');
+
+describe('Extension E2E Tests', () =&gt; {
+  let browser;
+  let page;
+  
+  beforeAll(async () =&gt; {
+    // Launch browser with extension
+    browser = await puppeteer.launch({
+      headless: false, // Required for extension testing
+      args: [
+        `--disable-extensions-except=/path/to/extension`,
+        `--load-extension=/path/to/extension`
+      ]
+    });
+    
+    // Get the extension ID
+    const targets = await browser.targets();
+    const extensionTarget = targets.find(target =&gt; 
+      target.type() === 'background_page'
+    );
+    const extensionUrl = extensionTarget.url();
+    const [, , extensionID] = extensionUrl.split('/');
+    
+    // Open a new page
+    page = await browser.newPage();
+    
+    // Navigate to extension popup
+    await page.goto(`chrome-extension://${extensionID}/popup/index.html`);
+  });
+  
+  afterAll(async () =&gt; {
+    await browser.close();
+  });
+  
+  test('Extension popup loads correctly', async () =&gt; {
+    // Check title
+    const title = await page.$eval('h1', el =&gt; el.textContent);
+    expect(title).toBe('My Privacy Extension');
+    
+    // Check privacy mode toggle
+    const isChecked = await page.$eval(
+      '#enhancedPrivacy', 
+      el =&gt; el.checked
+    );
+    expect(isChecked).toBe(true);
+  });
+  
+  test('Settings can be changed', async () =&gt; {
+    // Toggle privacy mode
+    await page.click('#enhancedPrivacy');
+    
+    // Verify it was toggled
+    const isChecked = await page.$eval(
+      '#enhancedPrivacy', 
+      el =&gt; el.checked
+    );
+    expect(isChecked).toBe(false);
+    
+    // Wait for storage to update
+    await page.waitForTimeout(100);
+    
+    // You would verify storage was updated in a real test
+  });
+});
+</code></pre>
+<h2>Publishing Your Extension</h2>
+<h3>Privacy Review Checklist</h3>
+<p>Before submitting your extension for review, ensure it follows these privacy principles:</p>
+<ul>
+<li>[ ] Collects only necessary data (or no data at all)</li>
+<li>[ ] All data collection is clearly documented in privacy.json</li>
+<li>[ ] Does not track users across websites</li>
+<li>[ ] Provides clear privacy controls in the UI</li>
+<li>[ ] Follows the principle of least privilege for permissions</li>
+<li>[ ] Network requests are limited to documented endpoints</li>
+<li>[ ] No third-party tracking or analytics</li>
+<li>[ ] Code is readable and well-documented</li>
+<li>[ ] Securely handles any sensitive data</li>
+<li>[ ] Respects all browser privacy settings</li>
+</ul>
+<h3>Submission Process</h3>
+<ol>
+<li>
+<p>Package your extension:</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+</li>
+<li>
+<p>Complete the privacy declaration in privacy.json</p>
+</li>
+<li>
+<p>Submit to the Macro Extension Store with:</p>
+<ul>
+<li>Detailed description</li>
+<li>Screenshots and demo video</li>
+<li>Complete privacy information</li>
+<li>Support contact information</li>
+</ul>
+</li>
+<li>
+<p>Respond to any privacy review feedback</p>
+</li>
+<li>
+<p>After approval, your extension will be published to the Macro Extension Store</p>
+</li>
+</ol>
+<h2>Best Practices for Privacy-Focused Extensions</h2>
+<ol>
+<li><strong>Minimize Data Collection</strong>: Collect only what's absolutely necessary for functionality</li>
+<li><strong>Process Locally</strong>: Keep data processing within the browser whenever possible</li>
+<li><strong>Use Memory-Only Storage</strong>: For sensitive information, avoid persistent storage</li>
+<li><strong>Respect Privacy Signals</strong>: Honor DNT, GPC, and Macro-specific privacy signals</li>
+<li><strong>Provide Clear Controls</strong>: Give users easy access to privacy settings</li>
+<li><strong>Secure Communications</strong>: Use only HTTPS and secure communication methods</li>
+<li><strong>Fallback Gracefully</strong>: Support non-Macro browsers with appropriate fallbacks</li>
+<li><strong>Document Privacy Practices</strong>: Be transparent about all privacy-related functionality</li>
+<li><strong>Regular Security Updates</strong>: Maintain and update your extension regularly</li>
+<li><strong>Follow Least Privilege</strong>: Request only the permissions you absolutely need</li>
+</ol>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://docs.macro.io/extension-api">Macro Browser Extension API Documentation</a></li>
+<li><a href="https://community.macro.io/extensions">Extension Developer Community Forum</a></li>
+<li><a href="https://docs.macro.io/privacy-principles">Privacy-First Design Principles</a></li>
+<li><a href="https://github.com/macro-browser/extension-examples">Web3 Extension Examples</a></li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

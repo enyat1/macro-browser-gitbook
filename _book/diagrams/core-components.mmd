@@ -1,0 +1,33 @@
+flowchart TD
+    classDef primaryComponent fill:#4b31dd,color:white,stroke-width:0px
+    classDef secondaryComponent fill:#2a1a7e,color:white,stroke-width:0px
+    
+    BrowserEngine:::primaryComponent
+    PrivacyLayer:::primaryComponent
+    NetworkLayer:::primaryComponent
+    Web3Layer:::primaryComponent
+    AILayer:::primaryComponent
+    UILayer:::primaryComponent
+    
+    BrowserEngine --> TabManagement:::secondaryComponent
+    BrowserEngine --> ContentRendering:::secondaryComponent
+    BrowserEngine --> ExtensionSystem:::secondaryComponent
+    
+    PrivacyLayer --> AdBlocker:::secondaryComponent
+    PrivacyLayer --> TrackerPrevention:::secondaryComponent
+    PrivacyLayer --> SecureConnections:::secondaryComponent
+    
+    NetworkLayer --> P2PVPN:::secondaryComponent
+    NetworkLayer --> NetworkRequests:::secondaryComponent
+    NetworkLayer --> CacheSystem:::secondaryComponent
+    
+    Web3Layer --> WalletConnector:::secondaryComponent
+    Web3Layer --> DAppInterface:::secondaryComponent
+    Web3Layer --> TransactionManager:::secondaryComponent
+    
+    AILayer --> SearchEngine:::secondaryComponent
+    AILayer --> QueryProcessor:::secondaryComponent
+    
+    UILayer --> MainWindow:::secondaryComponent
+    UILayer --> NewTabPage:::secondaryComponent
+    UILayer --> SettingsInterface:::secondaryComponent 

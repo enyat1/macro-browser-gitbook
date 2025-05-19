@@ -1,0 +1,973 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Integration Guide · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="web3-api.html" />
+    
+    
+    <link rel="prev" href="../technical/architecture-decisions.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../technical/">
+            
+                <a href="../technical/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../technical/core-components.html">
+            
+                <a href="../technical/core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../technical/browser-engine.html">
+            
+                <a href="../technical/browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../technical/privacy-layer.html">
+            
+                <a href="../technical/privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../technical/web3-integration.html">
+            
+                <a href="../technical/web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../technical/network-architecture.html">
+            
+                <a href="../technical/network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../technical/data-flow-security.html">
+            
+                <a href="../technical/data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../technical/architecture-decisions.html">
+            
+                <a href="../technical/architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter active" data-level="5.1" data-path="integration-guide.html">
+            
+                <a href="integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="web3-api.html">
+            
+                <a href="web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="privacy-api.html">
+            
+                <a href="privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="performance-guide.html">
+            
+                <a href="performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="extension-guide.html">
+            
+                <a href="extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Integration Guide</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="integration-guide">Integration Guide</h1>
+<p>This guide helps developers integrate their applications and websites with Macro Browser. It covers Web3 integration, optimizing for privacy features, and working with the browser's unique capabilities.</p>
+<h2 id="overview">Overview</h2>
+<p>Macro Browser provides several integration points for developers:</p>
+<p><img src="../images/diagrams/developers_integration-guide_diagram_1.svg" alt="Diagram 1"></img></p>
+<h2 id="web3-integration">Web3 Integration</h2>
+<h3 id="detecting-macro-browser">Detecting Macro Browser</h3>
+<p>You can detect if a user is browsing with Macro Browser through the user agent or by checking for the Macro Browser provider:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Check for Macro provider</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isMacroBrowser</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> !== <span class="hljs-string">'undefined'</span> &amp;&amp; 
+         <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">isMacro</span> === <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-comment">// Optimal approach - feature detection</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">detectMacroBrowser</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> !== <span class="hljs-string">'undefined'</span>) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> provider = <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>;
+      <span class="hljs-keyword">const</span> providerInfo = <span class="hljs-keyword">await</span> provider.<span class="hljs-title function_">request</span>({ <span class="hljs-attr">method</span>: <span class="hljs-string">'web3_clientVersion'</span> });
+      <span class="hljs-keyword">return</span> providerInfo.<span class="hljs-title function_">toLowerCase</span>().<span class="hljs-title function_">includes</span>(<span class="hljs-string">'macro'</span>);
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error detecting browser:'</span>, error);
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+</code></pre>
+<h3 id="connecting-to-the-wallet">Connecting to the Wallet</h3>
+<p>Macro Browser follows the EIP-1193 standard for wallet connections:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Example of connecting to the user's wallet</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">connectWallet</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> !== <span class="hljs-string">'undefined'</span>) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-comment">// Request account access</span>
+      <span class="hljs-keyword">const</span> accounts = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-title function_">request</span>({ 
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'eth_requestAccounts'</span> 
+      });
+
+      <span class="hljs-comment">// Get the connected account</span>
+      <span class="hljs-keyword">const</span> account = accounts[<span class="hljs-number">0</span>];
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Connected account:'</span>, account);
+
+      <span class="hljs-keyword">return</span> account;
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-keyword">if</span> (error.<span class="hljs-property">code</span> === <span class="hljs-number">4001</span>) {
+        <span class="hljs-comment">// User rejected the connection request</span>
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'User rejected connection request'</span>);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error connecting to wallet:'</span>, error);
+      }
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    }
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Ethereum provider not found'</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  }
+}
+</code></pre>
+<h3 id="handling-chain-switching">Handling Chain Switching</h3>
+<p>Users may need to switch between different blockchain networks:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Example of requesting a chain switch</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">switchToChain</span>(<span class="hljs-params">chainId</span>) {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-title function_">request</span>({
+      <span class="hljs-attr">method</span>: <span class="hljs-string">'wallet_switchEthereumChain'</span>,
+      <span class="hljs-attr">params</span>: [{ chainId }],
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  } <span class="hljs-keyword">catch</span> (error) {
+    <span class="hljs-comment">// This error code indicates the chain has not been added to the wallet</span>
+    <span class="hljs-keyword">if</span> (error.<span class="hljs-property">code</span> === <span class="hljs-number">4902</span>) {
+      <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">await</span> <span class="hljs-title function_">addChain</span>(chainId);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      } <span class="hljs-keyword">catch</span> (addError) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error adding chain:'</span>, addError);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      }
+    }
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error switching chain:'</span>, error);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+
+<span class="hljs-comment">// Example of adding a new chain</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">addChain</span>(<span class="hljs-params">chainId</span>) {
+  <span class="hljs-keyword">const</span> chainParams = <span class="hljs-title function_">getChainParams</span>(chainId);
+  <span class="hljs-keyword">await</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-title function_">request</span>({
+    <span class="hljs-attr">method</span>: <span class="hljs-string">'wallet_addEthereumChain'</span>,
+    <span class="hljs-attr">params</span>: [chainParams],
+  });
+}
+
+<span class="hljs-comment">// Helper to get chain parameters</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">getChainParams</span>(<span class="hljs-params">chainId</span>) {
+  <span class="hljs-comment">// Example for Polygon</span>
+  <span class="hljs-keyword">if</span> (chainId === <span class="hljs-string">'0x89'</span>) {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">chainId</span>: <span class="hljs-string">'0x89'</span>,
+      <span class="hljs-attr">chainName</span>: <span class="hljs-string">'Polygon Mainnet'</span>,
+      <span class="hljs-attr">nativeCurrency</span>: {
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'MATIC'</span>,
+        <span class="hljs-attr">symbol</span>: <span class="hljs-string">'MATIC'</span>,
+        <span class="hljs-attr">decimals</span>: <span class="hljs-number">18</span>
+      },
+      <span class="hljs-attr">rpcUrls</span>: [<span class="hljs-string">'https://polygon-rpc.com/'</span>],
+      <span class="hljs-attr">blockExplorerUrls</span>: [<span class="hljs-string">'https://polygonscan.com/'</span>]
+    };
+  }
+
+  <span class="hljs-comment">// Add other chains as needed</span>
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<h3 id="sending-transactions">Sending Transactions</h3>
+<p>Transactions in Macro Browser follow standard Web3 patterns with enhanced security:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Example of sending a transaction</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">sendTransaction</span>(<span class="hljs-params">to, value, data = <span class="hljs-string">'0x'</span></span>) {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">const</span> transactionParameters = {
+      to,
+      <span class="hljs-attr">from</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">selectedAddress</span>,
+      <span class="hljs-attr">value</span>: value.<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>), <span class="hljs-comment">// Convert to hex</span>
+      data
+    };
+
+    <span class="hljs-comment">// Optional: Let the wallet estimate gas</span>
+    <span class="hljs-comment">// Or you can estimate and include it:</span>
+    <span class="hljs-comment">// transactionParameters.gas = await estimateGas(transactionParameters);</span>
+
+    <span class="hljs-keyword">const</span> txHash = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-title function_">request</span>({
+      <span class="hljs-attr">method</span>: <span class="hljs-string">'eth_sendTransaction'</span>,
+      <span class="hljs-attr">params</span>: [transactionParameters],
+    });
+
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Transaction sent:'</span>, txHash);
+    <span class="hljs-keyword">return</span> txHash;
+  } <span class="hljs-keyword">catch</span> (error) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error sending transaction:'</span>, error);
+    <span class="hljs-keyword">throw</span> error;
+  }
+}
+</code></pre>
+<h3 id="best-practices-for-dapps">Best Practices for dApps</h3>
+<p>When building dApps for Macro Browser:</p>
+<ol>
+<li><strong>Always use feature detection</strong> rather than user agent sniffing</li>
+<li><strong>Handle wallet connection rejection</strong> gracefully</li>
+<li><strong>Provide clear transaction information</strong> to help users make informed decisions</li>
+<li><strong>Implement proper error handling</strong> for all Web3 interactions</li>
+<li><strong>Support multiple chains</strong> where appropriate</li>
+<li><strong>Consider privacy implications</strong> of your dApp's design</li>
+<li><strong>Test with Macro Browser</strong> during development</li>
+</ol>
+<h2 id="privacy-features-integration">Privacy Features Integration</h2>
+<h3 id="content-security-policy">Content Security Policy</h3>
+<p>Macro Browser enforces strict Content Security Policy (CSP) rules. Ensure your site works with strong CSP headers:</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Example of a strong CSP header --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Content-Security-Policy"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"
+  default-src 'self';
+  script-src 'self' https://trusted-cdn.com;
+  style-src 'self' https://trusted-cdn.com;
+  img-src 'self' https://trusted-cdn.com data:;
+  connect-src 'self' https://api.yourservice.com;
+  frame-src 'none';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+"</span>&gt;</span>
+</code></pre>
+<h3 id="tracker-free-design">Tracker-Free Design</h3>
+<p>Design your site to work without trackers and third-party cookies:</p>
+<ol>
+<li><strong>Avoid third-party resources</strong> when possible</li>
+<li><strong>Self-host critical scripts</strong> rather than using CDNs</li>
+<li><strong>Don't rely on fingerprinting</strong> for identification</li>
+<li><strong>Use local storage sparingly</strong> (it's cleared between sessions)</li>
+<li><strong>Implement privacy-respecting analytics</strong> if needed</li>
+</ol>
+<h3 id="performance-with-ad-blocking">Performance with Ad Blocking</h3>
+<p>Optimize your site to work well with ad blockers:</p>
+<ol>
+<li><strong>Don't use class names that trigger ad blockers</strong> (e.g., "ad", "banner", "sponsor")</li>
+<li><strong>Avoid DOM structures similar to ads</strong></li>
+<li><strong>Don't load content from known ad domains</strong></li>
+<li><strong>Test your site with ad blockers enabled</strong></li>
+</ol>
+<h2 id="ui-integration">UI Integration</h2>
+<h3 id="dark-mode-support">Dark Mode Support</h3>
+<p>Macro Browser uses dark mode by default. Ensure your site supports dark mode:</p>
+<pre><code class="lang-css"><span class="hljs-comment">/* Example of dark mode support */</span>
+<span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attr">--text-color</span>: <span class="hljs-number">#333</span>;
+  <span class="hljs-attr">--background-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attr">--link-color</span>: <span class="hljs-number">#0066cc</span>;
+}
+
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">prefers-color-scheme</span>: dark) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attr">--text-color</span>: <span class="hljs-number">#eee</span>;
+    <span class="hljs-attr">--background-color</span>: <span class="hljs-number">#222</span>;
+    <span class="hljs-attr">--link-color</span>: <span class="hljs-number">#6699ff</span>;
+  }
+}
+
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-color);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--background-color);
+}
+
+<span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--link-color);
+}
+</code></pre>
+<h3 id="responsive-design">Responsive Design</h3>
+<p>Ensure your site is fully responsive and works well at different viewport sizes:</p>
+<ol>
+<li><strong>Use responsive layouts</strong> with flexbox or grid</li>
+<li><strong>Test on various screen sizes</strong></li>
+<li><strong>Implement proper touch support</strong> for mobile users</li>
+<li><strong>Optimize loading performance</strong> for all devices</li>
+</ol>
+<h2 id="ai-search-optimization">AI Search Optimization</h2>
+<p>Optimize your content for Macro Browser's AI-powered search:</p>
+<ol>
+<li><strong>Use clear, descriptive page titles</strong></li>
+<li><strong>Implement proper semantic HTML</strong> (headings, lists, etc.)</li>
+<li><strong>Include concise meta descriptions</strong></li>
+<li><strong>Structure content logically</strong> with clear sections</li>
+<li><strong>Use schema.org markup</strong> for enhanced understanding</li>
+</ol>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Example of schema.org markup for a product --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">"http://schema.org/Product"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"name"</span>&gt;</span>Product Name<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"product.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Product Image"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"description"</span>&gt;</span>Product description goes here...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"offers"</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">"http://schema.org/Offer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"price"</span>&gt;</span>$19.99<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"priceCurrency"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"USD"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2 id="testing-with-macro-browser">Testing with Macro Browser</h2>
+<h3 id="development-environment-setup">Development Environment Setup</h3>
+<p>To test your site or dApp with Macro Browser during development:</p>
+<ol>
+<li><strong>Install Macro Browser</strong> for your platform</li>
+<li><strong>Configure developer mode</strong> in settings</li>
+<li><strong>Use the developer tools</strong> (similar to Chrome DevTools)</li>
+<li><strong>Test with all privacy features enabled</strong></li>
+</ol>
+<h3 id="common-integration-issues">Common Integration Issues</h3>
+<p>Watch out for these common integration problems:</p>
+<ol>
+<li><strong>Reliance on persistent storage</strong> across sessions</li>
+<li><strong>Assuming availability of third-party scripts</strong> that might be blocked</li>
+<li><strong>Not handling wallet connection rejections</strong> properly</li>
+<li><strong>UI issues in dark mode</strong></li>
+<li><strong>Performance problems due to blocked resources</strong></li>
+</ol>
+<h3 id="compatibility-checklist">Compatibility Checklist</h3>
+<p>✅ Site works with strict Content Security Policy<br></br>✅ All critical functionality works without third-party cookies<br></br>✅ Dark mode design is implemented and tested<br></br>✅ Web3 connections handle all error cases gracefully<br></br>✅ No dependencies on known tracking domains<br></br>✅ Semantic HTML is used throughout the site<br></br>✅ Site performs well with ad/tracker blocking enabled  </p>
+<h2 id="advanced-integration">Advanced Integration</h2>
+<h3 id="extension-development">Extension Development</h3>
+<p>Macro Browser supports a limited set of extensions focused on privacy and security:</p>
+<ol>
+<li><strong>Focus on privacy-enhancing features</strong></li>
+<li><strong>Avoid requiring broad permissions</strong></li>
+<li><strong>Follow Manifest V3 guidelines</strong></li>
+<li><strong>Submit to the Macro Browser extension review process</strong></li>
+</ol>
+<h3 id="custom-protocol-handlers">Custom Protocol Handlers</h3>
+<p>Register custom protocol handlers for your application:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Example of registering a protocol handler</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-string">'registerProtocolHandler'</span> <span class="hljs-keyword">in</span> navigator) {
+  navigator.<span class="hljs-title function_">registerProtocolHandler</span>(
+    <span class="hljs-string">'web+yourprotocol'</span>,
+    <span class="hljs-string">'https://yourapp.com/handle?url=%s'</span>,
+    <span class="hljs-string">'Your App Name'</span>
+  );
+}
+</code></pre>
+<h2 id="support-and-resources">Support and Resources</h2>
+<ul>
+<li><strong>Developer Discord</strong>: Join our community at <a href="https://discord.gg/macrobrowser" target="_blank">discord.gg/macrobrowser</a></li>
+<li><strong>GitHub Repository</strong>: <a href="https://github.com/macro-browser/macro-browser" target="_blank">github.com/macro-browser/macro-browser</a></li>
+<li><strong>Documentation</strong>: <a href="https://docs.macrobrowser.com" target="_blank">docs.macrobrowser.com</a></li>
+<li><strong>Issue Tracker</strong>: <a href="https://github.com/macro-browser/macro-browser/issues" target="_blank">github.com/macro-browser/macro-browser/issues</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../technical/architecture-decisions.html" class="navigation navigation-prev " aria-label="Previous page: Architecture Decisions">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="web3-api.html" class="navigation navigation-next " aria-label="Next page: Web3 API Reference">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Integration Guide","level":"5.1","depth":1,"next":{"title":"Web3 API Reference","level":"5.2","depth":1,"path":"developers/web3-api.md","ref":"developers/web3-api.md","articles":[]},"previous":{"title":"Architecture Decisions","level":"4.8","depth":1,"path":"technical/architecture-decisions.md","ref":"technical/architecture-decisions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"developers/integration-guide.md","mtime":"2025-05-19T16:19:14.139Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

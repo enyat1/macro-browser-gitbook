@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>architecture decisions - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Architecture Decisions</h1>
+<p>This document captures the key architectural decisions made during the development of Macro Browser, providing context, rationale, and consequences for each decision.</p>
+<h2>ADR Format</h2>
+<p>Each architecture decision record (ADR) follows this format:</p>
+<ul>
+<li><strong>Decision</strong>: The architectural decision that was made</li>
+<li><strong>Context</strong>: Background information and forces that influenced the decision</li>
+<li><strong>Options Considered</strong>: Alternative approaches that were evaluated</li>
+<li><strong>Decision Outcome</strong>: The selected approach and its justification</li>
+<li><strong>Consequences</strong>: Positive and negative implications of the decision</li>
+</ul>
+<h2>Browser Engine Selection</h2>
+<h3>Decision</h3>
+<p>Use Electron with Chromium as the browser engine foundation.</p>
+<h3>Context</h3>
+<ul>
+<li>Need for a modern, standards-compliant browser engine</li>
+<li>Cross-platform compatibility requirements</li>
+<li>Development speed and resource constraints</li>
+<li>Need for native-like performance</li>
+<li>Ability to modify for privacy enhancements</li>
+</ul>
+<h3>Options Considered</h3>
+<ol>
+<li>
+<p><strong>Build custom engine from scratch</strong></p>
+<ul>
+<li>Complete control over all aspects</li>
+<li>Enormous development effort</li>
+<li>High risk of compatibility issues</li>
+<li>Unsustainable maintenance burden</li>
+</ul>
+</li>
+<li>
+<p><strong>Fork Firefox/Gecko</strong></p>
+<ul>
+<li>Already privacy-focused</li>
+<li>Smaller market share than Chromium</li>
+<li>More complex embedding API</li>
+<li>Higher resource requirements for development</li>
+</ul>
+</li>
+<li>
+<p><strong>Use Electron/Chromium</strong></p>
+<ul>
+<li>Well-documented, widely used</li>
+<li>Easier to modify and extend</li>
+<li>Large ecosystem of tools and libraries</li>
+<li>Cross-platform by default</li>
+<li>Consistent with many user expectations</li>
+</ul>
+</li>
+<li>
+<p><strong>WebKit-based approach</strong></p>
+<ul>
+<li>Apple's engine with good performance</li>
+<li>Limited extensibility</li>
+<li>Platform limitations on non-Apple systems</li>
+</ul>
+</li>
+</ol>
+<h3>Decision Outcome</h3>
+<p>Electron with Chromium was selected because it provides:</p>
+<ul>
+<li>Mature, widely-tested browser engine</li>
+<li>Easy cross-platform compatibility</li>
+<li>Familiar development model</li>
+<li>Strong performance characteristics</li>
+<li>Good balance of control vs. development effort</li>
+</ul>
+<h3>Consequences</h3>
+<ul>
+<li><strong>Positive</strong>: Faster development cycle, broad compatibility</li>
+<li><strong>Positive</strong>: Leverage existing Chromium security infrastructure</li>
+<li><strong>Negative</strong>: Need to actively remove Google-specific services</li>
+<li><strong>Negative</strong>: Larger memory footprint than some alternatives</li>
+</ul>
+<h2>Privacy Model</h2>
+<h3>Decision</h3>
+<p>Implement &quot;Privacy by Default&quot; with no persistent browsing data.</p>
+<h3>Context</h3>
+<ul>
+<li>User privacy is a core value</li>
+<li>Traditional browsers store extensive data by default</li>
+<li>Private browsing modes are typically opt-in</li>
+<li>Need to balance privacy with usability</li>
+</ul>
+<h3>Options Considered</h3>
+<ol>
+<li>
+<p><strong>Traditional model with optional private mode</strong></p>
+<ul>
+<li>Familiar to users</li>
+<li>Requires explicit action for privacy</li>
+<li>Risk of accidental data leakage</li>
+</ul>
+</li>
+<li>
+<p><strong>Privacy by default with opt-in persistence</strong></p>
+<ul>
+<li>Maximum privacy protection</li>
+<li>Potential user confusion</li>
+<li>Some features more difficult to implement</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid model with selective persistence</strong></p>
+<ul>
+<li>Balance of privacy and convenience</li>
+<li>Complex implementation</li>
+<li>Potential privacy leaks through saved data</li>
+</ul>
+</li>
+</ol>
+<h3>Decision Outcome</h3>
+<p>&quot;Privacy by Default&quot; was selected because it:</p>
+<ul>
+<li>Aligns with core values</li>
+<li>Provides strongest privacy protection</li>
+<li>Creates a distinctive product</li>
+<li>Prevents accidental data exposure</li>
+</ul>
+<h3>Consequences</h3>
+<ul>
+<li><strong>Positive</strong>: Strong privacy guarantees</li>
+<li><strong>Positive</strong>: Differentiating feature in the market</li>
+<li><strong>Negative</strong>: Some convenience features more difficult to implement</li>
+<li><strong>Negative</strong>: Potential user education challenges</li>
+</ul>
+<h2>P2P VPN Architecture</h2>
+<h3>Decision</h3>
+<p>Implement a peer-to-peer VPN based on WireGuard with custom extensions.</p>
+<h3>Context</h3>
+<ul>
+<li>Traditional VPNs have central servers that could log data</li>
+<li>Need for enhanced privacy beyond standard browser features</li>
+<li>Desire for a distributed system resistant to single points of failure</li>
+<li>Performance considerations for daily browsing</li>
+</ul>
+<h3>Options Considered</h3>
+<ol>
+<li>
+<p><strong>Traditional centralized VPN</strong></p>
+<ul>
+<li>Established technology</li>
+<li>Requires trust in VPN provider</li>
+<li>Single point of failure</li>
+<li>Simpler implementation</li>
+</ul>
+</li>
+<li>
+<p><strong>Tor-like onion routing</strong></p>
+<ul>
+<li>Very strong anonymity</li>
+<li>Significant performance impact</li>
+<li>Complex implementation</li>
+<li>Not ideal for all browsing tasks</li>
+</ul>
+</li>
+<li>
+<p><strong>Custom P2P VPN</strong></p>
+<ul>
+<li>No central logging entity</li>
+<li>More resilient architecture</li>
+<li>Performance can be optimized</li>
+<li>Challenges with NAT traversal and peer discovery</li>
+</ul>
+</li>
+<li>
+<p><strong>Local proxy with encrypted DNS only</strong></p>
+<ul>
+<li>Minimal performance impact</li>
+<li>Limited privacy benefits</li>
+<li>Simpler implementation</li>
+<li>Not as comprehensive</li>
+</ul>
+</li>
+</ol>
+<h3>Decision Outcome</h3>
+<p>Custom P2P VPN was selected because it:</p>
+<ul>
+<li>Provides strong privacy without central servers</li>
+<li>Offers reasonable performance with optimization</li>
+<li>Creates a resilient network architecture</li>
+<li>Aligns with decentralization principles</li>
+</ul>
+<h3>Consequences</h3>
+<ul>
+<li><strong>Positive</strong>: No central entity has access to browsing data</li>
+<li><strong>Positive</strong>: Resilient to central point of failure</li>
+<li><strong>Negative</strong>: More complex implementation</li>
+<li><strong>Negative</strong>: Requires addressing peer discovery and NAT traversal challenges</li>
+</ul>
+<h2>Web3 Integration Approach</h2>
+<h3>Decision</h3>
+<p>Adopt a provider-based architecture with support for external wallets and built-in wallet connector.</p>
+<h3>Context</h3>
+<ul>
+<li>Need for seamless integration with blockchain networks</li>
+<li>Users often have existing wallets they prefer</li>
+<li>Security considerations for key management</li>
+<li>Desire to avoid reinventing wallet technology</li>
+</ul>
+<h3>Options Considered</h3>
+<ol>
+<li>
+<p><strong>Built-in wallet only</strong></p>
+<ul>
+<li>Complete control over user experience</li>
+<li>Forces users to manage another wallet</li>
+<li>Significant security responsibility</li>
+<li>Limited by browser development resources</li>
+</ul>
+</li>
+<li>
+<p><strong>External wallet support only</strong></p>
+<ul>
+<li>Leverages established wallet security</li>
+<li>Users can use their preferred wallets</li>
+<li>Less control over user experience</li>
+<li>Potential compatibility issues</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid approach with wallet connector</strong></p>
+<ul>
+<li>Flexibility for users with existing wallets</li>
+<li>Consistent interface regardless of wallet</li>
+<li>Balanced development effort</li>
+<li>Enhanced security through delegation</li>
+</ul>
+</li>
+</ol>
+<h3>Decision Outcome</h3>
+<p>The hybrid approach with wallet connector was selected because it:</p>
+<ul>
+<li>Provides the best balance of security and usability</li>
+<li>Respects user choice of wallets</li>
+<li>Reduces security burden on the browser</li>
+<li>Creates a consistent experience</li>
+</ul>
+<h3>Consequences</h3>
+<ul>
+<li><strong>Positive</strong>: Users can use their preferred wallets</li>
+<li><strong>Positive</strong>: Reduced security scope for the browser</li>
+<li><strong>Negative</strong>: More complex integration testing required</li>
+<li><strong>Negative</strong>: Some inconsistency in wallet-specific features</li>
+</ul>
+<h2>AI Search Implementation</h2>
+<h3>Decision</h3>
+<p>Implement a privacy-preserving AI search using a combination of local processing and anonymized API calls.</p>
+<h3>Context</h3>
+<ul>
+<li>Desire for intelligent search capabilities</li>
+<li>Strong privacy requirements</li>
+<li>Limited on-device AI capabilities</li>
+<li>Need for fallback options</li>
+</ul>
+<h3>Options Considered</h3>
+<ol>
+<li>
+<p><strong>Fully cloud-based AI processing</strong></p>
+<ul>
+<li>Most powerful AI capabilities</li>
+<li>Privacy concerns with query data</li>
+<li>Requires constant network connectivity</li>
+<li>Potentially higher latency</li>
+</ul>
+</li>
+<li>
+<p><strong>On-device AI only</strong></p>
+<ul>
+<li>Maximum privacy protection</li>
+<li>Limited by device capabilities</li>
+<li>Larger application size</li>
+<li>Less powerful features</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid approach with anonymization</strong></p>
+<ul>
+<li>Balance of capability and privacy</li>
+<li>More complex implementation</li>
+<li>Flexible based on query type</li>
+<li>Can evolve as on-device AI improves</li>
+</ul>
+</li>
+</ol>
+<h3>Decision Outcome</h3>
+<p>The hybrid approach with anonymization was selected because it:</p>
+<ul>
+<li>Provides AI capabilities while respecting privacy</li>
+<li>Allows for graceful degradation when needed</li>
+<li>Balances performance and features</li>
+<li>Creates path for future improvements</li>
+</ul>
+<h3>Consequences</h3>
+<ul>
+<li><strong>Positive</strong>: AI features without compromising privacy</li>
+<li><strong>Positive</strong>: Flexibility in processing location</li>
+<li><strong>Negative</strong>: More complex query routing logic</li>
+<li><strong>Negative</strong>: Some features require network connectivity</li>
+</ul>
+<h2>Multi-Process Architecture</h2>
+<h3>Decision</h3>
+<p>Adopt a multi-process architecture with strict isolation between components.</p>
+<h3>Context</h3>
+<ul>
+<li>Security requirements for handling untrusted web content</li>
+<li>Stability considerations to prevent single component crashes affecting the whole browser</li>
+<li>Performance needs for modern web applications</li>
+<li>Memory usage considerations</li>
+</ul>
+<h3>Options Considered</h3>
+<ol>
+<li>
+<p><strong>Single-process architecture</strong></p>
+<ul>
+<li>Simpler implementation</li>
+<li>Lower memory overhead</li>
+<li>Poor isolation</li>
+<li>Stability risks</li>
+</ul>
+</li>
+<li>
+<p><strong>Process-per-tab model</strong></p>
+<ul>
+<li>Strong isolation between tabs</li>
+<li>High memory usage</li>
+<li>Well-established approach</li>
+<li>Good stability characteristics</li>
+</ul>
+</li>
+<li>
+<p><strong>Hybrid model with selective process allocation</strong></p>
+<ul>
+<li>Balance of resource usage and isolation</li>
+<li>More complex process management</li>
+<li>Potentially confusing behavior</li>
+<li>Difficult to explain to users</li>
+</ul>
+</li>
+</ol>
+<h3>Decision Outcome</h3>
+<p>The process-per-tab model was selected because it:</p>
+<ul>
+<li>Provides strongest security isolation</li>
+<li>Prevents crashes from affecting the entire browser</li>
+<li>Aligns with modern browser architecture</li>
+<li>Simplifies the mental model</li>
+</ul>
+<h3>Consequences</h3>
+<ul>
+<li><strong>Positive</strong>: Strong security and stability</li>
+<li><strong>Positive</strong>: Alignment with modern browser expectations</li>
+<li><strong>Negative</strong>: Higher memory usage</li>
+<li><strong>Negative</strong>: More complex process communication</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

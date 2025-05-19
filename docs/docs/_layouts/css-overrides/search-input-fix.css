@@ -1,0 +1,125 @@
+/* Emergency Fix for Search Input Styling */
+
+/* Direct targeting for the search input */
+.book-search-input,
+.book-search {
+  background-color: #141521 !important;
+}
+
+.book-search-input input,
+input.book-search-input,
+input[type="text"].book-search-input,
+.book-search input,
+input[placeholder="Type to search"],
+input[type="text"][placeholder="Type to search"],
+html body input[placeholder="Type to search"],
+[placeholder="Type to search"],
+.book-search-input input[type="text"],
+html body .book-search-input input {
+  color: #f8f8f2 !important;
+  background-color: #141521 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #f8f8f2 !important;
+  border-color: #2a2c3d !important;
+  caret-color: #8673f4 !important;
+}
+
+/* Extreme specificity for input placeholder styling */
+.book-search-input input::placeholder,
+input.book-search-input::placeholder,
+.book-search input::placeholder,
+input[placeholder="Type to search"]::placeholder,
+html body input[placeholder="Type to search"]::placeholder {
+  color: #b8b9c5 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #b8b9c5 !important;
+}
+
+/* WebKit browsers */
+.book-search-input input::-webkit-input-placeholder,
+input.book-search-input::-webkit-input-placeholder,
+.book-search input::-webkit-input-placeholder,
+input[placeholder="Type to search"]::-webkit-input-placeholder,
+html body input[placeholder="Type to search"]::-webkit-input-placeholder {
+  color: #b8b9c5 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #b8b9c5 !important;
+}
+
+/* Firefox browsers */
+.book-search-input input::-moz-placeholder,
+input.book-search-input::-moz-placeholder,
+.book-search input::-moz-placeholder,
+input[placeholder="Type to search"]::-moz-placeholder,
+html body input[placeholder="Type to search"]::-moz-placeholder {
+  color: #b8b9c5 !important;
+  opacity: 1 !important;
+}
+
+/* Internet Explorer */
+.book-search-input input:-ms-input-placeholder,
+input.book-search-input:-ms-input-placeholder,
+.book-search input:-ms-input-placeholder,
+input[placeholder="Type to search"]:-ms-input-placeholder,
+html body input[placeholder="Type to search"]:-ms-input-placeholder {
+  color: #b8b9c5 !important;
+  opacity: 1 !important;
+}
+
+/* Edge */
+.book-search-input input::-ms-input-placeholder,
+input.book-search-input::-ms-input-placeholder,
+.book-search input::-ms-input-placeholder,
+input[placeholder="Type to search"]::-ms-input-placeholder,
+html body input[placeholder="Type to search"]::-ms-input-placeholder {
+  color: #b8b9c5 !important;
+  opacity: 1 !important;
+}
+
+/* Focus state */
+.book-search-input input:focus,
+input.book-search-input:focus,
+.book-search input:focus,
+input[placeholder="Type to search"]:focus {
+  color: #f8f8f2 !important;
+  background-color: #141521 !important;
+  border-color: #8673f4 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(134, 115, 244, 0.3) !important;
+}
+
+/* Override honkit default styles */
+#book-search-input {
+  background-color: #141521 !important;
+  border-bottom: 1px solid #2a2c3d !important;
+}
+
+#book-search-input input {
+  color: #f8f8f2 !important;
+  background-color: #141521 !important;
+  width: 100% !important;
+}
+
+/* Overriding theme-specific styles */
+.color-theme-2 .book-search-input {
+  background-color: #141521 !important;
+}
+
+.color-theme-2 .book-search-input input {
+  color: #f8f8f2 !important;
+  background-color: #141521 !important;
+}
+
+.book-summary {
+  background-color: #1a1b26 !important;
+}
+
+.search-results-item {
+  color: #f8f8f2 !important;
+}
+
+/* Input background for direct parent targeting */
+input[type="text"] {
+  background-color: #141521 !important;
+  color: #f8f8f2 !important;
+} 

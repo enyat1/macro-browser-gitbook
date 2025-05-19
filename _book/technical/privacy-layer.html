@@ -1,0 +1,851 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Privacy Layer · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="web3-integration.html" />
+    
+    
+    <link rel="prev" href="browser-engine.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="core-components.html">
+            
+                <a href="core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="browser-engine.html">
+            
+                <a href="browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.4" data-path="privacy-layer.html">
+            
+                <a href="privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="web3-integration.html">
+            
+                <a href="web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="network-architecture.html">
+            
+                <a href="network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="data-flow-security.html">
+            
+                <a href="data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="architecture-decisions.html">
+            
+                <a href="architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../developers/integration-guide.html">
+            
+                <a href="../developers/integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../developers/web3-api.html">
+            
+                <a href="../developers/web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../developers/privacy-api.html">
+            
+                <a href="../developers/privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../developers/performance-guide.html">
+            
+                <a href="../developers/performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../developers/extension-guide.html">
+            
+                <a href="../developers/extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../developers/contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Privacy Layer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="privacy-layer">Privacy Layer</h1>
+<p>The Privacy Layer is a core component of Macro Browser that provides comprehensive protection against tracking, ads, and other privacy threats. It operates at multiple levels of the browser stack to ensure user privacy is maintained.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><img src="../images/diagrams/technical_privacy-layer_diagram_1.svg" alt="Diagram 1"></img></p>
+<h2 id="key-components">Key Components</h2>
+<h3 id="ad-blocker">Ad Blocker</h3>
+<p>The ad blocking system prevents advertisements from loading and displaying:</p>
+<ul>
+<li><strong>Filter Lists</strong>: Uses multiple curated filter lists (EasyList, uBlock Origin lists, etc.)</li>
+<li><strong>Network-Level Blocking</strong>: Prevents requests to ad-serving domains</li>
+<li><strong>Cosmetic Filtering</strong>: Removes ad containers and placeholders from rendered pages</li>
+<li><strong>Exception Handling</strong>: Support for user-defined exceptions and allowlists</li>
+<li><strong>Performance Optimization</strong>: Fast matching algorithms for minimal browsing impact</li>
+</ul>
+<h3 id="tracker-prevention">Tracker Prevention</h3>
+<p>The tracker prevention system blocks tracking scripts and mechanisms:</p>
+<ul>
+<li><strong>Known Tracker Blocking</strong>: Blocks known tracking domains and scripts</li>
+<li><strong>Heuristic Detection</strong>: Identifies potential trackers based on behavior</li>
+<li><strong>Cookie Management</strong>: Intelligent handling of tracking cookies</li>
+<li><strong>Storage Partitioning</strong>: Isolates site data to prevent cross-site tracking</li>
+<li><strong>Referrer Policy</strong>: Controls the HTTP Referer header to prevent information leakage</li>
+</ul>
+<h3 id="fingerprinting-protection">Fingerprinting Protection</h3>
+<p>Reduces the browser's fingerprinting surface to make users harder to identify:</p>
+<ul>
+<li><strong>Canvas Fingerprinting Protection</strong>: Adds controlled noise to canvas operations</li>
+<li><strong>Font Enumeration Control</strong>: Limits access to system font information</li>
+<li><strong>User Agent Normalization</strong>: Provides standardized user agent information</li>
+<li><strong>Hardware Information Protection</strong>: Limits access to device-specific information</li>
+<li><strong>Time Precision Reduction</strong>: Reduces precision of timing APIs used for fingerprinting</li>
+</ul>
+<h3 id="secure-connections">Secure Connections</h3>
+<p>Ensures secure and encrypted connections to websites:</p>
+<ul>
+<li><strong>HTTPS Upgrading</strong>: Automatically switches from HTTP to HTTPS where available</li>
+<li><strong>HSTS Support</strong>: Honors HTTP Strict Transport Security headers</li>
+<li><strong>Certificate Verification</strong>: Enhanced SSL/TLS certificate validation</li>
+<li><strong>Mixed Content Blocking</strong>: Prevents loading insecure resources on secure pages</li>
+<li><strong>Insecure Form Warning</strong>: Alerts users when entering data in non-secure forms</li>
+</ul>
+<h3 id="private-browsing-mode">Private Browsing Mode</h3>
+<p>Ensures no browsing data is persisted between sessions:</p>
+<ul>
+<li><strong>No History Retention</strong>: Browser does not save browsing history</li>
+<li><strong>Session-Only Cookies</strong>: Cookies exist only during the browsing session</li>
+<li><strong>In-Memory Cache</strong>: Cache data is stored in memory and cleared on exit</li>
+<li><strong>No Storage Persistence</strong>: Web storage is not saved to disk</li>
+<li><strong>Clean State</strong>: Every new browser session starts with a clean state</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<h3 id="ad-blocker-implementation">Ad Blocker Implementation</h3>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of ad blocker integration</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ElectronBlocker</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@cliqz/adblocker-electron'</span>;
+<span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">'cross-fetch'</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">initializeAdBlocker</span>(<span class="hljs-params"><span class="hljs-attr">session</span>: <span class="hljs-title class_">Electron</span>.<span class="hljs-title class_">Session</span></span>) {
+  <span class="hljs-comment">// Load filter lists</span>
+  <span class="hljs-keyword">const</span> blocker = <span class="hljs-keyword">await</span> <span class="hljs-title class_">ElectronBlocker</span>.<span class="hljs-title function_">fromLists</span>(
+    fetch,
+    [
+      <span class="hljs-string">'https://easylist.to/easylist/easylist.txt'</span>,
+      <span class="hljs-string">'https://easylist.to/easylist/easyprivacy.txt'</span>,
+      <span class="hljs-string">'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt'</span>,
+      <span class="hljs-comment">// Additional filter lists</span>
+    ],
+    {
+      <span class="hljs-attr">enableCompression</span>: <span class="hljs-literal">true</span>,
+    }
+  );
+
+  <span class="hljs-comment">// Enable blocking</span>
+  blocker.<span class="hljs-title function_">enableBlockingInSession</span>(session);
+
+  <span class="hljs-comment">// Add custom rules (optional)</span>
+  blocker.<span class="hljs-title function_">addCosmeticFilters</span>([
+    <span class="hljs-string">'example.com##.ad-container'</span>,
+    <span class="hljs-string">'example.org###sponsored-content'</span>,
+  ]);
+
+  <span class="hljs-comment">// Setup periodic updates</span>
+  <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+    blocker.<span class="hljs-title function_">update</span>();
+  }, <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>); <span class="hljs-comment">// Daily updates</span>
+
+  <span class="hljs-keyword">return</span> blocker;
+}
+</code></pre>
+<h3 id="private-browsing-configuration">Private Browsing Configuration</h3>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of private browsing mode configuration</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">configurePrivateBrowsing</span>(<span class="hljs-params"><span class="hljs-attr">session</span>: <span class="hljs-title class_">Electron</span>.<span class="hljs-title class_">Session</span></span>) {
+  <span class="hljs-comment">// Configure session to never persist data</span>
+  <span class="hljs-keyword">const</span> privateConfig = {
+    <span class="hljs-attr">cache</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">cookies</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">storage</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">localStorage</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">indexedDB</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">serviceWorkers</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">webSQL</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">permissions</span>: <span class="hljs-literal">false</span>
+  };
+
+  <span class="hljs-comment">// Apply configurations</span>
+  session.<span class="hljs-title function_">setStorageAccessSync</span>(privateConfig);
+
+  <span class="hljs-comment">// Clear data when app closes</span>
+  app.<span class="hljs-title function_">on</span>(<span class="hljs-string">'before-quit'</span>, <span class="hljs-function">() =&gt;</span> {
+    session.<span class="hljs-title function_">clearStorageData</span>();
+    session.<span class="hljs-title function_">clearCache</span>();
+    session.<span class="hljs-title function_">clearHostResolverCache</span>();
+    session.<span class="hljs-title function_">clearAuthCache</span>();
+  });
+
+  <span class="hljs-comment">// Initialize clean state on startup</span>
+  app.<span class="hljs-title function_">on</span>(<span class="hljs-string">'ready'</span>, <span class="hljs-function">() =&gt;</span> {
+    session.<span class="hljs-title function_">clearStorageData</span>();
+  });
+}
+</code></pre>
+<h3 id="secure-connections-enforcement">Secure Connections Enforcement</h3>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of HTTPS upgrade implementation</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">enforceSecureConnections</span>(<span class="hljs-params"><span class="hljs-attr">session</span>: <span class="hljs-title class_">Electron</span>.<span class="hljs-title class_">Session</span></span>) {
+  <span class="hljs-comment">// Upgrade HTTP requests to HTTPS where possible</span>
+  session.<span class="hljs-property">webRequest</span>.<span class="hljs-title function_">onBeforeRequest</span>(<span class="hljs-function">(<span class="hljs-params">details, callback</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (details.<span class="hljs-property">url</span>.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">'http:'</span>) &amp;&amp; !<span class="hljs-title function_">isLocalhost</span>(details.<span class="hljs-property">url</span>)) {
+      <span class="hljs-keyword">const</span> secureUrl = details.<span class="hljs-property">url</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-string">'http:'</span>, <span class="hljs-string">'https:'</span>);
+      <span class="hljs-title function_">callback</span>({ <span class="hljs-attr">redirectURL</span>: secureUrl });
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-title function_">callback</span>({});
+    }
+  });
+
+  <span class="hljs-comment">// Block mixed content</span>
+  session.<span class="hljs-property">webRequest</span>.<span class="hljs-title function_">onHeadersReceived</span>(<span class="hljs-function">(<span class="hljs-params">details, callback</span>) =&gt;</span> {
+    <span class="hljs-title function_">callback</span>({
+      <span class="hljs-attr">responseHeaders</span>: {
+        ...details.<span class="hljs-property">responseHeaders</span>,
+        <span class="hljs-string">'Content-Security-Policy'</span>: [<span class="hljs-string">'upgrade-insecure-requests'</span>]
+      }
+    });
+  });
+}
+</code></pre>
+<h2 id="privacy-dashboard">Privacy Dashboard</h2>
+<p>Macro Browser includes a privacy dashboard that provides users with information about blocked elements:</p>
+<ul>
+<li><strong>Real-time Counter</strong>: Shows the number of blocked ads and trackers</li>
+<li><strong>Site-specific Information</strong>: Details about privacy threats on the current site</li>
+<li><strong>Global Statistics</strong>: Summary of protection across all browsing sessions</li>
+<li><strong>Configuration Controls</strong>: User-friendly toggles for privacy features</li>
+</ul>
+<h2 id="data-flow">Data Flow</h2>
+<p><img src="../images/diagrams/technical_privacy-layer_diagram_2.svg" alt="Diagram 2"></img></p>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<p>The Privacy Layer is designed for minimal performance impact:</p>
+<ul>
+<li><strong>Efficient Matching Algorithms</strong>: Fast rule matching with Bloom filters</li>
+<li><strong>Caching Results</strong>: Caching filter decisions to avoid repeated processing</li>
+<li><strong>Parallelized Processing</strong>: Handling filter checks in parallel where possible</li>
+<li><strong>Selective Rule Application</strong>: Applying only relevant rules to each request</li>
+<li><strong>Resource Prioritization</strong>: Prioritizing user-visible content over background requests</li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>Planned improvements to the Privacy Layer:</p>
+<ul>
+<li><strong>Advanced Fingerprinting Protection</strong>: More sophisticated anti-fingerprinting measures</li>
+<li><strong>Machine Learning Detection</strong>: ML-based identification of new trackers</li>
+<li><strong>Enhanced First-Party Isolation</strong>: Stronger isolation between websites</li>
+<li><strong>More Granular Controls</strong>: Additional user controls for specific privacy features</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="browser-engine.html" class="navigation navigation-prev " aria-label="Previous page: Browser Engine">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="web3-integration.html" class="navigation navigation-next " aria-label="Next page: Web3 Integration">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Privacy Layer","level":"4.4","depth":1,"next":{"title":"Web3 Integration","level":"4.5","depth":1,"path":"technical/web3-integration.md","ref":"technical/web3-integration.md","articles":[]},"previous":{"title":"Browser Engine","level":"4.3","depth":1,"path":"technical/browser-engine.md","ref":"technical/browser-engine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"technical/privacy-layer.md","mtime":"2025-05-19T16:19:07.824Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

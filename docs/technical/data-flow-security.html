@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>data flow security - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Data Flow &amp; Security</h1>
+<p>This section provides an overview of how data flows through Macro Browser and the security measures in place to protect user privacy and security.</p>
+<h2>Data Flow Overview</h2>
+<p><img src="/images/diagrams/data-flow-overview.svg" alt="Data Flow Overview"></p>
+<h2>Core Data Flows</h2>
+<h3>1. Web Browsing Flow</h3>
+<p><img src="/images/diagrams/web-browsing-flow.svg" alt="Web Browsing Flow"></p>
+<h3>2. Web3 Transaction Flow</h3>
+<p><img src="/images/diagrams/web3-transaction-flow.svg" alt="Web3 Transaction Flow"></p>
+<h3>3. Search Query Flow</h3>
+<p><img src="/images/diagrams/search-query-flow.svg" alt="Search Query Flow"></p>
+<h2>Security Architecture</h2>
+<p>Macro Browser's security architecture follows a defense-in-depth approach with multiple layers of protection.</p>
+<h3>Security Layers</h3>
+<p><img src="/images/diagrams/security-layers.svg" alt="Security Layers"></p>
+<h2>Key Security Features</h2>
+<h3>Process Isolation and Sandboxing</h3>
+<p>Macro Browser uses a multi-process architecture with strict sandboxing:</p>
+<ul>
+<li><strong>Process Types</strong>: Separate processes for browser UI, renderers, GPU, network, and utility functions</li>
+<li><strong>Privilege Separation</strong>: Each process has minimal required privileges</li>
+<li><strong>Renderer Isolation</strong>: Web content runs in isolated renderer processes</li>
+<li><strong>Site Isolation</strong>: Different sites run in different processes to prevent cross-site data leaks</li>
+<li><strong>Sandbox Policies</strong>: Strict OS-level sandboxing restricts process capabilities</li>
+</ul>
+<h3>Network Security</h3>
+<p>Multiple layers of network security protect user data:</p>
+<ul>
+<li><strong>TLS Validation</strong>: Strict validation of TLS certificates and connections</li>
+<li><strong>HTTPS Enforcement</strong>: Automatic upgrading to HTTPS when available</li>
+<li><strong>Certificate Transparency</strong>: Verification against CT logs</li>
+<li><strong>HSTS Support</strong>: Respect for HTTP Strict Transport Security</li>
+<li><strong>P2P VPN Encryption</strong>: Additional encryption layer when VPN is enabled</li>
+<li><strong>DNS-over-HTTPS/TLS</strong>: Encrypted DNS resolution to prevent snooping</li>
+</ul>
+<h3>Content Security</h3>
+<p>Content security features protect against malicious web content:</p>
+<ul>
+<li><strong>Content Security Policy</strong>: Enhanced CSP implementation</li>
+<li><strong>XSS Protection</strong>: Built-in cross-site scripting protection</li>
+<li><strong>Phishing Detection</strong>: Recognition of known phishing attempts</li>
+<li><strong>Resource Integrity</strong>: Verification of subresource integrity</li>
+<li><strong>Frame Sandboxing</strong>: Strict sandboxing of iframes</li>
+<li><strong>Permission Model</strong>: Granular permission controls for web features</li>
+</ul>
+<h3>Web3 Security</h3>
+<p>Special security measures for blockchain interactions:</p>
+<ul>
+<li><strong>Transaction Analysis</strong>: Pre-execution analysis of transaction effects</li>
+<li><strong>Contract Verification</strong>: Verification of smart contract source code</li>
+<li><strong>Address Validation</strong>: Checks against known scam addresses</li>
+<li><strong>Permission Controls</strong>: Domain-specific permission for dApps</li>
+<li><strong>Gas Monitoring</strong>: Prevention of excessive gas fees</li>
+<li><strong>Signature Request Analysis</strong>: Clear explanation of signature requests</li>
+</ul>
+<h2>Data Privacy</h2>
+<p>Macro Browser's privacy architecture ensures user data is protected:</p>
+<ul>
+<li><strong>No Persistent History</strong>: By default, no browsing history is saved</li>
+<li><strong>Memory-Only Storage</strong>: Temporary data held in memory, not on disk</li>
+<li><strong>Data Minimization</strong>: Only essential data is collected or processed</li>
+<li><strong>Limited Data Sharing</strong>: Minimal data shared with external services</li>
+<li><strong>Anonymized Queries</strong>: Search queries are anonymized before processing</li>
+<li><strong>Session Isolation</strong>: Each browsing session is isolated</li>
+</ul>
+<h2>Authentication and Authorization</h2>
+<p>For features requiring authentication:</p>
+<ul>
+<li><strong>Wallet Authentication</strong>: Secure wallet connection process</li>
+<li><strong>Permission Model</strong>: Explicit user consent for sensitive operations</li>
+<li><strong>Transaction Signing</strong>: Clear approval process for blockchain transactions</li>
+<li><strong>API Authorization</strong>: Secure handling of API keys and tokens</li>
+<li><strong>Local Authentication</strong>: Option for local authentication for sensitive settings</li>
+</ul>
+<h2>Threat Mitigation</h2>
+<p>Strategies to mitigate common threats:</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>TLS validation, certificate pinning, VPN encryption</td>
+</tr>
+<tr>
+<td>Phishing</td>
+<td>Visual security indicators, domain verification, warnings</td>
+</tr>
+<tr>
+<td>Malware</td>
+<td>Content filtering, script blocking, sandboxing</td>
+</tr>
+<tr>
+<td>Cross-Site Scripting</td>
+<td>CSP enforcement, input sanitization, output encoding</td>
+</tr>
+<tr>
+<td>Tracking</td>
+<td>Tracker blocking, fingerprinting protection, private browsing mode</td>
+</tr>
+<tr>
+<td>Web3 Scams</td>
+<td>Contract verification, phishing protection, transaction analysis</td>
+</tr>
+<tr>
+<td>DNS Attacks</td>
+<td>DNS-over-HTTPS, DNS caching, DNSSEC validation</td>
+</tr>
+<tr>
+<td>Browser Exploits</td>
+<td>Regular updates, process isolation, reduced attack surface</td>
+</tr>
+</tbody>
+</table>
+<h2>Security Response Process</h2>
+<p>In case of security vulnerabilities:</p>
+<ol>
+<li><strong>Discovery</strong>: Identification of potential security issue</li>
+<li><strong>Assessment</strong>: Evaluation of impact and risk</li>
+<li><strong>Resolution</strong>: Development of fix or mitigation</li>
+<li><strong>Deployment</strong>: Rapid update distribution to users</li>
+<li><strong>Disclosure</strong>: Responsible disclosure after patching</li>
+</ol>
+<h2>Regular Security Audits</h2>
+<p>Macro Browser undergoes regular security reviews:</p>
+<ul>
+<li><strong>Code Audits</strong>: Regular review of source code for vulnerabilities</li>
+<li><strong>Penetration Testing</strong>: Active testing for security weaknesses</li>
+<li><strong>Dependency Scanning</strong>: Monitoring of third-party dependencies</li>
+<li><strong>Cryptographic Review</strong>: Analysis of cryptographic implementations</li>
+<li><strong>Privacy Assessment</strong>: Review of data handling practices</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

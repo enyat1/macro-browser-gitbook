@@ -2,7 +2,7 @@
 
 Macro Browser combines cutting-edge privacy technology with Web3 integration to deliver a unique browsing experience. Here's an overview of our key features:
 
-![Macro Browser Features](/images/features/features-overview.svg)
+![Features Overview](/images/features/features-overview.svg)
 
 ## Privacy First
 

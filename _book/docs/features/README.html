@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Macro Browser Features</h1>
+<p>Macro Browser combines cutting-edge privacy technology with Web3 integration to deliver a unique browsing experience. Here's an overview of our key features:</p>
+<p><img src="/images/features/features-overview.svg" alt="Macro Browser Features"></p>
+<h2>Privacy First</h2>
+<p>Macro Browser is built with privacy as its foundation:</p>
+<ul>
+<li><strong><a href="private-browsing.md">Private Browsing by Default</a></strong>: All sessions operate in private mode with no persistent history</li>
+<li><strong>De-Googled Chromium</strong>: Based on Chromium but with Google services and tracking components removed</li>
+<li><strong><a href="ad-tracker-blocking.md">Ad &amp; Tracker Blocking</a></strong>: Built-in protection against intrusive ads and trackers</li>
+<li><strong>Secure Connections</strong>: Automatic HTTPS upgrades and insecure site warnings</li>
+<li><strong><a href="p2p-vpn.md">P2P VPN</a></strong>: Decentralized, peer-to-peer VPN for enhanced privacy</li>
+</ul>
+<h2>Intelligent Interface</h2>
+<ul>
+<li><strong><a href="ai-search.md">AI-Powered Search</a></strong>: Intelligent search capabilities that respect your privacy</li>
+<li><strong>Clean, Minimal Design</strong>: Distraction-free browsing experience with dark mode by default</li>
+<li><strong>Custom New Tab Page</strong>: Quick access to relevant Web3 sites and dApps</li>
+</ul>
+<h2>Web3 Integration</h2>
+<ul>
+<li><strong><a href="crypto-wallet.md">Crypto Wallet Integration</a></strong>: Connect your existing wallets or use the built-in solution</li>
+<li><strong>dApp Support</strong>: Seamless interaction with decentralized applications</li>
+<li><strong>Transaction Security</strong>: Clear approval process for all Web3 transactions</li>
+</ul>
+<h2>Performance &amp; Security</h2>
+<ul>
+<li><strong>Lightweight Design</strong>: Built on Electron with optimized performance</li>
+<li><strong>Enhanced Security</strong>: Additional security layers beyond standard browsers</li>
+<li><strong>Regular Updates</strong>: Continuous improvements and security patches</li>
+</ul>
+<h2>Feature Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Macro Browser</th>
+<th>Standard Chrome</th>
+<th>Firefox</th>
+<th>Brave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Private by Default</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Ad Blocking</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>P2P VPN</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Native Web3 Support</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>De-Googled</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>AI-Powered Search</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>Explore each feature in detail through the links in the sidebar.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

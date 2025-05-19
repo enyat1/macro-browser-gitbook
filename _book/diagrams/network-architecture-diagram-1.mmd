@@ -1,0 +1,50 @@
+graph TD
+    classDef browserComp fill:#4b31dd,color:white,stroke-width:0px
+    classDef vpnComp fill:#2a1a7e,color:white,stroke-width:0px
+    classDef externalSys fill:#4b31dd,color:white,stroke-width:0px
+    
+    subgraph "Browser Components"
+        NetworkService[Network Service]:::browserComp
+        VPNController[VPN Controller]:::browserComp
+        RequestManager[Request Manager]:::browserComp
+        CacheSystem[Cache System]:::browserComp
+        PrivacyFilters[Privacy Filters]:::browserComp
+    end
+    
+    subgraph "P2P VPN Components"
+        PeerDiscovery[Peer Discovery]:::vpnComp
+        EncryptionLayer[Encryption Layer]:::vpnComp
+        RoutingEngine[Routing Engine]:::vpnComp
+        RelayManager[Relay Manager]:::vpnComp
+        PeerManager[Peer Management]:::vpnComp
+        CryptoPayments[Crypto Payments]:::vpnComp
+    end
+    
+    subgraph "External Systems"
+        Internet[Internet]:::externalSys
+        PeerNetwork[Peer Network]:::externalSys
+        BootstrapNodes[Bootstrap Nodes]:::externalSys
+        BlockchainNetwork[Blockchain Network]:::externalSys
+    end
+    
+    NetworkService --> VPNController
+    NetworkService --> RequestManager
+    RequestManager --> CacheSystem
+    RequestManager --> PrivacyFilters
+    
+    VPNController --> EncryptionLayer
+    VPNController --> RoutingEngine
+    
+    PeerDiscovery --> BootstrapNodes
+    PeerDiscovery --> PeerNetwork
+    PeerDiscovery --> PeerManager
+    
+    EncryptionLayer --> RelayManager
+    RoutingEngine --> RelayManager
+    RelayManager --> PeerNetwork
+    
+    PeerManager --> CryptoPayments
+    CryptoPayments --> BlockchainNetwork
+    
+    PrivacyFilters --> Internet
+    RelayManager --> Internet 

@@ -1,0 +1,1197 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Performance Optimization Guide · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="extension-guide.html" />
+    
+    
+    <link rel="prev" href="privacy-api.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../technical/">
+            
+                <a href="../technical/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../technical/core-components.html">
+            
+                <a href="../technical/core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../technical/browser-engine.html">
+            
+                <a href="../technical/browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../technical/privacy-layer.html">
+            
+                <a href="../technical/privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../technical/web3-integration.html">
+            
+                <a href="../technical/web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../technical/network-architecture.html">
+            
+                <a href="../technical/network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../technical/data-flow-security.html">
+            
+                <a href="../technical/data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../technical/architecture-decisions.html">
+            
+                <a href="../technical/architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="integration-guide.html">
+            
+                <a href="integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="web3-api.html">
+            
+                <a href="web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="privacy-api.html">
+            
+                <a href="privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.4" data-path="performance-guide.html">
+            
+                <a href="performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="extension-guide.html">
+            
+                <a href="extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Performance Optimization Guide</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="performance-optimization-guide">Performance Optimization Guide</h1>
+<p>This guide provides recommendations for optimizing your website or application performance when running in Macro Browser.</p>
+<h2 id="understanding-macro-browsers-architecture">Understanding Macro Browser's Architecture</h2>
+<p>Macro Browser has several key architectural features that affect performance:</p>
+<ol>
+<li><strong>Multi-Process Architecture</strong>: Like other Chromium-based browsers, Macro Browser uses separate processes for the browser core, renderer, GPU, and networking.</li>
+<li><strong>Privacy Features</strong>: Privacy protection mechanisms may impact performance in specific scenarios.</li>
+<li><strong>P2P VPN Integration</strong>: Network requests may be routed through the P2P VPN network.</li>
+<li><strong>Memory-First Storage</strong>: Macro Browser minimizes disk operations for privacy.</li>
+</ol>
+<h2 id="performance-best-practices">Performance Best Practices</h2>
+<h3 id="resource-loading-optimization">Resource Loading Optimization</h3>
+<p><img src="../images/diagrams/developers_performance-guide_diagram_1.svg" alt="Diagram 1"></img></p>
+<h4 id="prioritize-critical-resources">Prioritize Critical Resources</h4>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Preload critical CSS --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"preload"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/css/critical.css"</span> <span class="hljs-attr">as</span>=<span class="hljs-string">"style"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Preload critical fonts with crossorigin attribute --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"preload"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/fonts/main.woff2"</span> <span class="hljs-attr">as</span>=<span class="hljs-string">"font"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"font/woff2"</span> <span class="hljs-attr">crossorigin</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Inline critical CSS --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+  <span class="hljs-comment">/* Critical CSS here */</span>
+  <span class="hljs-selector-class">.header</span> { <span class="hljs-comment">/* ... */</span> }
+  <span class="hljs-selector-class">.hero</span> { <span class="hljs-comment">/* ... */</span> }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<h4 id="lazy-loading">Lazy Loading</h4>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Images --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"placeholder.jpg"</span> 
+     <span class="hljs-attr">data-src</span>=<span class="hljs-string">"real-image.jpg"</span> 
+     <span class="hljs-attr">loading</span>=<span class="hljs-string">"lazy"</span> 
+     <span class="hljs-attr">class</span>=<span class="hljs-string">"lazy-image"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- For browsers that don't support native lazy loading --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">'loading'</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">HTMLImageElement</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) {
+    <span class="hljs-comment">// Convert to use native lazy loading</span>
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'img.lazy-image'</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">img</span> =&gt;</span> {
+      img.<span class="hljs-property">src</span> = img.<span class="hljs-property">dataset</span>.<span class="hljs-property">src</span>;
+    });
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// Use intersection observer polyfill</span>
+    <span class="hljs-comment">// ...</span>
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h4 id="efficient-javascript-loading">Efficient JavaScript Loading</h4>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Defer non-critical JavaScript --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app.js"</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Use type="module" for modern browsers (automatically deferred) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app.mjs"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- For legacy browser support --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">nomodule</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app.legacy.js"</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="rendering-performance">Rendering Performance</h3>
+<h4 id="dom-size-optimization">DOM Size Optimization</h4>
+<p>Macro Browser, like all Chromium-based browsers, performs better with smaller DOM trees:</p>
+<ul>
+<li>Keep DOM nodes under 1,500 if possible</li>
+<li>Maximum depth of 32 elements</li>
+<li>No parent node with more than 60 child nodes</li>
+</ul>
+<h4 id="css-optimization">CSS Optimization</h4>
+<pre><code class="lang-css"><span class="hljs-comment">/* Avoid expensive CSS properties */</span>
+<span class="hljs-selector-class">.good</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">0</span>);  <span class="hljs-comment">/* Uses GPU acceleration */</span>
+}
+
+<span class="hljs-selector-class">.avoid-when-possible</span> {
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">10px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>); <span class="hljs-comment">/* Can be expensive */</span>
+  <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-number">5px</span>);         <span class="hljs-comment">/* Expensive for large elements */</span>
+  <span class="hljs-attribute">position</span>: fixed;           <span class="hljs-comment">/* Can trigger full repaints */</span>
+}
+
+<span class="hljs-comment">/* Use efficient selectors */</span>
+<span class="hljs-selector-class">.efficient</span> { <span class="hljs-attribute">color</span>: blue; }              <span class="hljs-comment">/* Good - class selector */</span>
+<span class="hljs-selector-class">.parent</span> &gt; <span class="hljs-selector-class">.child</span> { <span class="hljs-attribute">color</span>: blue; }        <span class="hljs-comment">/* OK - one level of inheritance */</span>
+<span class="hljs-selector-class">.parent</span> <span class="hljs-selector-class">.child</span> <span class="hljs-selector-class">.grandchild</span> { <span class="hljs-attribute">color</span>: blue; } <span class="hljs-comment">/* Avoid - expensive */</span>
+</code></pre>
+<h4 id="animation-performance">Animation Performance</h4>
+<p>For smooth animations, especially in privacy-focused browsers:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Use requestAnimationFrame for animations</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// Update animation</span>
+  element.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> = <span class="hljs-string">`translateX(<span class="hljs-subst">${position}</span>px)`</span>;
+
+  <span class="hljs-comment">// Schedule next frame</span>
+  <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+}
+
+<span class="hljs-comment">// Start animation</span>
+<span class="hljs-title function_">requestAnimationFrame</span>(animate);
+
+<span class="hljs-comment">// Prefer CSS animations for simple cases</span>
+<span class="hljs-keyword">const</span> styles = <span class="hljs-string">`
+.animated {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+`</span>;
+</code></pre>
+<h4 id="compositor-only-properties">Compositor-Only Properties</h4>
+<p>For the best animation performance, prefer properties that only affect the compositor:</p>
+<ul>
+<li><strong>Good properties</strong>: <code>transform</code>, <code>opacity</code></li>
+<li><strong>Avoid animating</strong>: <code>width</code>, <code>height</code>, <code>left</code>, <code>top</code>, <code>background-color</code></li>
+</ul>
+<h3 id="memory-management">Memory Management</h3>
+<h4 id="efficient-data-structures">Efficient Data Structures</h4>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Use appropriate data structures</span>
+<span class="hljs-comment">// Map for key-value pairs with non-string keys</span>
+<span class="hljs-keyword">const</span> userCache = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+
+<span class="hljs-comment">// Set for unique values</span>
+<span class="hljs-keyword">const</span> uniqueVisitors = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>();
+
+<span class="hljs-comment">// TypedArrays for binary data</span>
+<span class="hljs-keyword">const</span> binaryData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint8Array</span>(<span class="hljs-number">1024</span>);
+</code></pre>
+<h4 id="memory-leaks-prevention">Memory Leaks Prevention</h4>
+<p>Particularly important in Macro Browser as it runs a memory-first approach:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Component</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">element</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">'div'</span>);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">bindEvents</span>();
+  }
+
+  <span class="hljs-title function_">bindEvents</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Store reference to bound function for later removal</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">boundClickHandler</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">handleClick</span>.<span class="hljs-title function_">bind</span>(<span class="hljs-variable language_">this</span>);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">element</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">boundClickHandler</span>);
+  }
+
+  <span class="hljs-title function_">handleClick</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Handle click</span>
+  }
+
+  <span class="hljs-title function_">destroy</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Remove event listeners</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">element</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">boundClickHandler</span>);
+    <span class="hljs-comment">// Remove references</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">element</span> = <span class="hljs-literal">null</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">boundClickHandler</span> = <span class="hljs-literal">null</span>;
+  }
+}
+</code></pre>
+<h3 id="network-optimization">Network Optimization</h3>
+<h4 id="bandwidth-efficiency">Bandwidth Efficiency</h4>
+<p>Macro Browser routes traffic through privacy layers, making bandwidth optimization particularly important:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Compress API responses</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">compressionMiddleware</span> = (<span class="hljs-params">req, res, next</span>) =&gt; {
+  <span class="hljs-comment">// Only compress certain content types</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">shouldCompress</span>(req)) {
+    res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">'Content-Encoding'</span>, <span class="hljs-string">'gzip'</span>);
+    <span class="hljs-comment">// Compress response</span>
+  }
+  <span class="hljs-title function_">next</span>();
+};
+
+<span class="hljs-comment">// Client-side request batching</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">batchRequests</span>(<span class="hljs-params">requests</span>) {
+  <span class="hljs-comment">// Combine multiple related API calls</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">'/batch'</span>, {
+    <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+    <span class="hljs-attr">headers</span>: { <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span> },
+    <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ requests })
+  }).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.<span class="hljs-title function_">json</span>());
+}
+</code></pre>
+<h4 id="cache-aware-programming">Cache-Aware Programming</h4>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Use cache headers properly</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">'/api/data'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-comment">// Add cache headers</span>
+  res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">'Cache-Control'</span>, <span class="hljs-string">'public, max-age=300'</span>);
+  res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">'ETag'</span>, <span class="hljs-title function_">generateETag</span>(data));
+  res.<span class="hljs-title function_">json</span>(data);
+});
+
+<span class="hljs-comment">// Client-side caching with Service Worker</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">CACHE_NAME</span> = <span class="hljs-string">'app-v1'</span>;
+
+self.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'install'</span>, <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+  event.<span class="hljs-title function_">waitUntil</span>(
+    caches.<span class="hljs-title function_">open</span>(<span class="hljs-variable constant_">CACHE_NAME</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">cache</span>) =&gt;</span> {
+      <span class="hljs-keyword">return</span> cache.<span class="hljs-title function_">addAll</span>([
+        <span class="hljs-string">'/'</span>,
+        <span class="hljs-string">'/index.html'</span>,
+        <span class="hljs-string">'/styles.css'</span>,
+        <span class="hljs-string">'/app.js'</span>,
+      ]);
+    })
+  );
+});
+</code></pre>
+<h3 id="web3-specific-optimizations">Web3 Specific Optimizations</h3>
+<h4 id="efficient-contract-calls">Efficient Contract Calls</h4>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Batch reads using multicall</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">batchContractCalls</span>(<span class="hljs-params">contract, methodName, paramSets</span>) {
+  <span class="hljs-keyword">const</span> multicallContract = <span class="hljs-keyword">new</span> ethers.<span class="hljs-title class_">Contract</span>(
+    <span class="hljs-variable constant_">MULTICALL_ADDRESS</span>, 
+    <span class="hljs-variable constant_">MULTICALL_ABI</span>, 
+    provider
+  );
+
+  <span class="hljs-keyword">const</span> calls = paramSets.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> ({
+    <span class="hljs-attr">target</span>: contract.<span class="hljs-property">address</span>,
+    <span class="hljs-attr">callData</span>: contract.<span class="hljs-property">interface</span>.<span class="hljs-title function_">encodeFunctionData</span>(methodName, params)
+  }));
+
+  <span class="hljs-keyword">const</span> { returnData } = <span class="hljs-keyword">await</span> multicallContract.<span class="hljs-title function_">aggregate</span>(calls);
+
+  <span class="hljs-keyword">return</span> returnData.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> 
+    contract.<span class="hljs-property">interface</span>.<span class="hljs-title function_">decodeFunctionResult</span>(methodName, data)
+  );
+}
+</code></pre>
+<h4 id="state-management-for-web3">State Management for Web3</h4>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Cache transaction data</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TransactionCache</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">ttlSeconds = <span class="hljs-number">60</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">ttl</span> = ttlSeconds * <span class="hljs-number">1000</span>;
+  }
+
+  <span class="hljs-title function_">set</span>(<span class="hljs-params">txHash, data</span>) {
+    <span class="hljs-keyword">const</span> expiry = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() + <span class="hljs-variable language_">this</span>.<span class="hljs-property">ttl</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>.<span class="hljs-title function_">set</span>(txHash, { data, expiry });
+  }
+
+  <span class="hljs-title function_">get</span>(<span class="hljs-params">txHash</span>) {
+    <span class="hljs-keyword">const</span> cached = <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>.<span class="hljs-title function_">get</span>(txHash);
+    <span class="hljs-keyword">if</span> (!cached) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+    <span class="hljs-keyword">if</span> (cached.<span class="hljs-property">expiry</span> &lt; <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>.<span class="hljs-title function_">delete</span>(txHash);
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    }
+
+    <span class="hljs-keyword">return</span> cached.<span class="hljs-property">data</span>;
+  }
+}
+</code></pre>
+<h3 id="macro-specific-optimizations">Macro-Specific Optimizations</h3>
+<h4 id="privacy-aware-analytics">Privacy-Aware Analytics</h4>
+<p>Standard analytics often get blocked. Consider privacy-friendly alternatives:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Simple privacy-respecting analytics</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">sendAnalytics</span> = (<span class="hljs-params">event</span>) =&gt; {
+  <span class="hljs-comment">// Only collect non-identifying metrics</span>
+  <span class="hljs-keyword">const</span> data = {
+    <span class="hljs-attr">eventName</span>: event,
+    <span class="hljs-comment">// No user identifiers</span>
+    <span class="hljs-attr">screen</span>: {
+      <span class="hljs-attr">width</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>
+    },
+    <span class="hljs-attr">timestamp</span>: <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()
+  };
+
+  <span class="hljs-comment">// Use sendBeacon for reliability</span>
+  navigator.<span class="hljs-title function_">sendBeacon</span>(<span class="hljs-string">'/analytics'</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data));
+};
+</code></pre>
+<h4 id="vpn-aware-networking">VPN-Aware Networking</h4>
+<p>When the P2P VPN is active, network requests might have different characteristics:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Check if VPN is enabled (Macro-specific feature)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">isVpnEnabled</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">isMacro</span>) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-title function_">request</span>({
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'macro_isVpnEnabled'</span>
+      });
+    } <span class="hljs-keyword">catch</span> (e) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error checking VPN status:'</span>, e);
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-comment">// Adapt network strategy based on VPN status</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">optimizeNetworkRequests</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> vpnEnabled = <span class="hljs-keyword">await</span> <span class="hljs-title function_">isVpnEnabled</span>();
+
+  <span class="hljs-keyword">if</span> (vpnEnabled) {
+    <span class="hljs-comment">// When VPN is enabled:</span>
+    <span class="hljs-comment">// 1. Reduce number of connections</span>
+    <span class="hljs-comment">// 2. Potentially batch more requests</span>
+    <span class="hljs-comment">// 3. Be more aggressive with caching</span>
+    <span class="hljs-title function_">setNetworkStrategy</span>(<span class="hljs-string">'vpn-optimized'</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-title function_">setNetworkStrategy</span>(<span class="hljs-string">'standard'</span>);
+  }
+}
+</code></pre>
+<h2 id="performance-testing">Performance Testing</h2>
+<h3 id="browser-specific-testing">Browser-Specific Testing</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Detect Macro Browser</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isMacroBrowser</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="hljs-comment">// Check for the Macro provider</span>
+    (<span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">isMacro</span>) ||
+    <span class="hljs-comment">// Check for user agent (less reliable)</span>
+    navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">includes</span>(<span class="hljs-string">'MacroBrowser'</span>)
+  );
+}
+
+<span class="hljs-comment">// Conditional testing</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">runPerformanceTests</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> commonTests = [
+    testPageLoad,
+    testInteractivity,
+  ];
+
+  <span class="hljs-keyword">const</span> tests = <span class="hljs-title function_">isMacroBrowser</span>() 
+    ? [...commonTests, testPrivacyFeatures, testVpnPerformance] 
+    : commonTests;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(tests.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">test</span> =&gt;</span> <span class="hljs-title function_">test</span>()));
+}
+</code></pre>
+<h3 id="lighthouse-configuration">Lighthouse Configuration</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Lighthouse CLI configuration for Macro Browser testing</span>
+{
+  <span class="hljs-string">"extends"</span>: <span class="hljs-string">"lighthouse:default"</span>,
+  <span class="hljs-string">"settings"</span>: {
+    <span class="hljs-string">"skipAudits"</span>: [
+      <span class="hljs-comment">// Skip audits that may be affected by privacy features</span>
+      <span class="hljs-string">"uses-third-party-cookies"</span>,
+      <span class="hljs-string">"third-party-facades"</span>
+    ],
+    <span class="hljs-string">"onlyCategories"</span>: [
+      <span class="hljs-string">"performance"</span>,
+      <span class="hljs-string">"accessibility"</span>,
+      <span class="hljs-string">"best-practices"</span>
+    ]
+  }
+}
+</code></pre>
+<h2 id="common-performance-issues-in-macro-browser">Common Performance Issues in Macro Browser</h2>
+<h3 id="privacy-features-impact">Privacy Features Impact</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Potential Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ad/Tracker Blocking</td>
+<td>Scripts may fail to load</td>
+<td>Don't rely on blocked trackers; use privacy-friendly alternatives</td>
+</tr>
+<tr>
+<td>P2P VPN</td>
+<td>Variable latency</td>
+<td>Implement progressive loading; prioritize critical content</td>
+</tr>
+<tr>
+<td>Anti-Fingerprinting</td>
+<td>Canvas/WebGL limitations</td>
+<td>Provide fallbacks for fingerprinting-dependent features</td>
+</tr>
+<tr>
+<td>Memory-Only Mode</td>
+<td>No persistent storage</td>
+<td>Use synchronization services or export functionality</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debugging-memory-issues">Debugging Memory Issues</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Memory profiling helper</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MemoryProfiler</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">sampleInterval = <span class="hljs-number">5000</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span> = [];
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">interval</span> = <span class="hljs-literal">null</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">sampleInterval</span> = sampleInterval;
+  }
+
+  <span class="hljs-title function_">start</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">interval</span> = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">performance</span> &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">performance</span>.<span class="hljs-property">memory</span>) {
+        <span class="hljs-keyword">const</span> { usedJSHeapSize, totalJSHeapSize } = <span class="hljs-variable language_">window</span>.<span class="hljs-property">performance</span>.<span class="hljs-property">memory</span>;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-title function_">push</span>({
+          <span class="hljs-attr">time</span>: <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>(),
+          <span class="hljs-attr">used</span>: usedJSHeapSize,
+          <span class="hljs-attr">total</span>: totalJSHeapSize
+        });
+
+        <span class="hljs-comment">// Check for memory growth</span>
+        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">detectMemoryGrowth</span>();
+      }
+    }, <span class="hljs-variable language_">this</span>.<span class="hljs-property">sampleInterval</span>);
+  }
+
+  <span class="hljs-title function_">stop</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-built_in">clearInterval</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">interval</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getReport</span>();
+  }
+
+  <span class="hljs-title function_">detectMemoryGrowth</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Simplified leak detection by checking consistent growth</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-property">length</span> &lt; <span class="hljs-number">10</span>) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">const</span> recentReadings = <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">10</span>);
+    <span class="hljs-keyword">let</span> consistentGrowth = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; recentReadings.<span class="hljs-property">length</span>; i++) {
+      <span class="hljs-keyword">if</span> (recentReadings[i].<span class="hljs-property">used</span> &lt;= recentReadings[i-<span class="hljs-number">1</span>].<span class="hljs-property">used</span>) {
+        consistentGrowth = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">break</span>;
+      }
+    }
+
+    <span class="hljs-keyword">if</span> (consistentGrowth) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">'Potential memory leak detected: consistent memory growth'</span>);
+    }
+  }
+
+  <span class="hljs-title function_">getReport</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">readings</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>,
+      <span class="hljs-attr">averageUsage</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">sum, r</span>) =&gt;</span> sum + r.<span class="hljs-property">used</span>, <span class="hljs-number">0</span>) / <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-property">length</span>,
+      <span class="hljs-attr">maxUsage</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(...<span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-property">used</span>)),
+      <span class="hljs-attr">growthRate</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">1</span> ? 
+        (<span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>[<span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>].<span class="hljs-property">used</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>[<span class="hljs-number">0</span>].<span class="hljs-property">used</span>) / 
+        (<span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>[<span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>].<span class="hljs-property">time</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">readings</span>[<span class="hljs-number">0</span>].<span class="hljs-property">time</span>) : 
+        <span class="hljs-number">0</span>
+    };
+  }
+}
+</code></pre>
+<h2 id="migration-guide-for-existing-apps">Migration Guide for Existing Apps</h2>
+<h3 id="from-chromefirefox-to-macro-browser">From Chrome/Firefox to Macro Browser</h3>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Chrome/Firefox Pattern</th>
+<th>Macro Browser Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage</td>
+<td><code>localStorage</code>/cookies for all data</td>
+<td>Use memory storage; export critical data</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Full user tracking</td>
+<td>Privacy-respecting event counting</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Network-heavy operations</td>
+<td>Optimize for privacy layers and VPN</td>
+</tr>
+<tr>
+<td>Web3</td>
+<td>Simple wallet detection</td>
+<td>Enhanced security checks and permissions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="progressive-enhancement-for-macro-features">Progressive Enhancement for Macro Features</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Feature detection for Macro-specific features</span>
+<span class="hljs-keyword">const</span> browserCapabilities = {
+  <span class="hljs-comment">// Feature detection</span>
+  <span class="hljs-attr">detectCapabilities</span>: <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">isPrivacyFocused</span>: <span class="hljs-keyword">await</span> <span class="hljs-title function_">detectPrivacyFeatures</span>(),
+      <span class="hljs-attr">hasVpn</span>: <span class="hljs-keyword">await</span> <span class="hljs-title function_">detectVpnCapability</span>(),
+      <span class="hljs-attr">hasWeb3</span>: <span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> !== <span class="hljs-string">'undefined'</span>,
+      <span class="hljs-attr">isMacro</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">isMacro</span>,
+      <span class="hljs-attr">hasEnhancedSecurity</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span> &amp;&amp; 
+                          <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">isMacro</span> &amp;&amp; 
+                          <span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>.<span class="hljs-property">securityLevel</span> !== <span class="hljs-string">'undefined'</span>
+    };
+  },
+
+  <span class="hljs-comment">// Apply optimizations based on detected capabilities</span>
+  <span class="hljs-attr">applyOptimizations</span>: <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> capabilities = <span class="hljs-keyword">await</span> browserCapabilities.<span class="hljs-title function_">detectCapabilities</span>();
+
+    <span class="hljs-keyword">if</span> (capabilities.<span class="hljs-property">isPrivacyFocused</span>) {
+      <span class="hljs-comment">// Apply privacy-focused optimizations</span>
+    }
+
+    <span class="hljs-keyword">if</span> (capabilities.<span class="hljs-property">hasVpn</span>) {
+      <span class="hljs-comment">// Apply VPN-aware optimizations</span>
+    }
+
+    <span class="hljs-keyword">if</span> (capabilities.<span class="hljs-property">isMacro</span> &amp;&amp; capabilities.<span class="hljs-property">hasEnhancedSecurity</span>) {
+      <span class="hljs-comment">// Apply Macro-specific security optimizations</span>
+    }
+  }
+};
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Optimizing for Macro Browser requires attention to privacy features and understanding the impact of its unique architecture. By following these guidelines, you can ensure your application performs well while respecting user privacy and leveraging the browser's advanced features.</p>
+<h3 id="performance-checklist">Performance Checklist</h3>
+<ul>
+<li>[ ] Resources are properly prioritized and lazy-loaded</li>
+<li>[ ] DOM size is minimized</li>
+<li>[ ] CSS selectors are efficient</li>
+<li>[ ] Animations use compositor-friendly properties</li>
+<li>[ ] Memory is managed properly with no leaks</li>
+<li>[ ] Network requests are optimized for privacy layers</li>
+<li>[ ] Web3 interactions are batched when possible</li>
+<li>[ ] Analytics respect user privacy</li>
+<li>[ ] Application works with VPN enabled</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="privacy-api.html" class="navigation navigation-prev " aria-label="Previous page: Privacy API Reference">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="extension-guide.html" class="navigation navigation-next " aria-label="Next page: Extension Development Guide">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Performance Optimization Guide","level":"5.4","depth":1,"next":{"title":"Extension Development Guide","level":"5.5","depth":1,"path":"developers/extension-guide.md","ref":"developers/extension-guide.md","articles":[]},"previous":{"title":"Privacy API Reference","level":"5.3","depth":1,"path":"developers/privacy-api.md","ref":"developers/privacy-api.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"developers/performance-guide.md","mtime":"2025-05-19T16:19:17.268Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

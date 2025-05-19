@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>core components - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Core Components</h1>
+<p>Macro Browser's architecture consists of several core components that work together to provide a secure, private, and Web3-enabled browsing experience. This page provides an overview of these components and their interactions.</p>
+<h2>Component Overview</h2>
+<p><img src="/images/diagrams/core-components.svg" alt="Core Components"></p>
+<h2>Component Descriptions</h2>
+<h3>1. Browser Engine</h3>
+<p>The core browser engine is based on Chromium (via Electron) with Google services removed. It handles:</p>
+<ul>
+<li><strong>Content rendering</strong>: Displaying web pages and executing JavaScript</li>
+<li><strong>Tab management</strong>: Creating, updating, and managing browser tabs</li>
+<li><strong>Navigation</strong>: URL parsing, history, and page navigation</li>
+<li><strong>Extension system</strong>: Limited support for privacy-focused extensions</li>
+</ul>
+<h3>2. Privacy Layer</h3>
+<p>The privacy layer enhances security and preserves user privacy with:</p>
+<ul>
+<li><strong>Ad blocker</strong>: Prevents ads from loading and displaying</li>
+<li><strong>Tracker prevention</strong>: Blocks known tracking scripts and mechanisms</li>
+<li><strong>Fingerprinting protection</strong>: Reduces browser fingerprinting surface</li>
+<li><strong>Secure connections</strong>: Enforces HTTPS and secure connection practices</li>
+<li><strong>Content filtering</strong>: Optional filtering of potentially harmful content</li>
+</ul>
+<h3>3. Network Layer</h3>
+<p>The network layer manages all network communications:</p>
+<ul>
+<li><strong>P2P VPN</strong>: Peer-to-peer virtual private network for enhanced privacy</li>
+<li><strong>Network requests</strong>: Handles HTTP/HTTPS requests and responses</li>
+<li><strong>Cache system</strong>: Efficient caching with privacy-preserving features</li>
+<li><strong>DNS resolution</strong>: Secure DNS resolution (DoH/DoT)</li>
+<li><strong>Proxy support</strong>: Configuration for additional proxies if needed</li>
+</ul>
+<h3>4. Web3 Layer</h3>
+<p>The Web3 layer enables blockchain and cryptocurrency functionality:</p>
+<ul>
+<li><strong>Wallet connector</strong>: Interface for connecting external wallets</li>
+<li><strong>DApp interface</strong>: Support for decentralized application interactions</li>
+<li><strong>Transaction manager</strong>: Handling blockchain transactions securely</li>
+<li><strong>Network switcher</strong>: Support for different blockchain networks</li>
+<li><strong>Contract interaction</strong>: Interface for smart contract calls</li>
+</ul>
+<h3>5. AI Layer</h3>
+<p>The AI layer provides intelligent features:</p>
+<ul>
+<li><strong>Search engine</strong>: AI-powered search capabilities</li>
+<li><strong>Query processor</strong>: Processes and routes search queries</li>
+<li><strong>Answer generation</strong>: Creates direct answers when possible</li>
+<li><strong>Privacy wrapper</strong>: Ensures AI queries preserve privacy</li>
+</ul>
+<h3>6. UI Layer</h3>
+<p>The UI layer creates the user interface:</p>
+<ul>
+<li><strong>Main window</strong>: Browser chrome and controls</li>
+<li><strong>New tab page</strong>: Customized start/new tab experience</li>
+<li><strong>Settings interface</strong>: Configuration for all browser features</li>
+<li><strong>Notifications</strong>: User alerts and notification system</li>
+<li><strong>Theme system</strong>: Visual styling including dark mode</li>
+</ul>
+<h2>Component Communication</h2>
+<p>Components communicate through well-defined interfaces that maintain security boundaries:</p>
+<ul>
+<li><strong>Event system</strong>: Publish-subscribe pattern for loose coupling</li>
+<li><strong>Message passing</strong>: Secure IPC between browser processes</li>
+<li><strong>State management</strong>: Consistent state across components</li>
+<li><strong>API boundaries</strong>: Clean interfaces between major components</li>
+</ul>
+<h2>Quality Attributes</h2>
+<p>These components are designed with the following quality attributes in mind:</p>
+<ul>
+<li><strong>Security</strong>: Protection against common web vulnerabilities</li>
+<li><strong>Privacy</strong>: Data minimization and user control</li>
+<li><strong>Performance</strong>: Efficient resource usage and fast rendering</li>
+<li><strong>Reliability</strong>: Stable operation and graceful error handling</li>
+<li><strong>Maintainability</strong>: Clean separation of concerns for easier updates</li>
+<li><strong>Extensibility</strong>: Ability to add new features without major refactoring</li>
+</ul>
+<p>For detailed information on each component, see their respective pages in the documentation.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

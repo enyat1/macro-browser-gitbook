@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>privacy api - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Privacy API Reference</h1>
+<p>This document provides developers with detailed information about the privacy-related APIs available in Macro Browser, allowing for privacy-respecting application development while maintaining compatibility with existing web standards.</p>
+<h2>Privacy Context API</h2>
+<p>The Privacy Context API provides information about the current privacy context and allows developers to adapt their applications accordingly.</p>
+<pre><code class="language-javascript">// Access the privacy context
+const privacyContext = window.macroPrivacy;
+</code></pre>
+<h3>Properties and Methods</h3>
+<pre><code class="language-typescript">interface MacroPrivacyContext {
+  // Privacy Mode Status
+  isPrivacyModeEnabled: boolean;            // Whether privacy mode is active
+  trackingProtectionLevel: TrackingProtectionLevel; // Current protection level
+  
+  // Privacy Features
+  isFingerPrintingProtectionEnabled: boolean;  // Anti-fingerprinting active
+  isTrackingProtectionEnabled: boolean;        // Tracker blocking active
+  isAdBlockingEnabled: boolean;                // Ad blocking active
+  cookiePolicy: CookiePolicy;                  // Current cookie policy
+  
+  // Methods
+  getPrivacyReport(): Promise&lt;PrivacyReport&gt;;  // Get site privacy report
+  requestPermission(permission: PrivacyPermission): Promise&lt;boolean&gt;; // Request privacy exception
+}
+
+// Types
+type TrackingProtectionLevel = 'standard' | 'strict' | 'custom';
+type CookiePolicy = 'accept-all' | 'block-third-party' | 'block-all' | 'ask';
+type PrivacyPermission = 'storage' | 'camera' | 'microphone' | 'location' | 'notifications';
+
+interface PrivacyReport {
+  trackersBlocked: number;
+  fingerPrintingAttemptsBlocked: number;
+  cookiesBlocked: number;
+  advertisingEntities: string[];
+  analyticsEntities: string[];
+  socialEntities: string[];
+  contentEntities: string[];
+  cryptoMiners: string[];
+}
+</code></pre>
+<h3>Usage Example</h3>
+<pre><code class="language-javascript">// Check privacy context and adapt functionality
+async function initializeApp() {
+  // Feature detection for Macro Browser
+  if (typeof window.macroPrivacy !== 'undefined') {
+    // We're in Macro Browser
+    const privacyContext = window.macroPrivacy;
+    
+    // Adapt to privacy settings
+    if (privacyContext.isPrivacyModeEnabled) {
+      // Use privacy-respecting functionality
+      usePrivacyRespectingAnalytics();
+      
+      // Get privacy report for this site
+      const report = await privacyContext.getPrivacyReport();
+      console.log(`Blocked ${report.trackersBlocked} trackers`);
+      
+      // Request permission for specific functionality if needed
+      if (needsLocalStorage) {
+        const granted = await privacyContext.requestPermission('storage');
+        if (granted) {
+          // User approved storage use
+          initializeStorage();
+        } else {
+          // Fallback to memory-only storage
+          initializeMemoryStorage();
+        }
+      }
+    } else {
+      // Standard functionality
+      initializeStandardFeatures();
+    }
+  } else {
+    // Not Macro Browser, use standard initialization
+    initializeStandardFeatures();
+  }
+}
+</code></pre>
+<h2>Storage Privacy API</h2>
+<p>The Storage Privacy API provides mechanisms for privacy-respecting storage options.</p>
+<h3>Ephemeral Storage</h3>
+<pre><code class="language-typescript">interface MacroEphemeralStorage {
+  // Session-only storage that doesn't persist across browser sessions
+  // Similar API to localStorage but nothing is written to disk
+  setItem(key: string, value: string): void;
+  getItem(key: string): string | null;
+  removeItem(key: string): void;
+  clear(): void;
+  key(index: number): string | null;
+  readonly length: number;
+  
+  // Export/import functionality for user-controlled persistence
+  exportData(): Promise&lt;string&gt;; // Returns JSON string for user to save
+  importData(jsonString: string): Promise&lt;boolean&gt;; // Import previously exported data
+}
+</code></pre>
+<h3>Usage Example</h3>
+<pre><code class="language-javascript">// Using ephemeral storage
+function saveUserPreferences(preferences) {
+  if (window.macroEphemeralStorage) {
+    // Use ephemeral storage in Macro Browser
+    try {
+      window.macroEphemeralStorage.setItem(
+        'userPreferences', 
+        JSON.stringify(preferences)
+      );
+      
+      // Optionally prompt user to export if important
+      if (preferencesAreImportant) {
+        promptUserToExport();
+      }
+    } catch (e) {
+      console.error('Failed to save to ephemeral storage:', e);
+    }
+  } else if (localStorage) {
+    // Fallback to localStorage in other browsers
+    try {
+      localStorage.setItem(
+        'userPreferences', 
+        JSON.stringify(preferences)
+      );
+    } catch (e) {
+      console.error('Failed to save to localStorage:', e);
+    }
+  }
+}
+
+// Prompt user to export data
+async function promptUserToExport() {
+  if (confirm('Would you like to save your preferences for future sessions?')) {
+    try {
+      const data = await window.macroEphemeralStorage.exportData();
+      downloadAsFile(data, 'macro-preferences.json');
+    } catch (e) {
+      console.error('Failed to export data:', e);
+    }
+  }
+}
+
+// Helper to download data as a file
+function downloadAsFile(data, filename) {
+  const blob = new Blob([data], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</code></pre>
+<h2>Anti-Fingerprinting API</h2>
+<p>The Anti-Fingerprinting API allows developers to understand and work with Macro Browser's fingerprinting protections.</p>
+<pre><code class="language-typescript">interface MacroFingerprintProtection {
+  // Check if a specific API is being protected/randomized
+  isProtected(api: FingerprintingAPI): boolean;
+  
+  // Get information about the current protection
+  getProtectionInfo(): FingerprintProtectionInfo;
+  
+  // Request temporary access to actual values for legitimate purposes
+  requestTrueValues(api: FingerprintingAPI, reason: string): Promise&lt;boolean&gt;;
+}
+
+type FingerprintingAPI = 
+  'canvas' | 'webgl' | 'audio' | 'client-rects' | 'fonts' | 
+  'hardware-info' | 'device-memory' | 'user-agent';
+
+interface FingerprintProtectionInfo {
+  protectedAPIs: FingerprintingAPI[];
+  activeProtections: {
+    userAgent: boolean;
+    screenResolution: boolean;
+    hardwareConcurrency: boolean;
+    deviceMemory: boolean;
+    timezone: boolean;
+    language: boolean;
+    plugins: boolean;
+    canvas: boolean;
+    webGL: boolean;
+    webRTC: boolean;
+    audioContext: boolean;
+    fontEnumeration: boolean;
+  };
+}
+</code></pre>
+<h3>Canvas Protection Example</h3>
+<pre><code class="language-javascript">// Handle canvas fingerprinting protection
+async function initializeCanvasFeatures() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // Draw something
+  ctx.fillStyle = 'red';
+  ctx.fillRect(0, 0, 100, 100);
+  
+  // Check if we're in Macro Browser
+  if (window.macroFingerprintProtection) {
+    // Check if canvas is being protected
+    const isCanvasProtected = window.macroFingerprintProtection.isProtected('canvas');
+    
+    if (isCanvasProtected) {
+      // Canvas values will be slightly randomized
+      // For legitimate use cases, request true values
+      if (isLegitimateUseCase) {
+        const granted = await window.macroFingerprintProtection.requestTrueValues(
+          'canvas',
+          'Color calibration for image editing'
+        );
+        
+        if (granted) {
+          // Now canvas values will be accurate for this page
+          // until navigation or page refresh
+          console.log('Using true canvas values');
+        } else {
+          // User declined, use alternative approach
+          console.log('Using protected canvas values');
+          provideAlternativeExperience();
+        }
+      }
+    }
+  }
+  
+  // Continue with canvas operations
+  // In Macro Browser, these might be slightly modified to prevent fingerprinting
+  const imageData = ctx.getImageData(0, 0, 100, 100);
+  processImageData(imageData);
+}
+</code></pre>
+<h2>Content Blocking API</h2>
+<p>The Content Blocking API provides information about blocked content and allows for privacy-respecting fallbacks.</p>
+<pre><code class="language-typescript">interface MacroContentBlocking {
+  // Get information about blocked resources
+  getBlockedResources(): BlockedResourceInfo[];
+  
+  // Check if a specific URL or domain is blocked
+  isResourceBlocked(url: string): boolean;
+  
+  // Event listener for when resources are blocked
+  onResourceBlocked(callback: (info: BlockedResourceInfo) =&gt; void): void;
+  
+  // Remove event listener
+  removeResourceBlockedListener(
+    callback: (info: BlockedResourceInfo) =&gt; void
+  ): void;
+}
+
+interface BlockedResourceInfo {
+  url: string;
+  type: ResourceType;
+  reason: BlockReason;
+  category: TrackerCategory | null;
+}
+
+type ResourceType = 
+  'script' | 'image' | 'stylesheet' | 'font' | 'media' | 
+  'xhr' | 'fetch' | 'websocket' | 'other';
+
+type BlockReason = 
+  'tracker' | 'ad' | 'cryptominer' | 'fingerprinter' | 
+  'social' | 'cookieConsent' | 'userBlocked';
+
+type TrackerCategory = 
+  'advertising' | 'analytics' | 'social' | 'content' | 
+  'cryptomining' | 'fingerprinting' | 'unknown';
+</code></pre>
+<h3>Usage Example</h3>
+<pre><code class="language-javascript">// Handle blocked resources
+function initializeTrackerFallbacks() {
+  if (window.macroContentBlocking) {
+    // Check currently blocked resources
+    const blockedResources = window.macroContentBlocking.getBlockedResources();
+    
+    // Log blocked trackers
+    console.log(`${blockedResources.length} resources blocked`);
+    
+    // Check if specific analytics script is blocked
+    const isGABlocked = window.macroContentBlocking.isResourceBlocked(
+      'https://www.google-analytics.com/analytics.js'
+    );
+    
+    if (isGABlocked) {
+      // Use privacy-friendly analytics alternative
+      initializePrivacyAnalytics();
+    }
+    
+    // Listen for future blocked resources
+    window.macroContentBlocking.onResourceBlocked(handleBlockedResource);
+  }
+}
+
+function handleBlockedResource(info) {
+  console.log(`Resource blocked: ${info.url}`);
+  
+  // Provide alternative functionality based on type
+  switch (info.type) {
+    case 'script':
+      if (info.category === 'social') {
+        // Load privacy-friendly social sharing alternative
+        loadPrivacySocialAlternative();
+      }
+      break;
+    case 'media':
+      // Provide fallback media player
+      provideFallbackMediaPlayer();
+      break;
+  }
+}
+</code></pre>
+<h2>Secure Communication API</h2>
+<p>The Secure Communication API provides enhanced security and privacy for network communications.</p>
+<pre><code class="language-typescript">interface MacroSecureComms {
+  // Make fetch requests through Macro's secure channels
+  secureFetch(url: string, options?: RequestInit): Promise&lt;Response&gt;;
+  
+  // Check if a connection is secure enough for sensitive data
+  isConnectionSecure(url: string): Promise&lt;SecurityAssessment&gt;;
+  
+  // Get active VPN status
+  getVPNStatus(): VPNStatus;
+  
+  // Request higher security for specific connections
+  requestEnhancedSecurity(
+    domain: string, 
+    reason: string
+  ): Promise&lt;boolean&gt;;
+}
+
+interface SecurityAssessment {
+  isSecure: boolean;
+  protocol: string;
+  certificateInfo?: {
+    issuer: string;
+    validUntil: Date;
+    isEV: boolean;
+  };
+  weaknesses: string[];
+  recommendedAction?: string;
+}
+
+interface VPNStatus {
+  enabled: boolean;
+  country?: string;
+  throughEncryptedNetwork: boolean;
+  latency?: number; // in milliseconds
+}
+</code></pre>
+<h3>Usage Example</h3>
+<pre><code class="language-javascript">// Use secure communications
+async function fetchSensitiveData(apiUrl, authToken) {
+  if (window.macroSecureComms) {
+    // Check connection security first
+    const securityAssessment = await window.macroSecureComms.isConnectionSecure(apiUrl);
+    
+    if (!securityAssessment.isSecure) {
+      // Connection might not be secure enough
+      console.warn(
+        `Security concerns: ${securityAssessment.weaknesses.join(', ')}`
+      );
+      
+      if (securityAssessment.recommendedAction) {
+        console.warn(`Recommended action: ${securityAssessment.recommendedAction}`);
+      }
+      
+      // Request enhanced security
+      const enhancedSecurityGranted = await window.macroSecureComms.requestEnhancedSecurity(
+        new URL(apiUrl).hostname,
+        'Handling financial data'
+      );
+      
+      if (!enhancedSecurityGranted) {
+        // User declined enhanced security
+        if (!confirm('This connection may not be secure. Continue anyway?')) {
+          throw new Error('User aborted insecure operation');
+        }
+      }
+    }
+    
+    // Get VPN status
+    const vpnStatus = window.macroSecureComms.getVPNStatus();
+    if (vpnStatus.enabled) {
+      console.log('Using secure VPN connection');
+    }
+    
+    // Use secure fetch for sensitive operations
+    try {
+      return await window.macroSecureComms.secureFetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({ operation: 'getAccountDetails' })
+      });
+    } catch (error) {
+      console.error('Secure fetch failed:', error);
+      throw error;
+    }
+  } else {
+    // Fallback to standard fetch with security checks
+    return fetchWithSecurityChecks(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({ operation: 'getAccountDetails' })
+    });
+  }
+}
+
+// Fallback for other browsers
+async function fetchWithSecurityChecks(url, options) {
+  // Basic security checks
+  if (!url.startsWith('https://')) {
+    throw new Error('Only HTTPS connections are allowed for sensitive operations');
+  }
+  
+  // Proceed with standard fetch
+  return fetch(url, options);
+}
+</code></pre>
+<h2>Privacy Permissions API</h2>
+<p>The Privacy Permissions API allows developers to request privacy-related permissions.</p>
+<pre><code class="language-typescript">interface MacroPrivacyPermissions {
+  // Current permissions
+  getPermissions(): Promise&lt;PermissionStatus[]&gt;;
+  
+  // Request permission with reason
+  requestPermission(
+    permission: PrivacyPermissionType,
+    reason: string,
+    options?: PermissionOptions
+  ): Promise&lt;PermissionStatus&gt;;
+  
+  // Revoke a previously granted permission
+  revokePermission(permission: PrivacyPermissionType): Promise&lt;boolean&gt;;
+  
+  // Check if a permission is granted
+  hasPermission(permission: PrivacyPermissionType): Promise&lt;boolean&gt;;
+  
+  // Listen for permission changes
+  onPermissionChanged(
+    callback: (status: PermissionStatus) =&gt; void
+  ): void;
+}
+
+type PrivacyPermissionType = 
+  'persistent-storage' | 'notifications' | 'geolocation' |
+  'camera' | 'microphone' | 'background-sync' | 'clipboard-read' |
+  'clipboard-write' | 'payment-handler' | 'idle-detection';
+
+interface PermissionOptions {
+  duration?: 'once' | 'session' | 'persistent'; // Default: session
+  explicitUserActivation?: boolean; // Require user gesture
+}
+
+interface PermissionStatus {
+  permission: PrivacyPermissionType;
+  state: 'granted' | 'denied' | 'prompt';
+  expiresAt?: Date; // For temporary permissions
+}
+</code></pre>
+<h3>Usage Example</h3>
+<pre><code class="language-javascript">// Request necessary permissions
+async function setupApp() {
+  if (window.macroPrivacyPermissions) {
+    // Check if we already have permissions
+    const hasStoragePermission = await window.macroPrivacyPermissions.hasPermission(
+      'persistent-storage'
+    );
+    
+    if (!hasStoragePermission) {
+      // Request with reason and options
+      const permissionStatus = await window.macroPrivacyPermissions.requestPermission(
+        'persistent-storage',
+        'To save your preferences between sessions',
+        { duration: 'persistent' }
+      );
+      
+      if (permissionStatus.state === 'granted') {
+        // Permission granted, initialize storage
+        initializeStorage();
+      } else {
+        // Permission denied, use in-memory alternative
+        useMemoryStorage();
+      }
+    } else {
+      // Already has permission
+      initializeStorage();
+    }
+    
+    // Listen for permission changes
+    window.macroPrivacyPermissions.onPermissionChanged(handlePermissionChange);
+  } else {
+    // Standard browser, use regular approach
+    initializeStorage();
+  }
+}
+
+function handlePermissionChange(status) {
+  console.log(`Permission ${status.permission} changed to ${status.state}`);
+  
+  if (status.permission === 'persistent-storage' &amp;&amp; status.state !== 'granted') {
+    // Storage permission was revoked
+    switchToMemoryStorage();
+  }
+}
+</code></pre>
+<h2>Privacy-Aware Analytics API</h2>
+<p>The Privacy-Aware Analytics API provides a way to collect anonymous analytics while respecting user privacy.</p>
+<pre><code class="language-typescript">interface MacroPrivacyAnalytics {
+  // Send anonymous event
+  sendAnonymousEvent(
+    eventName: string,
+    properties?: Record&lt;string, any&gt;
+  ): Promise&lt;boolean&gt;;
+  
+  // Get allowed analytics properties
+  getAllowedProperties(): string[];
+  
+  // Get current anonymization level
+  getAnonymizationLevel(): AnonymizationLevel;
+}
+
+type AnonymizationLevel = 'strict' | 'balanced' | 'minimal';
+</code></pre>
+<h3>Usage Example</h3>
+<pre><code class="language-javascript">// Use privacy-aware analytics
+async function trackPageView() {
+  if (window.macroPrivacyAnalytics) {
+    // Privacy-respecting analytics in Macro Browser
+    
+    // Check what properties are allowed
+    const allowedProps = await window.macroPrivacyAnalytics.getAllowedProperties();
+    console.log('Allowed properties:', allowedProps);
+    
+    // Get current anonymization level
+    const anonymizationLevel = await window.macroPrivacyAnalytics.getAnonymizationLevel();
+    
+    // Prepare properties based on allowed list
+    const properties = {
+      pagePath: window.location.pathname,
+      referrer: document.referrer,
+      screenSize: `${window.innerWidth}x${window.innerHeight}`,
+      // No user identifiers or precise information
+    };
+    
+    // Filter to only allowed properties
+    const filteredProps = {};
+    for (const prop of allowedProps) {
+      if (properties[prop] !== undefined) {
+        filteredProps[prop] = properties[prop];
+      }
+    }
+    
+    // Send event through privacy-aware system
+    await window.macroPrivacyAnalytics.sendAnonymousEvent(
+      'page_view',
+      filteredProps
+    );
+  } else {
+    // Regular analytics for other browsers
+    trackPageViewRegular();
+  }
+}
+</code></pre>
+<h2>Best Practices</h2>
+<h3>Feature Detection</h3>
+<p>Always use feature detection instead of browser detection:</p>
+<pre><code class="language-javascript">// Good: Feature detection
+if (window.macroPrivacy) {
+  // Use Macro Browser privacy features
+} else {
+  // Use fallback approach
+}
+
+// Bad: Browser detection
+if (navigator.userAgent.includes('MacroBrowser')) {
+  // Unreliable and brittle
+}
+</code></pre>
+<h3>Progressive Enhancement</h3>
+<p>Design for progressive enhancement to work across all browsers:</p>
+<pre><code class="language-javascript">// Start with core functionality that works everywhere
+initializeBasicFunctionality();
+
+// Enhance with Macro-specific features when available
+if (window.macroPrivacy) {
+  enhanceWithPrivacyFeatures();
+}
+
+if (window.macroEphemeralStorage) {
+  enhanceWithEphemeralStorage();
+}
+
+if (window.macroFingerprintProtection) {
+  enhanceWithFingerprintProtection();
+}
+</code></pre>
+<h3>Provide Alternatives</h3>
+<p>Always provide privacy-respecting alternatives:</p>
+<pre><code class="language-javascript">function setupAnalytics() {
+  if (window.macroPrivacyAnalytics) {
+    // Use privacy-aware analytics
+    initializeMacroAnalytics();
+  } else if (isPrivacyFocusedBrowser()) {
+    // For other privacy browsers
+    initializeMinimalAnalytics();
+  } else {
+    // Standard analytics with opt-out
+    initializeStandardAnalyticsWithOptOut();
+  }
+}
+</code></pre>
+<h3>Respect User Choices</h3>
+<p>Always respect user choices regarding privacy:</p>
+<pre><code class="language-javascript">async function checkTrackingConsent() {
+  if (window.macroPrivacy) {
+    // Respect Macro Browser settings automatically
+    return !window.macroPrivacy.isTrackingProtectionEnabled;
+  } else {
+    // For other browsers, explicitly ask
+    return await getUserConsentForTracking();
+  }
+}
+</code></pre>
+<h2>API Availability</h2>
+<p>Not all APIs are available in all browsing contexts:</p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Normal Mode</th>
+<th>Private Mode</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Privacy Context</td>
+<td>✅</td>
+<td>✅</td>
+<td>Always available</td>
+</tr>
+<tr>
+<td>Ephemeral Storage</td>
+<td>✅</td>
+<td>✅</td>
+<td>Always available</td>
+</tr>
+<tr>
+<td>Anti-Fingerprinting</td>
+<td>✅</td>
+<td>✅</td>
+<td>More restrictive in Private Mode</td>
+</tr>
+<tr>
+<td>Content Blocking</td>
+<td>✅</td>
+<td>✅</td>
+<td>More aggressive in Private Mode</td>
+</tr>
+<tr>
+<td>Secure Communication</td>
+<td>✅</td>
+<td>✅</td>
+<td>More restrictive in Private Mode</td>
+</tr>
+<tr>
+<td>Privacy Permissions</td>
+<td>✅</td>
+<td>⚠️</td>
+<td>Limited in Private Mode</td>
+</tr>
+<tr>
+<td>Privacy Analytics</td>
+<td>✅</td>
+<td>❌</td>
+<td>Not available in Private Mode</td>
+</tr>
+</tbody>
+</table>
+<h2>Error Handling</h2>
+<p>Always handle errors gracefully:</p>
+<pre><code class="language-javascript">async function safelyUsePrivacyAPI() {
+  try {
+    if (window.macroPrivacy) {
+      const report = await window.macroPrivacy.getPrivacyReport();
+      processReport(report);
+    }
+  } catch (error) {
+    // Handle errors gracefully
+    console.error('Privacy API error:', error);
+    // Continue with alternative functionality
+    provideFallbackExperience();
+  }
+}
+</code></pre>
+<h2>Conclusion</h2>
+<p>The privacy APIs in Macro Browser enable developers to create privacy-respecting applications while maintaining compatibility with the broader web. By using these APIs properly and following the best practices, you can provide enhanced functionality specifically for Macro Browser users while ensuring a good experience for all users.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>integration guide - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Integration Guide</h1>
+<p>This guide helps developers integrate their applications and websites with Macro Browser. It covers Web3 integration, optimizing for privacy features, and working with the browser's unique capabilities.</p>
+<h2>Overview</h2>
+<p>Macro Browser provides several integration points for developers:</p>
+<p><img src="/images/diagrams/developers_integration-guide_diagram_1.svg" alt="Diagram 1"></p>
+<h2>Web3 Integration</h2>
+<h3>Detecting Macro Browser</h3>
+<p>You can detect if a user is browsing with Macro Browser through the user agent or by checking for the Macro Browser provider:</p>
+<pre><code class="language-javascript">// Check for Macro provider
+function isMacroBrowser() {
+  return typeof window.ethereum !== 'undefined' &amp;&amp; 
+         window.ethereum.isMacro === true;
+}
+
+// Optimal approach - feature detection
+async function detectMacroBrowser() {
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      const provider = window.ethereum;
+      const providerInfo = await provider.request({ method: 'web3_clientVersion' });
+      return providerInfo.toLowerCase().includes('macro');
+    } catch (error) {
+      console.error('Error detecting browser:', error);
+      return false;
+    }
+  }
+  return false;
+}
+</code></pre>
+<h3>Connecting to the Wallet</h3>
+<p>Macro Browser follows the EIP-1193 standard for wallet connections:</p>
+<pre><code class="language-javascript">// Example of connecting to the user's wallet
+async function connectWallet() {
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      // Request account access
+      const accounts = await window.ethereum.request({ 
+        method: 'eth_requestAccounts' 
+      });
+      
+      // Get the connected account
+      const account = accounts[0];
+      console.log('Connected account:', account);
+      
+      return account;
+    } catch (error) {
+      if (error.code === 4001) {
+        // User rejected the connection request
+        console.log('User rejected connection request');
+      } else {
+        console.error('Error connecting to wallet:', error);
+      }
+      return null;
+    }
+  } else {
+    console.log('Ethereum provider not found');
+    return null;
+  }
+}
+</code></pre>
+<h3>Handling Chain Switching</h3>
+<p>Users may need to switch between different blockchain networks:</p>
+<pre><code class="language-javascript">// Example of requesting a chain switch
+async function switchToChain(chainId) {
+  try {
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId }],
+    });
+    return true;
+  } catch (error) {
+    // This error code indicates the chain has not been added to the wallet
+    if (error.code === 4902) {
+      try {
+        await addChain(chainId);
+        return true;
+      } catch (addError) {
+        console.error('Error adding chain:', addError);
+        return false;
+      }
+    }
+    console.error('Error switching chain:', error);
+    return false;
+  }
+}
+
+// Example of adding a new chain
+async function addChain(chainId) {
+  const chainParams = getChainParams(chainId);
+  await window.ethereum.request({
+    method: 'wallet_addEthereumChain',
+    params: [chainParams],
+  });
+}
+
+// Helper to get chain parameters
+function getChainParams(chainId) {
+  // Example for Polygon
+  if (chainId === '0x89') {
+    return {
+      chainId: '0x89',
+      chainName: 'Polygon Mainnet',
+      nativeCurrency: {
+        name: 'MATIC',
+        symbol: 'MATIC',
+        decimals: 18
+      },
+      rpcUrls: ['https://polygon-rpc.com/'],
+      blockExplorerUrls: ['https://polygonscan.com/']
+    };
+  }
+  
+  // Add other chains as needed
+  // ...
+}
+</code></pre>
+<h3>Sending Transactions</h3>
+<p>Transactions in Macro Browser follow standard Web3 patterns with enhanced security:</p>
+<pre><code class="language-javascript">// Example of sending a transaction
+async function sendTransaction(to, value, data = '0x') {
+  try {
+    const transactionParameters = {
+      to,
+      from: window.ethereum.selectedAddress,
+      value: value.toString(16), // Convert to hex
+      data
+    };
+    
+    // Optional: Let the wallet estimate gas
+    // Or you can estimate and include it:
+    // transactionParameters.gas = await estimateGas(transactionParameters);
+    
+    const txHash = await window.ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [transactionParameters],
+    });
+    
+    console.log('Transaction sent:', txHash);
+    return txHash;
+  } catch (error) {
+    console.error('Error sending transaction:', error);
+    throw error;
+  }
+}
+</code></pre>
+<h3>Best Practices for dApps</h3>
+<p>When building dApps for Macro Browser:</p>
+<ol>
+<li><strong>Always use feature detection</strong> rather than user agent sniffing</li>
+<li><strong>Handle wallet connection rejection</strong> gracefully</li>
+<li><strong>Provide clear transaction information</strong> to help users make informed decisions</li>
+<li><strong>Implement proper error handling</strong> for all Web3 interactions</li>
+<li><strong>Support multiple chains</strong> where appropriate</li>
+<li><strong>Consider privacy implications</strong> of your dApp's design</li>
+<li><strong>Test with Macro Browser</strong> during development</li>
+</ol>
+<h2>Privacy Features Integration</h2>
+<h3>Content Security Policy</h3>
+<p>Macro Browser enforces strict Content Security Policy (CSP) rules. Ensure your site works with strong CSP headers:</p>
+<pre><code class="language-html">&lt;!-- Example of a strong CSP header --&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;
+  default-src 'self';
+  script-src 'self' https://trusted-cdn.com;
+  style-src 'self' https://trusted-cdn.com;
+  img-src 'self' https://trusted-cdn.com data:;
+  connect-src 'self' https://api.yourservice.com;
+  frame-src 'none';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+&quot;&gt;
+</code></pre>
+<h3>Tracker-Free Design</h3>
+<p>Design your site to work without trackers and third-party cookies:</p>
+<ol>
+<li><strong>Avoid third-party resources</strong> when possible</li>
+<li><strong>Self-host critical scripts</strong> rather than using CDNs</li>
+<li><strong>Don't rely on fingerprinting</strong> for identification</li>
+<li><strong>Use local storage sparingly</strong> (it's cleared between sessions)</li>
+<li><strong>Implement privacy-respecting analytics</strong> if needed</li>
+</ol>
+<h3>Performance with Ad Blocking</h3>
+<p>Optimize your site to work well with ad blockers:</p>
+<ol>
+<li><strong>Don't use class names that trigger ad blockers</strong> (e.g., &quot;ad&quot;, &quot;banner&quot;, &quot;sponsor&quot;)</li>
+<li><strong>Avoid DOM structures similar to ads</strong></li>
+<li><strong>Don't load content from known ad domains</strong></li>
+<li><strong>Test your site with ad blockers enabled</strong></li>
+</ol>
+<h2>UI Integration</h2>
+<h3>Dark Mode Support</h3>
+<p>Macro Browser uses dark mode by default. Ensure your site supports dark mode:</p>
+<pre><code class="language-css">/* Example of dark mode support */
+:root {
+  --text-color: #333;
+  --background-color: #fff;
+  --link-color: #0066cc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #eee;
+    --background-color: #222;
+    --link-color: #6699ff;
+  }
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--link-color);
+}
+</code></pre>
+<h3>Responsive Design</h3>
+<p>Ensure your site is fully responsive and works well at different viewport sizes:</p>
+<ol>
+<li><strong>Use responsive layouts</strong> with flexbox or grid</li>
+<li><strong>Test on various screen sizes</strong></li>
+<li><strong>Implement proper touch support</strong> for mobile users</li>
+<li><strong>Optimize loading performance</strong> for all devices</li>
+</ol>
+<h2>AI Search Optimization</h2>
+<p>Optimize your content for Macro Browser's AI-powered search:</p>
+<ol>
+<li><strong>Use clear, descriptive page titles</strong></li>
+<li><strong>Implement proper semantic HTML</strong> (headings, lists, etc.)</li>
+<li><strong>Include concise meta descriptions</strong></li>
+<li><strong>Structure content logically</strong> with clear sections</li>
+<li><strong>Use schema.org markup</strong> for enhanced understanding</li>
+</ol>
+<pre><code class="language-html">&lt;!-- Example of schema.org markup for a product --&gt;
+&lt;div itemscope itemtype=&quot;http://schema.org/Product&quot;&gt;
+  &lt;h1 itemprop=&quot;name&quot;&gt;Product Name&lt;/h1&gt;
+  &lt;img itemprop=&quot;image&quot; src=&quot;product.jpg&quot; alt=&quot;Product Image&quot;&gt;
+  &lt;p itemprop=&quot;description&quot;&gt;Product description goes here...&lt;/p&gt;
+  &lt;div itemprop=&quot;offers&quot; itemscope itemtype=&quot;http://schema.org/Offer&quot;&gt;
+    &lt;span itemprop=&quot;price&quot;&gt;$19.99&lt;/span&gt;
+    &lt;meta itemprop=&quot;priceCurrency&quot; content=&quot;USD&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2>Testing with Macro Browser</h2>
+<h3>Development Environment Setup</h3>
+<p>To test your site or dApp with Macro Browser during development:</p>
+<ol>
+<li><strong>Install Macro Browser</strong> for your platform</li>
+<li><strong>Configure developer mode</strong> in settings</li>
+<li><strong>Use the developer tools</strong> (similar to Chrome DevTools)</li>
+<li><strong>Test with all privacy features enabled</strong></li>
+</ol>
+<h3>Common Integration Issues</h3>
+<p>Watch out for these common integration problems:</p>
+<ol>
+<li><strong>Reliance on persistent storage</strong> across sessions</li>
+<li><strong>Assuming availability of third-party scripts</strong> that might be blocked</li>
+<li><strong>Not handling wallet connection rejections</strong> properly</li>
+<li><strong>UI issues in dark mode</strong></li>
+<li><strong>Performance problems due to blocked resources</strong></li>
+</ol>
+<h3>Compatibility Checklist</h3>
+<p>✅ Site works with strict Content Security Policy<br>
+✅ All critical functionality works without third-party cookies<br>
+✅ Dark mode design is implemented and tested<br>
+✅ Web3 connections handle all error cases gracefully<br>
+✅ No dependencies on known tracking domains<br>
+✅ Semantic HTML is used throughout the site<br>
+✅ Site performs well with ad/tracker blocking enabled</p>
+<h2>Advanced Integration</h2>
+<h3>Extension Development</h3>
+<p>Macro Browser supports a limited set of extensions focused on privacy and security:</p>
+<ol>
+<li><strong>Focus on privacy-enhancing features</strong></li>
+<li><strong>Avoid requiring broad permissions</strong></li>
+<li><strong>Follow Manifest V3 guidelines</strong></li>
+<li><strong>Submit to the Macro Browser extension review process</strong></li>
+</ol>
+<h3>Custom Protocol Handlers</h3>
+<p>Register custom protocol handlers for your application:</p>
+<pre><code class="language-javascript">// Example of registering a protocol handler
+if ('registerProtocolHandler' in navigator) {
+  navigator.registerProtocolHandler(
+    'web+yourprotocol',
+    'https://yourapp.com/handle?url=%s',
+    'Your App Name'
+  );
+}
+</code></pre>
+<h2>Support and Resources</h2>
+<ul>
+<li><strong>Developer Discord</strong>: Join our community at <a href="https://discord.gg/macrobrowser">discord.gg/macrobrowser</a></li>
+<li><strong>GitHub Repository</strong>: <a href="https://github.com/macro-browser/macro-browser">github.com/macro-browser/macro-browser</a></li>
+<li><strong>Documentation</strong>: <a href="https://docs.macrobrowser.com">docs.macrobrowser.com</a></li>
+<li><strong>Issue Tracker</strong>: <a href="https://github.com/macro-browser/macro-browser/issues">github.com/macro-browser/macro-browser/issues</a></li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

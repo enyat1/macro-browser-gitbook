@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant VPNController
+    participant PeerDiscovery
+    participant Peers
+    
+    User->>Browser: Enable VPN
+    Browser->>VPNController: startVPN()
+    VPNController->>PeerDiscovery: discoverPeers()
+    PeerDiscovery->>Peers: Find available peers
+    Peers->>PeerDiscovery: Return peer list
+    PeerDiscovery->>VPNController: Peer information
+    
+    VPNController->>VPNController: Select optimal peers
+    VPNController->>Peers: Establish encrypted connections
+    Peers->>VPNController: Connection established
+    
+    VPNController->>VPNController: Build relay circuit
+    VPNController->>Browser: VPN active
+    Browser->>User: Show VPN connected status
+

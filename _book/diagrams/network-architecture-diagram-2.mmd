@@ -1,0 +1,46 @@
+graph TD
+    classDef appLayer fill:#4b31dd,color:white,stroke-width:0px
+    classDef transLayer fill:#2a1a7e,color:white,stroke-width:0px
+    classDef netLayer fill:#4b31dd,color:white,stroke-width:0px
+    classDef p2pLayer fill:#2a1a7e,color:white,stroke-width:0px
+    
+    subgraph "Application Layer"
+        BrowserEngine[Browser Engine]:::appLayer
+        WebApps[Web Applications]:::appLayer
+    end
+    
+    subgraph "Transport Layer"
+        VPNTunnel[VPN Tunnel Interface]:::transLayer
+        TCPHandler[TCP Handler]:::transLayer
+        UDPHandler[UDP Handler]:::transLayer
+        DNSResolver[DNS Resolver]:::transLayer
+    end
+    
+    subgraph "Network Layer"
+        VPNRouting[VPN Routing Logic]:::netLayer
+        PacketProcessor[Packet Processor]:::netLayer
+        EncryptionModule[Encryption Module]:::netLayer
+    end
+    
+    subgraph "P2P Layer"
+        PeerProtocol[Peer Protocol]:::p2pLayer
+        RelayProtocol[Relay Protocol]:::p2pLayer
+        DiscoveryProtocol[Discovery Protocol]:::p2pLayer
+    end
+    
+    BrowserEngine --> WebApps
+    WebApps --> VPNTunnel
+    VPNTunnel --> TCPHandler
+    VPNTunnel --> UDPHandler
+    VPNTunnel --> DNSResolver
+    
+    TCPHandler --> VPNRouting
+    UDPHandler --> VPNRouting
+    DNSResolver --> VPNRouting
+    
+    VPNRouting --> PacketProcessor
+    PacketProcessor --> EncryptionModule
+    
+    EncryptionModule --> PeerProtocol
+    PeerProtocol --> RelayProtocol
+    PeerProtocol --> DiscoveryProtocol 

@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant User
+    participant UI as Browser UI
+    participant SearchProcessor as Search Processor
+    participant PrivacyWrapper as Privacy Wrapper
+    participant LocalAI as Local AI
+    participant RemoteAI as Remote AI API
+    participant TraditionalSearch as Traditional Search
+    
+    User->>UI: Enter search query
+    UI->>SearchProcessor: Process query
+    
+    SearchProcessor->>SearchProcessor: Analyze query type
+    
+    alt Simple query (local processing)
+        SearchProcessor->>LocalAI: Process locally
+        LocalAI->>SearchProcessor: Local result
+    else Complex query (requires API)
+        SearchProcessor->>PrivacyWrapper: Prepare for API
+        PrivacyWrapper->>PrivacyWrapper: Anonymize request
+        PrivacyWrapper->>RemoteAI: Anonymized API call
+        RemoteAI->>PrivacyWrapper: API response
+        PrivacyWrapper->>SearchProcessor: Processed result
+    else Fallback needed
+        SearchProcessor->>TraditionalSearch: Forward query
+        TraditionalSearch->>SearchProcessor: Search results
+    end
+    
+    SearchProcessor->>UI: Display results
+    UI->>User: Show search results 

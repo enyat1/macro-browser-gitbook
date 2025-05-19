@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>performance guide - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Performance Optimization Guide</h1>
+<p>This guide provides recommendations for optimizing your website or application performance when running in Macro Browser.</p>
+<h2>Understanding Macro Browser's Architecture</h2>
+<p>Macro Browser has several key architectural features that affect performance:</p>
+<ol>
+<li><strong>Multi-Process Architecture</strong>: Like other Chromium-based browsers, Macro Browser uses separate processes for the browser core, renderer, GPU, and networking.</li>
+<li><strong>Privacy Features</strong>: Privacy protection mechanisms may impact performance in specific scenarios.</li>
+<li><strong>P2P VPN Integration</strong>: Network requests may be routed through the P2P VPN network.</li>
+<li><strong>Memory-First Storage</strong>: Macro Browser minimizes disk operations for privacy.</li>
+</ol>
+<h2>Performance Best Practices</h2>
+<h3>Resource Loading Optimization</h3>
+<p><img src="/images/diagrams/developers_performance-guide_diagram_1.svg" alt="Diagram 1"></p>
+<h4>Prioritize Critical Resources</h4>
+<pre><code class="language-html">&lt;!-- Preload critical CSS --&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/css/critical.css&quot; as=&quot;style&quot;&gt;
+
+&lt;!-- Preload critical fonts with crossorigin attribute --&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/fonts/main.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+
+&lt;!-- Inline critical CSS --&gt;
+&lt;style&gt;
+  /* Critical CSS here */
+  .header { /* ... */ }
+  .hero { /* ... */ }
+&lt;/style&gt;
+</code></pre>
+<h4>Lazy Loading</h4>
+<pre><code class="language-html">&lt;!-- Images --&gt;
+&lt;img src=&quot;placeholder.jpg&quot; 
+     data-src=&quot;real-image.jpg&quot; 
+     loading=&quot;lazy&quot; 
+     class=&quot;lazy-image&quot;&gt;
+
+&lt;!-- For browsers that don't support native lazy loading --&gt;
+&lt;script&gt;
+  if ('loading' in HTMLImageElement.prototype) {
+    // Convert to use native lazy loading
+    document.querySelectorAll('img.lazy-image').forEach(img =&gt; {
+      img.src = img.dataset.src;
+    });
+  } else {
+    // Use intersection observer polyfill
+    // ...
+  }
+&lt;/script&gt;
+</code></pre>
+<h4>Efficient JavaScript Loading</h4>
+<pre><code class="language-html">&lt;!-- Defer non-critical JavaScript --&gt;
+&lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
+
+&lt;!-- Use type=&quot;module&quot; for modern browsers (automatically deferred) --&gt;
+&lt;script type=&quot;module&quot; src=&quot;app.mjs&quot;&gt;&lt;/script&gt;
+
+&lt;!-- For legacy browser support --&gt;
+&lt;script nomodule src=&quot;app.legacy.js&quot; defer&gt;&lt;/script&gt;
+</code></pre>
+<h3>Rendering Performance</h3>
+<h4>DOM Size Optimization</h4>
+<p>Macro Browser, like all Chromium-based browsers, performs better with smaller DOM trees:</p>
+<ul>
+<li>Keep DOM nodes under 1,500 if possible</li>
+<li>Maximum depth of 32 elements</li>
+<li>No parent node with more than 60 child nodes</li>
+</ul>
+<h4>CSS Optimization</h4>
+<pre><code class="language-css">/* Avoid expensive CSS properties */
+.good {
+  transform: translateZ(0);  /* Uses GPU acceleration */
+}
+
+.avoid-when-possible {
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Can be expensive */
+  filter: blur(5px);         /* Expensive for large elements */
+  position: fixed;           /* Can trigger full repaints */
+}
+
+/* Use efficient selectors */
+.efficient { color: blue; }              /* Good - class selector */
+.parent &gt; .child { color: blue; }        /* OK - one level of inheritance */
+.parent .child .grandchild { color: blue; } /* Avoid - expensive */
+</code></pre>
+<h4>Animation Performance</h4>
+<p>For smooth animations, especially in privacy-focused browsers:</p>
+<pre><code class="language-javascript">// Use requestAnimationFrame for animations
+function animate() {
+  // Update animation
+  element.style.transform = `translateX(${position}px)`;
+  
+  // Schedule next frame
+  requestAnimationFrame(animate);
+}
+
+// Start animation
+requestAnimationFrame(animate);
+
+// Prefer CSS animations for simple cases
+const styles = `
+.animated {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+`;
+</code></pre>
+<h4>Compositor-Only Properties</h4>
+<p>For the best animation performance, prefer properties that only affect the compositor:</p>
+<ul>
+<li><strong>Good properties</strong>: <code>transform</code>, <code>opacity</code></li>
+<li><strong>Avoid animating</strong>: <code>width</code>, <code>height</code>, <code>left</code>, <code>top</code>, <code>background-color</code></li>
+</ul>
+<h3>Memory Management</h3>
+<h4>Efficient Data Structures</h4>
+<pre><code class="language-javascript">// Use appropriate data structures
+// Map for key-value pairs with non-string keys
+const userCache = new Map();
+
+// Set for unique values
+const uniqueVisitors = new Set();
+
+// TypedArrays for binary data
+const binaryData = new Uint8Array(1024);
+</code></pre>
+<h4>Memory Leaks Prevention</h4>
+<p>Particularly important in Macro Browser as it runs a memory-first approach:</p>
+<pre><code class="language-javascript">class Component {
+  constructor() {
+    this.element = document.createElement('div');
+    this.bindEvents();
+  }
+  
+  bindEvents() {
+    // Store reference to bound function for later removal
+    this.boundClickHandler = this.handleClick.bind(this);
+    this.element.addEventListener('click', this.boundClickHandler);
+  }
+  
+  handleClick() {
+    // Handle click
+  }
+  
+  destroy() {
+    // Remove event listeners
+    this.element.removeEventListener('click', this.boundClickHandler);
+    // Remove references
+    this.element = null;
+    this.boundClickHandler = null;
+  }
+}
+</code></pre>
+<h3>Network Optimization</h3>
+<h4>Bandwidth Efficiency</h4>
+<p>Macro Browser routes traffic through privacy layers, making bandwidth optimization particularly important:</p>
+<pre><code class="language-javascript">// Compress API responses
+const compressionMiddleware = (req, res, next) =&gt; {
+  // Only compress certain content types
+  if (shouldCompress(req)) {
+    res.setHeader('Content-Encoding', 'gzip');
+    // Compress response
+  }
+  next();
+};
+
+// Client-side request batching
+async function batchRequests(requests) {
+  // Combine multiple related API calls
+  return fetch('/batch', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ requests })
+  }).then(res =&gt; res.json());
+}
+</code></pre>
+<h4>Cache-Aware Programming</h4>
+<pre><code class="language-javascript">// Use cache headers properly
+app.get('/api/data', (req, res) =&gt; {
+  // Add cache headers
+  res.setHeader('Cache-Control', 'public, max-age=300');
+  res.setHeader('ETag', generateETag(data));
+  res.json(data);
+});
+
+// Client-side caching with Service Worker
+const CACHE_NAME = 'app-v1';
+
+self.addEventListener('install', (event) =&gt; {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) =&gt; {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/styles.css',
+        '/app.js',
+      ]);
+    })
+  );
+});
+</code></pre>
+<h3>Web3 Specific Optimizations</h3>
+<h4>Efficient Contract Calls</h4>
+<pre><code class="language-javascript">// Batch reads using multicall
+async function batchContractCalls(contract, methodName, paramSets) {
+  const multicallContract = new ethers.Contract(
+    MULTICALL_ADDRESS, 
+    MULTICALL_ABI, 
+    provider
+  );
+  
+  const calls = paramSets.map(params =&gt; ({
+    target: contract.address,
+    callData: contract.interface.encodeFunctionData(methodName, params)
+  }));
+  
+  const { returnData } = await multicallContract.aggregate(calls);
+  
+  return returnData.map(data =&gt; 
+    contract.interface.decodeFunctionResult(methodName, data)
+  );
+}
+</code></pre>
+<h4>State Management for Web3</h4>
+<pre><code class="language-javascript">// Cache transaction data
+class TransactionCache {
+  constructor(ttlSeconds = 60) {
+    this.cache = new Map();
+    this.ttl = ttlSeconds * 1000;
+  }
+  
+  set(txHash, data) {
+    const expiry = Date.now() + this.ttl;
+    this.cache.set(txHash, { data, expiry });
+  }
+  
+  get(txHash) {
+    const cached = this.cache.get(txHash);
+    if (!cached) return null;
+    
+    if (cached.expiry &lt; Date.now()) {
+      this.cache.delete(txHash);
+      return null;
+    }
+    
+    return cached.data;
+  }
+}
+</code></pre>
+<h3>Macro-Specific Optimizations</h3>
+<h4>Privacy-Aware Analytics</h4>
+<p>Standard analytics often get blocked. Consider privacy-friendly alternatives:</p>
+<pre><code class="language-javascript">// Simple privacy-respecting analytics
+const sendAnalytics = (event) =&gt; {
+  // Only collect non-identifying metrics
+  const data = {
+    eventName: event,
+    // No user identifiers
+    screen: {
+      width: window.innerWidth,
+      height: window.innerHeight
+    },
+    timestamp: Date.now()
+  };
+  
+  // Use sendBeacon for reliability
+  navigator.sendBeacon('/analytics', JSON.stringify(data));
+};
+</code></pre>
+<h4>VPN-Aware Networking</h4>
+<p>When the P2P VPN is active, network requests might have different characteristics:</p>
+<pre><code class="language-javascript">// Check if VPN is enabled (Macro-specific feature)
+async function isVpnEnabled() {
+  if (window.ethereum &amp;&amp; window.ethereum.isMacro) {
+    try {
+      return await window.ethereum.request({
+        method: 'macro_isVpnEnabled'
+      });
+    } catch (e) {
+      console.error('Error checking VPN status:', e);
+      return false;
+    }
+  }
+  return false;
+}
+
+// Adapt network strategy based on VPN status
+async function optimizeNetworkRequests() {
+  const vpnEnabled = await isVpnEnabled();
+  
+  if (vpnEnabled) {
+    // When VPN is enabled:
+    // 1. Reduce number of connections
+    // 2. Potentially batch more requests
+    // 3. Be more aggressive with caching
+    setNetworkStrategy('vpn-optimized');
+  } else {
+    setNetworkStrategy('standard');
+  }
+}
+</code></pre>
+<h2>Performance Testing</h2>
+<h3>Browser-Specific Testing</h3>
+<pre><code class="language-javascript">// Detect Macro Browser
+function isMacroBrowser() {
+  return (
+    // Check for the Macro provider
+    (window.ethereum &amp;&amp; window.ethereum.isMacro) ||
+    // Check for user agent (less reliable)
+    navigator.userAgent.includes('MacroBrowser')
+  );
+}
+
+// Conditional testing
+function runPerformanceTests() {
+  const commonTests = [
+    testPageLoad,
+    testInteractivity,
+  ];
+  
+  const tests = isMacroBrowser() 
+    ? [...commonTests, testPrivacyFeatures, testVpnPerformance] 
+    : commonTests;
+  
+  return Promise.all(tests.map(test =&gt; test()));
+}
+</code></pre>
+<h3>Lighthouse Configuration</h3>
+<pre><code class="language-javascript">// Lighthouse CLI configuration for Macro Browser testing
+{
+  &quot;extends&quot;: &quot;lighthouse:default&quot;,
+  &quot;settings&quot;: {
+    &quot;skipAudits&quot;: [
+      // Skip audits that may be affected by privacy features
+      &quot;uses-third-party-cookies&quot;,
+      &quot;third-party-facades&quot;
+    ],
+    &quot;onlyCategories&quot;: [
+      &quot;performance&quot;,
+      &quot;accessibility&quot;,
+      &quot;best-practices&quot;
+    ]
+  }
+}
+</code></pre>
+<h2>Common Performance Issues in Macro Browser</h2>
+<h3>Privacy Features Impact</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Potential Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ad/Tracker Blocking</td>
+<td>Scripts may fail to load</td>
+<td>Don't rely on blocked trackers; use privacy-friendly alternatives</td>
+</tr>
+<tr>
+<td>P2P VPN</td>
+<td>Variable latency</td>
+<td>Implement progressive loading; prioritize critical content</td>
+</tr>
+<tr>
+<td>Anti-Fingerprinting</td>
+<td>Canvas/WebGL limitations</td>
+<td>Provide fallbacks for fingerprinting-dependent features</td>
+</tr>
+<tr>
+<td>Memory-Only Mode</td>
+<td>No persistent storage</td>
+<td>Use synchronization services or export functionality</td>
+</tr>
+</tbody>
+</table>
+<h3>Debugging Memory Issues</h3>
+<pre><code class="language-javascript">// Memory profiling helper
+class MemoryProfiler {
+  constructor(sampleInterval = 5000) {
+    this.readings = [];
+    this.interval = null;
+    this.sampleInterval = sampleInterval;
+  }
+  
+  start() {
+    this.interval = setInterval(() =&gt; {
+      if (window.performance &amp;&amp; window.performance.memory) {
+        const { usedJSHeapSize, totalJSHeapSize } = window.performance.memory;
+        this.readings.push({
+          time: Date.now(),
+          used: usedJSHeapSize,
+          total: totalJSHeapSize
+        });
+        
+        // Check for memory growth
+        this.detectMemoryGrowth();
+      }
+    }, this.sampleInterval);
+  }
+  
+  stop() {
+    clearInterval(this.interval);
+    return this.getReport();
+  }
+  
+  detectMemoryGrowth() {
+    // Simplified leak detection by checking consistent growth
+    if (this.readings.length &lt; 10) return;
+    
+    const recentReadings = this.readings.slice(-10);
+    let consistentGrowth = true;
+    
+    for (let i = 1; i &lt; recentReadings.length; i++) {
+      if (recentReadings[i].used &lt;= recentReadings[i-1].used) {
+        consistentGrowth = false;
+        break;
+      }
+    }
+    
+    if (consistentGrowth) {
+      console.warn('Potential memory leak detected: consistent memory growth');
+    }
+  }
+  
+  getReport() {
+    return {
+      readings: this.readings,
+      averageUsage: this.readings.reduce((sum, r) =&gt; sum + r.used, 0) / this.readings.length,
+      maxUsage: Math.max(...this.readings.map(r =&gt; r.used)),
+      growthRate: this.readings.length &gt; 1 ? 
+        (this.readings[this.readings.length - 1].used - this.readings[0].used) / 
+        (this.readings[this.readings.length - 1].time - this.readings[0].time) : 
+        0
+    };
+  }
+}
+</code></pre>
+<h2>Migration Guide for Existing Apps</h2>
+<h3>From Chrome/Firefox to Macro Browser</h3>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Chrome/Firefox Pattern</th>
+<th>Macro Browser Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage</td>
+<td><code>localStorage</code>/cookies for all data</td>
+<td>Use memory storage; export critical data</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Full user tracking</td>
+<td>Privacy-respecting event counting</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Network-heavy operations</td>
+<td>Optimize for privacy layers and VPN</td>
+</tr>
+<tr>
+<td>Web3</td>
+<td>Simple wallet detection</td>
+<td>Enhanced security checks and permissions</td>
+</tr>
+</tbody>
+</table>
+<h3>Progressive Enhancement for Macro Features</h3>
+<pre><code class="language-javascript">// Feature detection for Macro-specific features
+const browserCapabilities = {
+  // Feature detection
+  detectCapabilities: async () =&gt; {
+    return {
+      isPrivacyFocused: await detectPrivacyFeatures(),
+      hasVpn: await detectVpnCapability(),
+      hasWeb3: typeof window.ethereum !== 'undefined',
+      isMacro: window.ethereum &amp;&amp; window.ethereum.isMacro,
+      hasEnhancedSecurity: window.ethereum &amp;&amp; 
+                          window.ethereum.isMacro &amp;&amp; 
+                          typeof window.ethereum.securityLevel !== 'undefined'
+    };
+  },
+  
+  // Apply optimizations based on detected capabilities
+  applyOptimizations: async () =&gt; {
+    const capabilities = await browserCapabilities.detectCapabilities();
+    
+    if (capabilities.isPrivacyFocused) {
+      // Apply privacy-focused optimizations
+    }
+    
+    if (capabilities.hasVpn) {
+      // Apply VPN-aware optimizations
+    }
+    
+    if (capabilities.isMacro &amp;&amp; capabilities.hasEnhancedSecurity) {
+      // Apply Macro-specific security optimizations
+    }
+  }
+};
+</code></pre>
+<h2>Conclusion</h2>
+<p>Optimizing for Macro Browser requires attention to privacy features and understanding the impact of its unique architecture. By following these guidelines, you can ensure your application performs well while respecting user privacy and leveraging the browser's advanced features.</p>
+<h3>Performance Checklist</h3>
+<ul>
+<li>[ ] Resources are properly prioritized and lazy-loaded</li>
+<li>[ ] DOM size is minimized</li>
+<li>[ ] CSS selectors are efficient</li>
+<li>[ ] Animations use compositor-friendly properties</li>
+<li>[ ] Memory is managed properly with no leaks</li>
+<li>[ ] Network requests are optimized for privacy layers</li>
+<li>[ ] Web3 interactions are batched when possible</li>
+<li>[ ] Analytics respect user privacy</li>
+<li>[ ] Application works with VPN enabled</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

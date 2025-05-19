@@ -1,0 +1,881 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Network Architecture · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="data-flow-security.html" />
+    
+    
+    <link rel="prev" href="web3-integration.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="core-components.html">
+            
+                <a href="core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="browser-engine.html">
+            
+                <a href="browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="privacy-layer.html">
+            
+                <a href="privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="web3-integration.html">
+            
+                <a href="web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.6" data-path="network-architecture.html">
+            
+                <a href="network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="data-flow-security.html">
+            
+                <a href="data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="architecture-decisions.html">
+            
+                <a href="architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../developers/integration-guide.html">
+            
+                <a href="../developers/integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../developers/web3-api.html">
+            
+                <a href="../developers/web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../developers/privacy-api.html">
+            
+                <a href="../developers/privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../developers/performance-guide.html">
+            
+                <a href="../developers/performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../developers/extension-guide.html">
+            
+                <a href="../developers/extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../developers/contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Network Architecture</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="network-architecture">Network Architecture</h1>
+<p>Macro Browser's network architecture is built with privacy and security as core principles. The centerpiece of this architecture is a built-in peer-to-peer VPN that provides enhanced privacy without relying on centralized servers.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><img src="../images/diagrams/network-architecture-diagram-1.svg" alt="Network Architecture Overview"></img></p>
+<h2 id="p2p-vpn-architecture">P2P VPN Architecture</h2>
+<p>The P2P VPN component is a core feature of Macro Browser that provides privacy protection by routing traffic through a decentralized network of peers.</p>
+<h3 id="key-components">Key Components</h3>
+<h4 id="1-vpn-controller">1. VPN Controller</h4>
+<p>Central management component for the VPN functionality:</p>
+<ul>
+<li><strong>User Interface Integration</strong>: Provides controls for enabling/disabling the VPN</li>
+<li><strong>Connection State Management</strong>: Tracks and manages the VPN connection state</li>
+<li><strong>Configuration Handling</strong>: Manages user-defined VPN settings</li>
+<li><strong>Diagnostic Tools</strong>: Provides troubleshooting and connection quality information</li>
+<li><strong>Split Tunneling</strong>: Controls which traffic goes through the VPN</li>
+</ul>
+<h4 id="2-peer-discovery">2. Peer Discovery</h4>
+<p>Responsible for finding and connecting to peers in the network:</p>
+<ul>
+<li><strong>Bootstrap Process</strong>: Initial connection to the peer network</li>
+<li><strong>DHT (Distributed Hash Table)</strong>: Decentralized peer discovery mechanism</li>
+<li><strong>NAT Traversal</strong>: Techniques for connecting peers behind firewalls/NATs</li>
+<li><strong>Peer Verification</strong>: Validates peer authenticity and integrity</li>
+<li><strong>Peer Metadata</strong>: Collects and shares non-identifying peer information</li>
+</ul>
+<h4 id="3-encryption-layer">3. Encryption Layer</h4>
+<p>Ensures all traffic is securely encrypted:</p>
+<ul>
+<li><strong>WireGuard Protocol</strong>: Modern, high-performance VPN protocol</li>
+<li><strong>Key Management</strong>: Secure generation and storage of encryption keys</li>
+<li><strong>Perfect Forward Secrecy</strong>: Ensures past communications remain secure</li>
+<li><strong>Crypto Primitives</strong>: ChaCha20, Poly1305, Curve25519, BLAKE2s</li>
+<li><strong>Handshake Mechanism</strong>: Secure connection establishment</li>
+</ul>
+<h4 id="4-routing-engine">4. Routing Engine</h4>
+<p>Determines the optimal path for network traffic:</p>
+<ul>
+<li><strong>Multi-hop Routing</strong>: Routes traffic through multiple peers for enhanced privacy</li>
+<li><strong>Path Selection Algorithm</strong>: Balances privacy, latency, and reliability</li>
+<li><strong>Circuit Building</strong>: Establishes and maintains relay circuits</li>
+<li><strong>Congestion Control</strong>: Manages traffic to avoid bottlenecks</li>
+<li><strong>Dynamic Rerouting</strong>: Adapts to changing network conditions</li>
+</ul>
+<h4 id="5-peer-management">5. Peer Management</h4>
+<p>Handles the relationship with other peers in the network:</p>
+<ul>
+<li><strong>Peer Ranking</strong>: Rates peers based on reliability and performance</li>
+<li><strong>Connection Pooling</strong>: Maintains a pool of available peer connections</li>
+<li><strong>Resource Allocation</strong>: Manages bandwidth and processing resources</li>
+<li><strong>Blacklisting</strong>: Excludes unreliable or malicious peers</li>
+<li><strong>Peer Rotation</strong>: Periodically changes peers to enhance privacy</li>
+</ul>
+<h4 id="6-crypto-payment-system">6. Crypto Payment System</h4>
+<p>Facilitates the incentive mechanism for peer participation:</p>
+<ul>
+<li><strong>Micropayments</strong>: Small payments for bandwidth usage</li>
+<li><strong>Payment Channels</strong>: Efficient off-chain payment processing</li>
+<li><strong>Earning Model</strong>: Mechanism for peers to earn by sharing bandwidth</li>
+<li><strong>Transparent Pricing</strong>: Clear cost structure for network usage</li>
+<li><strong>Optional Participation</strong>: Users can choose whether to participate</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<h3 id="network-stack">Network Stack</h3>
+<p><img src="../images/diagrams/network-architecture-diagram-2.svg" alt="Network Stack"></img></p>
+<h3 id="wireguard-integration">WireGuard Integration</h3>
+<p>The VPN is built on the WireGuard protocol with custom extensions for P2P operation:</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of WireGuard configuration</span>
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">WireGuardConfig</span> {
+  <span class="hljs-attr">privateKey</span>: <span class="hljs-built_in">string</span>;          <span class="hljs-comment">// Local private key</span>
+  <span class="hljs-attr">publicKey</span>: <span class="hljs-built_in">string</span>;           <span class="hljs-comment">// Local public key</span>
+  <span class="hljs-attr">peers</span>: <span class="hljs-title class_">Array</span>&lt;{
+    <span class="hljs-attr">publicKey</span>: <span class="hljs-built_in">string</span>;         <span class="hljs-comment">// Peer public key</span>
+    <span class="hljs-attr">allowedIPs</span>: <span class="hljs-built_in">string</span>[];      <span class="hljs-comment">// IPs routed through this peer</span>
+    <span class="hljs-attr">endpoint</span>?: <span class="hljs-built_in">string</span>;         <span class="hljs-comment">// Optional fixed endpoint</span>
+    <span class="hljs-attr">keepalive</span>?: <span class="hljs-built_in">number</span>;        <span class="hljs-comment">// Keepalive interval in seconds</span>
+  }&gt;;
+  <span class="hljs-attr">listenPort</span>?: <span class="hljs-built_in">number</span>;         <span class="hljs-comment">// Local listen port</span>
+  <span class="hljs-attr">interfaceAddress</span>: <span class="hljs-built_in">string</span>[];  <span class="hljs-comment">// Interface addresses (IPv4/IPv6)</span>
+  <span class="hljs-attr">dns</span>?: <span class="hljs-built_in">string</span>[];              <span class="hljs-comment">// DNS servers</span>
+}
+
+<span class="hljs-comment">// Example of generating a WireGuard configuration</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">generateWireGuardConfig</span>(<span class="hljs-params"><span class="hljs-attr">peers</span>: <span class="hljs-title class_">PeerInfo</span>[]</span>): <span class="hljs-title class_">WireGuardConfig</span> {
+  <span class="hljs-comment">// Generate key pair if not already available</span>
+  <span class="hljs-keyword">const</span> keyPair = <span class="hljs-title function_">getOrGenerateKeyPair</span>();
+
+  <span class="hljs-comment">// Map peers to WireGuard peer format</span>
+  <span class="hljs-keyword">const</span> wireGuardPeers = peers.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">peer</span> =&gt;</span> ({
+    <span class="hljs-attr">publicKey</span>: peer.<span class="hljs-property">publicKey</span>,
+    <span class="hljs-attr">allowedIPs</span>: peer.<span class="hljs-property">allowedIPs</span>,
+    <span class="hljs-attr">endpoint</span>: peer.<span class="hljs-property">hasStaticEndpoint</span> ? peer.<span class="hljs-property">endpoint</span> : <span class="hljs-literal">undefined</span>,
+    <span class="hljs-attr">keepalive</span>: peer.<span class="hljs-property">requiresKeepalive</span> ? <span class="hljs-number">25</span> : <span class="hljs-literal">undefined</span>
+  }));
+
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">privateKey</span>: keyPair.<span class="hljs-property">privateKey</span>,
+    <span class="hljs-attr">publicKey</span>: keyPair.<span class="hljs-property">publicKey</span>,
+    <span class="hljs-attr">peers</span>: wireGuardPeers,
+    <span class="hljs-attr">interfaceAddress</span>: [<span class="hljs-string">"10.10.0.2/16"</span>, <span class="hljs-string">"fd86:ea04:1115::2/64"</span>],
+    <span class="hljs-attr">dns</span>: [<span class="hljs-string">"10.10.0.1"</span>]
+  };
+}
+</code></pre>
+<h3 id="peer-discovery-and-management">Peer Discovery and Management</h3>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Example of peer discovery implementation</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">PeerDiscoveryManager</span> {
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">bootstrapNodes</span>: <span class="hljs-built_in">string</span>[];
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">dht</span>: <span class="hljs-title class_">DistributedHashTable</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">peerPool</span>: <span class="hljs-title class_">PeerPool</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">networkConstraints</span>: <span class="hljs-title class_">NetworkConstraints</span>;
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-attr">bootstrapNodes</span>: <span class="hljs-built_in">string</span>[], <span class="hljs-attr">networkConstraints</span>: <span class="hljs-title class_">NetworkConstraints</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">bootstrapNodes</span> = bootstrapNodes;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">networkConstraints</span> = networkConstraints;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">dht</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DistributedHashTable</span>();
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">peerPool</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PeerPool</span>();
+  }
+
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">initialize</span>(): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt; {
+    <span class="hljs-comment">// Connect to bootstrap nodes</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> node <span class="hljs-keyword">of</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">bootstrapNodes</span>) {
+      <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">dht</span>.<span class="hljs-title function_">connect</span>(node);
+      } <span class="hljs-keyword">catch</span> (error) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">`Failed to connect to bootstrap node <span class="hljs-subst">${node}</span>:`</span>, error);
+      }
+    }
+
+    <span class="hljs-comment">// Start peer discovery</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">discoverPeers</span>();
+  }
+
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">discoverPeers</span>(): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">PeerInfo</span>[]&gt; {
+    <span class="hljs-comment">// Find peers that match our requirements</span>
+    <span class="hljs-keyword">const</span> peerCandidates = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">dht</span>.<span class="hljs-title function_">findPeers</span>({
+      <span class="hljs-attr">minBandwidth</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">networkConstraints</span>.<span class="hljs-property">minBandwidth</span>,
+      <span class="hljs-attr">maxLatency</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">networkConstraints</span>.<span class="hljs-property">maxLatency</span>,
+      <span class="hljs-attr">regions</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">networkConstraints</span>.<span class="hljs-property">preferredRegions</span>,
+      <span class="hljs-attr">minReputationScore</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">networkConstraints</span>.<span class="hljs-property">minReputationScore</span>
+    });
+
+    <span class="hljs-comment">// Verify and test peers</span>
+    <span class="hljs-keyword">const</span> verifiedPeers = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(
+      peerCandidates.<span class="hljs-title function_">map</span>(<span class="hljs-keyword">async</span> peer =&gt; {
+        <span class="hljs-keyword">const</span> isVerified = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">verifyPeer</span>(peer);
+        <span class="hljs-keyword">if</span> (!isVerified) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">const</span> connectionQuality = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">testPeerConnection</span>(peer);
+        <span class="hljs-keyword">if</span> (connectionQuality &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">networkConstraints</span>.<span class="hljs-property">minConnectionQuality</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">return</span> {
+          ...peer,
+          connectionQuality
+        };
+      })
+    );
+
+    <span class="hljs-comment">// Filter out failed verifications and add to peer pool</span>
+    <span class="hljs-keyword">const</span> goodPeers = verifiedPeers.<span class="hljs-title function_">filter</span>(<span class="hljs-title class_">Boolean</span>) <span class="hljs-keyword">as</span> <span class="hljs-title class_">PeerInfo</span>[];
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">peerPool</span>.<span class="hljs-title function_">addPeers</span>(goodPeers);
+
+    <span class="hljs-keyword">return</span> goodPeers;
+  }
+}
+</code></pre>
+<h2 id="data-flow">Data Flow</h2>
+<h3 id="connection-establishment">Connection Establishment</h3>
+<p><img src="../images/diagrams/technical_network-architecture_diagram_1.svg" alt="Diagram 1"></img></p>
+<h3 id="traffic-routing">Traffic Routing</h3>
+<p><img src="../images/diagrams/technical_network-architecture_diagram_2.svg" alt="Diagram 2"></img></p>
+<h2 id="security-considerations">Security Considerations</h2>
+<p>The P2P VPN architecture addresses several security concerns:</p>
+<ul>
+<li><strong>Traffic Analysis Resistance</strong>: Multi-hop routing prevents any single node from seeing both source and destination</li>
+<li><strong>No Central Point of Failure</strong>: Decentralized architecture eliminates single points of failure</li>
+<li><strong>Encryption</strong>: All traffic is encrypted end-to-end</li>
+<li><strong>No Logging</strong>: No central servers to store connection logs</li>
+<li><strong>IP Masking</strong>: User's real IP address is hidden from destination websites</li>
+<li><strong>Forward Secrecy</strong>: Session keys ensure past sessions remain secure if keys are compromised</li>
+<li><strong>Malicious Peer Protection</strong>: Peer verification and reputation system mitigates malicious peers</li>
+</ul>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<p>Several techniques ensure the P2P VPN maintains good performance:</p>
+<ul>
+<li><strong>Intelligent Peer Selection</strong>: Choose optimal peers based on latency, bandwidth, and reliability</li>
+<li><strong>Connection Reuse</strong>: Maintain connections to reduce handshake overhead</li>
+<li><strong>Adaptive Quality of Service</strong>: Prioritize interactive traffic over background transfers</li>
+<li><strong>Parallel Connections</strong>: Use multiple connections for improved throughput</li>
+<li><strong>Local Caching</strong>: Cache DNS and other repetitive requests locally</li>
+<li><strong>Optimized Protocols</strong>: Efficiency-focused protocol design</li>
+<li><strong>Bandwidth Management</strong>: Control bandwidth usage to avoid congestion</li>
+</ul>
+<h2 id="user-configuration-options">User Configuration Options</h2>
+<p>Users can customize the VPN behavior:</p>
+<ul>
+<li><strong>Connection Mode</strong>: Balance between speed and privacy (more relays = more privacy but higher latency)</li>
+<li><strong>Trusted Networks</strong>: Define networks where VPN activates/deactivates automatically</li>
+<li><strong>Split Tunneling</strong>: Choose which apps or sites bypass the VPN</li>
+<li><strong>Exit Region Preferences</strong>: Select preferred regions for exit nodes</li>
+<li><strong>Bandwidth Limits</strong>: Control bandwidth contribution when acting as a relay</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="web3-integration.html" class="navigation navigation-prev " aria-label="Previous page: Web3 Integration">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="data-flow-security.html" class="navigation navigation-next " aria-label="Next page: Data Flow & Security">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Network Architecture","level":"4.6","depth":1,"next":{"title":"Data Flow & Security","level":"4.7","depth":1,"path":"technical/data-flow-security.md","ref":"technical/data-flow-security.md","articles":[]},"previous":{"title":"Web3 Integration","level":"4.5","depth":1,"path":"technical/web3-integration.md","ref":"technical/web3-integration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"technical/network-architecture.md","mtime":"2025-05-19T16:19:01.468Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

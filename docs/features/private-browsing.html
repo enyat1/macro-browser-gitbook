@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>private browsing - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Private Browsing</h1>
+<p>Macro Browser's private browsing mode goes well beyond traditional &quot;incognito&quot; modes offered by other browsers, providing a comprehensive approach to privacy protection.</p>
+<p><img src="/images/features/private-browsing.svg" alt="Private Browsing"></p>
+<h2>Key Features</h2>
+<h3>Zero Local Data Storage</h3>
+<ul>
+<li><strong>No Browsing History</strong>: Your browsing history is never saved to disk</li>
+<li><strong>No Cookies Persistence</strong>: Cookies are deleted when you close the browser</li>
+<li><strong>No Cache Storage</strong>: Website data isn't stored between sessions</li>
+<li><strong>No Download Records</strong>: Your downloads aren't recorded in browser history</li>
+<li><strong>No Form Data</strong>: Saved forms and autocomplete information isn't stored</li>
+</ul>
+<h3>Enhanced Protection Mechanisms</h3>
+<ul>
+<li><strong>Fingerprinting Defense</strong>: Prevents websites from creating a unique fingerprint of your browser</li>
+<li><strong>Tracker Blocking</strong>: Automatically blocks known tracking scripts and cookies</li>
+<li><strong>Referrer Policy Control</strong>: Limits information sent in HTTP referrer headers</li>
+<li><strong>Third-party Cookie Management</strong>: Strict controls on third-party cookies</li>
+<li><strong>Intelligent Tracking Prevention</strong>: Machine learning systems to identify and block new trackers</li>
+</ul>
+<h2>How It Works</h2>
+<p>Macro Browser creates a secure browsing environment by:</p>
+<ol>
+<li><strong>Isolating Sessions</strong>: Each browsing session runs in a separate, isolated container</li>
+<li><strong>Memory-Only Mode</strong>: All temporary data is kept in memory, not on disk</li>
+<li><strong>Sanitized Requests</strong>: Outgoing requests are sanitized to remove identifying information</li>
+<li><strong>Automatic Cleaning</strong>: Data is automatically purged when the browser closes</li>
+<li><strong>Runtime Protection</strong>: Active monitoring prevents privacy leaks during browsing</li>
+</ol>
+<h2>Privacy Dashboard</h2>
+<p>The privacy dashboard provides real-time information about your browsing session:</p>
+<ul>
+<li><strong>Trackers Blocked</strong>: Count and details of blocked tracking attempts</li>
+<li><strong>Fingerprinting Attempts</strong>: Details of prevented fingerprinting</li>
+<li><strong>Cookie Monitor</strong>: Overview of allowed and blocked cookies</li>
+<li><strong>Session Timer</strong>: How long your current session has been active</li>
+<li><strong>Data Usage</strong>: Amount of data downloaded during your session</li>
+</ul>
+<h2>When to Use Private Browsing</h2>
+<p>Private browsing is ideal for:</p>
+<ul>
+<li><strong>Sensitive Research</strong>: When you're looking up personal or sensitive information</li>
+<li><strong>Public Computers</strong>: When using shared or public devices</li>
+<li><strong>Online Shopping</strong>: To prevent targeted price discrimination</li>
+<li><strong>Multiple Accounts</strong>: When accessing different accounts on the same service</li>
+<li><strong>Testing Websites</strong>: To see how sites appear to new visitors</li>
+</ul>
+<h2>Advanced Privacy Options</h2>
+<p>Power users can configure additional privacy settings:</p>
+<ul>
+<li><strong>Custom Privacy Rules</strong>: Create rules for specific websites or services</li>
+<li><strong>JavaScript Controls</strong>: Enable/disable JavaScript on a per-site basis</li>
+<li><strong>Media Permission Management</strong>: Fine-grained control over access to camera, microphone</li>
+<li><strong>P2P VPN Integration</strong>: Route traffic through the P2P VPN for additional privacy</li>
+<li><strong>WebRTC Leak Prevention</strong>: Prevent WebRTC from revealing your true IP address</li>
+</ul>
+<h2>Private vs. Standard Browsing</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Private Browsing</th>
+<th>Standard Browsing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>History Storage</td>
+<td>None</td>
+<td>Saved</td>
+</tr>
+<tr>
+<td>Cookie Persistence</td>
+<td>Session only</td>
+<td>According to cookie settings</td>
+</tr>
+<tr>
+<td>Cache</td>
+<td>Memory only</td>
+<td>Disk storage</td>
+</tr>
+<tr>
+<td>Form Data</td>
+<td>Not saved</td>
+<td>Optionally saved</td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td>Privacy-focused only</td>
+<td>All enabled</td>
+</tr>
+<tr>
+<td>Tracking Protection</td>
+<td>Maximum</td>
+<td>Configurable</td>
+</tr>
+<tr>
+<td>Resource Usage</td>
+<td>Slightly higher</td>
+<td>Standard</td>
+</tr>
+</tbody>
+</table>
+<p>Private browsing is enabled by default in Macro Browser, but you can always switch to standard browsing mode when needed for specific use cases or to improve performance on trusted websites.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web3 integration - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Web3 Integration</h1>
+<p>The Web3 Integration layer enables Macro Browser to interact seamlessly with blockchain networks and decentralized applications (dApps). This component bridges the traditional web browsing experience with the decentralized web ecosystem.</p>
+<h2>Architecture Overview</h2>
+<p><img src="/images/diagrams/web3-integration.svg" alt="Web3 Integration Architecture"></p>
+<h2>Key Components</h2>
+<h3>Wallet Connector</h3>
+<p>Facilitates connections with cryptocurrency wallets:</p>
+<ul>
+<li><strong>External Wallet Support</strong>: Integration with popular wallets (MetaMask, Coinbase Wallet, etc.)</li>
+<li><strong>WalletConnect Support</strong>: Connection to mobile wallets via QR code</li>
+<li><strong>Hardware Wallet Integration</strong>: Support for Ledger, Trezor, and other hardware wallets</li>
+<li><strong>Multi-Wallet Management</strong>: Connect and manage multiple wallets simultaneously</li>
+<li><strong>Connection Status Monitoring</strong>: Track wallet connection state</li>
+</ul>
+<h3>Provider Bridge</h3>
+<p>Implements the Web3 provider interface for dApp connectivity:</p>
+<ul>
+<li><strong>EIP-1193 Compliance</strong>: Standard Ethereum provider API implementation</li>
+<li><strong>Method Handling</strong>: Processing of Ethereum JSON-RPC methods</li>
+<li><strong>Event Propagation</strong>: Wallet and chain-related events (connect, disconnect, chainChanged, etc.)</li>
+<li><strong>Request Filtering</strong>: Security filtering of provider requests</li>
+<li><strong>Cross-Origin Isolation</strong>: Domain-specific provider instances</li>
+</ul>
+<h3>Transaction Manager</h3>
+<p>Handles blockchain transactions securely:</p>
+<ul>
+<li><strong>Transaction Creation</strong>: Help construct valid blockchain transactions</li>
+<li><strong>Gas Estimation</strong>: Accurate gas fee estimations</li>
+<li><strong>Transaction Signing</strong>: Secure signing process with user confirmation</li>
+<li><strong>Transaction Broadcasting</strong>: Sending signed transactions to the network</li>
+<li><strong>Transaction Monitoring</strong>: Track transaction status and confirmations</li>
+<li><strong>Receipt Validation</strong>: Verify transaction completion and effects</li>
+</ul>
+<h3>Network Manager</h3>
+<p>Supports multiple blockchain networks:</p>
+<ul>
+<li><strong>Network Switching</strong>: Easy switching between different networks</li>
+<li><strong>Chain Validation</strong>: Ensure proper chain ID and network configuration</li>
+<li><strong>Custom Network Support</strong>: Adding and managing custom RPC endpoints</li>
+<li><strong>Network Status Monitoring</strong>: Track network availability and conditions</li>
+<li><strong>EIP-3085 Support</strong>: Adding new networks via <code>wallet_addEthereumChain</code></li>
+<li><strong>EIP-3326 Support</strong>: Switching networks via <code>wallet_switchEthereumChain</code></li>
+</ul>
+<h3>Security Monitor</h3>
+<p>Provides security features for Web3 interactions:</p>
+<ul>
+<li><strong>Phishing Protection</strong>: Detection of known scam sites and malicious dApps</li>
+<li><strong>Contract Verification</strong>: Verification of smart contract source code when available</li>
+<li><strong>Permission Management</strong>: Granular control over dApp permissions</li>
+<li><strong>Transaction Analysis</strong>: Pre-execution analysis of transaction effects</li>
+<li><strong>Spending Limits</strong>: Optional spending limits for transactions</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>Wallet Connection Flow</h3>
+<p><img src="/images/diagrams/wallet-connection-flow.svg" alt="Wallet Connection Flow"></p>
+<h3>Web3 Provider Implementation</h3>
+<pre><code class="language-typescript">// Example of a simplified Web3 provider implementation
+class MacroWeb3Provider {
+  private connectedAccounts: string[] = [];
+  private currentChainId: string = '0x1'; // Ethereum Mainnet by default
+  private wallet: IWallet;
+  private domain: string;
+  
+  constructor(wallet: IWallet, domain: string) {
+    this.wallet = wallet;
+    this.domain = domain;
+  }
+  
+  // Main JSON-RPC request handler (EIP-1193)
+  async request(args: { method: string; params?: unknown[] }): Promise&lt;unknown&gt; {
+    // Security checks
+    if (!this.isMethodAllowed(args.method, this.domain)) {
+      throw new Error(`Method ${args.method} not allowed for ${this.domain}`);
+    }
+    
+    // Handle specific methods locally if needed
+    switch (args.method) {
+      case 'eth_accounts':
+        return this.connectedAccounts;
+        
+      case 'eth_chainId':
+        return this.currentChainId;
+        
+      case 'eth_requestAccounts':
+        // Trigger wallet connection UI if needed
+        if (this.connectedAccounts.length === 0) {
+          await this.connectWallet();
+        }
+        return this.connectedAccounts;
+        
+      // For most methods, pass through to wallet
+      default:
+        // For transaction requests, show confirmation UI
+        if (['eth_sendTransaction', 'eth_signTransaction'].includes(args.method)) {
+          await this.showTransactionConfirmation(args.method, args.params);
+        }
+        
+        // Forward request to wallet
+        return await this.wallet.request(args);
+    }
+  }
+  
+  // Support for legacy web3
+  sendAsync(payload: any, callback: (error: Error | null, result?: any) =&gt; void): void {
+    this.request(payload)
+      .then(result =&gt; callback(null, { jsonrpc: '2.0', id: payload.id, result }))
+      .catch(error =&gt; callback(error));
+  }
+  
+  // EIP-1193 events
+  on(eventName: string, listener: (...args: any[]) =&gt; void): void {
+    // Implementation of event handling
+  }
+}
+</code></pre>
+<h3>Transaction Security</h3>
+<pre><code class="language-typescript">// Example of transaction security analysis
+async function analyzeTransaction(transaction: TransactionRequest): Promise&lt;SecurityAnalysis&gt; {
+  const analysis: SecurityAnalysis = {
+    riskLevel: 'low',
+    warnings: [],
+    recommendations: []
+  };
+  
+  // Check destination address against known scams
+  if (isKnownScamAddress(transaction.to)) {
+    analysis.riskLevel = 'high';
+    analysis.warnings.push('Destination address is associated with known scams');
+  }
+  
+  // Check for unusual gas price
+  const currentGasPrice = await getCurrentGasPrice();
+  if (transaction.gasPrice &amp;&amp; transaction.gasPrice &gt; currentGasPrice * 2) {
+    analysis.riskLevel = Math.max(analysis.riskLevel === 'low' ? 'medium' : analysis.riskLevel);
+    analysis.warnings.push('Gas price is significantly higher than current network average');
+  }
+  
+  // Check if contract is verified
+  if (await isContract(transaction.to)) {
+    const isVerified = await isContractVerified(transaction.to);
+    if (!isVerified) {
+      analysis.recommendations.push('Contract source code is not verified. Proceed with caution.');
+    }
+    
+    // Simulate transaction to analyze effects
+    try {
+      const simulationResult = await simulateTransaction(transaction);
+      if (simulationResult.tokenTransfers.length &gt; 0) {
+        analysis.recommendations.push(`This transaction will transfer: ${formatTokenTransfers(simulationResult.tokenTransfers)}`);
+      }
+    } catch (error) {
+      analysis.warnings.push('Transaction simulation failed. This may indicate potential issues.');
+    }
+  }
+  
+  return analysis;
+}
+</code></pre>
+<h2>Integration with dApps</h2>
+<p>Macro Browser's Web3 integration enables seamless interaction with decentralized applications:</p>
+<ul>
+<li><strong>Automatic Provider Injection</strong>: Web3 provider automatically injected into dApp pages</li>
+<li><strong>Permission System</strong>: dApps request permission to connect to user's wallet</li>
+<li><strong>Transaction Approval Flow</strong>: Clear UI for transaction approval</li>
+<li><strong>Network Compatibility</strong>: Support for multiple blockchain networks</li>
+<li><strong>Chain Switching</strong>: Allow dApps to request network changes</li>
+</ul>
+<h2>User Interface</h2>
+<p>The Web3 integration includes several user interface components:</p>
+<ul>
+<li><strong>Wallet Connection Button</strong>: Easily accessible in the browser toolbar</li>
+<li><strong>Connected Account Display</strong>: Shows currently connected wallet and account</li>
+<li><strong>Transaction Approval Dialog</strong>: Clear presentation of transaction details</li>
+<li><strong>Network Selector</strong>: Dropdown for changing the active blockchain network</li>
+<li><strong>Asset Overview</strong>: Summary of wallet balances (optional)</li>
+</ul>
+<h2>Privacy Considerations</h2>
+<p>The Web3 integration is designed with privacy in mind:</p>
+<ul>
+<li><strong>Domain Isolation</strong>: Each domain gets its own isolated provider instance</li>
+<li><strong>Minimal Data Sharing</strong>: Only necessary data is shared with dApps</li>
+<li><strong>No Persistent Storage</strong>: Wallet connection data not stored permanently</li>
+<li><strong>Transparent Permissions</strong>: Clear display of what each dApp can access</li>
+<li><strong>Optional Connections</strong>: Users can choose which dApps can connect to their wallet</li>
+</ul>
+<h2>Future Enhancements</h2>
+<p>Planned improvements for the Web3 integration:</p>
+<ul>
+<li><strong>Enhanced Transaction Simulation</strong>: More detailed preview of transaction effects</li>
+<li><strong>NFT Support</strong>: Improved handling of non-fungible tokens</li>
+<li><strong>Multi-Chain Operations</strong>: Streamlined cross-chain transactions</li>
+<li><strong>Layer 2 Optimizations</strong>: Better support for Layer 2 scaling solutions</li>
+<li><strong>Wallet SDK</strong>: Developer tools for wallet and dApp developers</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

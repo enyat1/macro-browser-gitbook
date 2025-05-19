@@ -1,0 +1,59 @@
+graph TD
+    classDef userGroup fill:#4b31dd,color:white,stroke-width:0px
+    classDef browserGroup fill:#2a1a7e,color:white,stroke-width:0px
+    classDef privacyGroup fill:#4b31dd,color:white,stroke-width:0px
+    classDef externalGroup fill:#2a1a7e,color:white,stroke-width:0px
+    
+    subgraph "User Interaction"
+        UserInput[User Input]:::userGroup
+        UIEvents[UI Events]:::userGroup
+    end
+    
+    subgraph "Browser Core"
+        TabProcess[Tab Process]:::browserGroup
+        MainProcess[Main Process]:::browserGroup
+        NetworkService[Network Service]:::browserGroup
+    end
+    
+    subgraph "Privacy & Security"
+        PrivacyLayer[Privacy Layer]:::privacyGroup
+        Web3Security[Web3 Security]:::privacyGroup
+        VPNService[VPN Service]:::privacyGroup
+    end
+    
+    subgraph "External Systems"
+        WebServers[Web Servers]:::externalGroup
+        Blockchain[Blockchain Networks]:::externalGroup
+        AIServices[AI Services]:::externalGroup
+    end
+    
+    UserInput --> UIEvents
+    UIEvents --> TabProcess
+    
+    TabProcess --> PrivacyLayer
+    PrivacyLayer --> NetworkService
+    
+    NetworkService --> VPNService
+    VPNService --> WebServers
+    
+    TabProcess --> Web3Security
+    Web3Security --> Blockchain
+    
+    TabProcess --> AIServices
+    
+    WebServers --> VPNService
+    VPNService --> NetworkService
+    NetworkService --> TabProcess
+    TabProcess --> UIEvents
+    UIEvents --> UserInput
+    
+    Blockchain --> Web3Security
+    Web3Security --> TabProcess
+    
+    AIServices --> TabProcess
+    
+    MainProcess --> TabProcess
+    MainProcess --> NetworkService
+    MainProcess --> PrivacyLayer
+    MainProcess --> VPNService
+    MainProcess --> Web3Security 

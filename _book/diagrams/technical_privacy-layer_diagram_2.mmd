@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant PrivacyLayer
+    participant Website
+    
+    User->>Browser: Request website
+    Browser->>PrivacyLayer: Check request
+    PrivacyLayer->>PrivacyLayer: Apply filter rules
+    alt Contains tracker/ad requests
+        PrivacyLayer->>Browser: Block requests
+    else No privacy concerns
+        PrivacyLayer->>Website: Forward request
+        Website->>PrivacyLayer: Response
+        PrivacyLayer->>PrivacyLayer: Apply response filters
+        PrivacyLayer->>Browser: Filtered response
+    end
+    Browser->>User: Display content
+

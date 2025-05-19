@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>installation - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Installing Macro Browser</h1>
+<p>This guide will walk you through the process of installing Macro Browser on your system.</p>
+<h2>Download</h2>
+<p>Visit the <a href="https://macrobrowser.com/download">official Macro Browser website</a> to download the latest version for your operating system.</p>
+<h2>Installation Instructions</h2>
+<h3>Windows</h3>
+<ol>
+<li>Locate the downloaded file (typically <code>MacroBrowser-Setup-x.x.x.exe</code>)</li>
+<li>Double-click the installer file</li>
+<li>Follow the on-screen instructions</li>
+<li>When prompted, choose your preferred installation location</li>
+<li>Wait for the installation to complete</li>
+<li>Launch Macro Browser from the desktop shortcut or start menu</li>
+</ol>
+<h3>macOS</h3>
+<ol>
+<li>Locate the downloaded file (typically <code>MacroBrowser-x.x.x.dmg</code>)</li>
+<li>Double-click the DMG file to open it</li>
+<li>Drag the Macro Browser icon to the Applications folder</li>
+<li>Close the installer window</li>
+<li>Open Finder, navigate to Applications, and launch Macro Browser</li>
+<li>If prompted about an app from an &quot;unidentified developer,&quot; right-click on the app and select &quot;Open&quot;</li>
+</ol>
+<h3>Linux</h3>
+<h4>Debian/Ubuntu (DEB package)</h4>
+<pre><code class="language-bash">sudo dpkg -i macrobrowser_x.x.x_amd64.deb
+sudo apt-get install -f
+</code></pre>
+<h4>Fedora/RHEL (RPM package)</h4>
+<pre><code class="language-bash">sudo rpm -i macrobrowser-x.x.x.x86_64.rpm
+</code></pre>
+<h4>AppImage</h4>
+<ol>
+<li>Make the AppImage executable:<pre><code class="language-bash">chmod +x MacroBrowser-x.x.x.AppImage
+</code></pre>
+</li>
+<li>Run the AppImage:<pre><code class="language-bash">./MacroBrowser-x.x.x.AppImage
+</code></pre>
+</li>
+</ol>
+<h2>Verifying Installation</h2>
+<p>After installation, launch Macro Browser. You should see the welcome screen and the browser interface. The default page will guide you through connecting your wallet and setting up your secure browsing environment.</p>
+<h2>Troubleshooting</h2>
+<p>If you encounter any issues during installation:</p>
+<ol>
+<li>Ensure your system meets the <a href="README.md#system-requirements">minimum requirements</a></li>
+<li>Try redownloading the installer if the file appears to be corrupted</li>
+<li>Temporarily disable your antivirus software (some may flag new applications)</li>
+<li>Visit our <a href="../faq.md">FAQ</a> for common installation issues</li>
+<li>Contact support at support@macrobrowser.com</li>
+</ol>
+<h2>Updating</h2>
+<p>Macro Browser will automatically check for updates. When an update is available, you'll be notified and can choose to install it immediately or later.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

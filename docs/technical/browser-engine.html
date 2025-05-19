@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser engine - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Browser Engine</h1>
+<p>The browser engine is the core component of Macro Browser, responsible for rendering web content and providing the foundation for all other features. Macro Browser uses a specially configured version of Chromium via the Electron framework.</p>
+<h2>Architecture Overview</h2>
+<p><img src="/images/diagrams/technical_browser-engine_diagram_1.svg" alt="Diagram 1"></p>
+<h2>Key Features</h2>
+<h3>De-Googled Chromium</h3>
+<p>Macro Browser removes Google-specific services and tracking components from the Chromium engine:</p>
+<ul>
+<li><strong>Removed Services</strong>: Google authentication, sync, update services, metrics collection</li>
+<li><strong>Disabled APIs</strong>: Various Google-specific APIs and integrations</li>
+<li><strong>Alternative Services</strong>: Replaced Google services with privacy-respecting alternatives</li>
+<li><strong>Custom User Agent</strong>: Modified to reduce fingerprinting potential</li>
+</ul>
+<h3>Process Isolation</h3>
+<p>The browser's multi-process architecture enhances security and stability:</p>
+<ul>
+<li><strong>Main Process</strong>: Controls application lifecycle and manages browser windows</li>
+<li><strong>Renderer Processes</strong>: Isolated processes for rendering web content</li>
+<li><strong>GPU Process</strong>: Handles graphics acceleration separately from content</li>
+<li><strong>Network Service</strong>: Manages all network connections</li>
+<li><strong>Utility Processes</strong>: Handle various tasks like extension execution</li>
+</ul>
+<h3>Security Enhancements</h3>
+<p>Additional security features beyond standard Chromium:</p>
+<ul>
+<li><strong>Site Isolation</strong>: Each site runs in its own rendering process</li>
+<li><strong>Content Security Policy</strong>: Enhanced CSP implementation</li>
+<li><strong>Sandboxing</strong>: Strict process sandboxing limits potential exploits</li>
+<li><strong>Memory Protection</strong>: ASLR, DEP, and other memory safety features</li>
+<li><strong>Permission Management</strong>: Granular control over site permissions</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>Configuration and Setup</h3>
+<pre><code class="language-typescript">// Example of browser window configuration
+interface BrowserWindowConfig {
+  width: number;
+  height: number;
+  webPreferences: {
+    preload: string;
+    nodeIntegration: boolean;
+    contextIsolation: boolean;
+    sandbox: boolean;
+    webSecurity: boolean;
+    allowRunningInsecureContent: boolean;
+  };
+  backgroundColor: string;
+  titleBarStyle: string;
+  autoHideMenuBar: boolean;
+}
+
+const defaultWindowConfig: BrowserWindowConfig = {
+  width: 1200,
+  height: 800,
+  webPreferences: {
+    preload: path.join(__dirname, 'preload.js'),
+    nodeIntegration: false,
+    contextIsolation: true,
+    sandbox: true,
+    webSecurity: true,
+    allowRunningInsecureContent: false
+  },
+  backgroundColor: '#1a1a1a',
+  titleBarStyle: 'hiddenInset',
+  autoHideMenuBar: true
+};
+</code></pre>
+<h3>Process Communication</h3>
+<p>The browser uses secure IPC (Inter-Process Communication) between processes:</p>
+<pre><code class="language-typescript">// Example of IPC communication between processes
+// In main process
+ipcMain.handle('secure-operation', async (event, args) =&gt; {
+  // Validate sender
+  if (!isTrustedSender(event.sender)) {
+    return { error: 'Unauthorized sender' };
+  }
+  
+  // Validate input
+  if (!isValidInput(args)) {
+    return { error: 'Invalid input' };
+  }
+  
+  try {
+    // Perform operation
+    const result = await performSecureOperation(args);
+    return { success: true, data: result };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+});
+
+// In renderer process (via preload)
+contextBridge.exposeInMainWorld('secureAPI', {
+  performOperation: (args) =&gt; ipcRenderer.invoke('secure-operation', args)
+});
+</code></pre>
+<h3>Content Rendering Pipeline</h3>
+<ol>
+<li><strong>Resource Loading</strong>: Fetch resources with privacy-enhancing filters</li>
+<li><strong>HTML Parsing</strong>: Convert HTML to DOM tree</li>
+<li><strong>Style Calculation</strong>: Apply CSS to DOM elements</li>
+<li><strong>Layout</strong>: Calculate element positions and sizes</li>
+<li><strong>Paint</strong>: Create visual representation of the page</li>
+<li><strong>Composite</strong>: Combine layers for final display</li>
+</ol>
+<h2>Integration with Other Components</h2>
+<p>The browser engine interfaces with other components through well-defined APIs:</p>
+<ul>
+<li><strong>Privacy Layer</strong>: Content filtering and tracking prevention</li>
+<li><strong>Network Layer</strong>: Request/response handling and caching</li>
+<li><strong>Web3 Layer</strong>: Injection of Web3 providers for dApp support</li>
+<li><strong>UI Layer</strong>: Browser chrome and controls</li>
+</ul>
+<h2>Performance Optimizations</h2>
+<p>Several optimizations enhance browser performance:</p>
+<ul>
+<li><strong>Resource Prioritization</strong>: Critical resources loaded first</li>
+<li><strong>Code Splitting</strong>: Breaking JavaScript into manageable chunks</li>
+<li><strong>Lazy Loading</strong>: Defer loading of non-essential resources</li>
+<li><strong>GPU Acceleration</strong>: Hardware acceleration for rendering</li>
+<li><strong>Memory Management</strong>: Efficient handling of memory resources</li>
+</ul>
+<h2>Future Enhancements</h2>
+<p>Planned improvements to the browser engine:</p>
+<ul>
+<li><strong>Improved Service Worker Support</strong>: Better offline capabilities</li>
+<li><strong>WebAssembly Optimizations</strong>: Enhanced WASM performance</li>
+<li><strong>Additional Web Standards</strong>: Support for emerging web standards</li>
+</ul>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

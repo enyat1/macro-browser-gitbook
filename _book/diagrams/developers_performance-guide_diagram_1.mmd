@@ -1,0 +1,10 @@
+graph LR
+    A[Resource Request] --> B{Critical for First Paint?}
+    B -->|Yes| C[Inline or Preload]
+    B -->|No| D{Above the fold?}
+    D -->|Yes| E[High Priority]
+    D -->|No| F[Defer or Lazy Load]
+    C --> G[Render]
+    E --> G
+    F --> H[Load when needed]
+

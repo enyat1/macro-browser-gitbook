@@ -1,11 +1,13 @@
 {
   "title": "Macro Browser Documentation",
-  "plugins": ["mermaid-gb3"],
-  "pluginsConfig": {
-    "mermaid-gb3": {
-      "theme": "default"
-    }
-  },
+  "description": "Documentation for the Macro privacy-centric Web3 browser",
+  "author": "Macro Browser Team",
+  "language": "en",
+  "plugins": [
+    "-sharing",
+    "-fontsettings",
+    "-livereload"
+  ],
   "styles": {
     "website": "./styles/website.css",
     "ebook": "./styles/website.css",
@@ -13,13 +15,16 @@
     "mobi": "./styles/website.css",
     "epub": "./styles/website.css"
   },
+  "links": {
+    "sidebar": {
+      "Macro Browser Home": "https://macro.io",
+      "GitHub Repository": "https://github.com/macro-browser/macro"
+    }
+  },
   "variables": {
-    "baseImagePath": "/"
+    "version": "0.1.0-alpha"
   },
   "js": [
     "./styles/website.js"
-  ],
-  "structure": {
-    "readme": "README.md"
-  }
+  ]
 } 

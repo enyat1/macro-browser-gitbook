@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Development Roadmap</h1>
+<p>This page outlines the development plan for Macro Browser, including current milestones, future features, and overall project direction.</p>
+<h2>Current Development Status</h2>
+<p>Macro Browser is currently in active development, with progress focused on the core foundations and essential features.</p>
+<h2>Key Milestones</h2>
+<h3>Milestone 1: Foundation - Base Browser &amp; Core Privacy ✅</h3>
+<ul>
+<li>✅ Set up Electron/Chromium base browser</li>
+<li>✅ Implement de-Googled configuration</li>
+<li>✅ Develop default private browsing mode</li>
+<li>✅ Integrate ad/tracker blocking</li>
+<li>✅ Enforce secure connections</li>
+</ul>
+<p><strong>Status</strong>: Completed</p>
+<h3>Milestone 2: Interface - UI &amp; AI-Powered Search 🟡</h3>
+<ul>
+<li>✅ Develop main browser interface</li>
+<li>✅ Implement dark mode theme</li>
+<li>✅ Create custom new tab page</li>
+<li>🟡 Integrate AI search capabilities</li>
+<li>🟡 Finalize UI polish and responsiveness</li>
+</ul>
+<p><strong>Status</strong>: In Progress (75% Complete)</p>
+<h3>Milestone 3: Functionality - Crypto Wallet &amp; Web3 🟡</h3>
+<ul>
+<li>✅ Integrate wallet provider support</li>
+<li>🟡 Enable dApp interactions</li>
+<li>🟡 Develop wallet user interface</li>
+<li>⬜ Implement transaction management</li>
+<li>⬜ Test with popular dApps</li>
+</ul>
+<p><strong>Status</strong>: In Progress (40% Complete)</p>
+<h3>Milestone 4: Networking &amp; Finalization - P2P VPN &amp; Packaging ⬜</h3>
+<ul>
+<li>⬜ Implement P2P VPN feature</li>
+<li>⬜ Add VPN controls to interface</li>
+<li>⬜ Conduct final testing and optimization</li>
+<li>⬜ Package for distribution</li>
+<li>⬜ Prepare release materials</li>
+</ul>
+<p><strong>Status</strong>: Not Started</p>
+<h2>Future Enhancements</h2>
+<p>After the initial release, we plan to focus on the following areas:</p>
+<h3>Enhanced Privacy Features</h3>
+<ul>
+<li><strong>Advanced Fingerprinting Protection</strong>: Additional measures to prevent browser fingerprinting</li>
+<li><strong>DNS-over-HTTPS/DNS-over-TLS</strong>: Secure DNS resolution</li>
+<li><strong>Container Tabs</strong>: Isolation between different browsing contexts</li>
+<li><strong>Cookie Jar Management</strong>: Advanced control over cookies and local storage</li>
+</ul>
+<h3>Expanded Web3 Support</h3>
+<ul>
+<li><strong>Multiple Wallet Support</strong>: Connect and manage multiple wallets simultaneously</li>
+<li><strong>NFT Gallery</strong>: Built-in viewer for NFT collections</li>
+<li><strong>Token Management</strong>: Advanced token organization and tracking</li>
+<li><strong>Cross-Chain Operations</strong>: Streamlined cross-chain transactions</li>
+<li><strong>Gas Optimization</strong>: Intelligent gas fee recommendations</li>
+</ul>
+<h3>Community &amp; Ecosystem</h3>
+<ul>
+<li><strong>Extension System</strong>: Support for privacy-focused browser extensions</li>
+<li><strong>Theme Customization</strong>: User-defined themes and visual customization</li>
+<li><strong>Sync System</strong>: Optional encrypted sync between devices</li>
+<li><strong>Developer Tools</strong>: Enhanced tools for Web3 developers</li>
+</ul>
+<h2>Release Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Target Completion Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Milestone 1: Foundation</td>
+<td>Q2 2023</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Milestone 2: Interface</td>
+<td>Q3 2023</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Milestone 3: Functionality</td>
+<td>Q4 2023</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Milestone 4: Networking &amp; Finalization</td>
+<td>Q1 2024</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>Initial Public Release</td>
+<td>Q2 2024</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>Feature Enhancements</td>
+<td>Ongoing</td>
+<td>Planned</td>
+</tr>
+</tbody>
+</table>
+<h2>Community Involvement</h2>
+<p>We encourage community participation in guiding Macro Browser's development:</p>
+<ul>
+<li><strong>Feature Requests</strong>: Submit ideas through our GitHub repository</li>
+<li><strong>Testing Program</strong>: Join our beta testing program</li>
+<li><strong>Feedback Channels</strong>: Share feedback through our community forum</li>
+<li><strong>Development Contributions</strong>: Contribute to specific components through pull requests</li>
+</ul>
+<p>Visit our <a href="../CONTRIBUTING.md">Contributing Guide</a> to learn how you can get involved.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

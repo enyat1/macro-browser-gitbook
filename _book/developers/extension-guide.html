@@ -1,0 +1,1557 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Extension Development Guide · Macro Browser Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        <meta name="author" content="Macro Browser Team">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="contributing-code.md" />
+    
+    
+    <link rel="prev" href="performance-guide.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://macro.io" target="_blank" class="custom-link">Macro Browser Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/macro-browser/macro" target="_blank" class="custom-link">GitHub Repository</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getting-started/installation.html">
+            
+                <a href="../getting-started/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../getting-started/user-interface.html">
+            
+                <a href="../getting-started/user-interface.html">
+            
+                    
+                    User Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Features</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../features/private-browsing.html">
+            
+                <a href="../features/private-browsing.html">
+            
+                    
+                    Private Browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../features/ad-tracker-blocking.html">
+            
+                <a href="../features/ad-tracker-blocking.html">
+            
+                    
+                    Ad & Tracker Blocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../features/ai-search.html">
+            
+                <a href="../features/ai-search.html">
+            
+                    
+                    AI-Powered Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../features/crypto-wallet.html">
+            
+                <a href="../features/crypto-wallet.html">
+            
+                    
+                    Crypto Wallet Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../features/p2p-vpn.html">
+            
+                <a href="../features/p2p-vpn.html">
+            
+                    
+                    P2P VPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../technical/">
+            
+                <a href="../technical/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../technical/core-components.html">
+            
+                <a href="../technical/core-components.html">
+            
+                    
+                    Core Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../technical/browser-engine.html">
+            
+                <a href="../technical/browser-engine.html">
+            
+                    
+                    Browser Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../technical/privacy-layer.html">
+            
+                <a href="../technical/privacy-layer.html">
+            
+                    
+                    Privacy Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../technical/web3-integration.html">
+            
+                <a href="../technical/web3-integration.html">
+            
+                    
+                    Web3 Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../technical/network-architecture.html">
+            
+                <a href="../technical/network-architecture.html">
+            
+                    
+                    Network Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../technical/data-flow-security.html">
+            
+                <a href="../technical/data-flow-security.html">
+            
+                    
+                    Data Flow & Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../technical/architecture-decisions.html">
+            
+                <a href="../technical/architecture-decisions.html">
+            
+                    
+                    Architecture Decisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">For Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="integration-guide.html">
+            
+                <a href="integration-guide.html">
+            
+                    
+                    Integration Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="web3-api.html">
+            
+                <a href="web3-api.html">
+            
+                    
+                    Web3 API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="privacy-api.html">
+            
+                <a href="privacy-api.html">
+            
+                    
+                    Privacy API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="performance-guide.html">
+            
+                <a href="performance-guide.html">
+            
+                    
+                    Performance Optimization Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.5" data-path="extension-guide.html">
+            
+                <a href="extension-guide.html">
+            
+                    
+                    Extension Development Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="contributing-code.md">
+            
+                <span>
+            
+                    
+                    Contributing Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Development</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../roadmap/">
+            
+                <a href="../roadmap/">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../glossary.html">
+            
+                <a href="../glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../resources/browser-comparison.md">
+            
+                <span>
+            
+                    
+                    Comparison with Other Browsers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Extension Development Guide</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="extension-development-guide">Extension Development Guide</h1>
+<p>This guide covers how to develop extensions for Macro Browser, focusing on privacy-respecting design and Macro-specific features.</p>
+<h2 id="extension-architecture-overview">Extension Architecture Overview</h2>
+<p>Macro Browser supports two types of extensions:</p>
+<ol>
+<li><strong>Standard Extensions</strong> - Compatible with Chromium extensions, with some privacy-focused limitations</li>
+<li><strong>Privacy Extensions</strong> - Enhanced extension type with access to Macro-specific privacy APIs</li>
+</ol>
+<p><img src="../images/diagrams/developers_extension-guide_diagram_1.svg" alt="Diagram 1"></img></p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="setting-up-your-development-environment">Setting Up Your Development Environment</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># Clone the extension starter template</span>
+git <span class="hljs-built_in">clone</span> https://github.com/macro-browser/extension-starter
+
+<span class="hljs-comment"># Install dependencies</span>
+<span class="hljs-built_in">cd</span> extension-starter
+npm install
+
+<span class="hljs-comment"># Start development server</span>
+npm run dev
+</code></pre>
+<h3 id="directory-structure">Directory Structure</h3>
+<p>A typical Macro Browser extension has the following structure:</p>
+<pre><code>extension/
+├── manifest.json         # Extension manifest
+├── background/           # Background scripts
+│   └── index.js          # Main background script
+├── content/              # Content scripts
+│   └── content.js        # Main content script
+├── popup/                # Browser action popup
+│   ├── index.html        # Popup HTML
+│   └── popup.js          # Popup logic
+├── options/              # Options page
+│   ├── index.html        # Options page HTML
+│   └── options.js        # Options page logic
+├── icons/                # Extension icons
+│   ├── icon-16.png       # 16x16 icon
+│   ├── icon-48.png       # 48x48 icon
+│   └── icon-128.png      # 128x128 icon
+├── _locales/             # Internationalization
+│   └── en/
+│       └── messages.json # English messages
+└── privacy.json          # Macro-specific privacy declarations
+</code></pre><h3 id="manifest-file">Manifest File</h3>
+<pre><code class="lang-json">{
+  <span class="hljs-string">"manifest_version"</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-string">"name"</span>: <span class="hljs-string">"My Privacy Extension"</span>,
+  <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+  <span class="hljs-string">"description"</span>: <span class="hljs-string">"A privacy-respecting extension for Macro Browser"</span>,
+  <span class="hljs-string">"permissions"</span>: [
+    <span class="hljs-string">"storage"</span>,
+    <span class="hljs-string">"tabs"</span>
+  ],
+  <span class="hljs-string">"host_permissions"</span>: [
+    <span class="hljs-string">"https://*.example.com/*"</span>
+  ],
+  <span class="hljs-string">"background"</span>: {
+    <span class="hljs-string">"service_worker"</span>: <span class="hljs-string">"background/index.js"</span>,
+    <span class="hljs-string">"type"</span>: <span class="hljs-string">"module"</span>
+  },
+  <span class="hljs-string">"action"</span>: {
+    <span class="hljs-string">"default_popup"</span>: <span class="hljs-string">"popup/index.html"</span>,
+    <span class="hljs-string">"default_icon"</span>: {
+      <span class="hljs-string">"16"</span>: <span class="hljs-string">"icons/icon-16.png"</span>,
+      <span class="hljs-string">"48"</span>: <span class="hljs-string">"icons/icon-48.png"</span>,
+      <span class="hljs-string">"128"</span>: <span class="hljs-string">"icons/icon-128.png"</span>
+    }
+  },
+  <span class="hljs-string">"content_scripts"</span>: [
+    {
+      <span class="hljs-string">"matches"</span>: [<span class="hljs-string">"https://*.example.com/*"</span>],
+      <span class="hljs-string">"js"</span>: [<span class="hljs-string">"content/content.js"</span>]
+    }
+  ],
+  <span class="hljs-string">"options_ui"</span>: {
+    <span class="hljs-string">"page"</span>: <span class="hljs-string">"options/index.html"</span>,
+    <span class="hljs-string">"open_in_tab"</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-string">"icons"</span>: {
+    <span class="hljs-string">"16"</span>: <span class="hljs-string">"icons/icon-16.png"</span>,
+    <span class="hljs-string">"48"</span>: <span class="hljs-string">"icons/icon-48.png"</span>,
+    <span class="hljs-string">"128"</span>: <span class="hljs-string">"icons/icon-128.png"</span>
+  },
+  <span class="hljs-string">"macro_privacy"</span>: {
+    <span class="hljs-string">"privacy_manifest_version"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"data_collection"</span>: <span class="hljs-string">"none"</span>,
+    <span class="hljs-string">"network_requests"</span>: <span class="hljs-string">"declared"</span>,
+    <span class="hljs-string">"privacy_practices"</span>: <span class="hljs-string">"certified"</span>
+  }
+}
+</code></pre>
+<h3 id="privacy-manifest-privacyjson">Privacy Manifest (privacy.json)</h3>
+<pre><code class="lang-json">{
+  <span class="hljs-string">"version"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">"data_usage"</span>: {
+    <span class="hljs-string">"collection"</span>: <span class="hljs-string">"none"</span>,
+    <span class="hljs-string">"storage_location"</span>: <span class="hljs-string">"device_only"</span>,
+    <span class="hljs-string">"retention_period"</span>: <span class="hljs-string">"session_only"</span>
+  },
+  <span class="hljs-string">"network_requests"</span>: [
+    {
+      <span class="hljs-string">"domain"</span>: <span class="hljs-string">"api.example.com"</span>,
+      <span class="hljs-string">"purpose"</span>: <span class="hljs-string">"API access for extension functionality"</span>,
+      <span class="hljs-string">"data_transmitted"</span>: [
+        {
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"transaction_data"</span>,
+          <span class="hljs-string">"purpose"</span>: <span class="hljs-string">"Verify transaction security"</span>,
+          <span class="hljs-string">"anonymized"</span>: <span class="hljs-literal">true</span>
+        }
+      ]
+    }
+  ],
+  <span class="hljs-string">"permissions_justification"</span>: {
+    <span class="hljs-string">"storage"</span>: <span class="hljs-string">"Store user preferences in memory only"</span>,
+    <span class="hljs-string">"tabs"</span>: <span class="hljs-string">"Access current tab URL to provide page-specific features"</span>
+  },
+  <span class="hljs-string">"third_party_libraries"</span>: [
+    {
+      <span class="hljs-string">"name"</span>: <span class="hljs-string">"ethers.js"</span>,
+      <span class="hljs-string">"version"</span>: <span class="hljs-string">"5.7.2"</span>,
+      <span class="hljs-string">"purpose"</span>: <span class="hljs-string">"Web3 interaction"</span>,
+      <span class="hljs-string">"privacy_policy"</span>: <span class="hljs-string">"https://github.com/ethers-io/ethers.js/blob/master/PRIVACY.md"</span>
+    }
+  ]
+}
+</code></pre>
+<h2 id="building-standard-extensions">Building Standard Extensions</h2>
+<h3 id="background-scripts">Background Scripts</h3>
+<p>Background scripts run in the extension's background context.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// background/index.js</span>
+chrome.<span class="hljs-property">runtime</span>.<span class="hljs-property">onInstalled</span>.<span class="hljs-title function_">addListener</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-comment">// Initialize extension</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Extension installed"</span>);
+
+  <span class="hljs-comment">// Set up default settings with privacy in mind</span>
+  chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">set</span>({
+    <span class="hljs-attr">collectAnalytics</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">enhancedPrivacy</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">notificationPermission</span>: <span class="hljs-string">'ask'</span>
+  });
+});
+
+<span class="hljs-comment">// Handle messages from content scripts</span>
+chrome.<span class="hljs-property">runtime</span>.<span class="hljs-property">onMessage</span>.<span class="hljs-title function_">addListener</span>(<span class="hljs-function">(<span class="hljs-params">message, sender, sendResponse</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (message.<span class="hljs-property">type</span> === <span class="hljs-string">'getData'</span>) {
+    <span class="hljs-comment">// Process in background to avoid exposing data in page context</span>
+    <span class="hljs-title function_">processDataSecurely</span>(message.<span class="hljs-property">payload</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+      <span class="hljs-title function_">sendResponse</span>({ <span class="hljs-attr">success</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">data</span>: result });
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// Indicates async response</span>
+  }
+});
+
+<span class="hljs-comment">// Privacy-focused implementation</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">processDataSecurely</span>(<span class="hljs-params">data</span>) {
+  <span class="hljs-comment">// Process data without sending to external servers</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>({ 
+    <span class="hljs-comment">// Processed data</span>
+    <span class="hljs-attr">result</span>: <span class="hljs-string">'processed-'</span> + data,
+    <span class="hljs-comment">// No user identifiers</span>
+  });
+}
+</code></pre>
+<h3 id="content-scripts">Content Scripts</h3>
+<p>Content scripts run in the context of web pages.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// content/content.js</span>
+<span class="hljs-comment">// Avoid accessing sensitive page data unless necessary</span>
+(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// Listen for specific events rather than monitoring everything</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'your-specific-event'</span>, handleEvent);
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleEvent</span>(<span class="hljs-params">event</span>) {
+    <span class="hljs-comment">// Only collect minimal necessary data</span>
+    <span class="hljs-keyword">const</span> safeData = <span class="hljs-title function_">sanitizeData</span>(event.<span class="hljs-property">detail</span>);
+
+    <span class="hljs-comment">// Send to background script for processing</span>
+    chrome.<span class="hljs-property">runtime</span>.<span class="hljs-title function_">sendMessage</span>(
+      { <span class="hljs-attr">type</span>: <span class="hljs-string">'getData'</span>, <span class="hljs-attr">payload</span>: safeData },
+      <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+        <span class="hljs-comment">// Handle response</span>
+        <span class="hljs-keyword">if</span> (response &amp;&amp; response.<span class="hljs-property">success</span>) {
+          <span class="hljs-title function_">updateUI</span>(response.<span class="hljs-property">data</span>);
+        }
+      }
+    );
+  }
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">sanitizeData</span>(<span class="hljs-params">data</span>) {
+    <span class="hljs-comment">// Remove any sensitive or identifying information</span>
+    <span class="hljs-comment">// before sending to background script</span>
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-comment">// Only necessary fields</span>
+      <span class="hljs-attr">action</span>: data.<span class="hljs-property">action</span>,
+      <span class="hljs-comment">// No PII</span>
+    };
+  }
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">updateUI</span>(<span class="hljs-params">data</span>) {
+    <span class="hljs-comment">// Update page UI with processed data</span>
+    <span class="hljs-keyword">const</span> element = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">'#extension-content'</span>);
+    <span class="hljs-keyword">if</span> (element) {
+      element.<span class="hljs-property">textContent</span> = data.<span class="hljs-property">result</span>;
+    }
+  }
+})();
+</code></pre>
+<h3 id="popup-ui">Popup UI</h3>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- popup/index.html --&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Privacy Extension<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+    <span class="hljs-selector-tag">body</span> {
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">font-family</span>: system-ui, -apple-system, sans-serif;
+    }
+    <span class="hljs-selector-class">.privacy-first</span> {
+      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f1f5f9</span>;
+      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">10px</span>;
+    }
+    <span class="hljs-selector-tag">button</span> {
+      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#0f172a</span>;
+      <span class="hljs-attribute">color</span>: white;
+      <span class="hljs-attribute">border</span>: none;
+      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span> <span class="hljs-number">12px</span>;
+      <span class="hljs-attribute">cursor</span>: pointer;
+    }
+    <span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:hover</span> {
+      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#1e293b</span>;
+    }
+    <span class="hljs-selector-class">.switch</span> {
+      <span class="hljs-attribute">position</span>: relative;
+      <span class="hljs-attribute">display</span>: inline-block;
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">60px</span>;
+      <span class="hljs-attribute">height</span>: <span class="hljs-number">34px</span>;
+    }
+    <span class="hljs-selector-class">.switch</span> <span class="hljs-selector-tag">input</span> { 
+      <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-selector-class">.slider</span> {
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">cursor</span>: pointer;
+      <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ccc</span>;
+      <span class="hljs-attribute">transition</span>: .<span class="hljs-number">3s</span>;
+      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">34px</span>;
+    }
+    <span class="hljs-selector-class">.slider</span><span class="hljs-selector-pseudo">:before</span> {
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
+      <span class="hljs-attribute">height</span>: <span class="hljs-number">26px</span>;
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">26px</span>;
+      <span class="hljs-attribute">left</span>: <span class="hljs-number">4px</span>;
+      <span class="hljs-attribute">bottom</span>: <span class="hljs-number">4px</span>;
+      <span class="hljs-attribute">background-color</span>: white;
+      <span class="hljs-attribute">transition</span>: .<span class="hljs-number">3s</span>;
+      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+    }
+    <span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:checked</span> + <span class="hljs-selector-class">.slider</span> {
+      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#0f172a</span>;
+    }
+    <span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:checked</span> + <span class="hljs-selector-class">.slider</span><span class="hljs-selector-pseudo">:before</span> {
+      <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(<span class="hljs-number">26px</span>);
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Privacy Extension<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"privacy-first"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Your privacy is our priority. All data is processed locally.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Settings<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"switch"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"enhancedPrivacy"</span> <span class="hljs-attr">checked</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Enhanced Privacy Mode<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"analyzeCurrentPage"</span>&gt;</span>Analyze Current Page<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"results"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"popup.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-comment">// popup/popup.js</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-comment">// Load saved settings</span>
+  chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">get</span>([<span class="hljs-string">'enhancedPrivacy'</span>], <span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'enhancedPrivacy'</span>).<span class="hljs-property">checked</span> = 
+      result.<span class="hljs-property">enhancedPrivacy</span> !== <span class="hljs-literal">undefined</span> ? result.<span class="hljs-property">enhancedPrivacy</span> : <span class="hljs-literal">true</span>;
+  });
+
+  <span class="hljs-comment">// Save settings when changed</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'enhancedPrivacy'</span>).<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'change'</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">set</span>({ <span class="hljs-attr">enhancedPrivacy</span>: e.<span class="hljs-property">target</span>.<span class="hljs-property">checked</span> });
+  });
+
+  <span class="hljs-comment">// Handle analyze button</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'analyzeCurrentPage'</span>).<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Get current tab</span>
+    chrome.<span class="hljs-property">tabs</span>.<span class="hljs-title function_">query</span>({ <span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">currentWindow</span>: <span class="hljs-literal">true</span> }, <span class="hljs-function">(<span class="hljs-params">tabs</span>) =&gt;</span> {
+      <span class="hljs-keyword">const</span> currentTab = tabs[<span class="hljs-number">0</span>];
+
+      <span class="hljs-comment">// Display loading</span>
+      <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'results'</span>).<span class="hljs-property">textContent</span> = <span class="hljs-string">'Analyzing...'</span>;
+
+      <span class="hljs-comment">// Send message to content script</span>
+      chrome.<span class="hljs-property">tabs</span>.<span class="hljs-title function_">sendMessage</span>(
+        currentTab.<span class="hljs-property">id</span>, 
+        { <span class="hljs-attr">action</span>: <span class="hljs-string">'analyze'</span> },
+        <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+          <span class="hljs-keyword">if</span> (chrome.<span class="hljs-property">runtime</span>.<span class="hljs-property">lastError</span>) {
+            <span class="hljs-comment">// Handle error</span>
+            <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'results'</span>).<span class="hljs-property">textContent</span> = 
+              <span class="hljs-string">'Error: Could not connect to page'</span>;
+            <span class="hljs-keyword">return</span>;
+          }
+
+          <span class="hljs-keyword">if</span> (response &amp;&amp; response.<span class="hljs-property">data</span>) {
+            <span class="hljs-title function_">displayResults</span>(response.<span class="hljs-property">data</span>);
+          }
+        }
+      );
+    });
+  });
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">displayResults</span>(<span class="hljs-params">data</span>) {
+    <span class="hljs-keyword">const</span> resultsElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'results'</span>);
+
+    <span class="hljs-comment">// Clear previous results</span>
+    resultsElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">''</span>;
+
+    <span class="hljs-comment">// Create results UI</span>
+    <span class="hljs-keyword">const</span> resultsTitle = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">'h3'</span>);
+    resultsTitle.<span class="hljs-property">textContent</span> = <span class="hljs-string">'Analysis Results'</span>;
+
+    <span class="hljs-keyword">const</span> resultsList = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">'ul'</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> key <span class="hljs-keyword">in</span> data) {
+      <span class="hljs-keyword">const</span> item = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">'li'</span>);
+      item.<span class="hljs-property">textContent</span> = <span class="hljs-string">`<span class="hljs-subst">${key}</span>: <span class="hljs-subst">${data[key]}</span>`</span>;
+      resultsList.<span class="hljs-title function_">appendChild</span>(item);
+    }
+
+    resultsElement.<span class="hljs-title function_">appendChild</span>(resultsTitle);
+    resultsElement.<span class="hljs-title function_">appendChild</span>(resultsList);
+  }
+});
+</code></pre>
+<h2 id="privacy-focused-extension-features">Privacy-Focused Extension Features</h2>
+<h3 id="accessing-macro-specific-privacy-apis">Accessing Macro-Specific Privacy APIs</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Check if running in Macro Browser</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isMacroBrowser</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> chrome.<span class="hljs-property">macroPrivacy</span> !== <span class="hljs-string">'undefined'</span>;
+}
+
+<span class="hljs-comment">// Use Macro privacy APIs if available</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getPrivacyContext</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isMacroBrowser</span>()) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-comment">// Access Macro-specific privacy API</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> chrome.<span class="hljs-property">macroPrivacy</span>.<span class="hljs-title function_">getPrivacyContext</span>();
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error accessing Macro privacy APIs:'</span>, error);
+      <span class="hljs-comment">// Fall back to default</span>
+      <span class="hljs-keyword">return</span> { 
+        <span class="hljs-attr">isPrivacyModeEnabled</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">trackingProtectionLevel</span>: <span class="hljs-string">'standard'</span>
+      };
+    }
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// Default for non-Macro browsers</span>
+    <span class="hljs-keyword">return</span> { 
+      <span class="hljs-attr">isPrivacyModeEnabled</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">trackingProtectionLevel</span>: <span class="hljs-string">'none'</span>
+    };
+  }
+}
+
+<span class="hljs-comment">// Example usage</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">adaptToPrivacyContext</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> context = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getPrivacyContext</span>();
+
+  <span class="hljs-keyword">if</span> (context.<span class="hljs-property">isPrivacyModeEnabled</span>) {
+    <span class="hljs-comment">// Adapt UI and functionality for privacy mode</span>
+    <span class="hljs-title function_">enablePrivacyFeatures</span>();
+  }
+
+  <span class="hljs-keyword">if</span> (context.<span class="hljs-property">trackingProtectionLevel</span> === <span class="hljs-string">'strict'</span>) {
+    <span class="hljs-comment">// Enhance protection UI</span>
+    <span class="hljs-title function_">showStrictProtectionIndicator</span>();
+  }
+}
+</code></pre>
+<h3 id="privacy-respecting-storage-strategy">Privacy-Respecting Storage Strategy</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Privacy-respecting storage helper</span>
+<span class="hljs-keyword">const</span> privacyStorage = {
+  <span class="hljs-comment">// Save data with expiration and no PII</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">save</span>(<span class="hljs-params">key, data, expirationHours = <span class="hljs-number">24</span></span>) {
+    <span class="hljs-comment">// Add expiration timestamp</span>
+    <span class="hljs-keyword">const</span> expirationTime = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() + (expirationHours * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>);
+
+    <span class="hljs-comment">// Remove any potential PII</span>
+    <span class="hljs-keyword">const</span> safeData = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">sanitizeData</span>(data);
+
+    <span class="hljs-comment">// Store data</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+      chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">set</span>({
+        [key]: {
+          <span class="hljs-attr">data</span>: safeData,
+          <span class="hljs-attr">expiration</span>: expirationTime
+        }
+      }, <span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">resolve</span>(<span class="hljs-literal">true</span>));
+    });
+  },
+
+  <span class="hljs-comment">// Get data if not expired</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">get</span>(<span class="hljs-params">key</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+      chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">get</span>([key], <span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> storedData = result[key];
+
+        <span class="hljs-keyword">if</span> (!storedData) {
+          <span class="hljs-title function_">resolve</span>(<span class="hljs-literal">null</span>);
+          <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-comment">// Check if expired</span>
+        <span class="hljs-keyword">if</span> (storedData.<span class="hljs-property">expiration</span> &lt; <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()) {
+          <span class="hljs-comment">// Expired, remove data</span>
+          chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">remove</span>([key]);
+          <span class="hljs-title function_">resolve</span>(<span class="hljs-literal">null</span>);
+          <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-title function_">resolve</span>(storedData.<span class="hljs-property">data</span>);
+      });
+    });
+  },
+
+  <span class="hljs-comment">// Remove any potential PII</span>
+  <span class="hljs-title function_">sanitizeData</span>(<span class="hljs-params">data</span>) {
+    <span class="hljs-comment">// Deep clone to avoid modifying original</span>
+    <span class="hljs-keyword">const</span> clone = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data));
+
+    <span class="hljs-comment">// List of fields that might contain PII</span>
+    <span class="hljs-keyword">const</span> piiFields = [
+      <span class="hljs-string">'email'</span>, <span class="hljs-string">'name'</span>, <span class="hljs-string">'phone'</span>, <span class="hljs-string">'address'</span>, <span class="hljs-string">'ip'</span>, <span class="hljs-string">'location'</span>,
+      <span class="hljs-string">'ssn'</span>, <span class="hljs-string">'dob'</span>, <span class="hljs-string">'birthdate'</span>, <span class="hljs-string">'password'</span>, <span class="hljs-string">'userId'</span>
+    ];
+
+    <span class="hljs-comment">// Recursively sanitize objects</span>
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">sanitizeObject</span>(<span class="hljs-params">obj</span>) {
+      <span class="hljs-keyword">if</span> (!obj || <span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">'object'</span>) <span class="hljs-keyword">return</span> obj;
+
+      <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(obj).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> {
+        <span class="hljs-comment">// Check if key contains any PII field name</span>
+        <span class="hljs-keyword">const</span> containsPII = piiFields.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">field</span> =&gt;</span> 
+          key.<span class="hljs-title function_">toLowerCase</span>().<span class="hljs-title function_">includes</span>(field.<span class="hljs-title function_">toLowerCase</span>())
+        );
+
+        <span class="hljs-keyword">if</span> (containsPII) {
+          <span class="hljs-comment">// Replace PII with null</span>
+          obj[key] = <span class="hljs-literal">null</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj[key] === <span class="hljs-string">'object'</span>) {
+          <span class="hljs-comment">// Recursively check nested objects</span>
+          obj[key] = <span class="hljs-title function_">sanitizeObject</span>(obj[key]);
+        }
+      });
+
+      <span class="hljs-keyword">return</span> obj;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">sanitizeObject</span>(clone);
+  },
+
+  <span class="hljs-comment">// Clear all stored data</span>
+  <span class="hljs-title function_">clearAll</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+      chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-title function_">clear</span>(resolve);
+    });
+  }
+};
+</code></pre>
+<h3 id="respecting-dnt-and-privacy-signals">Respecting DNT and Privacy Signals</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Detect and respect privacy signals</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">detectPrivacySignals</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> signals = {
+    <span class="hljs-attr">doNotTrack</span>: navigator.<span class="hljs-property">doNotTrack</span> === <span class="hljs-string">'1'</span> || 
+                <span class="hljs-variable language_">window</span>.<span class="hljs-property">doNotTrack</span> === <span class="hljs-string">'1'</span>,
+    <span class="hljs-attr">globalPrivacyControl</span>: navigator.<span class="hljs-property">globalPrivacyControl</span> === <span class="hljs-literal">true</span>
+  };
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isMacroBrowser</span>() &amp;&amp; chrome.<span class="hljs-property">macroPrivacy</span>) {
+    <span class="hljs-comment">// Get additional Macro Browser signals</span>
+    chrome.<span class="hljs-property">macroPrivacy</span>.<span class="hljs-title function_">getPrivacyContext</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">context</span> =&gt;</span> {
+      signals.<span class="hljs-property">macroPrivacyEnabled</span> = context.<span class="hljs-property">isPrivacyModeEnabled</span>;
+      signals.<span class="hljs-property">trackingProtection</span> = context.<span class="hljs-property">trackingProtectionLevel</span>;
+
+      <span class="hljs-title function_">applyPrivacySettings</span>(signals);
+    });
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-title function_">applyPrivacySettings</span>(signals);
+  }
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">applyPrivacySettings</span>(<span class="hljs-params">signals</span>) {
+  <span class="hljs-comment">// If any privacy signal is enabled, use maximum privacy</span>
+  <span class="hljs-keyword">if</span> (signals.<span class="hljs-property">doNotTrack</span> || 
+      signals.<span class="hljs-property">globalPrivacyControl</span> || 
+      signals.<span class="hljs-property">macroPrivacyEnabled</span>) {
+
+    <span class="hljs-comment">// Disable any collection features</span>
+    <span class="hljs-title function_">disableAllCollection</span>();
+
+    <span class="hljs-comment">// Enable privacy-focused UI</span>
+    <span class="hljs-title function_">updateUIForPrivacy</span>(<span class="hljs-literal">true</span>);
+
+    <span class="hljs-comment">// Log privacy settings (no user data)</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Privacy mode active:'</span>, signals);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// Standard mode, still privacy-respecting</span>
+    <span class="hljs-title function_">updateUIForPrivacy</span>(<span class="hljs-literal">false</span>);
+  }
+}
+</code></pre>
+<h3 id="secure-communication">Secure Communication</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Secure fetch helper with privacy enhancements</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">secureFetch</span>(<span class="hljs-params">url, options = {}</span>) {
+  <span class="hljs-comment">// Check URL security</span>
+  <span class="hljs-keyword">if</span> (!url.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">'https://'</span>)) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">'Only HTTPS URLs are allowed'</span>);
+  }
+
+  <span class="hljs-comment">// Add security headers</span>
+  <span class="hljs-keyword">const</span> secureOptions = {
+    ...options,
+    <span class="hljs-attr">headers</span>: {
+      ...options.<span class="hljs-property">headers</span>,
+      <span class="hljs-string">'Sec-Fetch-Site'</span>: <span class="hljs-string">'same-origin'</span>,
+      <span class="hljs-string">'Sec-Fetch-Mode'</span>: <span class="hljs-string">'cors'</span>,
+      <span class="hljs-string">'Sec-Fetch-Dest'</span>: <span class="hljs-string">'empty'</span>
+    }
+  };
+
+  <span class="hljs-comment">// Use Macro Browser's enhanced security if available</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isMacroBrowser</span>() &amp;&amp; chrome.<span class="hljs-property">macroSecureComms</span>) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> chrome.<span class="hljs-property">macroSecureComms</span>.<span class="hljs-title function_">secureFetch</span>(url, secureOptions);
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Enhanced secure fetch failed:'</span>, error);
+      <span class="hljs-comment">// Fall back to regular fetch</span>
+    }
+  }
+
+  <span class="hljs-comment">// Regular secure fetch</span>
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(url, secureOptions);
+
+    <span class="hljs-comment">// Check for server security headers</span>
+    <span class="hljs-keyword">const</span> contentSecurityPolicy = response.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">'Content-Security-Policy'</span>);
+    <span class="hljs-keyword">if</span> (!contentSecurityPolicy) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">'Warning: No Content-Security-Policy header'</span>);
+    }
+
+    <span class="hljs-keyword">return</span> response;
+  } <span class="hljs-keyword">catch</span> (error) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Fetch error:'</span>, error);
+    <span class="hljs-keyword">throw</span> error;
+  }
+}
+</code></pre>
+<h2 id="web3-integration-for-extensions">Web3 Integration for Extensions</h2>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Web3 extension functionality</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Web3ExtensionController</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">provider</span> = <span class="hljs-literal">null</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">initialized</span> = <span class="hljs-literal">false</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">securityLevel</span> = <span class="hljs-string">'standard'</span>;
+  }
+
+  <span class="hljs-comment">// Initialize Web3 connection</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">initialize</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">initialized</span>) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-comment">// Check for Macro Browser first</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isMacroBrowser</span>() &amp;&amp; chrome.<span class="hljs-property">macroWeb3</span>) {
+      <span class="hljs-comment">// Use Macro Browser's built-in provider</span>
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">provider</span> = <span class="hljs-keyword">await</span> chrome.<span class="hljs-property">macroWeb3</span>.<span class="hljs-title function_">getProvider</span>();
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">securityLevel</span> = <span class="hljs-keyword">await</span> chrome.<span class="hljs-property">macroWeb3</span>.<span class="hljs-title function_">getSecurityLevel</span>();
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">initialized</span> = <span class="hljs-literal">true</span>;
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Check for window.ethereum (MetaMask, etc.)</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">provider</span> = <span class="hljs-variable language_">window</span>.<span class="hljs-property">ethereum</span>;
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">initialized</span> = <span class="hljs-literal">true</span>;
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">'No Web3 provider found'</span>);
+  }
+
+  <span class="hljs-comment">// Request account access</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">connectWallet</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">initialized</span>) <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">initialize</span>();
+
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> accounts = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">provider</span>.<span class="hljs-title function_">request</span>({
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'eth_requestAccounts'</span>
+      });
+
+      <span class="hljs-keyword">return</span> accounts[<span class="hljs-number">0</span>];
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Failed to connect wallet:'</span>, error);
+      <span class="hljs-keyword">throw</span> error;
+    }
+  }
+
+  <span class="hljs-comment">// Analyze transaction for security before sending</span>
+  <span class="hljs-comment">// Enhanced if using Macro Browser</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">analyzeTx</span>(<span class="hljs-params">txData</span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isMacroBrowser</span>() &amp;&amp; chrome.<span class="hljs-property">macroWeb3</span>) {
+      <span class="hljs-comment">// Use Macro's enhanced security analysis</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> chrome.<span class="hljs-property">macroWeb3</span>.<span class="hljs-title function_">analyzeTx</span>(txData);
+    }
+
+    <span class="hljs-comment">// Basic analysis for other browsers</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">basicTxAnalysis</span>(txData);
+  }
+
+  <span class="hljs-comment">// Basic security checks for non-Macro browsers</span>
+  <span class="hljs-title function_">basicTxAnalysis</span>(<span class="hljs-params">txData</span>) {
+    <span class="hljs-comment">// Simple checks - would be more comprehensive in real implementation</span>
+    <span class="hljs-keyword">const</span> warnings = [];
+
+    <span class="hljs-keyword">if</span> (txData.<span class="hljs-property">value</span> &amp;&amp; <span class="hljs-built_in">parseInt</span>(txData.<span class="hljs-property">value</span>, <span class="hljs-number">16</span>) &gt; <span class="hljs-number">0</span>) {
+      warnings.<span class="hljs-title function_">push</span>(<span class="hljs-string">'Transaction sends funds'</span>);
+    }
+
+    <span class="hljs-keyword">if</span> (txData.<span class="hljs-property">data</span> &amp;&amp; txData.<span class="hljs-property">data</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">2</span>) {
+      warnings.<span class="hljs-title function_">push</span>(<span class="hljs-string">'Transaction executes contract function'</span>);
+    }
+
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">safe</span>: warnings.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>,
+      warnings
+    };
+  }
+
+  <span class="hljs-comment">// Send transaction with security checks</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">sendTransaction</span>(<span class="hljs-params">txData</span>) {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">initialized</span>) <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">initialize</span>();
+
+    <span class="hljs-comment">// Analyze transaction first</span>
+    <span class="hljs-keyword">const</span> analysis = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">analyzeTx</span>(txData);
+
+    <span class="hljs-comment">// If not safe, require confirmation</span>
+    <span class="hljs-keyword">if</span> (!analysis.<span class="hljs-property">safe</span>) {
+      <span class="hljs-keyword">const</span> confirmed = <span class="hljs-title function_">confirm</span>(
+        <span class="hljs-string">`Warning: This transaction may have security risks:\n`</span> +
+        analysis.<span class="hljs-property">warnings</span>.<span class="hljs-title function_">join</span>(<span class="hljs-string">'\n'</span>) + <span class="hljs-string">'\n\n'</span> +
+        <span class="hljs-string">'Do you want to proceed?'</span>
+      );
+
+      <span class="hljs-keyword">if</span> (!confirmed) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">'Transaction rejected by user'</span>);
+      }
+    }
+
+    <span class="hljs-comment">// Send transaction</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">provider</span>.<span class="hljs-title function_">request</span>({
+      <span class="hljs-attr">method</span>: <span class="hljs-string">'eth_sendTransaction'</span>,
+      <span class="hljs-attr">params</span>: [txData]
+    });
+  }
+}
+</code></pre>
+<h2 id="testing-and-debugging-extensions">Testing and Debugging Extensions</h2>
+<h3 id="testing-in-macro-browser">Testing in Macro Browser</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># Start Macro Browser with debugging enabled</span>
+macro-browser --load-extension=/path/to/extension --auto-open-devtools-for-tabs
+</code></pre>
+<h3 id="unit-testing-extension-components">Unit Testing Extension Components</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// tests/privacy-storage.test.js</span>
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">'Privacy Storage Tests'</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">beforeEach</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Mock chrome.storage.local</span>
+    <span class="hljs-variable language_">global</span>.<span class="hljs-property">chrome</span> = {
+      <span class="hljs-attr">storage</span>: {
+        <span class="hljs-attr">local</span>: {
+          <span class="hljs-attr">set</span>: jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function">(<span class="hljs-params">data, callback</span>) =&gt;</span> <span class="hljs-title function_">callback</span>()),
+          <span class="hljs-attr">get</span>: jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function">(<span class="hljs-params">keys, callback</span>) =&gt;</span> <span class="hljs-title function_">callback</span>({})),
+          <span class="hljs-attr">remove</span>: jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function">(<span class="hljs-params">keys, callback</span>) =&gt;</span> <span class="hljs-title function_">callback</span>()),
+          <span class="hljs-attr">clear</span>: jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function"><span class="hljs-params">callback</span> =&gt;</span> <span class="hljs-title function_">callback</span>())
+        }
+      }
+    };
+  });
+
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">'should sanitize PII data'</span>, <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// Import the module</span>
+    <span class="hljs-keyword">const</span> { privacyStorage } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../background/privacy-storage'</span>);
+
+    <span class="hljs-comment">// Test data with PII</span>
+    <span class="hljs-keyword">const</span> testData = {
+      <span class="hljs-attr">title</span>: <span class="hljs-string">'Test Item'</span>,
+      <span class="hljs-attr">email</span>: <span class="hljs-string">'user@example.com'</span>,
+      <span class="hljs-attr">settings</span>: {
+        <span class="hljs-attr">theme</span>: <span class="hljs-string">'dark'</span>,
+        <span class="hljs-attr">userAddress</span>: <span class="hljs-string">'123 Main St'</span>
+      }
+    };
+
+    <span class="hljs-comment">// Save data</span>
+    <span class="hljs-keyword">await</span> privacyStorage.<span class="hljs-title function_">save</span>(<span class="hljs-string">'test-key'</span>, testData);
+
+    <span class="hljs-comment">// Check what was passed to chrome.storage.local.set</span>
+    <span class="hljs-title function_">expect</span>(chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-property">set</span>).<span class="hljs-title function_">toHaveBeenCalled</span>();
+
+    <span class="hljs-comment">// Extract the data that would be saved</span>
+    <span class="hljs-keyword">const</span> savedArgs = chrome.<span class="hljs-property">storage</span>.<span class="hljs-property">local</span>.<span class="hljs-property">set</span>.<span class="hljs-property">mock</span>.<span class="hljs-property">calls</span>[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">const</span> sanitizedData = savedArgs[<span class="hljs-string">'test-key'</span>].<span class="hljs-property">data</span>;
+
+    <span class="hljs-comment">// Verify PII was removed</span>
+    <span class="hljs-title function_">expect</span>(sanitizedData.<span class="hljs-property">title</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">'Test Item'</span>);
+    <span class="hljs-title function_">expect</span>(sanitizedData.<span class="hljs-property">email</span>).<span class="hljs-title function_">toBeNull</span>();
+    <span class="hljs-title function_">expect</span>(sanitizedData.<span class="hljs-property">settings</span>.<span class="hljs-property">theme</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">'dark'</span>);
+    <span class="hljs-title function_">expect</span>(sanitizedData.<span class="hljs-property">settings</span>.<span class="hljs-property">userAddress</span>).<span class="hljs-title function_">toBeNull</span>();
+  });
+});
+</code></pre>
+<h3 id="end-to-end-testing">End-to-End Testing</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// e2e-tests/extension.spec.js</span>
+<span class="hljs-keyword">const</span> puppeteer = <span class="hljs-built_in">require</span>(<span class="hljs-string">'puppeteer'</span>);
+
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">'Extension E2E Tests'</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">let</span> browser;
+  <span class="hljs-keyword">let</span> page;
+
+  <span class="hljs-title function_">beforeAll</span>(<span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// Launch browser with extension</span>
+    browser = <span class="hljs-keyword">await</span> puppeteer.<span class="hljs-title function_">launch</span>({
+      <span class="hljs-attr">headless</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Required for extension testing</span>
+      <span class="hljs-attr">args</span>: [
+        <span class="hljs-string">`--disable-extensions-except=/path/to/extension`</span>,
+        <span class="hljs-string">`--load-extension=/path/to/extension`</span>
+      ]
+    });
+
+    <span class="hljs-comment">// Get the extension ID</span>
+    <span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">await</span> browser.<span class="hljs-title function_">targets</span>();
+    <span class="hljs-keyword">const</span> extensionTarget = targets.<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">target</span> =&gt;</span> 
+      target.<span class="hljs-title function_">type</span>() === <span class="hljs-string">'background_page'</span>
+    );
+    <span class="hljs-keyword">const</span> extensionUrl = extensionTarget.<span class="hljs-title function_">url</span>();
+    <span class="hljs-keyword">const</span> [, , extensionID] = extensionUrl.<span class="hljs-title function_">split</span>(<span class="hljs-string">'/'</span>);
+
+    <span class="hljs-comment">// Open a new page</span>
+    page = <span class="hljs-keyword">await</span> browser.<span class="hljs-title function_">newPage</span>();
+
+    <span class="hljs-comment">// Navigate to extension popup</span>
+    <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">goto</span>(<span class="hljs-string">`chrome-extension://<span class="hljs-subst">${extensionID}</span>/popup/index.html`</span>);
+  });
+
+  <span class="hljs-title function_">afterAll</span>(<span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-keyword">await</span> browser.<span class="hljs-title function_">close</span>();
+  });
+
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">'Extension popup loads correctly'</span>, <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// Check title</span>
+    <span class="hljs-keyword">const</span> title = <span class="hljs-keyword">await</span> page.$eval(<span class="hljs-string">'h1'</span>, <span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> el.<span class="hljs-property">textContent</span>);
+    <span class="hljs-title function_">expect</span>(title).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">'My Privacy Extension'</span>);
+
+    <span class="hljs-comment">// Check privacy mode toggle</span>
+    <span class="hljs-keyword">const</span> isChecked = <span class="hljs-keyword">await</span> page.$eval(
+      <span class="hljs-string">'#enhancedPrivacy'</span>, 
+      <span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> el.<span class="hljs-property">checked</span>
+    );
+    <span class="hljs-title function_">expect</span>(isChecked).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>);
+  });
+
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">'Settings can be changed'</span>, <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// Toggle privacy mode</span>
+    <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">click</span>(<span class="hljs-string">'#enhancedPrivacy'</span>);
+
+    <span class="hljs-comment">// Verify it was toggled</span>
+    <span class="hljs-keyword">const</span> isChecked = <span class="hljs-keyword">await</span> page.$eval(
+      <span class="hljs-string">'#enhancedPrivacy'</span>, 
+      <span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> el.<span class="hljs-property">checked</span>
+    );
+    <span class="hljs-title function_">expect</span>(isChecked).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">false</span>);
+
+    <span class="hljs-comment">// Wait for storage to update</span>
+    <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">waitForTimeout</span>(<span class="hljs-number">100</span>);
+
+    <span class="hljs-comment">// You would verify storage was updated in a real test</span>
+  });
+});
+</code></pre>
+<h2 id="publishing-your-extension">Publishing Your Extension</h2>
+<h3 id="privacy-review-checklist">Privacy Review Checklist</h3>
+<p>Before submitting your extension for review, ensure it follows these privacy principles:</p>
+<ul>
+<li>[ ] Collects only necessary data (or no data at all)</li>
+<li>[ ] All data collection is clearly documented in privacy.json</li>
+<li>[ ] Does not track users across websites</li>
+<li>[ ] Provides clear privacy controls in the UI</li>
+<li>[ ] Follows the principle of least privilege for permissions</li>
+<li>[ ] Network requests are limited to documented endpoints</li>
+<li>[ ] No third-party tracking or analytics</li>
+<li>[ ] Code is readable and well-documented</li>
+<li>[ ] Securely handles any sensitive data</li>
+<li>[ ] Respects all browser privacy settings</li>
+</ul>
+<h3 id="submission-process">Submission Process</h3>
+<ol>
+<li><p>Package your extension:</p>
+<pre><code class="lang-bash">npm run build
+</code></pre>
+</li>
+<li><p>Complete the privacy declaration in privacy.json</p>
+</li>
+<li><p>Submit to the Macro Extension Store with:</p>
+<ul>
+<li>Detailed description</li>
+<li>Screenshots and demo video</li>
+<li>Complete privacy information</li>
+<li>Support contact information</li>
+</ul>
+</li>
+<li><p>Respond to any privacy review feedback</p>
+</li>
+<li><p>After approval, your extension will be published to the Macro Extension Store</p>
+</li>
+</ol>
+<h2 id="best-practices-for-privacy-focused-extensions">Best Practices for Privacy-Focused Extensions</h2>
+<ol>
+<li><strong>Minimize Data Collection</strong>: Collect only what's absolutely necessary for functionality</li>
+<li><strong>Process Locally</strong>: Keep data processing within the browser whenever possible</li>
+<li><strong>Use Memory-Only Storage</strong>: For sensitive information, avoid persistent storage</li>
+<li><strong>Respect Privacy Signals</strong>: Honor DNT, GPC, and Macro-specific privacy signals</li>
+<li><strong>Provide Clear Controls</strong>: Give users easy access to privacy settings</li>
+<li><strong>Secure Communications</strong>: Use only HTTPS and secure communication methods</li>
+<li><strong>Fallback Gracefully</strong>: Support non-Macro browsers with appropriate fallbacks</li>
+<li><strong>Document Privacy Practices</strong>: Be transparent about all privacy-related functionality</li>
+<li><strong>Regular Security Updates</strong>: Maintain and update your extension regularly</li>
+<li><strong>Follow Least Privilege</strong>: Request only the permissions you absolutely need</li>
+</ol>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://docs.macro.io/extension-api" target="_blank">Macro Browser Extension API Documentation</a></li>
+<li><a href="https://community.macro.io/extensions" target="_blank">Extension Developer Community Forum</a></li>
+<li><a href="https://docs.macro.io/privacy-principles" target="_blank">Privacy-First Design Principles</a></li>
+<li><a href="https://github.com/macro-browser/extension-examples" target="_blank">Web3 Extension Examples</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="performance-guide.html" class="navigation navigation-prev " aria-label="Previous page: Performance Optimization Guide">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="contributing-code.md" class="navigation navigation-next " aria-label="Next page: Contributing Code">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Extension Development Guide","level":"5.5","depth":1,"next":{"title":"Contributing Code","level":"5.6","depth":1,"path":"developers/contributing-code.md","ref":"developers/contributing-code.md","articles":[]},"previous":{"title":"Performance Optimization Guide","level":"5.4","depth":1,"path":"developers/performance-guide.md","ref":"developers/performance-guide.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","-livereload","livereload"],"styles":{"website":"./styles/website.css","ebook":"./styles/website.css","pdf":"./styles/website.css","mobi":"./styles/website.css","epub":"./styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"js":["./styles/website.js"],"theme":"default","author":"Macro Browser Team","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"0.1.0-alpha"},"title":"Macro Browser Documentation","language":"en","links":{"sidebar":{"Macro Browser Home":"https://macro.io","GitHub Repository":"https://github.com/macro-browser/macro"}},"gitbook":"*","description":"Documentation for the Macro privacy-centric Web3 browser"},"file":{"path":"developers/extension-guide.md","mtime":"2025-05-19T16:19:11.064Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-19T22:38:50.916Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tracker blocking - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Tracker Blocking</h1>
+<p>Macro Browser's tracker blocking system protects your privacy by identifying and preventing web trackers from monitoring your online activity.</p>
+<p><img src="/images/features/tracker-blocking.svg" alt="Tracker Blocking"></p>
+<h2>How Trackers Work</h2>
+<p>Modern web trackers employ various techniques to monitor user behavior:</p>
+<ul>
+<li><strong>Cookies</strong>: Small files stored on your device that identify you across websites</li>
+<li><strong>Fingerprinting</strong>: Creating a unique identifier based on your device characteristics</li>
+<li><strong>Pixel Tags</strong>: Invisible images that track when you load a page or email</li>
+<li><strong>Local Storage</strong>: Browser storage mechanisms that persist even when cookies are cleared</li>
+<li><strong>Session Tracking</strong>: Following your activity during a single browsing session</li>
+<li><strong>Cross-Site Tracking</strong>: Linking your identity across different websites</li>
+</ul>
+<h2>Macro's Tracker Blocking Technology</h2>
+<p>Macro Browser employs a multi-layered approach to tracker blocking:</p>
+<h3>Machine Learning Detection</h3>
+<p>Our system uses advanced machine learning to identify tracking behavior:</p>
+<ul>
+<li><strong>Pattern Recognition</strong>: Identifies tracking code patterns, even when disguised</li>
+<li><strong>Behavior Analysis</strong>: Monitors script behavior for tracking activities</li>
+<li><strong>Network Analysis</strong>: Examines network requests for telltale tracking signatures</li>
+<li><strong>Evolutionary Learning</strong>: Continually updates to recognize new tracking methods</li>
+<li><strong>False Positive Prevention</strong>: Avoids blocking legitimate website functionality</li>
+</ul>
+<h3>Comprehensive Blocking Methods</h3>
+<p>The tracker blocker implements multiple defensive strategies:</p>
+<ul>
+<li><strong>Request Filtering</strong>: Blocks network requests to known tracking domains</li>
+<li><strong>Script Analysis</strong>: Examines and blocks scripts with tracking capabilities</li>
+<li><strong>Cookie Partitioning</strong>: Isolates cookies to prevent cross-site tracking</li>
+<li><strong>Storage Protection</strong>: Prevents abuse of local storage mechanisms</li>
+<li><strong>Header Modification</strong>: Alters HTTP headers to remove tracking information</li>
+<li><strong>Referrer Control</strong>: Limits referrer information sent to third parties</li>
+</ul>
+<h2>Tracker Categories</h2>
+<p>Macro Browser identifies and blocks various categories of trackers:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Description</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analytics</td>
+<td>Track user behavior for site owners</td>
+<td>Google Analytics, Mixpanel</td>
+</tr>
+<tr>
+<td>Advertising</td>
+<td>Target ads based on user profiles</td>
+<td>DoubleClick, AdSense</td>
+</tr>
+<tr>
+<td>Social Media</td>
+<td>Monitor activity across sites with social features</td>
+<td>Facebook Pixel, Twitter tags</td>
+</tr>
+<tr>
+<td>Session Recording</td>
+<td>Record mouse movements, clicks, and keypresses</td>
+<td>HotJar, FullStory</td>
+</tr>
+<tr>
+<td>Cross-Site Tracking</td>
+<td>Link user identity across different websites</td>
+<td>Criteo, Taboola</td>
+</tr>
+<tr>
+<td>Data Brokers</td>
+<td>Collect and sell user data</td>
+<td>Acxiom, Oracle Data Cloud</td>
+</tr>
+<tr>
+<td>Cryptominers</td>
+<td>Use your device to mine cryptocurrency</td>
+<td>CoinHive, Crypto-Loot</td>
+</tr>
+</tbody>
+</table>
+<h2>Privacy Dashboard</h2>
+<p>The privacy dashboard visualizes tracker blocking activity:</p>
+<p><img src="/images/features/tracker-dashboard.png" alt="Tracker Blocking Dashboard"></p>
+<p>The dashboard provides:</p>
+<ul>
+<li><strong>Real-time Tracker Counter</strong>: Displays total trackers blocked</li>
+<li><strong>Tracker Categories</strong>: Breakdown of different tracker types identified</li>
+<li><strong>Site Comparison</strong>: Shows sites with the most tracking attempts</li>
+<li><strong>Timeline View</strong>: Tracking attempts over time</li>
+<li><strong>Detailed Logs</strong>: Complete information about each blocked tracker</li>
+</ul>
+<h2>Customization Options</h2>
+<p>Tailor the tracker blocking experience to your needs:</p>
+<ul>
+<li><strong>Protection Levels</strong>: Choose from standard, strict, or custom protection levels</li>
+<li><strong>Whitelist Management</strong>: Allow trackers on trusted websites</li>
+<li><strong>Per-Site Controls</strong>: Customize tracking rules for specific domains</li>
+<li><strong>Category Toggles</strong>: Enable or disable specific types of tracker blocking</li>
+<li><strong>Rule Creation</strong>: Advanced users can create custom blocking rules</li>
+</ul>
+<h2>Balanced Protection</h2>
+<p>Macro Browser's tracker blocking is designed for effectiveness without breaking websites:</p>
+<ul>
+<li><strong>Selective Blocking</strong>: Blocks harmful trackers while allowing necessary functionality</li>
+<li><strong>Compatibility Mode</strong>: Automatically adjusts protection for problematic sites</li>
+<li><strong>Breakage Reports</strong>: Easy reporting system when sites don't work properly</li>
+<li><strong>Smart Fixes</strong>: Automatic application of fixes for commonly broken sites</li>
+<li><strong>Learning System</strong>: Improves compatibility based on user reports</li>
+</ul>
+<h2>Multi-Device Protection</h2>
+<p>Tracker blocking works across your devices:</p>
+<ul>
+<li><strong>Synchronized Settings</strong>: Protection settings follow you across devices</li>
+<li><strong>Profile Management</strong>: Create different protection profiles for various use cases</li>
+<li><strong>Dashboard Synchronization</strong>: View combined tracker statistics from all devices</li>
+<li><strong>Cloud Backup</strong>: Never lose your customized protection rules</li>
+</ul>
+<h2>Performance Impact</h2>
+<p>Macro's tracker blocking is designed for efficiency:</p>
+<ul>
+<li><strong>Low Resource Usage</strong>: Minimal CPU and memory overhead</li>
+<li><strong>Fast Rule Matching</strong>: Efficient algorithms for rapid tracker identification</li>
+<li><strong>Background Updates</strong>: Rule updates that don't interrupt browsing</li>
+<li><strong>Optimized Filters</strong>: Carefully crafted rules to maximize protection while minimizing overhead</li>
+<li><strong>Caching System</strong>: Smart caching to reduce repeated analysis</li>
+</ul>
+<p>The Macro Browser tracker blocking system strikes the perfect balance between comprehensive protection, website compatibility, and performance, ensuring your online activity remains private without sacrificing your browsing experience.</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  

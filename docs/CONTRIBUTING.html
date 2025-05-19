@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTRIBUTING - Macro Browser Documentation</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #f8f8f2;
+      background-color: #1a1b26;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 1rem;
+      background-color: #141521;
+      overflow-y: auto;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 2rem;
+    }
+    a {
+      color: #8673f4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #f8f8f2;
+      font-weight: 600;
+    }
+    h1 {
+      border-bottom: 1px solid #2a2c3d;
+      padding-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 2rem auto;
+    }
+    code {
+      background-color: #2a2c3d;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    pre {
+      background-color: #2a2c3d;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #2a2c3d;
+      padding: 0.5rem;
+    }
+    table th {
+      background-color: #2a2c3d;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #141521;
+      border: 1px solid #2a2c3d;
+      border-radius: 4px;
+      color: #f8f8f2;
+    }
+    .search-input::placeholder {
+      color: #b8b9c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Macro Browser</h2>
+    <input type="text" class="search-input" placeholder="Type to search">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features/index.html">Features</a></li>
+      <li><a href="getting-started/index.html">Getting Started</a></li>
+      <li><a href="technical/index.html">Technical</a></li>
+      <li><a href="developers/index.html">Developers</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Contributing to Macro Browser Documentation</h1>
+<p>We welcome contributions to the Macro Browser documentation! This guide will help you understand how to make changes to our GitBook documentation.</p>
+<h2>Getting Started</h2>
+<ol>
+<li>Fork the repository to your GitHub account</li>
+<li>Clone your fork to your local machine</li>
+<li>Make sure you have Git and a text editor installed</li>
+</ol>
+<h2>Documentation Structure</h2>
+<p>Our documentation follows the standard GitBook structure:</p>
+<ul>
+<li><code>README.md</code>: Main landing page</li>
+<li><code>SUMMARY.md</code>: Navigation structure for the documentation</li>
+<li><code>/getting-started/</code>: Introduction and setup guides</li>
+<li><code>/features/</code>: Detailed feature documentation</li>
+<li><code>/technical/</code>: Technical architecture and implementation details</li>
+<li><code>/roadmap/</code>: Development roadmap information</li>
+<li><code>/assets/</code>: Images and other media files</li>
+</ul>
+<h2>Making Changes</h2>
+<ol>
+<li>
+<p>Create a new branch for your changes:</p>
+<pre><code class="language-bash">git checkout -b your-branch-name
+</code></pre>
+</li>
+<li>
+<p>Make your changes using your preferred text editor</p>
+<ul>
+<li>Follow the existing style and formatting</li>
+<li>Use Markdown for formatting</li>
+<li>Place images in the <code>/assets/images/</code> directory</li>
+</ul>
+</li>
+<li>
+<p>Preview your changes locally:</p>
+<ul>
+<li>If you have the GitBook CLI installed:<pre><code class="language-bash">gitbook serve
+</code></pre>
+</li>
+<li>Or use any Markdown previewer</li>
+</ul>
+</li>
+<li>
+<p>Commit your changes:</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Your descriptive commit message&quot;
+</code></pre>
+</li>
+<li>
+<p>Push your changes to your fork:</p>
+<pre><code class="language-bash">git push origin your-branch-name
+</code></pre>
+</li>
+<li>
+<p>Create a Pull Request from your fork to the main repository</p>
+</li>
+</ol>
+<h2>Style Guidelines</h2>
+<h3>Markdown</h3>
+<ul>
+<li>Use <code>#</code> for main titles, <code>##</code> for section titles, and so on</li>
+<li>Use bullet lists (<code>-</code>) for unordered lists</li>
+<li>Use numbered lists (<code>1.</code>) for sequential steps</li>
+<li>Use backticks (<code>`</code>) for inline code and triple backticks (<code>```</code>) for code blocks</li>
+</ul>
+<h3>Images</h3>
+<ul>
+<li>Add descriptive alt text to all images</li>
+<li>Keep image files reasonably sized (compress if necessary)</li>
+<li>Use descriptive filenames for images</li>
+<li>Reference images using relative paths</li>
+</ul>
+<h3>Content</h3>
+<ul>
+<li>Be clear and concise</li>
+<li>Focus on helping users understand features or solve problems</li>
+<li>Include examples where appropriate</li>
+<li>Avoid jargon without explanation</li>
+<li>Keep technical details accurate and up-to-date</li>
+</ul>
+<h2>Adding New Pages</h2>
+<ol>
+<li>Create the new Markdown file in the appropriate directory</li>
+<li>Add a link to your new page in the <code>SUMMARY.md</code> file</li>
+<li>Ensure your page has a clear title and structure</li>
+</ol>
+<h2>Questions or Issues</h2>
+<p>If you have any questions about contributing, please:</p>
+<ul>
+<li>Open an issue in the repository</li>
+<li>Contact the documentation team at docs@macrobrowser.com</li>
+</ul>
+<p>Thank you for helping improve the Macro Browser documentation!</p>
+
+  </div>
+  <script>
+    // Fix image paths
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('/')) {
+        const newSrc = src.substring(1);
+        img.setAttribute('src', newSrc);
+      }
+    });
+  </script>
+</body>
+</html>
+  
