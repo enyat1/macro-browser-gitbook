@@ -49,13 +49,17 @@ body.color-theme-2 .markdown-section img,
   filter: none !important;
 }
 
-/* Make sure images are centered properly */
-.markdown-section p:has(img) {
+/* Make sure images are centered - alternative to :has() selector */
+.markdown-section p img {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.markdown-section p {
   text-align: center !important;
 }
 
-/* Fix for any captions under images */
-.markdown-section p:has(img) + p {
+/* Fix for any captions under images - alternative to :has() selector */
+.markdown-section img + p {
   text-align: center !important;
   font-style: italic !important;
   color: #a3a3be !important;
