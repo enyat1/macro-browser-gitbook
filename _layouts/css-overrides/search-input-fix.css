@@ -2,7 +2,9 @@
 
 /* Direct targeting for the search input */
 .book-search-input,
-.book-search {
+.book-search,
+#book-search-input,
+div[role="search"] {
   background-color: #141521 !important;
 }
 
@@ -15,7 +17,11 @@ input[type="text"][placeholder="Type to search"],
 html body input[placeholder="Type to search"],
 [placeholder="Type to search"],
 .book-search-input input[type="text"],
-html body .book-search-input input {
+html body .book-search-input input,
+#book-search-input input,
+input[type="search"],
+input.book-search,
+.book-summary input {
   color: #f8f8f2 !important;
   background-color: #141521 !important;
   opacity: 1 !important;
@@ -29,7 +35,11 @@ html body .book-search-input input {
 input.book-search-input::placeholder,
 .book-search input::placeholder,
 input[placeholder="Type to search"]::placeholder,
-html body input[placeholder="Type to search"]::placeholder {
+html body input[placeholder="Type to search"]::placeholder,
+#book-search-input input::placeholder,
+input[type="search"]::placeholder,
+input.book-search::placeholder,
+.book-summary input::placeholder {
   color: #b8b9c5 !important;
   opacity: 1 !important;
   -webkit-text-fill-color: #b8b9c5 !important;
@@ -40,7 +50,11 @@ html body input[placeholder="Type to search"]::placeholder {
 input.book-search-input::-webkit-input-placeholder,
 .book-search input::-webkit-input-placeholder,
 input[placeholder="Type to search"]::-webkit-input-placeholder,
-html body input[placeholder="Type to search"]::-webkit-input-placeholder {
+html body input[placeholder="Type to search"]::-webkit-input-placeholder,
+#book-search-input input::-webkit-input-placeholder,
+input[type="search"]::-webkit-input-placeholder,
+input.book-search::-webkit-input-placeholder,
+.book-summary input::-webkit-input-placeholder {
   color: #b8b9c5 !important;
   opacity: 1 !important;
   -webkit-text-fill-color: #b8b9c5 !important;
@@ -51,7 +65,11 @@ html body input[placeholder="Type to search"]::-webkit-input-placeholder {
 input.book-search-input::-moz-placeholder,
 .book-search input::-moz-placeholder,
 input[placeholder="Type to search"]::-moz-placeholder,
-html body input[placeholder="Type to search"]::-moz-placeholder {
+html body input[placeholder="Type to search"]::-moz-placeholder,
+#book-search-input input::-moz-placeholder,
+input[type="search"]::-moz-placeholder,
+input.book-search::-moz-placeholder,
+.book-summary input::-moz-placeholder {
   color: #b8b9c5 !important;
   opacity: 1 !important;
 }
@@ -61,7 +79,11 @@ html body input[placeholder="Type to search"]::-moz-placeholder {
 input.book-search-input:-ms-input-placeholder,
 .book-search input:-ms-input-placeholder,
 input[placeholder="Type to search"]:-ms-input-placeholder,
-html body input[placeholder="Type to search"]:-ms-input-placeholder {
+html body input[placeholder="Type to search"]:-ms-input-placeholder,
+#book-search-input input:-ms-input-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input.book-search:-ms-input-placeholder,
+.book-summary input:-ms-input-placeholder {
   color: #b8b9c5 !important;
   opacity: 1 !important;
 }
@@ -71,7 +93,11 @@ html body input[placeholder="Type to search"]:-ms-input-placeholder {
 input.book-search-input::-ms-input-placeholder,
 .book-search input::-ms-input-placeholder,
 input[placeholder="Type to search"]::-ms-input-placeholder,
-html body input[placeholder="Type to search"]::-ms-input-placeholder {
+html body input[placeholder="Type to search"]::-ms-input-placeholder,
+#book-search-input input::-ms-input-placeholder,
+input[type="search"]::-ms-input-placeholder,
+input.book-search::-ms-input-placeholder,
+.book-summary input::-ms-input-placeholder {
   color: #b8b9c5 !important;
   opacity: 1 !important;
 }
@@ -80,7 +106,11 @@ html body input[placeholder="Type to search"]::-ms-input-placeholder {
 .book-search-input input:focus,
 input.book-search-input:focus,
 .book-search input:focus,
-input[placeholder="Type to search"]:focus {
+input[placeholder="Type to search"]:focus,
+#book-search-input input:focus,
+input[type="search"]:focus,
+input.book-search:focus,
+.book-summary input:focus {
   color: #f8f8f2 !important;
   background-color: #141521 !important;
   border-color: #8673f4 !important;
@@ -101,11 +131,13 @@ input[placeholder="Type to search"]:focus {
 }
 
 /* Overriding theme-specific styles */
-.color-theme-2 .book-search-input {
+.color-theme-2 .book-search-input,
+.book-summary .book-search {
   background-color: #141521 !important;
 }
 
-.color-theme-2 .book-search-input input {
+.color-theme-2 .book-search-input input,
+.book-summary .book-search input {
   color: #f8f8f2 !important;
   background-color: #141521 !important;
 }
@@ -119,7 +151,22 @@ input[placeholder="Type to search"]:focus {
 }
 
 /* Input background for direct parent targeting */
-input[type="text"] {
+input[type="text"],
+input[type="search"],
+.book-search input,
+.book-summary input {
+  background-color: #141521 !important;
+  color: #f8f8f2 !important;
+}
+
+/* Netlify-specific override */
+body .book-summary input {
+  background-color: #141521 !important;
+  color: #f8f8f2 !important;
+}
+
+/* Additional selectors for Netlify */
+.book-summary .search-noresults + form > input[type="text"] {
   background-color: #141521 !important;
   color: #f8f8f2 !important;
 } 

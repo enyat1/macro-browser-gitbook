@@ -2,19 +2,20 @@
 
 /* General image styling for better display */
 .markdown-section img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+  display: block !important;
+  margin: 1.5rem auto !important;
+  max-width: 90% !important;
+  height: auto !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
 }
 
 /* Specific styling for SVG images */
 .markdown-section img[src$=".svg"] {
-  margin: 1.5rem auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: white;
-  padding: 10px;
+  background-color: #ffffff !important;
+  padding: 1rem !important;
+  max-height: 500px !important;
+  object-fit: contain !important;
 }
 
 /* Ensure feature images are properly displayed */
@@ -46,4 +47,94 @@ body.color-theme-2 .markdown-section img,
 /* Fix for images in dark theme */
 .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal img {
   filter: none !important;
+}
+
+/* Make sure images are centered properly */
+.markdown-section p:has(img) {
+  text-align: center !important;
+}
+
+/* Fix for any captions under images */
+.markdown-section p:has(img) + p {
+  text-align: center !important;
+  font-style: italic !important;
+  color: #a3a3be !important;
+  margin-top: -0.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Ensure feature images are aligned properly in the main content */
+.markdown-section[data-path^="features/"] img {
+  margin: 2rem auto !important;
+}
+
+/* Ensure that images in the feature overview section display properly */
+#feature-overview-image,
+.markdown-section[data-path="features/README.md"] img {
+  display: block !important;
+  margin: 2rem auto !important;
+  max-width: 85% !important;
+}
+
+/* Override for broken images */
+img[alt]:after {
+  content: attr(alt);
+  display: block;
+  padding: 1rem;
+  border: 1px dashed #8673f4;
+  color: #8673f4;
+  background-color: #f8f8f2;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Fix spacing around images */
+img + h1, img + h2, img + h3 {
+  margin-top: 2.5rem !important;
+}
+
+h1 + img, h2 + img, h3 + img {
+  margin-top: 1.5rem !important;
+}
+
+/* Margin reset for images that need to be closer to content */
+.no-margin-image img {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Fix image sizes for logos and small icons */
+img.logo, .logo img {
+  max-width: 200px !important;
+  box-shadow: none !important;
+}
+
+img.icon, .icon img {
+  max-width: 40px !important;
+  margin: 0.5rem !important;
+  display: inline-block !important;
+  box-shadow: none !important;
+}
+
+/* Specific override for feature images */
+img[src*="features/"] {
+  padding: 1rem !important;
+  background-color: white !important;
+  border-radius: 8px !important;
+}
+
+/* Fixes for private-browsing.svg and similar images */
+img[src*="private-browsing.svg"],
+img[src*="ad-blocking.svg"],
+img[src*="tracker-blocking.svg"],
+img[src*="ad-tracker-combined.svg"],
+img[src*="p2p-vpn.svg"],
+img[src*="ai-search.svg"],
+img[src*="crypto-wallet.svg"] {
+  background-color: white !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  max-width: 85% !important;
+  height: auto !important;
 } 
