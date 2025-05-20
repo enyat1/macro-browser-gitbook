@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .component { fill: #2d3748; stroke: #4a5568; stroke-width: 2; }
+    .core { fill: #1a365d; stroke: #2b6cb0; stroke-width: 2; }
+    .web3 { fill: #44337a; stroke: #805ad5; stroke-width: 2; }
+    .privacy { fill: #1a202c; stroke: #4a5568; stroke-width: 2; }
+    .ui { fill: #285e61; stroke: #38b2ac; stroke-width: 2; }
+    text { font-family: Arial, sans-serif; fill: white; font-size: 14px; }
+    .title { font-size: 20px; font-weight: bold; }
+    .arrow { stroke: #718096; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .label { font-size: 12px; fill: #cbd5e0; }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#718096" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" class="title">Macro Browser Architecture</text>
+  
+  <!-- Core Components -->
+  <rect x="300" y="100" width="200" height="100" rx="10" class="core" />
+  <text x="400" y="150" text-anchor="middle">Core Browser Engine</text>
+  <text x="400" y="170" text-anchor="middle" font-size="12px">(Electron/Chromium)</text>
+  
+  <!-- UI Layer -->
+  <rect x="300" y="250" width="200" height="80" rx="10" class="ui" />
+  <text x="400" y="290" text-anchor="middle">User Interface Layer</text>
+  
+  <!-- Privacy Components -->
+  <rect x="100" y="100" width="150" height="230" rx="10" class="privacy" />
+  <text x="175" y="130" text-anchor="middle">Privacy Layer</text>
+  <rect x="120" y="150" width="110" height="40" rx="5" class="component" />
+  <text x="175" y="175" text-anchor="middle" font-size="12px">Ad Blocker</text>
+  <rect x="120" y="200" width="110" height="40" rx="5" class="component" />
+  <text x="175" y="225" text-anchor="middle" font-size="12px">Tracker Blocker</text>
+  <rect x="120" y="250" width="110" height="40" rx="5" class="component" />
+  <text x="175" y="275" text-anchor="middle" font-size="12px">P2P VPN</text>
+  
+  <!-- Web3 Components -->
+  <rect x="550" y="100" width="150" height="230" rx="10" class="web3" />
+  <text x="625" y="130" text-anchor="middle">Web3 Layer</text>
+  <rect x="570" y="150" width="110" height="40" rx="5" class="component" />
+  <text x="625" y="175" text-anchor="middle" font-size="12px">Wallet API</text>
+  <rect x="570" y="200" width="110" height="40" rx="5" class="component" />
+  <text x="625" y="225" text-anchor="middle" font-size="12px">DApp Bridge</text>
+  <rect x="570" y="250" width="110" height="40" rx="5" class="component" />
+  <text x="625" y="275" text-anchor="middle" font-size="12px">Chain Connectors</text>
+  
+  <!-- Network Layer -->
+  <rect x="100" y="380" width="600" height="80" rx="10" class="component" />
+  <text x="400" y="420" text-anchor="middle">Network & Security Layer</text>
+  
+  <!-- Connection Arrows -->
+  <path d="M250 200 L300 150" class="arrow" />
+  <path d="M500 150 L550 200" class="arrow" />
+  <path d="M400 200 L400 250" class="arrow" />
+  <path d="M400 330 L400 380" class="arrow" />
+  <path d="M175 330 L175 380" class="arrow" />
+  <path d="M625 330 L625 380" class="arrow" />
+  
+  <!-- Legend -->
+  <rect x="650" y="30" width="120" height="15" rx="5" class="core" />
+  <text x="650" y="60" font-size="12px">Core Engine</text>
+  <rect x="650" y="70" width="120" height="15" rx="5" class="web3" />
+  <text x="650" y="100" font-size="12px">Web3 Components</text>
+  <rect x="650" y="110" width="120" height="15" rx="5" class="privacy" />
+  <text x="650" y="140" font-size="12px">Privacy Components</text>
+  <rect x="650" y="150" width="120" height="15" rx="5" class="ui" />
+  <text x="650" y="180" font-size="12px">UI Components</text>
+</svg> 
