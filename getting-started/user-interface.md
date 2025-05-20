@@ -60,7 +60,7 @@ At the bottom of the browser, the status bar provides at-a-glance information ab
 
 ## Main Browser Window
 
-![Macro Browser Main Interface](../assets/images/browser-interface.png)
+![Macro Browser Main Interface](../assets/images/browser-interface.svg)
 
 The Macro Browser interface follows a clean, minimal design with a dark theme by default. Here are the main components:
 
