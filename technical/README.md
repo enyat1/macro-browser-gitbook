@@ -1,18 +1,45 @@
 # Technical Architecture
 
-This section provides a detailed overview of Macro Browser's technical architecture, design principles, and implementation specifics.
+This section provides a detailed overview of Macro Browser's technical architecture and design decisions.
 
-## Architecture Overview
+## System Overview
 
-Macro Browser follows a modular, component-based architecture that prioritizes security, privacy, and Web3 integration. This architecture enables clean separation of concerns while maintaining high performance and extensibility.
+Macro Browser combines traditional web browsing with next-generation privacy and Web3 capabilities.
 
-![Diagram 1](/images/diagrams/technical_README_diagram_1.svg)
+![Macro Browser Architecture Overview](../images/diagrams/technical_README_diagram_1.svg)
+
+The diagram above illustrates the high-level architecture of Macro Browser, with core components organized in layers.
 
 ## System Context
 
-Macro Browser interfaces with several external systems to provide its core functionality:
+Macro Browser interacts with multiple external systems to provide its functionality:
 
-![Diagram 2](/images/diagrams/technical_README_diagram_2.svg)
+![Macro Browser System Context](../images/diagrams/technical_README_diagram_2.svg)
+
+This context diagram shows how Macro Browser connects to the web, blockchain networks, P2P VPN infrastructure, wallet services, and AI systems.
+
+## Core Components
+
+Macro Browser consists of several core components working together:
+
+1. **Browser Engine**: Built on Electron/Chromium for cross-platform compatibility
+2. **Privacy Layer**: Ad blocking, tracker prevention, and fingerprint protection
+3. **P2P VPN**: Secure, decentralized network connectivity
+4. **Web3 Bridge**: Connection to blockchain networks and dApps
+5. **Wallet Integration**: Secure crypto wallet capabilities
+6. **AI Assistant**: Intelligent browsing assistance
+
+## Technical Documentation
+
+For more detailed technical information, please explore the following sections:
+
+- [Browser Engine](./browser-engine.md)
+- [Privacy Features](./privacy-features.md)
+- [P2P VPN Architecture](./p2p-vpn.md)
+- [Web3 Integration](./web3-integration.md)
+- [Wallet Architecture](./wallet.md)
+- [AI Systems](./ai-systems.md)
+- [Security Model](./security-model.md)
 
 ## Technology Stack
 

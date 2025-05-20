@@ -1,6 +1,62 @@
 # Macro Browser User Interface
 
-This guide introduces the key elements of the Macro Browser interface to help you navigate and use all its features efficiently.
+This guide introduces the key elements of the Macro Browser user interface and how to navigate through them.
+
+## Main Interface
+
+The main browser interface combines familiar browsing controls with Macro's unique privacy and Web3 features:
+
+![Browser Interface](../assets/images/browser-interface.svg)
+
+The interface includes:
+- Navigation controls (back, forward, refresh)
+- Address/search bar with built-in privacy indicators
+- Access to wallet integration
+- Privacy status indicators
+- Web3 connection status
+
+## New Tab Page
+
+The new tab page provides quick access to frequently used Web3 services and privacy statistics:
+
+![New Tab Page](../assets/images/new-tab.svg)
+
+Features include:
+- Privacy-focused search
+- Quick links to popular DeFi, NFT, and Web3 services
+- Real-time privacy statistics (trackers blocked, time saved)
+- Wallet overview showing current balances
+
+## Wallet Interface
+
+The integrated wallet interface provides secure access to your crypto assets:
+
+![Wallet Interface](../assets/images/wallet-interface.svg)
+
+Key wallet features:
+- Multiple account management
+- Transaction history
+- Connected dApp management
+- Support for multiple blockchain networks
+- Direct integration with popular Web3 services
+
+## Settings Panel
+
+The settings panel allows you to customize Macro Browser according to your preferences:
+
+- Privacy settings (ad blocking, anti-fingerprinting, etc.)
+- VPN configuration
+- Wallet settings
+- Theme and appearance
+- Advanced browser settings
+
+## Status Bar
+
+At the bottom of the browser, the status bar provides at-a-glance information about:
+- Current privacy protection status
+- Number of trackers/ads blocked on the current page
+- VPN connection status
+- Wallet connection status
 
 ## Main Browser Window
 
@@ -45,16 +101,6 @@ Also found in the top right area:
 - Ad/tracker blocking statistics
 - Privacy mode indicator
 
-## New Tab Page
-
-![Macro Browser New Tab Page](../assets/images/new-tab.png)
-
-The new tab page features:
-- Quick access to popular Web3 sites and dApps
-- Recent browsing history (only stored in memory, cleared on exit)
-- Wallet overview showing account balances
-- Privacy statistics
-
 ## Settings
 
 Access settings by clicking the menu button (three dots) in the top-right corner:
@@ -63,17 +109,6 @@ Access settings by clicking the menu button (three dots) in the top-right corner
 - Web3 settings: Wallet management, network connections
 - Appearance: Theme selection, font settings
 - Advanced: Developer options, network configuration
-
-## Wallet Interface
-
-![Macro Browser Wallet Interface](../assets/images/wallet-interface.png)
-
-The integrated wallet interface allows you to:
-- Connect existing wallets (MetaMask, etc.)
-- View account balances across networks
-- Approve or reject dApp connection requests
-- Sign transactions securely
-- View transaction history
 
 ## VPN Controls
 
