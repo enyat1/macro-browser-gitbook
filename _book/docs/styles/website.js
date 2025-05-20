@@ -55,6 +55,9 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
                 }, 2000);
             });
         });
+        
+        // Fix search input styling with jQuery (in addition to CSS)
+        fixDarkSearchInput();
     });
 });
 
@@ -102,147 +105,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // ULTIMATE search input fix with all possible approaches
-  function fixSearchInput() {
-    // Find all inputs with attribute and class selectors
-    const selectors = [
-      '.book-search-input input',
-      'input[type="text"].book-search-input-field',
-      '.book-search input',
-      'input[placeholder="Type to search"]',
-      'input[type="text"]'
-    ];
-    
-    // Combined selectors for efficiency
-    const searchInputs = document.querySelectorAll(selectors.join(', '));
-    
-    searchInputs.forEach(input => {
-      // Check if this is likely a search input by its context
-      const isSearchLike = 
-        (input.getAttribute('placeholder') && input.getAttribute('placeholder').toLowerCase().includes('search')) ||
-        (input.getAttribute('placeholder') && input.getAttribute('placeholder').toLowerCase().includes('type to')) ||
-        (input.classList && (input.classList.contains('book-search-input') || input.classList.contains('book-search'))) ||
-        (input.parentElement && input.parentElement.classList && 
-          (input.parentElement.classList.contains('book-search-input') || 
-           input.parentElement.classList.contains('book-search')));
-      
-      if (isSearchLike || selectors.some(s => input.matches(s))) {
-        // Apply direct inline style with !important
-        input.setAttribute('style', 
-          'color: #f8f8f2 !important; ' +
-          'background-color: #141521 !important; ' + 
-          'opacity: 1 !important; ' +
-          'border-color: #2a2c3d !important;'
-        );
-        
-        // Add a data attribute to mark as fixed
-        input.setAttribute('data-search-fixed', 'true');
-        
-        // Add our custom class
-        input.classList.add('dark-theme-search');
-        
-        // Direct property setting
-        input.style.setProperty('color', '#f8f8f2', 'important');
-        input.style.setProperty('background-color', '#141521', 'important');
-        input.style.setProperty('opacity', '1', 'important');
-        
-        // Add event listeners to maintain style on interaction
-        input.addEventListener('focus', function() {
-          this.style.setProperty('color', '#f8f8f2', 'important');
-          this.style.setProperty('background-color', '#141521', 'important');
-        });
-        
-        input.addEventListener('blur', function() {
-          this.style.setProperty('color', '#f8f8f2', 'important');
-          this.style.setProperty('background-color', '#141521', 'important');
-        });
-        
-        // Try to affect parent container too
-        if (input.parentElement) {
-          input.parentElement.style.backgroundColor = '#141521';
-        }
-      }
-    });
-    
-    // Last resort: inject a stylesheet with high specificity
-    const existingStyle = document.getElementById('emergency-search-fix');
-    if (!existingStyle) {
-      const style = document.createElement('style');
-      style.id = 'emergency-search-fix';
-      style.textContent = `
-        input[type="text"], 
-        .book-search-input input,
-        input.book-search-input,
-        .book-search input,
-        body input[placeholder="Type to search"],
-        input[data-search-fixed="true"] {
-          color: #f8f8f2 !important;
-          background-color: #141521 !important;
-          opacity: 1 !important;
-        }
-        
-        input[type="text"]::placeholder,
-        .book-search-input input::placeholder,
-        input.book-search-input::placeholder,
-        .book-search input::placeholder,
-        input[placeholder="Type to search"]::placeholder,
-        input[data-search-fixed="true"]::placeholder {
-          color: #b8b9c5 !important;
-          opacity: 1 !important;
-        }
-      `;
-      document.head.appendChild(style);
-    }
-  }
-  
   // Run fixes immediately
-  fixSVGImages();
-  fixSearchInput();
-  
-  // Run again after 100ms
   setTimeout(function() {
     fixSVGImages();
-    fixSearchInput();
+    fixDarkSearchInput();
   }, 100);
   
-  // And after 500ms
+  // Run again after a delay to catch late-loading elements
   setTimeout(function() {
     fixSVGImages();
-    fixSearchInput();
+    fixDarkSearchInput();
   }, 500);
   
-  // And again after 1s
-  setTimeout(function() {
-    fixSVGImages();
-    fixSearchInput();
-  }, 1000);
-  
-  // And periodically every 2s
-  setInterval(function() {
-    fixSVGImages();
-    fixSearchInput();
-  }, 2000);
-  
-  // Run on page load 
+  // And again after full page load
   window.addEventListener('load', function() {
     fixSVGImages();
-    fixSearchInput();
+    fixDarkSearchInput();
   });
   
   // Re-run on page changes (for SPA navigation)
   const observer = new MutationObserver(function(mutations) {
-    let shouldFix = false;
-    
     mutations.forEach(function(mutation) {
       if (mutation.type === 'childList' || mutation.type === 'attributes') {
-        shouldFix = true;
+        fixSVGImages();
+        fixDarkSearchInput();
       }
     });
-    
-    if (shouldFix) {
-      fixSVGImages();
-      fixSearchInput();
-    }
   });
   
   // Start observing the document body for changes
@@ -252,4 +140,68 @@ document.addEventListener('DOMContentLoaded', function() {
     attributes: true,
     attributeFilter: ['src', 'style', 'class', 'placeholder']
   });
-}); 
+});
+
+// Function to ensure dark theme search input
+function fixDarkSearchInput() {
+  // Direct DOM manipulation approach
+  const searchInputs = document.querySelectorAll('.book-search-input input, #book-search-input input, input.book-search-input-field');
+  
+  searchInputs.forEach(input => {
+    input.style.backgroundColor = '#141521';
+    input.style.color = '#f8f8f2';
+    input.style.opacity = '1';
+    
+    // Force inline styling
+    const parent = input.closest('.book-search-input');
+    if (parent) {
+      parent.style.backgroundColor = '#141521';
+    }
+    
+    // Add a specific class we can target
+    input.classList.add('dark-theme-fixed');
+    
+    // Create and apply an inline stylesheet
+    if (!document.getElementById('dark-search-fix-style')) {
+      const style = document.createElement('style');
+      style.id = 'dark-search-fix-style';
+      style.innerHTML = `
+        .book-search-input,
+        .book-search-input input,
+        input.dark-theme-fixed,
+        .book-search-input input.dark-theme-fixed {
+          background-color: #141521 !important;
+          color: #f8f8f2 !important;
+          opacity: 1 !important;
+        }
+        
+        .book-search-input input::placeholder,
+        input.dark-theme-fixed::placeholder {
+          color: #b8b9c5 !important;
+          opacity: 1 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Apply directly after focus events
+    input.addEventListener('focus', function() {
+      this.style.backgroundColor = '#141521';
+      this.style.color = '#f8f8f2';
+    });
+    
+    input.addEventListener('blur', function() {
+      this.style.backgroundColor = '#141521';
+      this.style.color = '#f8f8f2';
+    });
+  });
+  
+  // Also try jQuery approach if available
+  if (typeof jQuery !== 'undefined') {
+    jQuery('.book-search-input, .book-search-input input, #book-search-input, #book-search-input input').css({
+      'background-color': '#141521',
+      'color': '#f8f8f2',
+      'opacity': '1'
+    });
+  }
+} 
