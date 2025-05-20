@@ -1,22 +1,4 @@
-const fs = require('fs-extra');
-const path = require('path');
-
-// Define output directory
-const outputDir = path.join(__dirname, 'docs');
-
-// Copy CSS styles
-fs.copySync('styles', path.join(outputDir, 'styles'));
-
-// Make sure Netlify-specific styles are included
-if (!fs.existsSync(path.join(outputDir, 'styles', 'netlify-search-fix.css'))) {
-  fs.copySync(
-    path.join(__dirname, 'styles', 'netlify-search-fix.css'),
-    path.join(outputDir, 'styles', 'netlify-search-fix.css')
-  );
-}
-
-// Create index.html in the docs directory
-const indexHtml = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -52,9 +34,4 @@ const indexHtml = `<!DOCTYPE html>
   <p>Redirecting to documentation...</p>
   <p>If you are not redirected automatically, <a href="README.html">click here</a>.</p>
 </body>
-</html>`;
-
-fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
-console.log('Created: ' + path.join(outputDir, 'index.html'));
-
-console.log('Documentation successfully built for Netlify deployment!'); 
+</html>
